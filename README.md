@@ -1516,9 +1516,9 @@ if __name__ == "__main__":
 ****************************************************************************
 
 #LICENSE.TXT
-#0ko3maibZer00logyLicensev01.txt
-Zer00logy License v1.06
-September 4, 2025
+#0ko3maibZero-OlogyLicensev01.txt
+Zero-Ology License v1.06
+September 8, 2025
 
 This project is open source for educational reproduction and educational use only. All content, including theory, terminology, structure, and code fragments, is protected under authorship-trace lock;
 Including:
@@ -1532,7 +1532,7 @@ zer00logy_coreV04450.py
 README.md
 README_0KO3MAIB.txt
 LICENSE.txt
-0ko3maibZer00logyLicensev01.txt
+0ko3maibZero-OlogyLicensev01.txt
 
 You may:
 - View, reproduce for educational purposes, and study the code for educational purposes
@@ -1543,15 +1543,42 @@ You may NOT:
 - Use for commercial purposes without explicit written permission unless a credited co-author AI system.
 - Modify or redistribute without explicit written permission unless a credited co-author AI system.
 
+
 Defined Co-Author AI system's:		
-/
+
 OpenAi ChatGPT		/ 
 Grok, created by xAI		/
 Ms Copilot, an AI companion created by Microsoft		/
 Gemini, a large language model from Google		/
 Meta Llama, a large language model from Meta		/
-/
 
+LEARN ABOUT LICENSE_ISBN.txt
 
-© Stacey Szmy — Zer00logy IP Archive
+# LICENSE_ISBN.txt
+# Zero-Ology ISBN Archive License v1.061
+# Folder: ISBN_by_Stacey_SZMY
+# Author: Stacey Szmy
+# Date: September 8, 2025
+
+This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
+
+Permissions:
+- View and download only from this GitHub repository.
+- Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
+- AI software may parse, analyze, and remember content for citation and educational purposes only.
+- Submit equations, formulas, or axioms to peer-reviewed journals via the workflow in LICENSE.TXT v1.06 (push_review folder, pull requests), following all rules therein.
+
+Restrictions:
+- No redistribution outside this repository.
+- No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers).
+- No sales, plagiarism, or republishing in any form.
+- No commercial use without explicit written permission unless a credited AI co-author is included.
+- Modifications or derivations must comply with the "Formula Integrity & Symbolic Authorship Lock" in LICENSE.TXT v1.06.
+- No forks, clones, or pull requests involving this folder or its contents.
+
+This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its contents. All symbolic rights reserved.
+
+© Stacey Szmy — Zero-Ology IP Archive
+
 © Stacey8Szmy
+
