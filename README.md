@@ -1,4 +1,4 @@
-# Zer00logy
+# Zero-Ology / Zer00logy
 Zero-ology & Void-Math: Symbolic Collapse AI Bot & Interpreter. Python-based cognition engine teaching metaphysical logic via Zero-ology & Void-Math OS. Simulates collapse states, dispatches AI prompts, and interprets constructs like: Ø⁰×∅=echo, 0÷0=∅÷∅, +0÷−0=ε⁻¹, ∞×0=8, E=c².0000, g=(m@void)÷(r²−+tu), t=e@(void÷tu)
 Zer00logy: Symbolic Collapse AI Bot &amp; Interpreter Zer00logy: a Python-based symbolic cognition engine that teaches and verifies metaphysical logic through Zero-ology equations. It simulates collapse states, dispatches prompts to AI models, and interprets symbolic constructs like: Ø⁰ × ∅ = echo.+0  0 ÷ 0 = ∅÷∅  +0 ÷ −0 = ε⁻¹  ∞ × 0 = 8  E = c².0000
 #README_0KO3MAIB.TXT
