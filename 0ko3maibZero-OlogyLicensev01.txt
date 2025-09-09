@@ -1,47 +1,103 @@
-#LICENSE.TXT
-#0ko3maibZero-OlogyLicensev01.txt
-Zero-Ology License v1.06
-September 8, 2025
+# LICENSE.TXT
+# 0ko3maibZero-OlogyLicensev1.07
+# Zero-Ology License v1.07
+# September 9, 2025
 
-This project is open source for educational reproduction and educational use only. All content, including theory, terminology, structure, and code fragments, is protected under authorship-trace lock;
-Including:
-Variamathlesson.txt 
-zecstart.txt 
-zectxt.txt 
-VoidMathOS_cryptsheet.txt 
-VoidMathOS_lesson.py
-zer00logy_coreV04452.py
-zer00logy_coreV04450.py
-README.md
-README_0KO3MAIB.txt
-LICENSE.txt
-0ko3maibZero-OlogyLicensev01.txt
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zero-ology.
 
-You may:
-- View, reproduce for educational purposes, and study the code for educational purposes
-- Run Ai Systems Through Lessons and verifier systems and Learn Zero-ology & Zer00logy & Varia Math Series & Void-Math OS
-- Host on GitHub or Archive.org
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
 
-You may NOT:
-- Use for commercial purposes without explicit written permission unless a credited co-author AI system.
-- Modify or redistribute without explicit written permission unless a credited co-author AI system.
+Included Files:
+- Variamathlesson.txt
+- zecstart.txt
+- zectxt.txt
+- VoidMathOS_cryptsheet.txt
+- VoidMathOS_lesson.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04450.py
+- README.md
+- README_0KO3MAIB.txt
+- LICENSE.txt
+- 0ko3maibZero-OlogyLicensev01.txt
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
 
 
-Defined Co-Author AI system's:		
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
 
-OpenAi ChatGPT		/ 
-Grok, created by xAI		/
-Ms Copilot, an AI companion created by Microsoft		/
-Gemini, a large language model from Google		/
-Meta Llama, a large language model from Meta		/
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
 
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.061
+# Zero-Ology ISBN Archive License v1.07
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: September 8, 2025
+# Date: September 9, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
@@ -50,19 +106,22 @@ Permissions:
 - Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
 - AI software may parse, analyze, and remember content for citation and educational purposes only.
 
+
 Restrictions:
 - No redistribution outside this repository.
 - No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers).
 - No sales, plagiarism, or republishing in any form.
 - No commercial use without explicit written permission unless a credited AI co-author is included.
-- Modifications or derivations must comply with the "Formula Integrity & Symbolic Authorship Lock" in LICENSE.TXT v1.06.
 - No forks, clones, or pull requests involving this folder or its contents.
 
 This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its contents. All symbolic rights reserved.
 
-© Stacey Szmy — Zero-Ology IP Archive
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
 
-© Stacey8Szmy
+
+
+
 
 
 
