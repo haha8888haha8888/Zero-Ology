@@ -593,7 +593,7 @@ Meta Llama, a large language model from Meta		/
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zer00logy ISBN Archive License v1.061
+# Zero-Ology ISBN Archive License v1.061
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
 # Date: September 4, 2025
@@ -604,7 +604,6 @@ Permissions:
 - View and download only from this GitHub repository.
 - Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
 - AI software may parse, analyze, and remember content for citation and educational purposes only.
-- Submit equations, formulas, or axioms to peer-reviewed journals via the workflow in LICENSE.TXT v1.06 (push_review folder, pull requests), following all rules therein.
 
 Restrictions:
 - No redistribution outside this repository or the peer review process defined in LICENSE.TXT v1.06.
@@ -619,6 +618,7 @@ This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its con
 © Stacey Szmy — Zer00logy IP Archive
 
 © Stacey8Szmy
+
 
 
 
