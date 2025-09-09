@@ -1566,7 +1566,7 @@ Permissions:
 - View and download only from this GitHub repository.
 - Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
 - AI software may parse, analyze, and remember content for citation and educational purposes only.
-- Submit equations, formulas, or axioms to peer-reviewed journals via the workflow in LICENSE.TXT v1.06 (push_review folder, pull requests), following all rules therein.
+
 
 Restrictions:
 - No redistribution outside this repository.
