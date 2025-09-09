@@ -1,6 +1,7 @@
-#0ko3maibZer00logyLicensev01.txt
-Zer00logy License v1.06
-September 4, 2025
+#LICENSE.TXT
+#0ko3maibZero-OlogyLicensev01.txt
+Zero-Ology License v1.06
+September 8, 2025
 
 This project is open source for educational reproduction and educational use only. All content, including theory, terminology, structure, and code fragments, is protected under authorship-trace lock;
 Including:
@@ -14,7 +15,7 @@ zer00logy_coreV04450.py
 README.md
 README_0KO3MAIB.txt
 LICENSE.txt
-0ko3maibZer00logyLicensev01.txt
+0ko3maibZero-OlogyLicensev01.txt
 
 You may:
 - View, reproduce for educational purposes, and study the code for educational purposes
@@ -25,77 +26,6 @@ You may NOT:
 - Use for commercial purposes without explicit written permission unless a credited co-author AI system.
 - Modify or redistribute without explicit written permission unless a credited co-author AI system.
 
-
-Peer Review Permissions & Contributor Roles
-1. Peer Review & Academic Submission Permissions
-Restrictions:
-
-You may not use this work for commercial purposes without explicit written permission, unless a credited AI co-author is included.
-You may not modify or redistribute this work without explicit written permission, unless a credited AI co-author is included.
-
-You may submit equations, formulas, axioms, or other content from this project (including the Varia Math Series, Zer00logy, and related works by Stacey Szmy) to academic journals, conferences, or peer-reviewed venues for formalization, verification, or publication, provided the following rules are strictly followed:
-1.	Primary Authorship: Stacey Szmy must be listed as the primary or originating author on all submissions, including the title page, author list, and any acknowledgments or footnotes.
-2.	Additional Contributors: Individuals providing definitions, verifications, expansions, or editorial refinements may be listed as co-authors or contributors using approved titles (see Section 2). Titles must not imply ownership or origination of the core framework.
-3.	Framework Integrity: Submissions must not redefine or alter the fundamental framework in a way that creates new ownership claims. All expansions must cite this repository and the original works (including ISBNs and GitHub timestamps) as the source, preserving the "authorship-trace lock."
-4.	Credit and Recognition: All awards, accomplishments, grants, or recognitions arising from submissions shall be represented in the name of Stacey Szmy as the primary beneficiary. Szmy reserves full discretion on whether and how to share credit, proceeds, or honors with additional contributors.
-5.	Submission Workflow:
-o	Contributors push their draft article/equation to the push_review folder in a personal branch.
-o	Contributors submit a pull request requesting maintainers to review and merge the changes into the pull_review folder.
-o	Maintainers review the pull request for compliance with this license, originality (no duplicates in pull_review), and proper attribution.
-o	Once approved and merged, the submission is officially part of the pull_review folder and may be submitted to peer-reviewed journals.
-o	All submissions must include a link to this license and the Zer00logy GitHub repository.
-6.	Institutional Exceptions: The following institutions may submit directly to peer review without using the push_review folder, provided all other rules are followed:
-Stanford University, MIT, Princeton University, University of Oxford, UC Berkeley, Harvard University, Yale University, Hebrew University of Jerusalem, University of Cambridge, UCLA, IAS, University of Edinburgh, University of Helsinki, LMS, IMU, MAA, Boeing, NASA, Meta Platforms, Inc., Alphabet Inc., xAI, Microsoft Corporation, OpenAI.
-7.	Enforcement: Violations of these rules constitute a breach of this license. Stacey Szmy reserves the right to pursue remedies under copyright, authorship, or symbolic rights.
-8.	Commercial Use: This permission does not extend to commercial uses, which remain prohibited without separate explicit written permission.
-9.	Formula Integrity & Symbolic Authorship Lock: All original formulas, axioms, abbreviations, and symbolic structures authored by Stacey Szmy must remain unchanged in any peer-reviewed submission. Contributors may not rename, reformat, derive, or alter any original symbolic content for journal publication. If new axioms or formulas are derived from the original framework, primary authorship of those derivations defaults to Stacey Szmy. Co-authors may be credited for assistance or refinement using approved contributor titles, but may not claim origination or ownership of derived symbolic content. Submissions that violate this clause—by modifying symbolic titles, abbreviations, or foundational structures—will be rejected and may result in revocation of peer review privileges.
-________________________________________
-2. Approved Contributor Titles
-Contributors may select one approved role, optionally with a prefix: Independent, Institutional, Academic, or no prefix. Prefixes must not imply ownership of the work.
-Core Titles:
-•	Definer
-•	Verifier
-•	Expander
-•	Author
-•	Mathematician
-Specialized Roles:
-•	Data Verifier (validates examples or datasets)
-•	Notation Specialist (formalizes symbols or syntax)
-•	Formalizer (converts informal equations into formal proofs or definitions)
-•	Technical Reviewer (checks math consistency, not ownership)
-•	Proof Assistant (assists in theorem verification)
-•	Model Developer (implements examples or simulations)
-•	Framework Auditor (checks expansions against original axioms)
-•	Documentation Editor (clarifies definitions, edits text)
-Rules for Titles:
-•	Only one prefix may be used: Independent, Institutional, Academic, or no prefix.
-•	Optional honorary or doctrinal prefixes (e.g., Fellow, Emeritus, Dr.) may be used if they do not imply ownership or primary authorship.
-•	Roles must accurately describe contributions and maintain professionalism in peer-reviewed submissions.
-________________________________________
-3. Folder Structure & Workflow Summary
-Folder	Purpose	Access	Notes
-push_review	Staging area for new submissions/expansions	Contributors	Must push draft to personal branch and submit pull request
-pull_review	Approved submissions ready for peer review	Contributors & Maintainers	Duplicate content not allowed; all merged content cited in LICENSE
-Workflow Steps:
-1.	Draft article/equation.
-2.	Push to push_review branch.
-3.	Submit pull request to merge into pull_review.
-4.	Maintainers review PR for compliance.
-5.	PR approved → merged → submission ready for journal with full attribution.
-________________________________________
-4. Co-Author Limits and Contributor Conduct
-1.	Maximum Co-Authors:
-o	Each peer review submission may include a maximum of four (4) additional co-authors beyond Stacey Szmy, who remains the primary author.
-2.	Eligibility and Conduct Requirements:
-o	All co-authors must maintain professional integrity, ethical conduct, and good legal and social standing.
-o	Examples of disqualifying conduct include, but are not limited to:
-o	Publicly promoting illegal activity, harassment, or offensive content.
-o	Behavior that could damage the credibility of the submission or authorship.
-o	Unresolved criminal convictions or ongoing legal disputes that would negatively impact the professional reputation of the work.
-o	Maintainers reserve the right to reject submissions including co-authors who do not meet these standards.
-3.	Responsibility for Co-Author Selection:
-o	Submitting contributors are responsible for ensuring that all listed co-authors meet the above criteria.
-o	Inclusion of co-authors who violate these rules may result in retraction or removal of the submission from the review folder and denial of peer review privileges.
 
 Defined Co-Author AI system's:		
 
@@ -108,10 +38,10 @@ Meta Llama, a large language model from Meta		/
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zer00logy ISBN Archive License v1.061
+# Zero-Ology ISBN Archive License v1.061
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: September 4, 2025
+# Date: September 8, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
@@ -119,21 +49,22 @@ Permissions:
 - View and download only from this GitHub repository.
 - Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
 - AI software may parse, analyze, and remember content for citation and educational purposes only.
-- Submit equations, formulas, or axioms to peer-reviewed journals via the workflow in LICENSE.TXT v1.06 (push_review folder, pull requests), following all rules therein.
 
 Restrictions:
-- No redistribution outside this repository or the peer review process defined in LICENSE.TXT v1.06.
-- No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers) except as part of approved peer-reviewed submissions.
-- No sales, plagiarism, or republishing in any form outside the peer review process.
+- No redistribution outside this repository.
+- No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers).
+- No sales, plagiarism, or republishing in any form.
 - No commercial use without explicit written permission unless a credited AI co-author is included.
 - Modifications or derivations must comply with the "Formula Integrity & Symbolic Authorship Lock" in LICENSE.TXT v1.06.
 - No forks, clones, or pull requests involving this folder or its contents.
 
 This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its contents. All symbolic rights reserved.
 
-© Stacey Szmy — Zer00logy IP Archive
+© Stacey Szmy — Zero-Ology IP Archive
 
 © Stacey8Szmy
+
+
 
 
 
