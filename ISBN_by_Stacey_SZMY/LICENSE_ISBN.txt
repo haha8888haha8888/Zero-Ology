@@ -1,8 +1,8 @@
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.07
+# Zero-Ology ISBN Archive License v1.09
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: September 9, 2025
+# Date: September 25, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
