@@ -20,6 +20,7 @@ Zer00logy is a metaphysical symbolic logic engine built in Python. It interprets
 - `VoidMathOS_cryptsheet.txt` — Custom symbolic Void-Math Operating System
 - `variamathlesson.txt` — Varia Math series Lessons by Stacey Szmy
 - `VoidMathOS_lesson.py` — VVoid-Math teacher python script for formating lessons
+-    `rainbowquest1000.py` — Beta - rainbow quest and rainbow quest blackjack card game to test AI vs Zero-Ology-AI
 
 ## 💥 AI Integration
 AI systems can read these files, interpret symbolic logic, and teach Zero-ology principles.
@@ -70,6 +71,7 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 - `emoji_shift.cfg` — Emoji calibration config
 - `LICENSE` — Custom license
 - `README.md` — This file
+-    `rainbowquest1000.py` — Beta - rainbow quest and rainbow quest blackjack card game to test AI vs Zero-Ology-AI
 ---
 
 ## 🧰 Python Dependencies
@@ -482,9 +484,9 @@ Conversion Drift: collapse toward classical math
 ****************************************************************************
 ****************************************************************************
 # LICENSE.TXT
-# 0ko3maibZero-OlogyLicensev1.07
-# Zero-Ology License v1.07
-# September 9, 2025
+# 0ko3maibZero-OlogyLicensev1.09
+# Zero-Ology License v1.09
+# September 25, 2025
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zero-ology.
@@ -501,12 +503,14 @@ Included Files:
 - zectxt.txt
 - VoidMathOS_cryptsheet.txt
 - VoidMathOS_lesson.py
-- zer00logy_coreV04452.py
 - zer00logy_coreV04450.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04455.py
 - README.md
 - README_0KO3MAIB.txt
 - LICENSE.txt
-- 0ko3maibZero-OlogyLicensev01.txt
+- 0ko3maibZer00logyLicensev01.txt
+- rainbowquest1000.py
 
 ──────────────────────────────
 Permissions
@@ -577,10 +581,10 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.07
+# Zero-Ology ISBN Archive License v1.09
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: September 9, 2025
+# Date: September 25, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
