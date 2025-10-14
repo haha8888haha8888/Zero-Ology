@@ -25,6 +25,7 @@ Zero-Ology is a metaphysical symbolic logic engine built in Python. It interpret
 - `VoidMathOS_lesson.py` — Void-Math teacher python script for formating lessons
 - `rainbowquest1000.py` — Beta - rainbow quest and rainbow quest blackjack card game to test AI vs Zero-Ology-AI
 - `GroupChatForge.py` — Beta - Example of how to add more users to a ai prompt engine
+-   `dispatchai_forge.py` — Beta - add more ai systems to groupchatforge like chatgpt or gemini
 
 ## 💥 AI Integration
 AI systems can read these files, interpret symbolic logic, and teach Zero-ology principles.
@@ -77,6 +78,7 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 - `variamathlesson.txt` — Varia Math series Lessons by Stacey Szmy
 - `rainbowquest1000.py` — Beta - rainbow quest and rainbow quest blackjack card game to test AI vs Zero-Ology-AI
 - `GroupChatForge.py` — Beta - Example of how to add more users to a ai prompt engine
+-   `dispatchai_forge.py` — Beta - add more ai systems to groupchatforge like chatgpt or gemini
 ---
 
 ## 🧰 Python Dependencies
@@ -1842,10 +1844,10 @@ if __name__ == "__main__":
 
 ****************************************************************************
 # LICENSE.TXT
-# Zero-Ology License v1.10
+# Zero-Ology License v1.11
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.10
-# October 13, 2025
+# 0ko3maibZero-OlogyLicensev1.11
+# October 14, 2025
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -1873,6 +1875,7 @@ Included Files:
 - 0ko3maibZer00logyLicensev01.txt
 - rainbowquest1000.py
 - GroupChatForge.py
+- dispatchai_forge.py
 
 
 ──────────────────────────────
@@ -1944,10 +1947,10 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.10
+# Zero-Ology ISBN Archive License v1.11
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: October 13, 2025
+# Date: October 14, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 

@@ -1,9 +1,8 @@
 # GroupChatForge.py
-# Title: 0KO GroupChatForge V0026 — Ping-Pong Multi-User AI Chat Bot with Ollama
+# Title: 0KO GroupChatForge V0048 — Ping-Pong Multi-User AI Chat Bot with Ollama and External Dispatch
 # Ceo0: Szmy, Stacey.
-# dev: HAHA.8888
-# dev: HAHA.Xai.Grok
-# Zer00logy License v1.10
+# dev: HAHA.8888, HAHA.Xai.Grok, HAHA.ChatGPT
+# Zer00logy License v1.11
 
 import sys
 import platform
@@ -12,7 +11,6 @@ import shutil
 import textwrap
 import re
 import os
-from wcwidth import wcswidth
 from datetime import datetime, timedelta
 import logging
 import time
@@ -22,9 +20,41 @@ import subprocess
 import threading
 import itertools
 
+# ... other standard imports
+import threading
+import itertools
+
+# --- Essential Imports with Fallback (wcwidth is critical for the UI) ---
+try:
+    from wcwidth import wcswidth
+except ImportError:
+    # wcwidth is ESSENTIAL for the custom UI/alignment, so we treat it as required.
+    print("FATAL ERROR: The 'wcwidth' library is required for the custom terminal aesthetic.")
+    print("Please install it using: pip install wcwidth")
+    sys.exit(1)
+
+# --- Optional AI Dispatcher Imports with Alert ---
+# These are only required if the user intends to use the OpenAI or Gemini drivers.
+OPENAI_AVAILABLE = False
+GEMINI_AVAILABLE = False
+
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    pass # Continue execution, but flag the dependency as missing
+
+try:
+    import google.generativeai as genai
+    GEMINI_AVAILABLE = True
+except ImportError:
+    pass # Continue execution, but flag the dependency as missing
+
 # 🔹 Config and Constants
 config_path = os.path.join(os.path.dirname(__file__), "emoji_shift.cfg")
 PROMPT_DIR = "prompt_logs"
+CONFIG_DIR = "dispatchaiconfig"  # Dedicated folder for external AI JSON files
+DISPATCH_UTILITY = "dispatchai_forge.py"  # The external config tool
 prompt_locked = False
 input_during_lock = []
 last_unlock_time = 0
@@ -39,29 +69,81 @@ SHELL_WIDTH = 100
 WRAP_WIDTH = 100
 EMOJI_PATTERN = re.compile("[\U0001F300-\U0001FAFF]")
 MODEL_CONFIG = {
-    "mistral": {"model": "mistral", "tag": "🤖🧻💬: Mistral AI Response 🔻"},
-    "llama2": {"model": "llama2", "tag": "🤖🧻💬: Llama2 AI Response 🔻"},
-    "phi": {"model": "phi3", "tag": "🤖🧻💬: PHI AI Response 🔻"}
+    "mistral": {"model": "mistral", "tag": "🤖🧻💬: Mistral AI Response 🔻", "driver": "ollama", "enabled": True},
+    "llama2": {"model": "llama2", "tag": "🤖🧻💬: Llama2 AI Response 🔻", "driver": "ollama", "enabled": True},
+    "phi": {"model": "phi3", "tag": "🤖🧻💬: PHI AI Response 🔻", "driver": "ollama", "enabled": True}
 }
 stop_indicator_flag = threading.Event()
 
 # 🔹 Setup Logging
+import logging.handlers
+class UnicodeFilter(logging.Filter):
+    def filter(self, record):
+        # Strip non-ASCII characters to avoid encoding issues on Windows
+        record.msg = re.sub(r'[^\x00-\x7F]', '', str(record.msg))
+        return True
+
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 log_file = f"groupchatforge_error_{timestamp}.log"
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(log_file),
-        logging.StreamHandler()
+        logging.FileHandler(log_file, encoding='utf-8'),
+        logging.StreamHandler(sys.stdout)  # Use sys.stdout for console output
     ]
 )
 logger = logging.getLogger('GroupChatForge')
+logger.addFilter(UnicodeFilter())  # Add filter to handle Unicode issues
 logger.info(f"Initialized new log file: {log_file}")
+
+# 🔹 Dependency Check
+def check_dependencies():
+    missing = []
+    try:
+        import wcwidth
+    except ImportError:
+        missing.append("wcwidth")
+    try:
+        import openai
+    except ImportError:
+        pass  # OpenAI optional unless added via config
+    try:
+        import google.generativeai
+    except ImportError:
+        pass  # Gemini optional unless added via config
+    if missing:
+        shell_print(
+            "⚠️ Missing required libraries: " + ", ".join(missing),
+            "Install them using: pip install " + " ".join(missing),
+            label="Dependency Error"
+        )
+        return False
+    return True
+
+# 🔹 API Key Validation
+def validate_api_keys():
+    errors = []
+    for model_key, config in MODEL_CONFIG.items():
+        if config.get("driver") in ["openai", "gemini"] and config.get("enabled", True):
+            api_key = config.get("api_key_override", os.getenv(f"{config['driver'].upper()}_API_KEY"))
+            if not api_key:
+                errors.append(f"Missing API key for {model_key} ({config['driver']}). Set {config['driver'].upper()}_API_KEY or api_key_override.")
+    if errors:
+        shell_print(*errors, label="API Key Validation Error")
+        return False
+    return True
 
 # 🔹 Ollama Service Check
 def check_ollama_service():
     try:
+        if not shutil.which("ollama"):
+            shell_print(
+                "🤖🧻⚠️: Ollama command not found in system PATH.",
+                "   ↳ Ensure Ollama is installed and accessible.",
+                label="Ollama Status"
+            )
+            return False
         result = subprocess.run(
             "ollama ps",
             shell=True,
@@ -83,6 +165,99 @@ def check_ollama_service():
     except Exception as e:
         handle_symbolic_error(e, context="check_ollama_service")
         return False
+
+# 🔹 Driver Repair Mechanism
+def repair_driver(model_key, config_filename):
+    shell_print(
+        f"🤖🧻⚠️: Driver for {model_key} failed or is not implemented.",
+        "Please provide driver details to repair the configuration.",
+        label="Driver Repair"
+    )
+    valid_drivers = ["ollama", "openai", "gemini"]
+    driver = shell_input(
+        f"Enter driver type ({', '.join(valid_drivers)}):",
+        label="Driver Type"
+    ).strip().lower()
+    if driver not in valid_drivers:
+        shell_print(
+            f"❌ Invalid driver type. Must be one of: {', '.join(valid_drivers)}.",
+            "Skipping repair.",
+            label="Driver Repair Error"
+        )
+        return False
+    model_name = shell_input(
+        f"Enter model name for {model_key} (e.g., gpt-4, gemini-1.5-pro, mistral):",
+        label="Model Name"
+    ).strip()
+    api_key = None
+    if driver in ["openai", "gemini"]:
+        api_key = shell_input(
+            f"Enter API key for {driver} (or press Enter to use {driver.upper()}_API_KEY env variable):",
+            label="API Key"
+        ).strip()
+        if not api_key:
+            api_key = os.getenv(f"{driver.upper()}_API_KEY")
+            if not api_key:
+                shell_print(
+                    f"❌ No API key provided for {driver}. Set {driver.upper()}_API_KEY or enter a valid key.",
+                    "Skipping repair.",
+                    label="Driver Repair Error"
+                )
+                return False
+    # Update MODEL_CONFIG
+    MODEL_CONFIG[model_key] = {
+        "model": model_name,
+        "tag": MODEL_CONFIG[model_key].get("tag", f"🤖🧻💬: {model_name} AI Response 🔻"),
+        "driver": driver,
+        "api_key": api_key if driver in ["openai", "gemini"] else None,
+        "enabled": True,
+        "external": True
+    }
+    # Save updated config to the original JSON file
+    try:
+        filepath = os.path.join(CONFIG_DIR, config_filename)
+        if os.path.exists(filepath):
+            with open(filepath, "r", encoding="utf-8") as f:
+                config_data = json.load(f)
+            for ai in config_data:
+                if ai["name"].replace(" ", "_").lower() == model_key:
+                    ai["type"] = driver
+                    ai["model"] = model_name
+                    if api_key:
+                        ai["api_key_override"] = api_key
+                    break
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(config_data, f, indent=4, ensure_ascii=False)
+            shell_print(
+                f"✅ Driver for {model_key} repaired and saved to {config_filename}.",
+                label="Driver Repair Success"
+            )
+            return True
+        else:
+            shell_print(
+                f"❌ Config file {config_filename} not found. Driver updated in memory only.",
+                label="Driver Repair Warning"
+            )
+            return True
+    except Exception as e:
+        handle_symbolic_error(e, context=f"repair_driver_save_{model_key}")
+        return False
+
+# 🔹 Emoji-Aware Padding
+def emoji_aware_pad(text, width, emoji_shift=0):
+    """
+    Pads text while accounting for emoji width differences to keep box borders aligned.
+    """
+    try:
+        visible_width = wcswidth(text)
+        total_width = visible_width + emoji_shift
+        pad = width - total_width
+        if pad < 0:
+            pad = 0
+        return text + (" " * pad)
+    except Exception:
+        # Fallback for safety
+        return text.ljust(width)
 
 # 🔹 Shell and Display Functions
 def log_print(*lines, label=None, prefix="🤖🧻💬:", color="\033[94m"):
@@ -230,7 +405,7 @@ def save_shift(shift, save_dir="config_logs"):
             f.write(str(shift))
         shell_print(
             emoji_aware_pad("✅🤖🧻💬:🔧 Emoji Shift Saved 🔧", 60),
-            emoji_aware_pad(f"📄 Saved to: `{filename}`", 60),
+            emoji_aware_pad(f"📄 Saved to: {filename}", 60),
             label="Emoji Calibration"
         )
         return filepath
@@ -243,7 +418,7 @@ def load_shift(config_path="config_logs"):
         if os.path.isfile(config_path):
             with open(config_path, "r", encoding="utf-8") as f:
                 shift = int(f.read().strip())
-                shell_print(f"🧻✅🤖💬: Loaded emoji shift from `{os.path.basename(config_path)}`: {shift}", label="Emoji Calibration")
+                shell_print(f"🧻✅🤖💬: Loaded emoji shift from {os.path.basename(config_path)}: {shift}", label="Emoji Calibration")
                 EMOJI_SHIFT = shift
                 return shift
         elif os.path.isdir(config_path):
@@ -254,7 +429,7 @@ def load_shift(config_path="config_logs"):
             filepath = os.path.join(config_path, latest_file)
             with open(filepath, "r", encoding="utf-8") as f:
                 shift = int(f.read().strip())
-                shell_print(f"🧻✅🤖💬: Loaded emoji shift from latest file `{latest_file}`: {shift}", label="Emoji Calibration")
+                shell_print(f"🧻✅🤖💬: Loaded emoji shift from latest file {latest_file}: {shift}", label="Emoji Calibration")
                 EMOJI_SHIFT = shift
                 return shift
         else:
@@ -267,19 +442,138 @@ def load_shift(config_path="config_logs"):
         EMOJI_SHIFT = shift
         return shift
 
-def manual_visual_width(line, emoji_shift):
-    emoji_count = len(EMOJI_PATTERN.findall(line))
-    non_emoji_chars = EMOJI_PATTERN.sub("", line)
-    return len(non_emoji_chars) + (emoji_count * emoji_shift)
+# 🔹 Config Handlers
+def load_external_dispatchers(filename):
+    filepath = os.path.join(CONFIG_DIR, filename)
+    if not os.path.exists(filepath):
+        shell_print(f"❌ Error: Config file [{filename}] not found in [{CONFIG_DIR}].", label="Config Load Error")
+        return False
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            new_dispatchers = json.load(f)
+        newly_loaded_count = 0
+        for ai in new_dispatchers:
+            if not ai.get("enabled", True):
+                continue
+            ai_name_key = ai["name"].replace(" ", "_").lower()
+            model_name = ai["model"]
+            driver = ai["type"]
+            # Fix driver and model name for common cases
+            if ai_name_key == "chatgpt" and driver != "openai":
+                driver = "openai"
+                model_name = "gpt-4" if model_name not in ["gpt-4", "gpt-3.5-turbo"] else model_name
+            if driver == "gemini" and model_name == "gemini-1":
+                model_name = "gemini-1.5-pro"
+            MODEL_CONFIG[ai_name_key] = {
+                "model": model_name,
+                "tag": f"{ai['emoji']} {ai['name']}",
+                "context": [],
+                "driver": driver,
+                "api_key": ai.get("api_key_override", None),
+                "enabled": True,
+                "external": True,
+                "config_file": filename  # Track source file for repairs
+            }
+            newly_loaded_count += 1
+        active_models = [k for k, v in MODEL_CONFIG.items() if v.get("enabled", True)]
+        shell_print(f"✅ Loaded {newly_loaded_count} external AIs from [{filename}].", label="Dispatch Merge")
+        return True
+    except Exception as e:
+        handle_symbolic_error(e, f"load_external_dispatchers:{filename}")
+        return False
 
-def emoji_aware_pad(line, target_width=60, emoji_shift=None):
-    if emoji_shift is None:
-        emoji_shift = EMOJI_SHIFT
-    visual_width = manual_visual_width(line, emoji_shift)
-    padding = max(0, target_width - visual_width)
-    return line + " " * padding
+def handle_runaddmoreai_command():
+    if not os.path.exists(DISPATCH_UTILITY):
+        shell_print(
+            f"❌ Error: Dispatch utility [{DISPATCH_UTILITY}] not found.",
+            "Please ensure the file is in the same directory as GroupChatForge.py.",
+            label="Execution Error"
+        )
+        return
+    try:
+        if platform.system() == "Windows":
+            subprocess.Popen(["start", "cmd", "/k", "python", DISPATCH_UTILITY], shell=True)
+        elif platform.system() == "Darwin":
+            subprocess.Popen(["open", "-a", "Terminal", os.path.abspath(DISPATCH_UTILITY)])
+        else:
+            subprocess.Popen(["xterm", "-e", "python", DISPATCH_UTILITY])
+        shell_print(
+            f"🚀 Launched [{DISPATCH_UTILITY}] in a new window.",
+            "Configure your external AIs, save the file, and return to load it.",
+            label="Utility Launch Success"
+        )
+    except Exception as e:
+        handle_symbolic_error(e, "Launch Dispatch Utility")
 
-# 🔹 Thinking Indicator
+def handle_addmoreai_command():
+    if not os.path.exists(CONFIG_DIR) or not os.listdir(CONFIG_DIR):
+        shell_print(
+            f"⚠️🤖🧻💬: Configuration folder not found or empty [{CONFIG_DIR}].",
+            "Run the setup utility: !@0ko@!/runaddmoreai",
+            label="External AI Load Error"
+        )
+        return
+    config_files = [f for f in os.listdir(CONFIG_DIR) if f.endswith(".json")]
+    if not config_files:
+        shell_print(
+            f"⚠️🤖🧻💬: No .json configuration files found [{CONFIG_DIR}].",
+            "Run the setup utility: !@0ko@!/runaddmoreai",
+            label="External AI Load Error"
+        )
+        return
+    shell_print("--- External AI Configuration Files ---", label="Select Configuration")
+    for i, file in enumerate(config_files):
+        print(f"[{i+1}] {file}")
+    while True:
+        choice = shell_input("Enter the number of the configuration file to load (or 'c' to cancel): ").strip()
+        if choice.lower() == "c":
+            shell_print("AI selection cancelled.", label="Notice")
+            return
+        try:
+            index = int(choice) - 1
+            if 0 <= index < len(config_files):
+                file_to_load = config_files[index]
+                success = load_external_dispatchers(file_to_load)
+                if success:
+                    shell_print(f"✅ Loaded external AI dispatchers from [{file_to_load}].", label="Success")
+                    return
+                else:
+                    shell_print(f"❌ Failed to load dispatchers from [{file_to_load}]. Check file format.", label="Error")
+            else:
+                shell_print("Invalid selection. Please enter a valid number.", label="Error")
+        except ValueError:
+            shell_print("Invalid input. Please enter a number or 'c'.", label="Error")
+
+def handle_removemoreai_command():
+    external_ais = [k for k, v in MODEL_CONFIG.items() if v.get("external", False) and v.get("enabled", True)]
+    if not external_ais:
+        shell_print(
+            "⚠️🤖🧻💬: No external AIs loaded to remove.",
+            "Use !@0ko@!/addmoreai to load external AIs first.",
+            label="External AI Remove Error"
+        )
+        return
+    shell_print("--- External AIs Available for Removal ---", label="Select AI to Remove")
+    for i, ai_key in enumerate(external_ais):
+        print(f"[{i+1}] {MODEL_CONFIG[ai_key]['tag']}")
+    while True:
+        choice = shell_input("Enter the number of the AI to remove (or 'c' to cancel): ").strip()
+        if choice.lower() == "c":
+            shell_print("AI removal cancelled.", label="Notice")
+            return
+        try:
+            index = int(choice) - 1
+            if 0 <= index < len(external_ais):
+                ai_key = external_ais[index]
+                MODEL_CONFIG[ai_key]["enabled"] = False
+                shell_print(f"✅ Removed {MODEL_CONFIG[ai_key]['tag']} from active models.", label="Success")
+                return
+            else:
+                shell_print("Invalid selection. Please enter a valid number.", label="Error")
+        except ValueError:
+            shell_print("Invalid input. Please enter a number or 'c'.", label="Error")
+
+# 🔹 Indicator
 def symbolic_thinking_indicator(model_name):
     global stop_indicator_flag
     BRICKS = ['🧻', '🧱', '⬜', '⬛']
@@ -407,25 +701,19 @@ def handle_group_prompt(session_id, current_user, initial_prompt=None):
             )
             return None
         state = group_chat_state[session_id]
-        # Ensure initial_prompt is not duplicated if already added in initiate_group_chat
-        if initial_prompt and not any(p.get('text') == initial_prompt for p in state['prompt']):
-            state['prompt'].append({
-                'user': current_user,
-                'text': initial_prompt,
-                'timestamp': datetime.now().isoformat()
-            })
+        if initial_prompt and not state['prompt']:
+            state['prompt'].append({'user': current_user, 'text': initial_prompt, 'timestamp': datetime.now().isoformat()})
             log_group_echo(session_id, 'prompt_init', {'user': current_user, 'text': initial_prompt})
             prompt_text = f"{current_user}: {initial_prompt}"
             state['prompt_file'] = save_prompt_to_file(prompt_text)
-            logger.debug(f"Initialized group chat prompt: {prompt_text}")
         current_idx = state['users'].index(current_user) if current_user in state['users'] else 0
         while state['state'] == 'active':
             next_user = state['users'][(current_idx + 1) % len(state['users'])]
-            prompt_text = ' '.join([f"{p['user']}: {p['text']}" for p in state['prompt'] if 'text' in p]) or (f"{current_user}: {initial_prompt}" if initial_prompt else "None")
+            prompt_text = ' '.join([f"{p['user']}: {p['text']}" for p in state['prompt'] if 'text' in p])
             timer_display = f"Session Timer: {state['timer'] // 60 if state['timer'] else 'None'}m, Input Timer: {state['input_timer']}s" if state['timer'] else "Session Timer: None, Input Timer: None"
             shell_print(
                 emoji_aware_pad(f"🤖🧻💬: Current group prompt: {prompt_text}", 60),
-                emoji_aware_pad(f"📄 Saved to: {state['prompt_file'] or 'None'}", 60),
+                emoji_aware_pad(f"📄 Saved to: {state['prompt_file']}", 60),
                 emoji_aware_pad(f"To: {next_user}, add to prompt, vote send, skip, or override? (Type 'add', 'send', 'skip', '@over-ride-vote-yes', or '!@0ko@!/print \"<file>\"')", 60),
                 emoji_aware_pad(timer_display, 60),
                 emoji_aware_pad(f"Send votes: {len(state['send_votes'])}/{len(state['users'])}", 60),
@@ -545,30 +833,115 @@ def save_prompt_to_file(prompt, directory=PROMPT_DIR):
         handle_symbolic_error(e, context="save_prompt_to_file")
         return None
 
-def dispatch_to_ollama(model_key, prompt):
+
+# 🔹 Dispatch to Model (Ollama, OpenAI, Gemini, or Custom)
+def dispatch_to_model(model_key, prompt):
     try:
-        model_info = MODEL_CONFIG.get(model_key, {"model": model_key})
-        model_name = model_info["model"]
-        escaped_prompt = prompt.replace('"', '\\"')
+        model_config = MODEL_CONFIG.get(model_key, {"model": model_key})
+        driver = model_config.get("driver", "ollama")
+        model_name = model_config["model"]
+        tag = model_config.get("tag", f"🤖🧻💬: {model_name} AI Response 🔻")
         indicator_thread = start_indicator(model_name)
-        cmd = f'ollama run {model_name} "{escaped_prompt}"'
-        result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True,
-            encoding='utf-8'
-        )
-        stop_indicator(indicator_thread)
-        if result.returncode == 0:
-            return result.stdout.strip()
+
+        if driver == "ollama":
+            if not check_ollama_service():
+                error_msg = "Ollama service is not running. Start it with 'ollama serve'."
+                logger.error(error_msg)
+                stop_indicator(indicator_thread)
+                return f"Error: {error_msg}"
+            escaped_prompt = prompt.replace('"', '\\"')
+            cmd = f'ollama run {model_name} "{escaped_prompt}"'
+            result = subprocess.run(
+                cmd,
+                shell=True,
+                capture_output=True,
+                text=True,
+                encoding='utf-8'
+            )
+            stop_indicator(indicator_thread)
+            if result.returncode == 0:
+                return result.stdout.strip()
+            else:
+                error_msg = f"Error from {model_name}: {result.stderr.strip()}"
+                logger.error(error_msg)
+                return error_msg
+
+        elif driver == "openai":
+            api_key = model_config.get("api_key", os.getenv("OPENAI_API_KEY"))
+            if not api_key:
+                error_msg = f"No API key provided for {model_name}. Set OPENAI_API_KEY or add api_key_override in config."
+                logger.error(error_msg)
+                stop_indicator(indicator_thread)
+                if model_config.get("external", False):
+                    if repair_driver(model_key, model_config.get("config_file", "unknown.json")):
+                        return dispatch_to_model(model_key, prompt)  # Retry after repair
+                return f"Error: {error_msg}"
+            client = openai.OpenAI(api_key=api_key)
+            try:
+                response = client.chat.completions.create(
+                    model=model_name,
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=1000,
+                    temperature=0.7
+                )
+                stop_indicator(indicator_thread)
+                return response.choices[0].message.content.strip()
+            except openai.OpenAIError as e:
+                error_msg = f"OpenAI API error for {model_name}: {str(e)}"
+                logger.error(error_msg)
+                stop_indicator(indicator_thread)
+                if model_config.get("external", False):
+                    if repair_driver(model_key, model_config.get("config_file", "unknown.json")):
+                        return dispatch_to_model(model_key, prompt)  # Retry after repair
+                return f"Error: {error_msg}"
+
+        elif driver == "gemini":
+            api_key = model_config.get("api_key", os.getenv("GEMINI_API_KEY"))
+            if not api_key:
+                error_msg = f"No API key provided for {model_name}. Set GEMINI_API_KEY or add api_key_override in config."
+                logger.error(error_msg)
+                stop_indicator(indicator_thread)
+                if model_config.get("external", False):
+                    if repair_driver(model_key, model_config.get("config_file", "unknown.json")):
+                        return dispatch_to_model(model_key, prompt)  # Retry after repair
+                return f"Error: {error_msg}"
+            genai.configure(api_key=api_key)
+            try:
+                model = genai.GenerativeModel(model_name)
+                response = model.generate_content(prompt)
+                stop_indicator(indicator_thread)
+                return response.text.strip()
+            except Exception as e:
+                logger.error(f"Gemini model error: {str(e)}")
+                try:
+                    model = genai.GenerativeModel("gemini-1.5-flash")
+                    response = model.generate_content(prompt)
+                    stop_indicator(indicator_thread)
+                    return response.text.strip()
+                except Exception as fallback_e:
+                    error_msg = f"Gemini fallback error for {model_name}: {str(fallback_e)}"
+                    logger.error(error_msg)
+                    stop_indicator(indicator_thread)
+                    if model_config.get("external", False):
+                        if repair_driver(model_key, model_config.get("config_file", "unknown.json")):
+                            return dispatch_to_model(model_key, prompt)  # Retry after repair
+                    return f"Error: {error_msg}"
+
         else:
-            error_msg = f"Error from {model_name}: {result.stderr.strip()}"
-            logger.error(error_msg)
-            return error_msg
+            error_msg = f"Custom driver {driver} not implemented for {model_name}. Skipping."
+            logger.warning(error_msg)
+            stop_indicator(indicator_thread)
+            if model_config.get("external", False):
+                if repair_driver(model_key, model_config.get("config_file", "unknown.json")):
+                    return dispatch_to_model(model_key, prompt)  # Retry after repair
+            return f"Warning: {error_msg}"
+
     except Exception as e:
         stop_indicator(indicator_thread)
-        handle_symbolic_error(e, context=f"dispatch_to_ollama_{model_name}")
+        handle_symbolic_error(e, context=f"dispatch_to_model_{model_name}")
         return f"Error dispatching to {model_name}: {str(e)}"
 
 def save_responses(responses):
@@ -586,12 +959,24 @@ def save_responses(responses):
 # 🔹 Main Entry Point
 if __name__ == "__main__":
     try:
+        if not check_dependencies():
+            raise Exception("Dependency check failed. Exiting.")
         if not check_ollama_service():
             raise Exception("Ollama service check failed. Exiting.")
+        if not validate_api_keys():
+            raise Exception("API key validation failed. Exiting.")
         load_shift()
         shell_print(
-            "🤖🧻💬: GroupChatForge V0.9.3 is active.",
-            "Type your initial prompt or command (!@0ko@!/print \"<file>\", !@0ko@!FORCESTOP@!) to start.",
+            "🤖🧻💬: GroupChatForge V0043 is active.",
+            "Type your initial prompt or use any of the following commands:",
+            "",
+            "📜 !@0ko@!/addmoreai      → Load saved external AI configs",
+            "🧹 !@0ko@!/removemoreai   → Disable loaded external AIs",
+            "⚙️ !@0ko@!/runaddmoreai   → Launch AI Dispatch Config Utility",
+            "🖨️ !@0ko@!/print \"<file>\" → Print a saved prompt or response file",
+            "🧻 !@0ko@!FORCESTOP@!     → Cancel current processing",
+            "",
+            "🤖🧻💬: Enter your first prompt below to begin...",
             label="Chat Mode"
         )
         prompt_locked = False
@@ -601,10 +986,13 @@ if __name__ == "__main__":
         pending_prompt = None
 
         while True:
-            user_input = shell_input("🤖🧻💬: Enter prompt or command (!@0ko@!/print \"<file>\", !@0ko@!FORCESTOP@!):", label="GroupChatForge").strip()
+            user_input = shell_input(
+                "🤖🧻💬: Enter prompt or command (!@0ko@!/addmoreai, !@0ko@!/removemoreai, !@0ko@!/runaddmoreai, !@0ko@!/print \"<file>\", !@0ko@!FORCESTOP@!):",
+                label="GroupChatForge"
+            ).strip()
             input_time = time.time()
 
-            # Check commands first
+            # 🔹 Handle commands first
             if user_input.lower() == "!@0ko@!forcestop@!":
                 prompt_locked = False
                 last_unlock_time = time.time()
@@ -613,6 +1001,18 @@ if __name__ == "__main__":
                     emoji_aware_pad("🤖🧻💬:🧻⚡️ Prompt return forcibly stopped. Console unlocked.", 60),
                     label="System Override"
                 )
+                continue
+
+            if user_input.lower() == "!@0ko@!/addmoreai":
+                handle_addmoreai_command()
+                continue
+
+            if user_input.lower() == "!@0ko@!/removemoreai":
+                handle_removemoreai_command()
+                continue
+
+            if user_input.lower() == "!@0ko@!/runaddmoreai":
+                handle_runaddmoreai_command()
                 continue
 
             if user_input.lower().startswith('!@0ko@!/print'):
@@ -631,6 +1031,7 @@ if __name__ == "__main__":
                     )
                     continue
 
+            # 🔹 Handle prompt lock
             if prompt_locked:
                 input_during_lock.append((user_input, input_time))
                 shell_print(
@@ -642,6 +1043,7 @@ if __name__ == "__main__":
                 )
                 continue
 
+            # 🔹 Handle buffered input
             if input_time - last_unlock_time < 0.5:
                 shell_print(
                     emoji_aware_pad("🤖🧻💬:🧻⚠️ Buffered input detected.", 60),
@@ -652,6 +1054,7 @@ if __name__ == "__main__":
                 )
                 continue
 
+            # 🔹 Validate input
             if not user_input or user_input.isspace() or len(user_input.strip()) <= 2:
                 shell_print(
                     emoji_aware_pad("🤖🧻⚠️: Empty or invalid prompt detected.", 60),
@@ -660,7 +1063,7 @@ if __name__ == "__main__":
                 console_state = None
                 continue
 
-            # Set prompt and state after command checks
+            # 🔹 Set prompt and state for non-command inputs
             console_state = 'prompt_confirmation'
             pending_prompt = user_input
 
@@ -701,15 +1104,18 @@ if __name__ == "__main__":
                         emoji_aware_pad(f"📄🤖🧻: Prompt saved to: `{filename}`", 60),
                         label="Group Prompt Echo"
                     )
+                    if not validate_api_keys():
+                        shell_print("⚠️ API key validation failed. Skipping non-Ollama models.", label="Dispatch Error")
                     responses = {}
-                    for model_key in ["phi", "mistral", "llama2"]:
-                        shell_print(f"🤖🧻🚀: Dispatching to {MODEL_CONFIG[model_key]['model'].upper()}...", label="Group Prompt Dispatch")
-                        responses[model_key] = dispatch_to_ollama(model_key, final_prompt)
-                        shell_print(
-                            emoji_aware_pad(f"🔻 {MODEL_CONFIG[model_key]['model'].upper()} AI Response 🔻", 60),
-                            emoji_aware_pad(responses[model_key] if responses[model_key] else "🤖🧻:⚠️ No response received.", 60),
-                            label="Group Prompt Response"
-                        )
+                    for model_key in MODEL_CONFIG:
+                        if MODEL_CONFIG[model_key].get("enabled", True):
+                            shell_print(f"🤖🧻🚀: Dispatching to {MODEL_CONFIG[model_key]['model'].upper()}...", label="Group Prompt Dispatch")
+                            responses[model_key] = dispatch_to_model(model_key, final_prompt)
+                            shell_print(
+                                emoji_aware_pad(f"🔻 {MODEL_CONFIG[model_key]['model'].upper()} AI Response 🔻", 60),
+                                emoji_aware_pad(responses[model_key] if responses[model_key] else "🤖🧻:⚠️ No response received.", 60),
+                                label="Group Prompt Response"
+                            )
                     filepath = save_responses(responses)
                     shell_print(
                         emoji_aware_pad("📎🤖🧻: To reprint this prompt and responses, type:", 60),
@@ -735,6 +1141,7 @@ if __name__ == "__main__":
                 console_state = None
                 continue
 
+            # 🔹 Single-prompt dispatch
             filename = save_prompt_to_file(pending_prompt)
             filepath = os.path.join(PROMPT_DIR, filename)
             shell_print(
@@ -746,15 +1153,18 @@ if __name__ == "__main__":
             prompt_locked = True
             shell_print(f"🤖🧻💬: Processing prompt: {pending_prompt}", label="Prompt Dispatch")
             try:
+                if not validate_api_keys():
+                    shell_print("⚠️ API key validation failed. Skipping non-Ollama models.", label="Dispatch Error")
                 responses = {}
-                for model_key in ["phi", "mistral", "llama2"]:
-                    shell_print(f"🤖🧻🚀: Dispatching to {MODEL_CONFIG[model_key]['model'].upper()}...", label="Prompt Dispatch")
-                    responses[model_key] = dispatch_to_ollama(model_key, pending_prompt)
-                    shell_print(
-                        emoji_aware_pad(f"🔻 {MODEL_CONFIG[model_key]['model'].upper()} AI Response 🔻", 60),
-                        emoji_aware_pad(responses[model_key] if responses[model_key] else "🤖🧻:⚠️ No response received.", 60),
-                        label="Prompt Response"
-                    )
+                for model_key in MODEL_CONFIG:
+                    if MODEL_CONFIG[model_key].get("enabled", True):
+                        shell_print(f"🤖🧻🚀: Dispatching to {MODEL_CONFIG[model_key]['model'].upper()}...", label="Prompt Dispatch")
+                        responses[model_key] = dispatch_to_model(model_key, pending_prompt)
+                        shell_print(
+                            emoji_aware_pad(f"🔻 {MODEL_CONFIG[model_key]['model'].upper()} AI Response 🔻", 60),
+                            emoji_aware_pad(responses[model_key] if responses[model_key] else "🤖🧻:⚠️ No response received.", 60),
+                            label="Prompt Response"
+                        )
                 filepath = save_responses(responses)
                 shell_print(
                     emoji_aware_pad("📎🤖🧻: To reprint this prompt and responses, type:", 60),
@@ -792,10 +1202,10 @@ if __name__ == "__main__":
         print(f"Error logged to: {log_file}")
 
 # LICENSE.TXT
-# Zero-Ology License v1.10
+# Zero-Ology License v1.11
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.10
-# October 13, 2025
+# 0ko3maibZero-OlogyLicensev1.11
+# October 14, 2025
 #
 #This project is open source,
 #embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -823,6 +1233,7 @@ if __name__ == "__main__":
 #- 0ko3maibZer00logyLicensev01.txt
 #- rainbowquest1000.py
 #- GroupChatForge.py
+#- dispatchai_forge.py
 #
 #──────────────────────────────
 #Permissions
