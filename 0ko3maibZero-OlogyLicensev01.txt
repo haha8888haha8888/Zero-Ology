@@ -1,14 +1,13 @@
-# LICENSE.TXT
-# 0ko3maibZero-OlogyLicensev1.09
-# Zero-Ology License v1.09
-# September 25, 2025
+# 0ko3maibZero-OlogyLicensev1.10
+# October 13, 2025
 
 This project is open source,
-embodying the principles of free will and perpetual continuity for Zero-ology.
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
 
 It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
 distribute, and build upon all content—including theory, terminology,
 structure, code fragments, and .txt files—for any purpose, including commercial use.
+
 All content remains protected under an authorship-trace lock,
 with the conceptual foundation credited to Stacey Szmy.
 
@@ -21,11 +20,14 @@ Included Files:
 - zer00logy_coreV04450.py
 - zer00logy_coreV04452.py
 - zer00logy_coreV04455.py
+- zer00logy_coreV04456.py
 - README.md
 - README_0KO3MAIB.txt
 - LICENSE.txt
 - 0ko3maibZer00logyLicensev01.txt
 - rainbowquest1000.py
+- GroupChatForge.py
+
 
 ──────────────────────────────
 Permissions
@@ -96,10 +98,10 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.09
+# Zero-Ology ISBN Archive License v1.10
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: September 25, 2025
+# Date: October 13, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
@@ -120,20 +122,5 @@ This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its con
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

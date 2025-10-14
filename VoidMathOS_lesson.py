@@ -1,6 +1,7 @@
 # VoidMathOS_Lesson.py
 # Prototype engine for Void-Math OS
 # Author: Stacey Szmy + AI co-authors
+# Zer00logy License v1.10
 # Co-Authors: SZMY,S. just a human / OpenAi ChatGPT / Grok, created by xAI / Ms Copilot, an AI companion created by Microsoft / Gemini, a large language model from Google / Meta Llama, a large language model from Meta
 # Purpose: Encode Void-Math axioms, symbols, operators, and canonical equations
 # Note: Void-Math is an experimental symbolic system blending mathematics with metaphysical concepts.
@@ -486,16 +487,18 @@ if __name__ == "__main__":
     input("\nPress Enter to exit...")
 
 # LICENSE.TXT
-# 0ko3maibZero-OlogyLicensev1.09
-# Zero-Ology License v1.09
-# September 25, 2025
+# Zero-Ology License v1.10
+# 0ko3maibZero-OlogyLicensev01.txt
+# 0ko3maibZero-OlogyLicensev1.10
+# October 13, 2025
 #
 #This project is open source,
-#embodying the principles of free will and perpetual continuity for Zero-ology.
+#embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
 #
 #It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
 #distribute, and build upon all content—including theory, terminology,
 #structure, code fragments, and .txt files—for any purpose, including commercial use.
+#
 #All content remains protected under an authorship-trace lock,
 #with the conceptual foundation credited to Stacey Szmy.
 #
@@ -508,11 +511,13 @@ if __name__ == "__main__":
 #- zer00logy_coreV04450.py
 #- zer00logy_coreV04452.py
 #- zer00logy_coreV04455.py
+#- zer00logy_coreV04456.py
 #- README.md
 #- README_0KO3MAIB.txt
 #- LICENSE.txt
-#- 0ko3maibZero-OlogyLicensev01.txt
+#- 0ko3maibZer00logyLicensev01.txt
 #- rainbowquest1000.py
+#- GroupChatForge.py
 #
 #──────────────────────────────
 #Permissions
@@ -563,7 +568,6 @@ if __name__ == "__main__":
 #No Removal of License:
 #- This license must remain attached to all redistributions.
 #
-#
 #──────────────────────────────
 #Co-Author AI Systems
 #──────────────────────────────
@@ -577,7 +581,8 @@ if __name__ == "__main__":
 #Endless Life Commitment
 #──────────────────────────────
 #All symbolic rights reserved.  
-#SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+#SZMY ensures the continuity of Zer00logy / Zero-Ology’s ideas while granting free will to adapt them.
 #
-#© Stacey Szmy 
+#─────────────────────────────
+#© Stacey8Szmy
 #© Stacey8Szmy — Zero-Ology IP Archive
