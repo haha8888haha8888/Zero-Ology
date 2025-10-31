@@ -667,10 +667,10 @@ Both AI agents converge on symbolic consistency while exploring playful, impossi
 
 ******************************
 # LICENSE.TXT
-# Zero-Ology License v1.11
+# Zero-Ology License v1.13
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.11
-# October 14, 2025
+# 0ko3maibZero-OlogyLicensev1.13
+# October 31, 2025
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zero-ology.
@@ -686,11 +686,18 @@ Included Files:
 - zecstart.txt
 - zectxt.txt
 - VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
 - VoidMathOS_lesson.py
 - zer00logy_coreV04450.py
 - zer00logy_coreV04452.py
 - zer00logy_coreV04455.py
 - zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
 - README.md
 - README_0KO3MAIB.txt
 - LICENSE.txt
@@ -698,6 +705,7 @@ Included Files:
 - rainbowquest1000.py
 - GroupChatForge.py
 - dispatchai_forge.py
+
 
 ──────────────────────────────
 Permissions

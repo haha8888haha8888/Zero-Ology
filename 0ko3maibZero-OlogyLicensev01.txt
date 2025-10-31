@@ -1,6 +1,6 @@
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.11
-# October 14, 2025
+# 0ko3maibZero-OlogyLicensev1.13
+# October 31, 2025
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -17,11 +17,18 @@ Included Files:
 - zecstart.txt
 - zectxt.txt
 - VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
 - VoidMathOS_lesson.py
 - zer00logy_coreV04450.py
 - zer00logy_coreV04452.py
 - zer00logy_coreV04455.py
 - zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
 - README.md
 - README_0KO3MAIB.txt
 - LICENSE.txt
@@ -100,10 +107,10 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 LEARN ABOUT LICENSE_ISBN.txt
 
 # LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.11
+# Zero-Ology ISBN Archive License v1.13
 # Folder: ISBN_by_Stacey_SZMY
 # Author: Stacey Szmy
-# Date: October 14, 2025
+# Date: October 31, 2025
 
 This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 

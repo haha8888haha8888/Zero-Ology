@@ -6,7 +6,7 @@
 
 # Title: RainbowQuest1000.py
 # Version: 1000v0288AI
-# Zer00logy License v1.11
+# Zero-Ology License v1.13
 # Changelog:
 # v0272: Cleared changelog
 # v0273: Added Ollama AI integration for Player2 with model selection (Phi, Mistral, Llama2, or random computer)
@@ -1139,10 +1139,10 @@ if __name__ == "__main__":
     main()
 
 # LICENSE.TXT
-# Zero-Ology License v1.11
+# Zero-Ology License v1.13
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.11
-# October 14, 2025
+# 0ko3maibZero-OlogyLicensev1.13
+# October 31, 2025
 #
 #This project is open source,
 #embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -1159,11 +1159,18 @@ if __name__ == "__main__":
 #- zecstart.txt
 #- zectxt.txt
 #- VoidMathOS_cryptsheet.txt
+#- VAIRA_addendum.txt
+#- confusious&how_to_cut_a_cake.txt
+#- NSRHFsuite0020V.py
+#- RHFsuite0020V.py
+#- RRHLFon0022V.py
+#- SBHFFsuite0020V.py
 #- VoidMathOS_lesson.py
 #- zer00logy_coreV04450.py
 #- zer00logy_coreV04452.py
 #- zer00logy_coreV04455.py
 #- zer00logy_coreV04456.py
+#- zer00logy_coreV04459.py
 #- README.md
 #- README_0KO3MAIB.txt
 #- LICENSE.txt
