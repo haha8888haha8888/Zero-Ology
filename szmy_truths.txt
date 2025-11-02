@@ -8,7 +8,7 @@ Date: November 2025
 Purpose: To formalize and operationalize a recursive, belief-modulated, knowledge-weighted model of subjective truth, unifying symbolic logic, empirical dynamics, and philosophical paradox.
 
 I. Introduction
-Truth is often treated as a stable endpoint — a fixed point of knowledge. But as mrvulcan provocatively asserts, “Sometimes even facts cannot tell the truth, because not all facts may be known.” This dissertation responds with a formal model that captures the recursive, belief-sensitive, and knowledge-contingent nature of perceived truth.
+Truth is often treated as a stable endpoint — a fixed point of knowledge. But as people provocatively asserts, “Sometimes even facts cannot tell the truth, because not all facts may be known.” This dissertation responds with a formal model that captures the recursive, belief-sensitive, and knowledge-contingent nature of perceived truth.
 We call this the Szmy Truths Equation — a symbolic and dynamical framework that unifies discrete and continuous formulations of truth perception, grounded in empirical evidence, modulated by belief, and constrained by knowledge.
 
 II. Discrete Model: Trial-Based Truth Index
