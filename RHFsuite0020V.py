@@ -1,7 +1,7 @@
 #RHFsuite0020V
 #Recursive Hybrid Framework Mono-Script-0020V
-# 0ko3maibZer00logyLicensev1.13
-# Zero-Ology License v1.13
+# 0ko3maibZer00logyLicensev1.15
+# Zero-Ology License v1.15
 
 import numpy as np
 import pandas as pd
@@ -263,11 +263,12 @@ while True:
 if __name__ == "__main__":
     run_all_rhf()
 
+
 # LICENSE.TXT
-# Zero-Ology License v1.13
+# Zero-Ology License v1.15
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.13
-# October 31, 2025
+# 0ko3maibZero-OlogyLicensev1.15
+#November 02, 2025
 #
 #This project is open source,
 #embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -296,6 +297,7 @@ if __name__ == "__main__":
 #- zer00logy_coreV04455.py
 #- zer00logy_coreV04456.py
 #- zer00logy_coreV04459.py
+#- zer00logy_coreV04461.py
 #- README.md
 #- README_0KO3MAIB.txt
 #- LICENSE.txt
@@ -303,6 +305,16 @@ if __name__ == "__main__":
 #- rainbowquest1000.py
 #- GroupChatForge.py
 #- dispatchai_forge.py
+#- szmy_truths.txt
+#- szmy_truths.py
+#- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+#- Zero_Freeze_Yang--Mills_Formula.txt
+#- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
+#- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
+#- grand_summary_20251102_114655_Real_SU(3)_operator.JSON
+#- grand_summary_20251102_114655_Real_SU(3)_operator.CSV
+#- grand_summary_20251102_114247_placeholder.JSON
+#- grand_summary_20251102_114247_placeholder.CSV
 #
 #──────────────────────────────
 #Permissions

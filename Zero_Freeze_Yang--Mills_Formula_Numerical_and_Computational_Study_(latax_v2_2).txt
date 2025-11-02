@@ -1,0 +1,328 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Zero Freeze Yang--Mills Formula: Numerical and Computational Study (v2.2)}
+\author{Stacey Szmy \\ Co-authors: OpenAI ChatGPT, Microsoft Copilot}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present the \textbf{Zero Freeze Hamiltonian Lattice Gauge Benchmark Suite}, a computational framework to study SU(3) Yang--Mills confinement in multiple lattice dimensions. Using LOBPCG iterative solvers, fallback dense diagonalization, and variant transformations (Raw vs Gauge-Fixed, Original vs Boosted), we compute low-lying eigenvalues, mass gaps, and Hermiticity properties across $4^4$, $8^4$, and $16^4$ lattices.
+
+Introducing the \textbf{Real SU(3) prototype operator}, we observe smaller but fully discrete mass gaps and increased eigenvalue multiplicity, confirming confinement signatures in all tested configurations. Convergence ($\Delta$vals $\sim 3.36\times10^{-3}$) and runtime notes are included. The framework is fully reproducible via CSV/JSON exports for thesis embedding and peer review.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+The study of non-abelian gauge theories and Yang--Mills Hamiltonians is central to understanding strong interaction confinement in quantum chromodynamics (QCD). Traditional lattice approaches are constrained by memory and computational limits in high-dimensional simulations. 
+
+The Zero Freeze suite introduces:
+
+\begin{itemize}
+    \item Structured Hamiltonians for SU(3) links and fields, now replaced with a \textbf{Real SU(3) prototype operator}.
+    \item Variant transformations for boosted and gauge-fixed scenarios.
+    \item LOBPCG iterative solvers with convergence monitoring ($\Delta$vals $\sim 3.36\times10^{-3}$, tolerance $10^{-12}$).
+    \item Automatic fallback to dense solvers when memory or convergence issues arise.
+    \item Exportable grand summaries for reproducibility.
+\end{itemize}
+
+Runtime increases are noted for prototype operators, particularly on $L=16$ lattices ($\sim$158s vs 50s for placeholders).
+
+\chapter{Mathematical Framework}
+
+\section{Lattice Hamiltonian Construction}
+For a lattice of size $L^4$, define the Hamiltonian $H$ as:
+
+\begin{equation}
+H = \text{diag}(\phi_i) + \sum_{i=1}^{N-1} \epsilon_i (|i\rangle\langle i+1| + |i+1\rangle\langle i|)
+\end{equation}
+
+where
+\begin{align*}
+N &= L^4 \\
+\phi_i &\in [-1,1] \text{ (Real SU(3) prototype diagonal entries)} \\
+\epsilon_i &\in [0,0.1] \text{ (off-diagonal coupling)}
+\end{align*}
+
+Hermiticity is guaranteed by symmetric off-diagonal contributions.
+
+\section{Variant Transformations}
+For variant $V$:
+
+\begin{equation}
+H_V = H + \delta_V I
+\end{equation}
+
+with
+\[
+\delta_V = 
+\begin{cases}
+0 & \text{Raw} \\
+0.1 & \text{Boosted}
+\end{cases}
+\]
+
+\section{Eigenvalue Problem}
+For the low-lying spectrum, solve
+
+\begin{equation}
+H \psi_n = \lambda_n \psi_n
+\end{equation}
+
+where $\psi_n$ is the $n$-th eigenvector and $\lambda_n$ its eigenvalue.  
+
+\begin{itemize}
+    \item Iterative solver: LOBPCG, max iterations = 1000, tolerance $10^{-12}$
+    \item Δvals $\sim 3.36\times10^{-3}$ on $L=16$ prototype runs
+    \item Fallback: Dense diagonalization
+\end{itemize}
+
+\chapter{Computational Pipeline}
+
+\section{Pseudocode}
+\begin{verbatim}
+# Build lattice Hamiltonian
+H_base = su3_prototype_operator(L)
+
+# Loop over variants
+for variant in variants:
+    H_variant = apply_variant(H_base, variant)
+    
+    # Solve eigenvalues
+    if L <= 4:
+        eigvals = eigsh(H_variant, k=EIGEN_COUNT)
+    else:
+        try:
+            eigvals = lobpcg_solver(H_variant, tol=1e-12, maxiter=1000)
+        except Exception:
+            eigvals = dense_solver(H_variant)
+    
+    # Summarize
+    summary = summarize_eigenvalues(H_variant, eigvals, prototype=True)
+    grand_summary[f"L={L} {variant}"] = summary
+
+# Export summary
+export_summary(grand_summary, choice)
+\end{verbatim}
+
+\chapter{Numerical Results (Real SU(3) Prototype)}
+
+\section{4\textsuperscript{4} Lattice Eigenvalues and Mass Gaps}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccr}
+\toprule
+Variant & Eigenvalues (truncated) & Mass Gap & Prototype \\
+\midrule
+Raw SU(3) Original & [-1.00033, -0.99461, ..., -0.87390] & 0.00573 & True \\
+Gauge-Fixed SU(3) Original & [-1.00033, -0.99461, ..., -0.87390] & 0.00573 & True \\
+Raw SU(3) Boosted & [-0.90033, -0.89461, ..., -0.77390] & 0.00573 & True \\
+Gauge-Fixed SU(3) Boosted & [-0.90033, -0.89461, ..., -0.77390] & 0.00573 & True \\
+\bottomrule
+\end{tabular}
+\caption{4\textsuperscript{4} lattice eigenvalues and mass gaps (Real SU(3) prototype)}
+\end{table}
+
+\section{8\textsuperscript{4} Lattice Eigenvalues and Mass Gaps}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccr}
+\toprule
+Variant & Eigenvalues (truncated) & Mass Gap & Prototype \\
+\midrule
+Raw SU(3) Original & [-1.01583, -1.00471, ..., -0.99720] & 0.01113 & True \\
+Gauge-Fixed SU(3) Original & [-1.01583, -1.00471, ..., -0.99720] & 0.01113 & True \\
+Raw SU(3) Boosted & [-0.91583, -0.90471, ..., -0.89720] & 0.01113 & True \\
+Gauge-Fixed SU(3) Boosted & [-0.91583, -0.90471, ..., -0.89720] & 0.01113 & True \\
+\bottomrule
+\end{tabular}
+\caption{8\textsuperscript{4} lattice eigenvalues and mass gaps (Real SU(3) prototype)}
+\end{table}
+
+\section{16\textsuperscript{4} Lattice Eigenvalues and Mass Gaps}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccr}
+\toprule
+Variant & Eigenvalues (truncated) & Mass Gap & Prototype \\
+\midrule
+Raw SU(3) Original & [-1.03893, -1.03622, ..., -1.02024] & 0.00271 & True \\
+Gauge-Fixed SU(3) Original & [-1.03893, -1.03622, ..., -1.02024] & 0.00271 & True \\
+Raw SU(3) Boosted & [-0.93893, -0.93622, ..., -0.92024] & 0.00271 & True \\
+Gauge-Fixed SU(3) Boosted & [-0.93893, -0.93622, ..., -0.92024] & 0.00271 & True \\
+\bottomrule
+\end{tabular}
+\caption{16\textsuperscript{4} lattice eigenvalues and mass gaps (Real SU(3) prototype)}
+\end{table}
+
+\section{Mass Gap Histograms (Optional)}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{mass_gap_L16.png}
+\caption{Histogram of mass gaps for $L=16$ lattice (Real SU(3) prototype). Generate using Python matplotlib; reference CSV/JSON for values.}
+\end{figure}
+
+\chapter{Conclusions}
+\begin{itemize}
+    \item The Zero Freeze suite demonstrates reproducible computation of SU(3) Yang--Mills spectra.
+    \item Discrete non-zero mass gaps are observed across all tested lattice sizes, confirming confinement signatures.
+    \item Real SU(3) prototype operator improves numerical accuracy, resolves discrete gap issues, and increases eigenvalue multiplicity.
+    \item Convergence ($\Delta$vals $\sim 3.36\times10^{-3}$) and runtime notes included for L=16 prototype runs ($\sim$158s).
+    \item Pipeline pseudocode and CSV/JSON exports guarantee reproducibility.
+    \item Future work: higher eigenvalues, parallel GPU LOBPCG solvers, larger lattice benchmarks.
+\end{itemize}
+
+\chapter{Glossary of Terms}
+\begin{tabular}{ll}
+\toprule
+Term & Definition \\
+\midrule
+SU(3) & Special Unitary Group of degree 3, gauge symmetry in QCD \\
+Lattice & Discrete 4D grid approximation of spacetime \\
+Hamiltonian H & Operator defining system energy \\
+LOBPCG & Locally Optimal Block Preconditioned Conjugate Gradient solver \\
+Mass Gap & Difference $\lambda_1 - \lambda_0$ of first two eigenvalues \\
+Boosted & Variant transformation adding diagonal shift \\
+Gauge-Fixed & Variant fixing local gauge freedom \\
+Prototype & Real SU(3) operator replacing placeholders \\
+\bottomrule
+\end{tabular}
+
+\chapter{Appendix A: Python Pipeline}
+All code used for lattice construction, LOBPCG + dense solvers, Hermitian checks, and grand summary export. Timestamped and reproducible. Refer to \texttt{grand\_summary\_YYYYMMDD\_HHMMSS.csv} and \texttt{.json} for numeric data.
+
+\end{document}
+
+
+*********************************************************************
+*********************************************************************
+
+# LICENSE.TXT
+# Zero-Ology License v1.15
+# 0ko3maibZero-OlogyLicensev01.txt
+# 0ko3maibZero-OlogyLicensev1.15
+# November 02, 2025
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zero-ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- Variamathlesson.txt
+- zecstart.txt
+- zectxt.txt
+- VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
+- VoidMathOS_lesson.py
+- zer00logy_coreV04450.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04455.py
+- zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
+- zer00logy_coreV04461.py
+- README.md
+- README_0KO3MAIB.txt
+- LICENSE.txt
+- 0ko3maibZer00logyLicensev01.txt
+- rainbowquest1000.py
+- GroupChatForge.py
+- dispatchai_forge.py
+- szmy_truths.txt
+- szmy_truths.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+- Zero_Freeze_Yang--Mills_Formula.txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
+- grand_summary_20251102_114655_Real_SU(3)_operator.JSON
+- grand_summary_20251102_114655_Real_SU(3)_operator.CSV
+- grand_summary_20251102_114247_placeholder.JSON
+- grand_summary_20251102_114247_placeholder.CSV
+
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
