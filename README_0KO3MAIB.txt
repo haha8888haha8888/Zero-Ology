@@ -6765,16 +6765,6 @@ All symbolic rights reserved.
 SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
 
 
-LEARN ABOUT LICENSE_ISBN.txt
-
-# LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.15
-# Folder: ISBN_by_Stacey_SZMY
-# Author: Stacey Szmy
-# Date: November 02, 2025
-
-This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
-
 !LEARN ABOUT !THE !OLD !DELETE !LICENSE_ISBN.txt
 
 !# LICENSE_ISBN.txt
@@ -6802,5 +6792,6 @@ This folder contains copyrighted PDF works authored by Stacey Szmy and published
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+
 
 
