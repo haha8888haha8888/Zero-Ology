@@ -6767,7 +6767,7 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 
 
 #########################################
-LINSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZMY AND LICENSE_ISBN.txt # Zero-ology License v1.15 and prior!!
+LICENSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZMY AND LICENSE_ISBN.txt # Zero-ology License v1.15 and prior!!
 
 !LEARN ABOUT !THE !OLD !DELETE !LICENSE_ISBN.txt !FILE !# Zero-Ology ISBN Archive License !v1.15
 
@@ -6797,6 +6797,7 @@ LINSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZMY 
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+
 
 
 
