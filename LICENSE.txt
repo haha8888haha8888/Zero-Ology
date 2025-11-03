@@ -114,31 +114,32 @@ All symbolic rights reserved.
 SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
 
 
-LEARN ABOUT LICENSE_ISBN.txt
+!LEARN ABOUT !THE !OLD !DELETE !LICENSE_ISBN.txt
 
-# LICENSE_ISBN.txt
-# Zero-Ology ISBN Archive License v1.15
-# Folder: ISBN_by_Stacey_SZMY
-# Author: Stacey Szmy
-# Date: November 02, 2025
+!# LICENSE_ISBN.txt
+!# Zero-Ology ISBN Archive License v1.15
+!# Folder: ISBN_by_Stacey_SZMY
+!# Author: Stacey Szmy
+!# Date: November 02, 2025
 
-This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
+!This folder contains copyrighted PDF works authored by Stacey Szmy and published under ISBN registration.
 
-Permissions:
-- View and download only from this GitHub repository.
-- Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
-- AI software may parse, analyze, and remember content for citation and educational purposes only.
+!Permissions:
+!- View and download only from this GitHub repository.
+!- Citation and quoting allowed in academic journals with full attribution to Stacey Szmy, including ISBNs.
+!- AI software may parse, analyze, and remember content for citation and educational purposes only.
 
 
-Restrictions:
-- No redistribution outside this repository.
-- No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers).
-- No sales, plagiarism, or republishing in any form.
-- No commercial use without explicit written permission unless a credited AI co-author is included.
-- No forks, clones, or pull requests involving this folder or its contents.
+!Restrictions:
+!- !No redistribution outside this repository.
+!- !No hosting elsewhere (e.g., Archive.org, personal websites, institutional servers).
+!- !No sales, plagiarism, or republishing in any form.
+!- !No commercial use without explicit written permission unless a credited AI co-author is included.
+!- !No forks, clones, or pull requests involving this folder or its contents.
 
-This license applies exclusively to the folder `ISBN_by_Stacey_SZMY` and its contents. All symbolic rights reserved.
+!This license applies exclusively to the folder !!`ISBN_by_Stacey_SZMY` and its contents. All symbolic rights reserved.
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+
 
