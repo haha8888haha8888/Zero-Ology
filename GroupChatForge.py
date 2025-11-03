@@ -2,7 +2,7 @@
 # Title: 0KO GroupChatForge V0048 — Ping-Pong Multi-User AI Chat Bot with Ollama and External Dispatch
 # Ceo0: Szmy, Stacey.
 # dev: HAHA.8888, HAHA.Xai.Grok, HAHA.ChatGPT
-# Zer00logy License v1.15
+# Zero-ology License v1.15
 
 import sys
 import platform
@@ -1321,3 +1321,4 @@ if __name__ == "__main__":
 #─────────────────────────────
 #© Stacey8Szmy
 #© Stacey8Szmy — Zero-Ology IP Archive
+
