@@ -2,7 +2,7 @@
 Zero-ology & Void-Math: Symbolic Collapse AI Bot & Interpreter. Python-based cognition engine teaching metaphysical logic via Zero-ology & Void-Math OS. Simulates collapse states, dispatches AI prompts, and interprets constructs like: Ø⁰×∅=echo, 0÷0=∅÷∅, +0÷−0=ε⁻¹, ∞×0=8, E=c².0000, g=(m@void)÷(r²−+tu), t=e@(void÷tu)
 Zer00logy: Symbolic Collapse AI Bot &amp; Interpreter Zer00logy: a Python-based symbolic cognition engine that teaches and verifies metaphysical logic through Zero-ology equations. It simulates collapse states, dispatches prompts to AI models, and interprets symbolic constructs like: Ø⁰ × ∅ = echo.+0  0 ÷ 0 = ∅÷∅  +0 ÷ −0 = ε⁻¹  ∞ × 0 = 8  E = c².0000
 #README_0KO3MAIB.TXT
-# Zer00logy - Zero-ology & 0KO MAI V0.4461 — ZeroKnockOut 3MiniAIbot - A Symbolic Collapse AI Bot Lesson & Verifier V0.4461 -
+# Zer00logy - Zero-ology & 0KO MAI V0.4469 — ZeroKnockOut 3MiniAIbot - A Symbolic Collapse AI Bot Lesson & Verifier V0.4469 -
 
 
 Zero-Ology is a metaphysical symbolic logic engine built in Python. It interprets Zero-ology equations, simulates symbolic collapse, and dispatches prompts to AI systems via Ollama.
@@ -17,7 +17,7 @@ Zero-Ology is a metaphysical symbolic logic engine built in Python. It interpret
 - Emoji Calibration System
 
 ## 📂 Files
-- `zer00logy_coreV04461.py` — Main interpreter
+- `zer00logy_coreV04469.py` — Main interpreter
 - `zecstart.txt` — Symbolic starter definitions for Zero-ology / Zer00logy
 - `zectext.txt` — Extended symbolic catalog for Zero-ology / Zer00logy
 - `LICENSE.txt` — Custom license
@@ -44,6 +44,10 @@ Zero-Ology is a metaphysical symbolic logic engine built in Python. It interpret
 - `grand_summary_20251102_114655_Real_SU(3)_operator.CSV` — First Logs of Real SU(3) operators in Zero Freeeze Yang–Mills Formula PROOF .csv
 - `grand_summary_20251102_114247_placeholder.JSON` — First Logs of placeholder operators in Zero Freeeze Yang–Mills Formula PROOF .json
 - `grand_summary_20251102_114247_placeholder.CSV` — First Logs of placeholder operators in Zero Freeeze Yang–Mills Formula PROOF .csv
+- `Lie_π_Infinity_lesson.txt` — lesson on lies with pie to infinity, the why equation lesson
+- `THE_WHY_EQUATION.py` — python lesson on lies with pie to infinity, the why equation python lesson
+- `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
+- `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
 ---
 
 ## 💥 AI Integration
@@ -70,8 +74,8 @@ Explore the symbolic constructs, metaphysical equations, and AI dispatch logic i
 
 All Core Files
 
-**Title**: `0KO MAI V0.4461 — ZeroKnockOut 3MiniAIbot`  
-**Subtitle**: *A Symbolic Collapse AI Bot Lesson & Verifier V0.4461*  
+**Title**: `0KO MAI V0.4469 — ZeroKnockOut 3MiniAIbot`  
+**Subtitle**: *A Symbolic Collapse AI Bot Lesson & Verifier V0.4469*  
 **Ceo0**: Szmy, Stacey  
 **Dev**: HAHA.8888  
 **Version**: `0.0.0: okokok.simplebeta.yesyesyes`  
@@ -88,7 +92,7 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 ## 📂 Core Files
 
 ## 📂 Files
-- `zer00logy_coreV04461.py` — Main interpreter
+- `zer00logy_coreV04469.py` — Main interpreter
 - `zecstart.txt` — Symbolic starter definitions for Zero-ology / Zer00logy
 - `zectext.txt` — Extended symbolic catalog for Zero-ology / Zer00logy
 - `LICENSE.txt` — Custom license
@@ -115,8 +119,11 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 - `grand_summary_20251102_114655_Real_SU(3)_operator.CSV` — First Logs of Real SU(3) operators in Zero Freeeze Yang–Mills Formula PROOF .csv
 - `grand_summary_20251102_114247_placeholder.JSON` — First Logs of placeholder operators in Zero Freeeze Yang–Mills Formula PROOF .json
 - `grand_summary_20251102_114247_placeholder.CSV` — First Logs of placeholder operators in Zero Freeeze Yang–Mills Formula PROOF .csv
+- `Lie_π_Infinity_lesson.txt` — lesson on lies with pie to infinity, the why equation lesson
+- `THE_WHY_EQUATION.py` — python lesson on lies with pie to infinity, the why equation python lesson
+- `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
+- `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
 ---
-
 
 ## 🧰 Python Dependencies
 
@@ -6648,10 +6655,11 @@ finfinfin
 
 ****************************************************************************
 # LICENSE.TXT
-# Zero-Ology License v1.15
+# Zero-Ology License v1.17
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.15
-# November 02, 2025
+# 0ko3maibZero-OlogyLicensev1.17
+# November 07, 2025
+
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -6681,6 +6689,7 @@ Included Files:
 - zer00logy_coreV04456.py
 - zer00logy_coreV04459.py
 - zer00logy_coreV04461.py
+- zer00logy_coreV04469.py
 - README.md
 - README_0KO3MAIB.txt
 - LICENSE.txt
@@ -6691,6 +6700,7 @@ Included Files:
 - szmy_truths.txt
 - szmy_truths.py
 - Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite0033.py
 - Zero_Freeze_Yang--Mills_Formula.txt
 - Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
 - Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
@@ -6698,6 +6708,10 @@ Included Files:
 - grand_summary_20251102_114655_Real_SU(3)_operator.CSV
 - grand_summary_20251102_114247_placeholder.JSON
 - grand_summary_20251102_114247_placeholder.CSV
+- Lie_π_Infinity_lesson.txt
+- THE_WHY_EQUATION.py
+- Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
+- Repeating_Digit_Weights_(RN).py
 
 ──────────────────────────────
 Permissions
@@ -6794,7 +6808,6 @@ LICENSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZM
 
 !This license applies exclusively to the folder !!`ISBN_by_Stacey_SZMY` and its contents that has been removed November 02, 2025 with licenses 1.15. All symbolic rights reserved.
 
+
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
-
-
