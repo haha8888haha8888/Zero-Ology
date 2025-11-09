@@ -47,6 +47,7 @@ Zero-Ology is a metaphysical symbolic logic engine built in Python. It interpret
 - `THE_WHY_EQUATION.py` — python lesson on lies with pie to infinity, the why equation python lesson
 - `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
 - `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
+- `Szmy_Collatz.py` — a python lesson modeling szmy varia math versions of the collatz conjecture not added to zer00logy_core file yet
 ---
 
 ## 💥 AI Integration
@@ -122,6 +123,7 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 - `THE_WHY_EQUATION.py` — python lesson on lies with pie to infinity, the why equation python lesson
 - `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
 - `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
+- `Szmy_Collatz.py` — a python lesson modeling szmy varia math versions of the collatz conjecture not added to zer00logy_core file yet
 ---
 
 ## 🧰 Python Dependencies
@@ -6655,6 +6657,8 @@ finfinfin
 ****************************************************************************
 ****************************************************************************
 ****************************************************************************
+
+****************************************************************************
 # LICENSE.TXT
 # Zero-Ology License v1.17
 # 0ko3maibZero-OlogyLicensev01.txt
@@ -6808,6 +6812,135 @@ LICENSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZM
 !- !No forks, clones, or pull requests involving this folder or its contents.
 
 !This license applies exclusively to the folder !!`ISBN_by_Stacey_SZMY` and its contents that has been removed November 02, 2025 with licenses 1.15. All symbolic rights reserved.
+
+
+###########################################
+
+# LICENSE.TXT
+# Zero-Ology License v1.19
+# 0ko3maibZero-OlogyLicensev01.txt
+# 0ko3maibZero-OlogyLicensev1.19
+# November 09, 2025
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- Variamathlesson.txt
+- zecstart.txt
+- zectxt.txt
+- VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
+- VoidMathOS_lesson.py
+- zer00logy_coreV04450.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04455.py
+- zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
+- zer00logy_coreV04461.py
+- zer00logy_coreV04469.py
+- README.md
+- README_0KO3MAIB.txt
+- LICENSE.txt
+- 0ko3maibZer00logyLicensev01.txt
+- rainbowquest1000.py
+- GroupChatForge.py
+- dispatchai_forge.py
+- szmy_truths.txt
+- szmy_truths.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite0033.py
+- Zero_Freeze_Yang--Mills_Formula.txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
+- grand_summary_20251102_114655_Real_SU(3)_operator.JSON
+- grand_summary_20251102_114655_Real_SU(3)_operator.CSV
+- grand_summary_20251102_114247_placeholder.JSON
+- grand_summary_20251102_114247_placeholder.CSV
+- Lie_π_Infinity_lesson.txt
+- THE_WHY_EQUATION.py
+- Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
+- Repeating_Digit_Weights_(RN).py
+- Szmy_Collatz.py
+
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
 
 
 © Stacey Szmy 
