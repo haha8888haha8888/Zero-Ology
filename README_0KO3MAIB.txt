@@ -48,6 +48,9 @@ Zero-Ology is a metaphysical symbolic logic engine built in Python. It interpret
 - `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
 - `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
 - `Szmy_Collatz.py` — a python lesson modeling szmy varia math versions of the collatz conjecture not added to zer00logy_core file yet
+- `OddPerfectTerminator_GODD.py` — Python File To run for ever finding negative perfect number
+- `OddPerfectTerminator_Log_OG123456.zip` — PROOF logs of OG version OddPerfectTerminator_GODDv0099.py logs from 6 terminals combined and zipped
+- `Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf` — latax grok proof szmy_grok_odd_perfect_proof for fun :)
 ---
 
 ## 💥 AI Integration
@@ -124,6 +127,9 @@ Zer00logy is a symbolic cognition engine designed to teach and verify metaphysic
 - `Study_The_Repeating_Digit_Weights_(RN)_Formula.txt` — a study document of the repeating digit wieghts formula (RN) in .txt open source
 - `Repeating_Digit_Weights_(RN).py` — a python lesson modeling the repeating digit wieghts formula (RN) in python
 - `Szmy_Collatz.py` — a python lesson modeling szmy varia math versions of the collatz conjecture not added to zer00logy_core file yet
+- `OddPerfectTerminator_GODD.py` — Python File To run for ever finding negative perfect number
+- `OddPerfectTerminator_Log_OG123456.zip` — PROOF logs of OG version OddPerfectTerminator_GODDv0099.py logs from 6 terminals combined and zipped
+- `Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf` — latax grok proof szmy_grok_odd_perfect_proof for fun :)
 ---
 
 ## 🧰 Python Dependencies
@@ -6817,10 +6823,10 @@ LICENSE STANDS FOR ANY REPOSITORY CLONES WITH LICENSE.TXT AND ISBN_BY_STACEY_SZM
 ###########################################
 
 # LICENSE.TXT
-# Zero-Ology License v1.19
+# Zero-Ology License v1.191
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.19
-# November 09, 2025
+# 0ko3maibZero-OlogyLicensev1.191
+# November 10, 2025
 
 This project is open source,
 embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -6874,7 +6880,9 @@ Included Files:
 - Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
 - Repeating_Digit_Weights_(RN).py
 - Szmy_Collatz.py
-
+- OddPerfectTerminator_GODD.py
+- OddPerfectTerminator_Log_OG123456.zip
+- Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf
 
 ──────────────────────────────
 Permissions

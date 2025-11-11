@@ -1,7 +1,7 @@
 #Szmy-Collatz.py
 #Szmy-Collatz0044v
-# Zero-Ology License v1.19
-# 0ko3maibZero-OlogyLicensev1.19
+# Zero-Ology License v1.191
+# 0ko3maibZero-OlogyLicensev1.191
 
 # ============================================================
 # Szmy–Collatz Visualization Suite (Interactive Edition)
@@ -2062,10 +2062,10 @@ if __name__ == "__main__":
     main_menu()
 
 # LICENSE.TXT
-# Zero-Ology License v1.19
+# Zero-Ology License v1.191
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.19
-#November 09, 2025
+# 0ko3maibZero-OlogyLicensev1.191
+#November 10, 2025
 #
 #This project is open source,
 #embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
@@ -2119,6 +2119,9 @@ if __name__ == "__main__":
 #- Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
 #- Repeating_Digit_Weights_(RN).py
 #- Szmy_Collatz.py
+#- OddPerfectTerminator_GODD.py
+#- OddPerfectTerminator_Log_OG123456.zip
+#- Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf
 #
 #──────────────────────────────
 #Permissions
