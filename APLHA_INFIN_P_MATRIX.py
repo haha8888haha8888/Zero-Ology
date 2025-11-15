@@ -1,10 +1,10 @@
 # ===================================================================
-# ALPHABET INFINITY POOL MATRIX — INTERACTIVE SIMULATOR v1.0
+# ALPHABET INFINITY POOL MATRIX — INTERACTIVE SIMULATOR v0023
 # Author: Szmy & Math & Grok (xAI)
-# Date: November 13, 2025
+# Date: November 15, 2025
 # APLHA_INFIN_P_MATRIX.PY
-# APLHA_INFIN_P_MATRIX_V0021.PY
-# Zero-Ology License v1.1913
+# APLHA_INFIN_P_MATRIX_V0023.PY
+# Zero-Ology License v1.1915
 # ===================================================================
 
 import math
@@ -16,8 +16,11 @@ import signal
 import sys
 import logging
 import shutil
-from itertools import permutations, product
+from math import comb
+from itertools import permutations, product, combinations
 from collections import defaultdict
+from itertools import combinations, product
+from math import comb
 
 # === LOGGING (UTF-8 safe) ===
 LOG_DIR = "aipm_logs"
@@ -54,7 +57,7 @@ os.makedirs(REACH_CHECKPOINT_DIR, exist_ok=True)
 DEMO_CONFIGS = [
     {"name": "P=1: The Seed", "V": 3, "P": 1, "range": 100, "res": 0.01},
     {"name": "P=2: First Echo", "V": 4, "P": 2, "range": 200, "res": 0.005},
-    {"name": "P=3: 1% Law Emerges", "V": 5, "P": 3, "range": 100, "res": 0.001},
+    {"name": "P=3: 1% Law Emerges (20M)", "V": 5, "P": 3, "range": 100, "res": 0.001},
     {"name": "P=5: Void Dominates", "V": 5, "P": 5, "range": 500, "res": 0.001},
     {"name": "P=10: Asymptotic Lock", "V": 3, "P": 10, "range": 1000, "res": 0.001},
 ]
@@ -77,7 +80,7 @@ def clear():
 def banner():
     clear()
     print("="*78)
-    print(" ALPHABET INFINITY POOL MATRIX — v0021")
+    print(" ALPHABET INFINITY POOL MATRIX — v0023")
     print(" Szmy. & Grok (xAI) — 11 - 13, 2025")
     print("="*78)
     print(" 1% Law • Resonance • Non-Sum Void • Infinite Reach • Logs & Saves")
@@ -90,7 +93,6 @@ def eval_expr(components, operators):
         if kind == 'V':
             eval_parts.append(str(val))
         else:
-            # Use high precision to avoid rounding issues
             eval_parts.append(f"{CONSTANTS[val]:.15f}")
         if i < len(operators):
             eval_parts.append(operators[i])
@@ -100,16 +102,8 @@ def eval_expr(components, operators):
         if isinstance(result, (int, float)) and not math.isnan(result) and not math.isinf(result):
             return result
         return None
-    except ZeroDivisionError:
-        return None
-    except OverflowError:
-        return None
-    except ValueError:
-        return None
-    except SyntaxError:
-        return None
     except Exception as e:
-        logger.debug(f"Unexpected eval error: {e} | expr: {expr}")
+        logger.debug(f"Eval error: {e} | expr: {expr}")
         return None
 
 # === PROGRESS CALLBACK ===
@@ -119,43 +113,64 @@ def progress_update(total, elapsed):
 # === SIMULATION ENGINE ===
 def simulate(V_max, P_max, range_max, resolution, progress_callback=progress_update):
     logger.info(f"Starting simulation: V={V_max}, P={P_max}, Range={range_max}, res={resolution}")
+    
     grid = set(round(i * resolution, 6) for i in range(int(range_max / resolution) + 1))
     results = []
     resonance = defaultdict(int)
-    total = 0
-    start = time.time()
+    total_generated = 0
+    start_time = time.time()
+
+    theo_per_n = pow(len(OPERATORS), 2*P_max - 1) * pow(len(C_NAMES), P_max) * comb(2*P_max, P_max)
+    theo_total = V_max * theo_per_n
+    logger.info(f"THEORETICAL TOTAL EXPRESSIONS: {theo_total:,}")
+
     for n in range(1, V_max + 1):
         for p in range(1, P_max + 1):
-            const_choices = list(product(C_NAMES, repeat=p))
-            comps_base = [('V', n)] * p
-            for consts in const_choices:
-                comps = comps_base + [('C', c) for c in consts]
-                perms = set(permutations(comps))
-                ops = product(OPERATORS, repeat=2*p - 1)
-                for perm in perms:
-                    for op_seq in ops:
-                        total += 1
-                        val = eval_expr(perm, op_seq)
-                        if val is None or not (0 <= val <= range_max):
-                            continue
-                        r = round(val, 6)
-                        results.append(r)
-                        resonance[r] += 1
-                        if total % 10000 == 0 and progress_callback:
-                            progress_callback(total, time.time() - start)
+            value_positions = combinations(range(2 * p), p)
+            const_assignments = product(C_NAMES, repeat=p)
+            op_sequences = product(OPERATORS, repeat=2 * p - 1)
+
+            for v_pos in value_positions:
+                v_set = set(v_pos)
+                for consts in const_assignments:
+                    for ops in op_sequences:
+                        total_generated += 1
+                        if total_generated % 50_000 == 0 and progress_callback:
+                            progress_callback(total_generated, time.time() - start_time)
+
+                        components = []
+                        c_idx = 0
+                        for i in range(2 * p):
+                            if i in v_set:
+                                components.append(('V', n))
+                            else:
+                                components.append(('C', consts[c_idx]))
+                                c_idx += 1
+
+                        val = eval_expr(components, ops)  # MODERN CALL
+                        if val is not None and 0 <= val <= range_max:
+                            r = round(val, 6)
+                            results.append(r)
+                            resonance[r] += 1
+
     unique = set(results)
-    coverage = len(unique) / len(grid) * 100 if len(grid) > 0 else 0
-    res = {
-        "total": total,
+    coverage = len(unique) / len(grid) * 100 if grid else 0
+    void = 100 - coverage
+
+    result = {
+        "total_generated": total_generated,
         "unique": len(unique),
-        "grid": len(grid),
+        "grid_size": len(grid),
         "coverage": coverage,
-        "void": 100 - coverage,
-        "resonance": dict(sorted(resonance.items(), key=lambda x: x[1], reverse=True)[:5]),
-        "time": time.time() - start
+        "void": void,
+        "resonance_top5": dict(sorted(resonance.items(), key=lambda x: x[1], reverse=True)[:5]),
+        "time_seconds": time.time() - start_time,
+        "theoretical_total": theo_total
     }
-    logger.info(f"Simulation complete: Coverage {coverage:.6f}%")
-    return res
+
+    logger.info(f"COMPLETE | Coverage: {coverage:.6f}% | Void: {void:.6f}% | Total: {total_generated:,}")
+    logger.info(f"THEORETICAL: {theo_total:,} | ACTUAL: {total_generated:,} | MATCH: {total_generated == theo_total}")
+    return result
 
 # === SAVE/LOAD STATE ===
 def save_state(state):
@@ -221,16 +236,27 @@ def show_info():
     print(" • The Pattern Index (P ∈ positive integers) defines the structural depth of the expression,")
     print("   corresponding to the exact number of base values (n) used.\n")
 
-    # Balance Law
     print("2. The Balance Law and Forced Lattice Structure")
-    print("The AIPM is defined by the Balance Law, a principle of structural containment that governs")
-    print("recursive growth of expressions, ensuring combinatorial closure at every layer P.\n")
-    print("Axiom: The Balance Law")
-    print(" • For any base value n ∈ V and pattern index P, a valid expression Eₚ(n) must maintain:")
-    print("   Values Count (Vₚ) = Constants Count (Cₚ) = P")
-    print("   Operators Count (Oₚ) = 2P – 1")
-    print(" • This law is non-negotiable, preventing arbitrary operator chains and defining a complete,")
-    print("   forced lattice structure at each step.\n")
+    print("The AIPM is defined by the Balance Law, a principle of structural containment that")
+    print("governs the recursive growth of expressions, ensuring combinatorial closure at every layer P.\n")
+    print("Axiom 1 (The Balance Law). For any base value n ∈ V and pattern index P, a valid")
+    print("expression Eₚ(n) must maintain:")
+    print("   Values Count (Vₚ) = Constants Count (Cₚ) = P,   Operators Count (Oₚ) = 2P - 1.\n")
+    print("This law is non-negotiable, preventing arbitrary operator chains and defining a complete,")
+    print("forced lattice structure at each step.\n")
+    print("Theorem 1 (The AIPM Expression Space). The Alphabet Infinity Pool Matrix Expression")
+    print("Space, Eₚ(n), is the set of all numerically valid, uniquely permuted expressions")
+    print("E generated from a fixed n at pattern depth P. The component multiset is defined by the")
+    print("Balance Law, and E consists of all free interleavings (permutations) of:\n")
+    print("   n, …, n (P times),   C₁, …, Cₚ,   O₁, …, O_{2P-1}\n")
+    print("The total number of symbolic expressions T(n, P) generated for a fixed n and pattern P is:\n")
+    print("   T(n, P) = |O|^{2P-1} · |C|^P · N_perm(P)\n")
+    print("where\n")
+    print("   N_perm(P) = \binom{2P}{P} = (2P)! / (P!·P!)\n")
+    print("is the number of unique component orderings (when constants are unique and selected with")
+    print("replacement).\n")
+    print("   Note: The reciprocal form (P!·P!) / (2P)! is the probability of any single")
+    print("   interleaving under uniform random selection — a useful dual perspective.\n")
 
     # Expression Space
     print("Theorem: The AIPM Expression Space")
@@ -242,18 +268,35 @@ def show_info():
     print("   where Nperm(P) = (2P)! / (P!)² is the number of unique component orderings.\n")
 
     # Empirical Results
-    print("3. Empirical Results: Sparsity and Dark Matter")
-    print("Evaluation of Eₚ(n) yields two primary phenomena:")
-    print(" • Resonance: multiple expressions resulting in the same value.")
-    print(" • Non-Sum Field: numerical regions not reachable by any expression.\n")
-    print("Theorem: The Sparsity Theorem (1% Law)")
-    print(" • Canonical snapshot: V={1..5}, O={+, –, ×, /, **}, C={π, e, τ, φ}, P={1..3}")
-    print(" • Range [0,100] at resolution Δ=0.001")
-    print(" • Unique sums occupy ≈ 1.027% of the candidate numerical grid.")
-    print(" • Non-Sum Field (numerical void) occupies ≈ 98.973%.\n")
-    print("Corollary: Symbolic Dark Matter")
-    print(" • The Non-Sum Field acts as Symbolic Dark Matter: intervals of the number line unreachable")
-    print("   even under exhaustive combinatorial coverage within the Balance Law constraints.\n")
+    print("3. Empirical Results: Sparsity and “Dark Matter”")
+    print("Evaluation of the expressions Eₚ(n) yields two central phenomena: Resonance (distinct")
+    print("expressions evaluating to identical numerical results) and the Non-Sum Field (regions of")
+    print("the number line not achieved by any expression under the given constraints).\n")
+    print("Theorem 2 (The Sparsity Theorem (1% Law)). For a canonical snapshot with V = {1..5},")
+    print("O = {+, –, ×, /, **}, C = {π, e, τ, φ}, and pattern depths P = {1..3}, evaluated on the")
+    print("interval [0, 100] with numerical resolution Δ = 0.001:\n")
+    print(" • Total expressions evaluated: 20,000,000")
+    print(" • The evaluated unique sums occupy ≈ 1.027% of the discretized numerical grid.")
+    print(" • The Non-Sum Field occupies the remaining ≈ 98.973%.\n")
+    print("Corollary 1 (Symbolic “Dark Matter” (Metaphorical)). The Non-Sum Field behaves")
+    print("analogously to “Symbolic Dark Matter”: unreachable regions of the number line that remain")
+    print("empty despite exhaustive coverage of the combinatorial search space. This terminology is")
+    print("metaphorical, emphasizing the observed sparsity pattern rather than implying any physical")
+    print("or cosmological claim.\n")
+
+#script freezes
+
+    print("\nWhy does the demo appear to freeze at high depths?")
+    print("The answer is combinatorial explosion. Each increase in P multiplies the search space by")
+    print("millions or trillions. For example:")
+    print(" • At P=5 with V=5, O=5, C=4 → theoretical total ≈ 2.52 trillion expressions.")
+    print(" • At P=15 → totals jump into the 10^40 range (utterly impossible to exhaust).")
+    print(" • At P=50 → totals exceed 10^100, far beyond any computer or universe-scale enumeration.")
+    print("Your PC can happily log millions of expressions, but once you cross into billions and trillions")
+    print("the loops will grind for years. The demo is left unbounded intentionally so you can see where")
+    print("the wall appears and ask why. The formula is correct, but the search space is simply too vast")
+    print("to compute exhaustively — this is the essence of the Infinity Pool.")
+    print("the script saves before you close Ctrl + C , this script requires user to close scripts once you hit max compute limits")
 
     # Conclusion
     print("Conclusion")
@@ -273,13 +316,15 @@ def show_info():
 # === MENU 4: FULL DEMO ===
 def full_demo():
     print("\n" + "=" * 60)
-    print(" FULL DEMO BY GROK & SZMY")
+    print("the script saves before you close, Ctrl + C to close, this script requires user to close scripts once you hit max compute limits")
+    print(" FULL DEMO BY GROK & SZMY > YOU WILL NOT COMPLETE PAST *INFO: Progress: 4,100,000 expressions evaluated | Time: 74.87s <- Close and restart script :) go go inspector super computer")
+    print(" P=5 /// INFO: THEORETICAL TOTAL EXPRESSIONS: 2,520,000,000,000 This Demo completes When it cannot complete runtime!")
     print("=" * 60)
     for config in DEMO_CONFIGS:
         print(f"\nRunning: {config['name']}")
         res = simulate(config["V"], config["P"], config["range"], config["res"])
         print(f" → Coverage: {res['coverage']:.6f}% | Void: {res['void']:.6f}%")
-        print(f"    Top Resonances: {list(res['resonance'].items())[:3]}")
+        print(f" Top Resonances: {list(res['resonance_top5'].items())[:3]}")
     input("\nDemo complete. Press ENTER...")
 
 # === MENU 5: THE REACH (time-limited, resumable) ===
@@ -648,10 +693,10 @@ if __name__ == "__main__":
     main()
 
 # LICENSE.TXT
-# Zero-Ology License v1.1913
+# Zero-Ology License v1.1915
 # 0ko3maibZero-OlogyLicensev01.txt
-# 0ko3maibZero-OlogyLicensev1.1913
-#November 13, 2025
+# 0ko3maibZero-OlogyLicensev1.1915
+#November 15, 2025
 #
 #This project is open source,
 #embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
