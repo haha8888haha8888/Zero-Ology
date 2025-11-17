@@ -41,21 +41,21 @@ logger = logging.getLogger(__name__)
 
 # === POOLS ===
 CLASSICAL_15 = [
-    {"name": "π (Circle constant)", "expr": sp.pi, "approx": 3.1415926536},
-    {"name": "e (Natural base)", "expr": sp.E, "approx": 2.7182818285},
+    {"name": "π", "expr": sp.pi, "approx": 3.1415926536},
+    {"name": "e", "expr": sp.E, "approx": 2.7182818285},
+    {"name": "2", "expr": 2, "approx": 2.0000000000},
+    {"name": "φ (Golden Ratio)", "expr": (1 + sp.sqrt(5))/2, "approx": 1.6180339887},
     {"name": "√2", "expr": sp.sqrt(2), "approx": 1.4142135624},
-    {"name": "φ (Golden ratio)", "expr": (1 + sp.sqrt(5))/2, "approx": 1.6180339887},
-    {"name": "γ (Euler–Mascheroni)", "expr": sp.EulerGamma, "approx": 0.5772156649},
-    {"name": "Catalan's G", "expr": sp.catalan, "approx": 0.9159655942},
+    {"name": "√3", "expr": sp.sqrt(3), "approx": 1.7320508076},
+    {"name": "ζ(3) (Apéry)", "expr": sp.zeta(3), "approx": 1.2020569032},
+    {"name": "G (Catalan)", "expr": sp.catalan, "approx": 0.9159655942},
+    {"name": "K₀ (Khinchin)", "expr": 2.6854520010, "approx": 2.6854520010},
+    {"name": "e^π", "expr": sp.exp(sp.pi), "approx": 23.1406926328},
     {"name": "Feigenbaum δ", "expr": 4.6692016091, "approx": 4.6692016091},
-    {"name": "ζ(3) (Apéry's constant)", "expr": sp.zeta(3), "approx": 1.2020569032},
-    {"name": "Khinchin's K₀", "expr": 2.6854520011, "approx": 2.6854520011},
-    {"name": "Glaisher–Kinkelin A", "expr": 1.2824271291, "approx": 1.2824271291},
-    {"name": "ln(2)", "expr": sp.ln(2), "approx": 0.6931471806},
-    {"name": "Plastic ρ", "expr": 1.3247179572, "approx": 1.3247179572},
-    {"name": "Landau-Ramanujan K", "expr": 0.7642236536, "approx": 0.7642236536},
-    {"name": "Omega Ω", "expr": 1.3313353638, "approx": 1.3313353638},
-    {"name": "Conway's A", "expr": 1.3035772690, "approx": 1.3035772690},
+    {"name": "Feigenbaum α", "expr": 2.5029078750, "approx": 2.5029078750},
+    {"name": "γ (Euler–Mascheroni)", "expr": sp.EulerGamma, "approx": 0.5772156649},
+    {"name": "Brun's B₂", "expr": 1.9021605823, "approx": 1.9021605823},
+    {"name": "Landau–Ramanujan K", "expr": 0.7642236535, "approx": 0.7642236535},
 ]
 
 FULL_42 = [
