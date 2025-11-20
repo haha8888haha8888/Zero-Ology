@@ -758,9 +758,9 @@ def clear():
 # ----------------------------------------------------------------------
 def show_dissertation():
     """Print the full dissertation text file (if present)."""
-    doc_path = os.path.join(os.path.dirname(__file__), "equal$.txt")
+    doc_path = os.path.join(os.path.dirname(__file__), "equal.txt")
     if not os.path.exists(doc_path):
-        print("\nWarning: Dissertation file 'equal$.txt' not found.\n")
+        print("\nWarning: Dissertation file 'equal.txt' not found.\n")
         return
 
     clear()   # optional – keeps screen tidy
@@ -983,4 +983,5 @@ if __name__ == "__main__":
 #
 #─────────────────────────────
 #© Stacey8Szmy
+
 #© Stacey8Szmy — Zero-Ology IP Archive
