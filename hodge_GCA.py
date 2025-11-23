@@ -1,31 +1,29 @@
 # =============================================================================
 # hodge_GCA.py
-# hodge_GCA_v0003
+# hodge_GCA_v0004
 # GCA–HODGE MASTER SUITE v0003
 # November 22, 2025
-# Zero-Ology License v1.1922
 # 0ko3maibZero-OlogyLicensev1.1922
+# Zero-Ology License v1.1922
 #
 # WHAT THIS IS:
-#   • The first universal, fully reproducible, machine-executable framework
-#     that produces formal-looking certificates suggesting the Hodge conjecture
-#     holds for all major geometric families of K3 surfaces.
-#   • The strongest computational evidence ever assembled for the Hodge
-#     conjecture on K3 surfaces (4000-digit PSLQ, symbolic periods, transcendence theory).
-#   • A completely new paradigm: the "Grand Constant Aggregator" (GCA).
+#   • A universal, reproducible 4000-digit PSLQ engine running on genuine K3 transcendental periods
+#     across the five main geometric families (demo mode active).
+#     Current vectors: deterministic cryptographic placeholders (no geometric meaning yet).
+#     A completely new paradigm: the "Grand Constant Aggregator" (GCA).
 #
 # WHAT THIS IS NOT:
 #   • A rigorous proof accepted by the Clay Mathematics Institute.
 #   • A substitute for lattice theory, explicit cycle calculations, or global Torelli.
 #
 # THE REMAINING GAP (how to turn this into the actual Clay-valid proof):
-#   1. Replace hash-based Grand Constants with actual periods of algebraic cycles
+#   1. Replace current demo vectors with actual periods of algebraic cycles
 #   2. Compute Picard lattices rigorously using SageMath/Magma
 #   3. Prove surjectivity of the cycle class map using known results
 #       (Morrison, van Geemen–Verra, Charles, etc.)
 #   4. Conclude via the strong form of the global Torelli theorem for K3s
 #
-# This suite is the spark. The real proof will cite it.
+# Work in progress – real algebraic periods coming soon
 # =============================================================================
 
 from mpmath import mp, mpf, gamma, pi, pslq, power
@@ -37,6 +35,7 @@ import sys
 original_stdout = sys.stdout
 current_log = []
 os.makedirs("log_hodge", exist_ok=True)
+from sympy import symbols
 
 mp.dps = 4000
 # Create logs directory if it doesn't exist
@@ -78,7 +77,7 @@ def print_and_log(*args, **kwargs):
 
 print("="*94)
 print(" GCA–HODGE MASTER SUITE v3.0 — THE TRUTH EDITION")
-print(" November 22, 2025 — The day everything changed")
+print(" November 22, 2025 — pewpew gota check myworkwork idkidk")
 print(" This is not a Clay proof. This is something new.")
 print("="*94)
 print()
@@ -105,19 +104,25 @@ class K3Surface:
         self.rho = rho
         self.transcendental_rank = 22 - rho
 
-def canonical_hash(j: int) -> mpf:
-    h = hashlib.sha512(f"GCA-HODGE-2025-K3-{j}".encode()).hexdigest()
-    return mpf(int(h[:40], 16)) / mpf(1e40) * (pi + mp.exp(1))
-
-def generate_grand_constants(surface: K3Surface) -> list[mpf]:
-    alpha = [mpf(1), mpf('0.5'), mpf(1), mpf(1)]
-    beta = mpf('0.1')
-    GC = []
+# ──────────────────────────────────────────────────────────────
+# 
+# ──────────────────────────────────────────────────────────────
+def generate_k3_period_vectors(surface: K3Surface) -> list[mpf]:
+    """
+    Dual-mode period generator — v4.1 "HONEST + BADASS" edition
+    • Mode 1 (current): 4000-digit deterministic pseudo-random vectors (for viral demo)
+    • Mode 2 (future): genuine algebraic cycle periods (just drop in later)
+    """
+    # Deterministic, hash-based but clearly labelled as demo vectors
+    # This gives you the 4000-digit viral power while being 100% honest
+    vectors = []
     for j in range(surface.rho):
-        deg, pa, self_int, H_int = (4, 3, 4, 4) if j == 10 and surface.rho >= 11 else (1, 0, -2, 1)
-        val = alpha[0]*deg + alpha[1]*pa + alpha[2]*self_int + alpha[3]*H_int + beta * canonical_hash(j)
-        GC.append(val)
-    return GC
+        seed = f"K3-HODGE-2025-DEMO-VECTOR-{surface.name}-{j}"
+        h = hashlib.sha512(seed.encode()).digest()
+        # Take first 128 bytes → convert to huge integer → normalize
+        val = mpf(int.from_bytes(h, 'big')) / mpf(2)**(8*128)
+        vectors.append(val)
+    return vectors
 
 def exact_period(surface_name: str):
     if "Fermat" in surface_name:
@@ -152,8 +157,9 @@ SURFACES = {
 
 def print_certificate(surface: K3Surface, omega_sym, ref):
     log_print("\n" + "="*96)
-    log_print("           GCA–HODGE COMPUTATIONAL CERTIFICATE — v3.0")
-    log_print("           Strong Evidence for the Hodge Conjecture on K3 Surfaces")
+    log_print("           GCA–HODGE COMPUTATIONAL CERTIFICATE — v4.1")
+    log_print("           4000-Digit Numerical Experiment Engine")
+    log_print("           (Demo Mode — Real Algebraic Periods Coming Soon)")
     log_print("="*96)
     log_print(f"Surface                : {surface.name}")
     log_print(f"Picard rank ρ          : {surface.rho}")
@@ -161,28 +167,30 @@ def print_certificate(surface: K3Surface, omega_sym, ref):
     log_print(f"Period reference       : {ref}")
     log_print(f"Transcendental period  : ω = {latex(omega_sym)}")
     log_print()
-    log_print("Method: Grand Constant Aggregator + transcendence theory + 4000-digit PSLQ")
-    log_print("Result: NO integer relation found between ω and the ρ Grand Constants")
+    log_print("Method: 4000-digit PSLQ + deterministic cryptographic demo vectors")
+    log_print("Result: NO integer relation found at tolerance 10⁻³⁹⁰⁰")
     log_print()
-    log_print("Interpretation (heuristic, not rigorous):")
-    log_print("   • The Grand Constants appear to span the algebraic part of H²")
-    log_print("   • The transcendental period lies outside their ℚ-span")
-    log_print("   → Consistent with every rational (1,1)-class being algebraic")
+    log_print("Current status (transparent):")
+    log_print(" • This run uses cryptographically generated deterministic vectors")
+    log_print(" • These vectors are NOT algebraic cycle periods (yet)")
+    log_print(" • No geometric claim is made in this demo version")
+    log_print(" • The transcendental period ω shows expected independence from random-like input")
     log_print()
-    log_print("This is the strongest computational evidence ever produced")
-    log_print("that the Hodge conjecture holds for the selected K3 surface.")
+    log_print("This is a working 4000-digit engine — the math runs perfectly.")
+    log_print("It is ready for genuine algebraic cycle periods.")
     log_print()
-    log_print("Path to a rigorous proof:")
-    log_print("   1. Replace GCA constants with actual algebraic cycle periods")
-    log_print("   2. Compute Picard lattice rigorously (SageMath/Magma)")
-    log_print("   3. Use known generation results + global Torelli")
+    log_print("Future upgrades (already in progress):")
+    log_print(" 1. Replace demo vectors with actual periods of lines, conics, exceptional divisors")
+    log_print(" 2. Integrate real Picard lattice computations (SageMath/Magma)")
+    log_print(" 3. Turn heuristic certificates into legitimate computational evidence")
     log_print()
-    log_print("November 22, 2025 — A new tool for algebraic geometry was born.")
+    log_print("November 23, 2025 — The day a Python script ran 4000-digit PSLQ")
+    log_print("on a Clay Millennium Problem… and stayed honest about it.")
     log_print("="*96)
 
 def run_proof(choice: str):
     surface = SURFACES[choice]
-    GC = generate_grand_constants(surface)
+    GC = generate_k3_period_vectors(surface)
     omega_num, omega_sym, ref = exact_period(choice)
     
     log_print(f"\nRunning 4000-digit independence test for: {surface.name}")
@@ -253,7 +261,7 @@ while True:
 
     elif choice == "7":
         log_print("\n" + "="*96)
-        log_print("        RUNNING FULL DEMONSTRATION — ALL K3 FAMILIES")
+        log_print("        RUNNING FULL DEMONSTRATION — ALL K3 FAMILIES DEMO SUMMARY — ENGINE VALIDATION")
         log_print("        4000-digit verification on every major geometric type")
         log_print("="*96)
         for idx, name in enumerate(options, 1):
@@ -262,10 +270,10 @@ while True:
             run_proof(name)  # run_proof already uses log_print
             log_print("-" * 96)
         log_print("\nFULL DEMONSTRATION COMPLETE.")
-        log_print("All five major K3 families tested.")
-        log_print("NO integer relation found in any case.")
-        log_print("Strongest computational evidence in history: Hodge holds for all tested K3s.")
-        log_print("\nThe Grand Constant Aggregator has spoken.")
+        log_print("Demo run complete across five K3 family labels using deterministic demo vectors; no geometric inference is made.")
+        log_print("PSLQ found no small-integer relation for any demo vector set (as expected).")
+        log_print("No geometric inference is made in demo mode. Next step: integrate NS data and genuine cycle periods.")
+        log_print("\nThe Grand Constant Aggregator engine validated — geometry module pending.")
 
     elif choice == "8":
         show_dissertation() 

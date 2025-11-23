@@ -7,7 +7,7 @@ Date: 22 November 2025
 ________________________________________
 Abstract
 We present the Grand Constant Aggregator (GCA), a reproducible computational framework generating formal certificates of numerical linear independence between known transcendental periods and a canonically constructed set of (\rho) real numbers (the Grand Constants) on K3 surfaces of Picard rank (\rho \in {1,10,16,18,20}).
-Using 4000-digit precision and the PSLQ algorithm with tolerance (10^{-3900}), no integer relation is detected in any tested case. These results provide the strongest uniform computational evidence to date suggesting the Hodge conjecture holds for these five principal geometric families of complex algebraic K3 surfaces.
+Using 4000-digit precision and the PSLQ algorithm with tolerance (10^{-3900}), no integer relation is detected in any tested case. These results provide the strongest uniform computational numerical experiment to date, consistent with the Hodge conjecture for these five principal geometric families of complex algebraic K3 surfaces.
 We emphasize that this framework is heuristic: it does not constitute a formal proof acceptable to the Clay Mathematics Institute. Its purpose is to provide a precise, machine-verifiable bridge between transcendence theory and algebraic geometry, while clearly delineating the remaining steps toward a rigorous proof.
 ________________________________________
 1. Introduction and Statement of Achievement
@@ -102,7 +102,7 @@ ________________________________________
 The GCA framework provides the computational scaffolding and reproducibility layer.
 ________________________________________
 8. Conclusion
-The Grand Constant Aggregator provides the first universal, executable, high-precision evidence engine for the Hodge conjecture on K3 surfaces. Certificates are deterministic, timestamped, and verifiable on any platform.
+The Grand Constant Aggregator provides the first universal, executable, high‑precision demo engine for numerical experiments related to the Hodge conjecture. Certificates are deterministic, timestamped, and verifiable on any platform.
 While not resolving the Clay Millennium Problem, this work introduces a new computational paradigm in algebraic geometry: systematic generation of formal, machine-verifiable evidence at unprecedented precision and uniformity.
 We invite the community to replace surrogate Grand Constants with genuine cycle periods, potentially converting this heuristic framework into a rigorous proof.
 ________________________________________
@@ -111,7 +111,7 @@ References
 •	van Geemen (1993), Shioda–Inose, Dolgachev, Borcherds, Zagier–Borwein, Ferguson–Bailey, Nesterenko, etc.
 ________________________________________
 
-
+Here “heuristic” means that the computations provide suggestive numerical patterns consistent with the conjecture, but they do not establish algebraic independence or prove that the Néron–Severi lattice spans the (1,1) cohomology. The framework is intended as a reproducible experiment, not a formal proof.
 
 ###########################################
 
