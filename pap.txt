@@ -567,21 +567,6 @@ class PAPSequence:
 # ================================================================
 # RUN YOUR CANONICAL EXAMPLE 
 # ================================================================
-pap = PAP()
-sv = StartingVector(i0=0, P0=ParityState.ODD, d=+1)
-seq = pap.label([-5,-4,-3,-2,-1,0,1,2,3,4,5], sv)
-
-print("INITIAL STATE".center(80,"="))
-print(seq.parity_matrix())
-print("\nChecksums:", json.dumps(seq.ledger["checksums"], indent=2))
-
-seq.migrate_forward("checksum_prime_match")
-
-print("\nAFTER SUCCESSFUL MIGRATION".center(80,"="))
-print(seq.parity_matrix())
-print("\nMigration Log:", seq.ledger["migration_log"])
-print("\nFinal Checksums:", json.dumps(seq.ledger["checksums"], indent=2))
-
 
 ~RUN
 
@@ -826,4 +811,5 @@ SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting f
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+
 
