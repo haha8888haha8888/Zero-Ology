@@ -1,0 +1,2189 @@
+
+========================================================================
+        K A K E Y A   N I R V A N A   C O N J E C T U R E   F R A M E W O R K
+                         Python Suite — Version 0001
+========================================================================
+  A Computational Observatory for Exotic Kakeya Geometries
+  Straight Tubes | Polygonal Tubes | Curved Tubes | Branching Tubes
+  RN Weights | BTLIAD Evolution | SBHFF Stability | RHF Diagnostics
+========================================================================
+
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 1
+
+============================================================
+ SECTOR 1 — KNCF MASTER EQUATION SET (v1.0)
+============================================================
+
+Equation 1 — Straight Tube:
+    T_ε(v) = { x : dist(x, ℓ_v) ≤ ε }
+
+Equation 2 — Polygonal Tube:
+    T_{ε,C}(v) = { x : ||x - ℓ_v||_C ≤ ε }
+
+Equation 3 — Curved Tube:
+    T_ε(γ) = { x : dist(x, γ(s)) ≤ ε }
+
+Equation 4 — Branching Rule:
+    γ → {γ₁, γ₂, …, γ_b}
+
+Equation 5 — Density Field:
+    K_ε(x) = Σ χ_{T_i}(x)
+
+Equation 6 — Kakeya Set:
+    K_ε = ⋃ T_i
+
+Equation 7 — Overlap Energy:
+    E_ε = Σ K_ε(x)²
+
+Equation 8 — Probability Density:
+    p(x) = K_ε(x) / Σ K_ε(x)
+
+Equation 9 — Entropy:
+    H_ε = - Σ p(x) log p(x)
+
+Equation 10 — Dimension Proxy:
+    D ≈ H_ε / log(1/ε)
+
+Equation 11 — RN Weight:
+    RN_n = n × (10/9)
+
+Equation 12 — Directional Density:
+    ρ(v_i) = RN_i / Σ RN_j
+
+Equation 13 — BTLIAD Parameters:
+    P(n)=n^2.111, F(n)=1.111n, M(n)=3.333n, B(n)=0.111n, E(n)=9.999n
+
+Equation 14 — BTLIAD Evolution:
+    V(n) = P(n)[F(n-1)M(n-1) + B(n-2)E(n-2)]
+
+Equation 15 — SBHFF Stability:
+    F_{n+1} = F_n + π sin(GF_n) - (αF_n²)/π
+
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 2
+
+============================================================
+ SECTOR 2 — Straight Tube Simulation (Baseline)
+============================================================
+Overlap Energy E = 712.0000
+Entropy H = 5.4107
+Dimension Proxy D ≈ 2.3498
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 3
+
+============================================================
+ SECTOR 3 — RN Directional Weighting Demo
+============================================================
+RN Weights (1–10):
+  RN_1 = 1.111111
+  RN_2 = 2.222222
+  RN_3 = 3.333333
+  RN_4 = 4.444444
+  RN_5 = 5.555556
+  RN_6 = 6.666667
+  RN_7 = 7.777778
+  RN_8 = 8.888889
+  RN_9 = 10.000000
+  RN_10 = 11.111111
+
+Directional Density ρ(v):
+  ρ_1 = 0.018182
+  ρ_2 = 0.036364
+  ρ_3 = 0.054545
+  ρ_4 = 0.072727
+  ρ_5 = 0.090909
+  ρ_6 = 0.109091
+  ρ_7 = 0.127273
+  ρ_8 = 0.145455
+  ρ_9 = 0.163636
+  ρ_10 = 0.181818
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 4
+
+============================================================
+ SECTOR 4 — BTLIAD Evolution Demo
+============================================================
+n=2 → V=8.6398e+00
+n=3 → V=1.9573e+02
+n=4 → V=8.0834e+02
+n=5 → V=2.3017e+03
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 5
+
+============================================================
+ SECTOR 5 — SBHFF Stability Demo
+============================================================
+Step 0: F = 1.998202
+Step 1: F = 4.730095
+Step 2: F = 0.876815
+Step 3: F = 3.267302
+Step 4: F = 2.533609
+Step 5: F = 4.123800
+Step 6: F = 0.969550
+Step 7: F = 3.530283
+Step 8: F = 1.942987
+Step 9: F = 4.749316
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 6
+
+============================================================
+ SECTOR 6 — Polygonal Tube Simulation
+============================================================
+Overlap Energy E = 6940.0000
+Entropy H = 5.5566
+Dimension Proxy D ≈ 2.4132
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 7
+
+============================================================
+ SECTOR 7 — Curved Tube Simulation
+============================================================
+Overlap Energy E = 3150.0000
+Entropy H = 4.1275
+Dimension Proxy D ≈ 1.7925
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 8
+
+============================================================
+ SECTOR 8 — Branching Tube Simulation
+============================================================
+Overlap Energy E = 1200.0000
+Entropy H = 5.2930
+Dimension Proxy D ≈ 2.2987
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 9
+
+============================================================
+ SECTOR 9 — Entropy & Dimension Scan (High Resolution)
+============================================================
+
+ε Scan Results:
+
+ε = 0.250  →  H = 8.0549   D ≈ 5.8104
+ε = 0.150  →  H = 7.5970   D ≈ 4.0045
+ε = 0.100  →  H = 7.0216   D ≈ 3.0494
+ε = 0.070  →  H = 6.6164   D ≈ 2.4880
+ε = 0.050  →  H = 6.0241   D ≈ 2.0109
+ε = 0.030  →  H = 5.1961   D ≈ 1.4818
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 10
+
+Select Tube Type:
+Options: straight, polygonal, curved, branching
+Enter tube type (default='straight'):
+Invalid or blank. Using default: 'straight'
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 10 — Full KNCF State Evolution
+============================================================
+Step 0: ε=0.10000, E=1021.00, H=5.9253, D≈2.5733, λ=4.3909
+Step 1: ε=0.07380, E=554.00, H=5.3383, D≈2.0482, λ=8.9722
+Step 2: ε=0.05446, E=381.00, H=4.8832, D≈1.6779, λ=8.8386
+Step 3: ε=0.04019, E=147.00, H=4.0645, D≈1.2646, λ=7.1522
+Step 4: ε=0.02966, E=63.00, H=4.0881, D≈1.1621, λ=9.7064
+Step 5: ε=0.02189, E=42.00, H=3.5646, D≈0.9327, λ=3.5695
+Step 6: ε=0.01616, E=112.00, H=3.1945, D≈0.7743, λ=5.5672
+Step 7: ε=0.01192, E=17.00, H=2.6156, D≈0.5905, λ=3.8100
+Step 8: ε=0.00880, E=12.00, H=1.2425, D≈0.2625, λ=4.4321
+Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, λ=3.8822
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 11
+
+Select Tube Type:
+Options: straight, polygonal, curved, branching
+Enter tube type (default='straight'):
+Invalid or blank. Using default: 'straight'
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 11 — Full KNCF State BTLIAD Evolution
+============================================================
+Step 0: ε=0.10000, E=6785.00, H=5.4954, D≈2.3866, V=8.6398
+Step 1: ε=0.07380, E=634.00, H=5.2684, D≈2.0213, V=195.7336
+Step 2: ε=0.05446, E=444.00, H=4.7882, D≈1.6453, V=808.3392
+Step 3: ε=0.04019, E=76.00, H=4.2382, D≈1.3186, V=2301.6971
+Step 4: ε=0.02966, E=2554.00, H=2.4781, D≈0.7044, V=5284.6935
+Step 5: ε=0.02189, E=50.00, H=3.9120, D≈1.0236, V=10536.7571
+Step 6: ε=0.01616, E=32.00, H=2.9830, D≈0.7231, V=19011.7261
+Step 7: ε=0.01192, E=22.00, H=3.0910, D≈0.6979, V=31841.1261
+Step 8: ε=0.00880, E=7.00, H=1.9459, D≈0.4111, V=50337.0228
+Step 9: ε=0.00649, E=6.00, H=1.7918, D≈0.3557, V=75994.5531
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 12
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 12 — Full Full KNCF Evolution for tube type: STRAIGHT
+============================================================
+Step 0: ε=0.10000, E=3686.00, H=5.5132, D≈2.3944, V=8.6398
+Step 1: ε=0.07380, E=449.00, H=5.4094, D≈2.0754, V=195.7336
+Step 2: ε=0.05446, E=318.00, H=4.9313, D≈1.6945, V=808.3392
+Step 3: ε=0.04019, E=114.00, H=4.3041, D≈1.3391, V=2301.6971
+Step 4: ε=0.02966, E=66.00, H=3.8509, D≈1.0947, V=5284.6935
+Step 5: ε=0.02189, E=39.00, H=3.6636, D≈0.9586, V=10536.7571
+Step 6: ε=0.01616, E=37.00, H=3.2998, D≈0.7999, V=19011.7261
+Step 7: ε=0.01192, E=2524.00, H=1.5407, D≈0.3479, V=31841.1261
+Step 8: ε=0.00880, E=8.00, H=2.0794, D≈0.4393, V=50337.0228
+Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, V=75994.5531
+
+============================================================
+ SECTOR 12 — Full Full KNCF Evolution for tube type: POLYGONAL
+============================================================
+Step 0: ε=0.10000, E=8994.00, H=5.3163, D≈2.3088, V=8.6398
+Step 1: ε=0.07380, E=3021.00, H=5.0460, D≈1.9360, V=195.7336
+Step 2: ε=0.05446, E=226.00, H=4.9124, D≈1.6880, V=808.3392
+Step 3: ε=0.04019, E=169.00, H=4.3766, D≈1.3617, V=2301.6971
+Step 4: ε=0.02966, E=65.00, H=3.7585, D≈1.0684, V=5284.6935
+Step 5: ε=0.02189, E=41.00, H=3.4612, D≈0.9057, V=10536.7571
+Step 6: ε=0.01616, E=30.00, H=3.4012, D≈0.8244, V=19011.7261
+Step 7: ε=0.01192, E=15.00, H=2.7081, D≈0.6114, V=31841.1261
+Step 8: ε=0.00880, E=10.00, H=2.3026, D≈0.4865, V=50337.0228
+Step 9: ε=0.00649, E=5.00, H=1.6094, D≈0.3195, V=75994.5531
+
+============================================================
+ SECTOR 12 — Full Full KNCF Evolution for tube type: CURVED
+============================================================
+Step 0: ε=0.10000, E=3554.00, H=5.5974, D≈2.4309, V=8.6398
+Step 1: ε=0.07380, E=5828.00, H=4.8271, D≈1.8520, V=195.7336
+Step 2: ε=0.05446, E=199.00, H=4.7700, D≈1.6390, V=808.3392
+Step 3: ε=0.04019, E=121.00, H=4.3630, D≈1.3575, V=2301.6971
+Step 4: ε=0.02966, E=56.00, H=3.6582, D≈1.0399, V=5284.6935
+Step 5: ε=0.02189, E=45.00, H=3.7290, D≈0.9757, V=10536.7571
+Step 6: ε=0.01616, E=32.00, H=3.3550, D≈0.8132, V=19011.7261
+Step 7: ε=0.01192, E=19.00, H=2.9444, D≈0.6648, V=31841.1261
+Step 8: ε=0.00880, E=11.00, H=2.3979, D≈0.5066, V=50337.0228
+Step 9: ε=0.00649, E=9.00, H=1.7479, D≈0.3470, V=75994.5531
+
+============================================================
+ SECTOR 12 — Full Full KNCF Evolution for tube type: BRANCHING
+============================================================
+Step 0: ε=0.10000, E=6369.00, H=5.5083, D≈2.3922, V=8.6398
+Step 1: ε=0.07380, E=669.00, H=5.3264, D≈2.0436, V=195.7336
+Step 2: ε=0.05446, E=2698.00, H=4.3710, D≈1.5020, V=808.3392
+Step 3: ε=0.04019, E=161.00, H=4.4096, D≈1.3720, V=2301.6971
+Step 4: ε=0.02966, E=66.00, H=3.9170, D≈1.1135, V=5284.6935
+Step 5: ε=0.02189, E=84.00, H=3.5743, D≈0.9353, V=10536.7571
+Step 6: ε=0.01616, E=23.00, H=3.1355, D≈0.7600, V=19011.7261
+Step 7: ε=0.01192, E=12.00, H=2.4849, D≈0.5610, V=31841.1261
+Step 8: ε=0.00880, E=6.00, H=1.7918, D≈0.3786, V=50337.0228
+Step 9: ε=0.00649, E=6.00, H=1.7918, D≈0.3557, V=75994.5531
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 13
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 13 — RN-Biased Multi-Family Run
+============================================================
+
+--- Mode: UNIFORM ---
+Straight Step 0: ε=0.10000, E=3614.00, H=5.6455, D≈2.4518, V=8.6398
+Straight Step 1: ε=0.07380, E=3173.00, H=5.1223, D≈1.9653, V=195.7336
+Straight Step 2: ε=0.05446, E=241.00, H=4.7980, D≈1.6487, V=808.3392
+Straight Step 3: ε=0.04019, E=107.00, H=4.1933, D≈1.3047, V=2301.6971
+Straight Step 4: ε=0.02966, E=94.00, H=4.0079, D≈1.1393, V=5284.6935
+Straight Step 5: ε=0.02189, E=60.00, H=3.8446, D≈1.0060, V=10536.7571
+Straight Step 6: ε=0.01616, E=16.00, H=2.7726, D≈0.6721, V=19011.7261
+Straight Step 7: ε=0.01192, E=13.00, H=2.5649, D≈0.5791, V=31841.1261
+Straight Step 8: ε=0.00880, E=16.00, H=2.5400, D≈0.5367, V=50337.0228
+Straight Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, V=75994.5531
+Polygonal Step 0: ε=0.10000, E=6894.00, H=5.5292, D≈2.4013, V=8.6398
+Polygonal Step 1: ε=0.07380, E=770.00, H=5.3787, D≈2.0637, V=195.7336
+Polygonal Step 2: ε=0.05446, E=186.00, H=4.7929, D≈1.6469, V=808.3392
+Polygonal Step 3: ε=0.04019, E=121.00, H=4.2467, D≈1.3213, V=2301.6971
+Polygonal Step 4: ε=0.02966, E=45.00, H=3.8067, D≈1.0821, V=5284.6935
+Polygonal Step 5: ε=0.02189, E=42.00, H=3.4680, D≈0.9075, V=10536.7571
+Polygonal Step 6: ε=0.01616, E=27.00, H=3.2958, D≈0.7989, V=19011.7261
+Polygonal Step 7: ε=0.01192, E=18.00, H=2.6859, D≈0.6064, V=31841.1261
+Polygonal Step 8: ε=0.00880, E=10.00, H=2.3026, D≈0.4865, V=50337.0228
+Polygonal Step 9: ε=0.00649, E=3.00, H=1.0986, D≈0.2181, V=75994.5531
+Curved Step 0: ε=0.10000, E=4225.00, H=5.6833, D≈2.4682, V=8.6398
+Curved Step 1: ε=0.07380, E=745.00, H=5.3541, D≈2.0542, V=195.7336
+Curved Step 2: ε=0.05446, E=2989.00, H=4.4069, D≈1.5143, V=808.3392
+Curved Step 3: ε=0.04019, E=109.00, H=4.4809, D≈1.3942, V=2301.6971
+Curved Step 4: ε=0.02966, E=2668.00, H=3.0306, D≈0.8615, V=5284.6935
+Curved Step 5: ε=0.02189, E=57.00, H=3.6000, D≈0.9420, V=10536.7571
+Curved Step 6: ε=0.01616, E=35.00, H=3.3445, D≈0.8107, V=19011.7261
+Curved Step 7: ε=0.01192, E=19.00, H=2.7517, D≈0.6212, V=31841.1261
+Curved Step 8: ε=0.00880, E=3.00, H=1.0986, D≈0.2321, V=50337.0228
+Curved Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, V=75994.5531
+Branching Step 0: ε=0.10000, E=3720.00, H=5.6257, D≈2.4432, V=8.6398
+Branching Step 1: ε=0.07380, E=3305.00, H=5.1604, D≈1.9799, V=195.7336
+Branching Step 2: ε=0.05446, E=322.00, H=4.8393, D≈1.6629, V=808.3392
+Branching Step 3: ε=0.04019, E=140.00, H=4.5643, D≈1.4201, V=2301.6971
+Branching Step 4: ε=0.02966, E=52.00, H=3.8134, D≈1.0840, V=5284.6935
+Branching Step 5: ε=0.02189, E=43.00, H=3.6798, D≈0.9629, V=10536.7571
+Branching Step 6: ε=0.01616, E=43.00, H=2.6908, D≈0.6523, V=19011.7261
+Branching Step 7: ε=0.01192, E=16.00, H=2.7726, D≈0.6260, V=31841.1261
+Branching Step 8: ε=0.00880, E=6.00, H=1.7918, D≈0.3786, V=50337.0228
+Branching Step 9: ε=0.00649, E=1.00, H=-0.0000, D≈-0.0000, V=75994.5531
+
+--- Mode: RN_BIASED ---
+Straight Step 0: ε=0.10000, E=3845.00, H=5.6213, D≈2.4413, V=8.6398
+Straight Step 1: ε=0.07380, E=709.00, H=5.2804, D≈2.0260, V=195.7336
+Straight Step 2: ε=0.05446, E=228.00, H=4.8451, D≈1.6648, V=808.3392
+Straight Step 3: ε=0.04019, E=165.00, H=4.5310, D≈1.4098, V=2301.6971
+Straight Step 4: ε=0.02966, E=63.00, H=4.0881, D≈1.1621, V=5284.6935
+Straight Step 5: ε=0.02189, E=50.00, H=3.7093, D≈0.9706, V=10536.7571
+Straight Step 6: ε=0.01616, E=28.00, H=3.3322, D≈0.8077, V=19011.7261
+Straight Step 7: ε=0.01192, E=26.00, H=2.8309, D≈0.6391, V=31841.1261
+Straight Step 8: ε=0.00880, E=13.00, H=2.5649, D≈0.5419, V=50337.0228
+Straight Step 9: ε=0.00649, E=7.00, H=1.9459, D≈0.3863, V=75994.5531
+Polygonal Step 0: ε=0.10000, E=6497.00, H=5.4654, D≈2.3736, V=8.6398
+Polygonal Step 1: ε=0.07380, E=3130.00, H=5.1767, D≈1.9861, V=195.7336
+Polygonal Step 2: ε=0.05446, E=535.00, H=4.6223, D≈1.5883, V=808.3392
+Polygonal Step 3: ε=0.04019, E=2590.00, H=3.3590, D≈1.0451, V=2301.6971
+Polygonal Step 4: ε=0.02966, E=92.00, H=3.8921, D≈1.1064, V=5284.6935
+Polygonal Step 5: ε=0.02189, E=71.00, H=3.6993, D≈0.9680, V=10536.7571
+Polygonal Step 6: ε=0.01616, E=32.00, H=3.3550, D≈0.8132, V=19011.7261
+Polygonal Step 7: ε=0.01192, E=16.00, H=2.5400, D≈0.5735, V=31841.1261
+Polygonal Step 8: ε=0.00880, E=11.00, H=2.3979, D≈0.5066, V=50337.0228
+Polygonal Step 9: ε=0.00649, E=3.00, H=1.0986, D≈0.2181, V=75994.5531
+Curved Step 0: ε=0.10000, E=3627.00, H=5.7220, D≈2.4851, V=8.6398
+Curved Step 1: ε=0.07380, E=8344.00, H=4.3941, D≈1.6859, V=195.7336
+Curved Step 2: ε=0.05446, E=744.00, H=4.3566, D≈1.4970, V=808.3392
+Curved Step 3: ε=0.04019, E=99.00, H=4.2956, D≈1.3365, V=2301.6971
+Curved Step 4: ε=0.02966, E=60.00, H=3.6780, D≈1.0455, V=5284.6935
+Curved Step 5: ε=0.02189, E=40.00, H=3.6889, D≈0.9653, V=10536.7571
+Curved Step 6: ε=0.01616, E=31.00, H=3.4340, D≈0.8324, V=19011.7261
+Curved Step 7: ε=0.01192, E=31.00, H=3.0870, D≈0.6970, V=31841.1261
+Curved Step 8: ε=0.00880, E=9.00, H=1.7479, D≈0.3693, V=50337.0228
+Curved Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, V=75994.5531
+Branching Step 0: ε=0.10000, E=1639.00, H=5.8436, D≈2.5378, V=8.6398
+Branching Step 1: ε=0.07380, E=471.00, H=5.4356, D≈2.0855, V=195.7336
+Branching Step 2: ε=0.05446, E=2722.00, H=4.0415, D≈1.3887, V=808.3392
+Branching Step 3: ε=0.04019, E=116.00, H=4.3597, D≈1.3565, V=2301.6971
+Branching Step 4: ε=0.02966, E=54.00, H=3.8566, D≈1.0963, V=5284.6935
+Branching Step 5: ε=0.02189, E=38.00, H=3.5450, D≈0.9276, V=10536.7571
+Branching Step 6: ε=0.01616, E=21.00, H=3.0445, D≈0.7380, V=19011.7261
+Branching Step 7: ε=0.01192, E=18.00, H=2.8904, D≈0.6526, V=31841.1261
+Branching Step 8: ε=0.00880, E=10.00, H=2.3026, D≈0.4865, V=50337.0228
+Branching Step 9: ε=0.00649, E=9.00, H=2.1972, D≈0.4362, V=75994.5531
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 14
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 14 — Curvature & Branching Parameter Sweep
+============================================================
+
+Select Family to Sweep:
+Options: curved, branching
+Enter family (default='curved'):
+Defaulting to 'curved'
+K (curvature bound)=0.1 Step 0: ε=0.10000, E=6188.00, H=5.4455, D≈2.3650, V=8.6398
+K (curvature bound)=0.1 Step 1: ε=0.07380, E=1079.00, H=5.2492, D≈2.0140, V=195.7336
+K (curvature bound)=0.1 Step 2: ε=0.05446, E=409.00, H=4.8908, D≈1.6806, V=808.3392
+K (curvature bound)=0.1 Step 3: ε=0.04019, E=130.00, H=4.2074, D≈1.3091, V=2301.6971
+K (curvature bound)=0.1 Step 4: ε=0.02966, E=65.00, H=3.7415, D≈1.0636, V=5284.6935
+K (curvature bound)=0.1 Step 5: ε=0.02189, E=58.00, H=3.8011, D≈0.9946, V=10536.7571
+K (curvature bound)=0.1 Step 6: ε=0.01616, E=29.00, H=3.1080, D≈0.7534, V=19011.7261
+K (curvature bound)=0.1 Step 7: ε=0.01192, E=26.00, H=2.8309, D≈0.6391, V=31841.1261
+K (curvature bound)=0.1 Step 8: ε=0.00880, E=4.00, H=1.3863, D≈0.2929, V=50337.0228
+K (curvature bound)=0.1 Step 9: ε=0.00649, E=6.00, H=1.7918, D≈0.3557, V=75994.5531
+K (curvature bound)=0.5 Step 0: ε=0.10000, E=7497.00, H=4.3205, D≈1.8763, V=8.6398
+K (curvature bound)=0.5 Step 1: ε=0.07380, E=3848.00, H=3.7807, D≈1.4505, V=195.7336
+K (curvature bound)=0.5 Step 2: ε=0.05446, E=552.00, H=4.0792, D≈1.4017, V=808.3392
+K (curvature bound)=0.5 Step 3: ε=0.04019, E=454.00, H=3.3627, D≈1.0463, V=2301.6971
+K (curvature bound)=0.5 Step 4: ε=0.02966, E=2584.00, H=2.6595, D≈0.7560, V=5284.6935
+K (curvature bound)=0.5 Step 5: ε=0.02189, E=87.00, H=3.5904, D≈0.9395, V=10536.7571
+K (curvature bound)=0.5 Step 6: ε=0.01616, E=59.00, H=3.3524, D≈0.8126, V=19011.7261
+K (curvature bound)=0.5 Step 7: ε=0.01192, E=21.00, H=2.4308, D≈0.5488, V=31841.1261
+K (curvature bound)=0.5 Step 8: ε=0.00880, E=10.00, H=1.9062, D≈0.4027, V=50337.0228
+K (curvature bound)=0.5 Step 9: ε=0.00649, E=1.00, H=-0.0000, D≈-0.0000, V=75994.5531
+K (curvature bound)=1.0 Step 0: ε=0.10000, E=10270.00, H=3.9168, D≈1.7010, V=8.6398
+K (curvature bound)=1.0 Step 1: ε=0.07380, E=1582.00, H=3.3712, D≈1.2934, V=195.7336
+K (curvature bound)=1.0 Step 2: ε=0.05446, E=486.00, H=3.3482, D≈1.1505, V=808.3392
+K (curvature bound)=1.0 Step 3: ε=0.04019, E=405.00, H=3.0106, D≈0.9367, V=2301.6971
+K (curvature bound)=1.0 Step 4: ε=0.02966, E=161.00, H=2.4094, D≈0.6849, V=5284.6935
+K (curvature bound)=1.0 Step 5: ε=0.02189, E=87.00, H=3.0749, D≈0.8046, V=10536.7571
+K (curvature bound)=1.0 Step 6: ε=0.01616, E=83.00, H=2.5733, D≈0.6238, V=19011.7261
+K (curvature bound)=1.0 Step 7: ε=0.01192, E=17.00, H=2.3517, D≈0.5309, V=31841.1261
+K (curvature bound)=1.0 Step 8: ε=0.00880, E=17.00, H=2.6156, D≈0.5526, V=50337.0228
+K (curvature bound)=1.0 Step 9: ε=0.00649, E=5.00, H=1.6094, D≈0.3195, V=75994.5531
+K (curvature bound)=2.0 Step 0: ε=0.10000, E=5671.00, H=3.0023, D≈1.3039, V=8.6398
+K (curvature bound)=2.0 Step 1: ε=0.07380, E=4312.00, H=2.7629, D≈1.0601, V=195.7336
+K (curvature bound)=2.0 Step 2: ε=0.05446, E=778.00, H=2.5914, D≈0.8905, V=808.3392
+K (curvature bound)=2.0 Step 3: ε=0.04019, E=1815.00, H=2.4911, D≈0.7751, V=2301.6971
+K (curvature bound)=2.0 Step 4: ε=0.02966, E=66.00, H=2.2397, D≈0.6367, V=5284.6935
+K (curvature bound)=2.0 Step 5: ε=0.02189, E=41.00, H=2.2781, D≈0.5961, V=10536.7571
+K (curvature bound)=2.0 Step 6: ε=0.01616, E=33.00, H=2.5245, D≈0.6119, V=19011.7261
+K (curvature bound)=2.0 Step 7: ε=0.01192, E=27.00, H=2.4762, D≈0.5591, V=31841.1261
+K (curvature bound)=2.0 Step 8: ε=0.00880, E=37.00, H=2.1193, D≈0.4478, V=50337.0228
+K (curvature bound)=2.0 Step 9: ε=0.00649, E=8.00, H=1.5607, D≈0.3099, V=75994.5531
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 15
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+============================================================
+ SECTOR 15 — Echo-Residue Multi-Family Stability Crown
+============================================================
+Use RN-biased directions? (y/n, default=n):
+Straight Step 0: ε=0.10000, E=8553.00, D≈2.3099, Ø⁰=0.9625, V=8.6398
+Straight Step 1: ε=0.07380, E=5992.00, D≈1.8002, Ø⁰=0.9799, V=195.7336
+Straight Step 2: ε=0.05446, E=183.00, D≈1.6337, Ø⁰=0.9911, V=808.3392
+Straight Step 3: ε=0.04019, E=227.00, D≈1.3659, Ø⁰=0.9933, V=2301.6971
+Straight Step 4: ε=0.02966, E=45.00, D≈1.0600, Ø⁰=0.9979, V=5284.6935
+Straight Step 5: ε=0.02189, E=50.00, D≈0.9861, Ø⁰=0.9983, V=10536.7571
+Straight Step 6: ε=0.01616, E=2525.00, D≈0.3859, Ø⁰=0.9992, V=19011.7261
+Straight Step 7: ε=0.01192, E=21.00, D≈0.6874, Ø⁰=0.9996, V=31841.1261
+Straight Step 8: ε=0.00880, E=10.00, D≈0.4865, Ø⁰=0.9999, V=50337.0228
+Straight Step 9: ε=0.00649, E=5.00, D≈0.3195, Ø⁰=0.9999, V=75994.5531
+Polygonal Step 0: ε=0.10000, E=11464.00, D≈2.2745, Ø⁰=0.9618, V=8.6398
+Polygonal Step 1: ε=0.07380, E=684.00, D≈2.0707, Ø⁰=0.9798, V=195.7336
+Polygonal Step 2: ε=0.05446, E=323.00, D≈1.6756, Ø⁰=0.9884, V=808.3392
+Polygonal Step 3: ε=0.04019, E=92.00, D≈1.2903, Ø⁰=0.9955, V=2301.6971
+Polygonal Step 4: ε=0.02966, E=65.00, D≈1.1078, Ø⁰=0.9971, V=5284.6935
+Polygonal Step 5: ε=0.02189, E=44.00, D≈0.9471, Ø⁰=0.9985, V=10536.7571
+Polygonal Step 6: ε=0.01616, E=36.00, D≈0.7978, Ø⁰=0.9991, V=19011.7261
+Polygonal Step 7: ε=0.01192, E=15.00, D≈0.5550, Ø⁰=0.9997, V=31841.1261
+Polygonal Step 8: ε=0.00880, E=11.00, D≈0.5066, Ø⁰=0.9998, V=50337.0228
+Polygonal Step 9: ε=0.00649, E=6.00, D≈0.3557, Ø⁰=0.9999, V=75994.5531
+Curved Step 0: ε=0.10000, E=1147.00, D≈2.5440, Ø⁰=0.9636, V=8.6398
+Curved Step 1: ε=0.07380, E=757.00, D≈2.0268, Ø⁰=0.9815, V=195.7336
+Curved Step 2: ε=0.05446, E=295.00, D≈1.6385, Ø⁰=0.9893, V=808.3392
+Curved Step 3: ε=0.04019, E=166.00, D≈1.3716, Ø⁰=0.9936, V=2301.6971
+Curved Step 4: ε=0.02966, E=81.00, D≈1.1457, Ø⁰=0.9964, V=5284.6935
+Curved Step 5: ε=0.02189, E=37.00, D≈0.9449, Ø⁰=0.9987, V=10536.7571
+Curved Step 6: ε=0.01616, E=38.00, D≈0.8151, Ø⁰=0.9991, V=19011.7261
+Curved Step 7: ε=0.01192, E=84.00, D≈0.6182, Ø⁰=0.9995, V=31841.1261
+Curved Step 8: ε=0.00880, E=15.00, D≈0.5194, Ø⁰=0.9998, V=50337.0228
+Curved Step 9: ε=0.00649, E=10.00, D≈0.4571, Ø⁰=0.9999, V=75994.5531
+Branching Step 0: ε=0.10000, E=6580.00, D≈2.3801, Ø⁰=0.9641, V=8.6398
+Branching Step 1: ε=0.07380, E=3092.00, D≈1.9443, Ø⁰=0.9805, V=195.7336
+Branching Step 2: ε=0.05446, E=258.00, D≈1.6661, Ø⁰=0.9894, V=808.3392
+Branching Step 3: ε=0.04019, E=2625.00, D≈1.1381, Ø⁰=0.9935, V=2301.6971
+Branching Step 4: ε=0.02966, E=43.00, D≈0.9726, Ø⁰=0.9981, V=5284.6935
+Branching Step 5: ε=0.02189, E=25.00, D≈0.8423, Ø⁰=0.9991, V=10536.7571
+Branching Step 6: ε=0.01616, E=32.00, D≈0.6590, Ø⁰=0.9994, V=19011.7261
+Branching Step 7: ε=0.01192, E=18.00, D≈0.6526, Ø⁰=0.9997, V=31841.1261
+Branching Step 8: ε=0.00880, E=9.00, D≈0.4642, Ø⁰=0.9999, V=50337.0228
+Branching Step 9: ε=0.00649, E=6.00, D≈0.3557, Ø⁰=0.9999, V=75994.5531
+
+Stability Crown Table (Final ε ≈ 0.00649)
+----------------------------------------------------------------------
+Family       Final D      Final Ø⁰     Classification
+----------------------------------------------------------------------
+straight     0.3195       0.9999       Chaotic / Other
+polygonal    0.3557       0.9999       Chaotic / Other
+curved       0.4571       0.9999       Balanced
+branching    0.3557       0.9999       Chaotic / Other
+----------------------------------------------------------------------
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 16
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+======================================================================
+ SECTOR 16 — High-Curvature Collapse Probe (Curved tubes) - v2.0
+======================================================================
+
+--------------------------------------------------------------------------------
+HYPOTHESIS UNDER TEST (High-Curvature Collapse):
+For curved tubes with curvature bound K ≥ 1.5,
+the numerical Minkowski dimension proxy D is expected to fall
+below 0.45 at ε ≤ 0.01 in >75% of realizations — indicating
+faster apparent collapse than straight tubes.
+
+OPPOSING SUB-HYPOTHESIS:
+If % D < 0.45 ≤ 50% at high K, curvature does not significantly
+accelerate dimensional collapse beyond moderate levels,
+suggesting geometry-limited packing efficiency.
+--------------------------------------------------------------------------------
+
+Run mode [1] Single (default) [2] Brute-force loop (auto-vary): 1
+Running straight-tube baseline (5 realizations)...
+Straight baseline mean D = 0.5042
+
+--- Curvature K = 1.0 ---
+  Realization 1/20 ... final D = 0.4251
+  Realization 2/20 ... final D = 0.4680
+  Realization 3/20 ... final D = 0.4707
+  Realization 4/20 ... final D = 0.5193
+  Realization 5/20 ... final D = 0.5792
+  Realization 6/20 ... final D = 0.4707
+  Realization 7/20 ... final D = 0.5701
+  Realization 8/20 ... final D = 0.6190
+  Realization 9/20 ... final D = 0.4492
+  Realization 10/20 ... final D = 0.4492
+  Realization 11/20 ... final D = 0.5870
+  Realization 12/20 ... final D = 0.5982
+  Realization 13/20 ... final D = 0.3897
+  Realization 14/20 ... final D = 0.4965
+  Realization 15/20 ... final D = 0.5314
+  Realization 16/20 ... final D = 0.5025
+  Realization 17/20 ... final D = 0.5458
+  Realization 18/20 ... final D = 0.4707
+  Realization 19/20 ... final D = 0.4387
+  Realization 20/20 ... final D = 0.4709
+
+--- Curvature K = 1.5 ---
+  Realization 1/20 ... final D = 0.4507
+  Realization 2/20 ... final D = 0.4644
+  Realization 3/20 ... final D = 0.4707
+  Realization 4/20 ... final D = 0.5491
+  Realization 5/20 ... final D = 0.5817
+  Realization 6/20 ... final D = 0.3978
+  Realization 7/20 ... final D = 0.5395
+  Realization 8/20 ... final D = 0.5070
+  Realization 9/20 ... final D = 0.4032
+  Realization 10/20 ... final D = 0.3897
+  Realization 11/20 ... final D = 0.4707
+  Realization 12/20 ... final D = 0.4807
+  Realization 13/20 ... final D = 0.5347
+  Realization 14/20 ... final D = 0.5125
+  Realization 15/20 ... final D = 0.5534
+  Realization 16/20 ... final D = 0.4424
+  Realization 17/20 ... final D = 0.5982
+  Realization 18/20 ... final D = 0.5804
+  Realization 19/20 ... final D = 0.4387
+  Realization 20/20 ... final D = 0.5080
+
+--- Curvature K = 2.0 ---
+  Realization 1/20 ... final D = 0.5458
+  Realization 2/20 ... final D = 0.4680
+  Realization 3/20 ... final D = 0.4914
+  Realization 4/20 ... final D = 0.4042
+  Realization 5/20 ... final D = 0.5347
+  Realization 6/20 ... final D = 0.4509
+  Realization 7/20 ... final D = 0.5909
+  Realization 8/20 ... final D = 0.4715
+  Realization 9/20 ... final D = 0.4591
+  Realization 10/20 ... final D = 0.3862
+  Realization 11/20 ... final D = 0.5572
+  Realization 12/20 ... final D = 0.5491
+  Realization 13/20 ... final D = 0.5306
+  Realization 14/20 ... final D = 0.4383
+  Realization 15/20 ... final D = 0.5536
+  Realization 16/20 ... final D = 0.5025
+  Realization 17/20 ... final D = 0.3663
+  Realization 18/20 ... final D = 0.5594
+  Realization 19/20 ... final D = 0.5625
+  Realization 20/20 ... final D = 0.5625
+
+--- Curvature K = 3.0 ---
+  Realization 1/20 ... final D = 0.3290
+  Realization 2/20 ... final D = 0.4424
+  Realization 3/20 ... final D = 0.4135
+  Realization 4/20 ... final D = 0.4707
+  Realization 5/20 ... final D = 0.4260
+  Realization 6/20 ... final D = 0.4436
+  Realization 7/20 ... final D = 0.3978
+  Realization 8/20 ... final D = 0.4837
+  Realization 9/20 ... final D = 0.4739
+  Realization 10/20 ... final D = 0.4140
+  Realization 11/20 ... final D = 0.5396
+  Realization 12/20 ... final D = 0.5193
+  Realization 13/20 ... final D = 0.4509
+  Realization 14/20 ... final D = 0.5954
+  Realization 15/20 ... final D = 0.4387
+  Realization 16/20 ... final D = 0.3991
+  Realization 17/20 ... final D = 0.5954
+  Realization 18/20 ... final D = 0.4807
+  Realization 19/20 ... final D = 0.4251
+  Realization 20/20 ... final D = 0.4709
+
+High-Curvature Collapse Summary (20 realizations)
+----------------------------------------------------------------------------------------------------
+K      Mean D ± std       % <0.45    % <0.40    % <0.35    Adj. slope
+----------------------------------------------------------------------------------------------------
+1.0    0.5026 ± 0.0621 25.0       5.0        0.0        0.361
+1.5    0.4937 ± 0.0613 25.0       10.0       0.0        0.330
+2.0    0.4992 ± 0.0641 20.0       10.0       0.0        0.305
+3.0    0.4605 ± 0.0634 50.0       15.0       5.0        0.285
+----------------------------------------------------------------------------------------------------
+Overall % D < 0.45 for K ≥ 1.5: 31.7%
+WEAK EVIDENCE: Hypothesis not strongly supported
+OPPOSING SUB-HYPOTHESIS WINS: Curvature does not significantly accelerate collapse
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 22
+
+======================================================================
+ SECTOR 22 — Save Full Terminal Log
+======================================================================
+Log successfully saved to: kncf_logs\KNCF_log_2026-03-10_04-53-48.txt
+Total lines saved: 979
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 17
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+======================================================================
+ SECTOR 17 — RN-Bias Reduction Quantifier (Uniform vs RN) - v2.0
+======================================================================
+
+--------------------------------------------------------------------------------
+HYPOTHESIS UNDER TEST (RN-Bias Reduction):
+RN-biased directional clustering reduces the final dimension proxy D
+by 0.10–0.25 on average compared to uniform sampling across all families —
+suggesting directional anisotropy may enable more efficient packing
+and sub-3 dimensional Kakeya-like sets.
+
+OPPOSING SUB-HYPOTHESIS:
+If mean ΔD ≤ 0.05 or RN D higher than uniform in >50% of realizations,
+then RN-bias does not significantly reduce effective dimension,
+indicating directional clustering may not improve packing efficiency
+or could even increase apparent dimension.
+--------------------------------------------------------------------------------
+
+Run mode [1] Single (default) [2] Brute-force loop (auto-vary params): 1
+
+=== Straight ===
+  Mode: UNIFORM
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.1417
+    Realization 3/20 ... final D = 0.1417
+    Realization 4/20 ... final D = 0.1417
+    Realization 5/20 ... final D = 0.0000
+    Realization 6/20 ... final D = 0.1417
+    Realization 7/20 ... final D = 0.1417
+    Realization 8/20 ... final D = 0.0000
+    Realization 9/20 ... final D = 0.1417
+    Realization 10/20 ... final D = 0.1417
+    Realization 11/20 ... final D = 0.1417
+    Realization 12/20 ... final D = 0.0000
+    Realization 13/20 ... final D = 0.1417
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.0000
+    Realization 16/20 ... final D = 0.1417
+    Realization 17/20 ... final D = 0.0000
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.1417
+    → Mean final D = 0.0779 ± 0.0705
+  Mode: RN_BIASED
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.0000
+    Realization 3/20 ... final D = 0.0000
+    Realization 4/20 ... final D = 0.1150
+    Realization 5/20 ... final D = 0.0000
+    Realization 6/20 ... final D = 0.0000
+    Realization 7/20 ... final D = 0.0000
+    Realization 8/20 ... final D = 0.1774
+    Realization 9/20 ... final D = 0.0000
+    Realization 10/20 ... final D = 0.1943
+    Realization 11/20 ... final D = 0.1301
+    Realization 12/20 ... final D = 0.0000
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.1954
+    Realization 16/20 ... final D = 0.1301
+    Realization 17/20 ... final D = 0.1417
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0542 ± 0.0761
+
+=== Polygonal ===
+  Mode: UNIFORM
+    Realization 1/20 ... final D = 0.1417
+    Realization 2/20 ... final D = 0.2834
+    Realization 3/20 ... final D = 0.2834
+    Realization 4/20 ... final D = 0.0000
+    Realization 5/20 ... final D = 0.1417
+    Realization 6/20 ... final D = 0.0000
+    Realization 7/20 ... final D = 0.0000
+    Realization 8/20 ... final D = 0.0000
+    Realization 9/20 ... final D = 0.0000
+    Realization 10/20 ... final D = 0.1417
+    Realization 11/20 ... final D = 0.1417
+    Realization 12/20 ... final D = 0.2246
+    Realization 13/20 ... final D = 0.1417
+    Realization 14/20 ... final D = 0.1417
+    Realization 15/20 ... final D = 0.1417
+    Realization 16/20 ... final D = 0.2834
+    Realization 17/20 ... final D = 0.0000
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.1417
+    Realization 20/20 ... final D = 0.1417
+    → Mean final D = 0.1175 ± 0.0990
+  Mode: RN_BIASED
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.0000
+    Realization 3/20 ... final D = 0.0000
+    Realization 4/20 ... final D = 0.0000
+    Realization 5/20 ... final D = 0.0000
+    Realization 6/20 ... final D = 0.2125
+    Realization 7/20 ... final D = 0.0000
+    Realization 8/20 ... final D = 0.2105
+    Realization 9/20 ... final D = 0.0000
+    Realization 10/20 ... final D = 0.0000
+    Realization 11/20 ... final D = 0.0000
+    Realization 12/20 ... final D = 0.0000
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.0000
+    Realization 16/20 ... final D = 0.0000
+    Realization 17/20 ... final D = 0.2125
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0318 ± 0.0757
+
+=== Curved ===
+  Mode: UNIFORM
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.0000
+    Realization 3/20 ... final D = 0.0000
+    Realization 4/20 ... final D = 0.0000
+    Realization 5/20 ... final D = 0.1417
+    Realization 6/20 ... final D = 0.1417
+    Realization 7/20 ... final D = 0.3290
+    Realization 8/20 ... final D = 0.0000
+    Realization 9/20 ... final D = 0.0000
+    Realization 10/20 ... final D = 0.0000
+    Realization 11/20 ... final D = 0.0000
+    Realization 12/20 ... final D = 0.1417
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.2246
+    Realization 15/20 ... final D = 0.2723
+    Realization 16/20 ... final D = 0.0000
+    Realization 17/20 ... final D = 0.1301
+    Realization 18/20 ... final D = 0.2246
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0803 ± 0.1076
+  Mode: RN_BIASED
+    Realization 1/20 ... final D = 0.1417
+    Realization 2/20 ... final D = 0.0000
+    Realization 3/20 ... final D = 0.0000
+    Realization 4/20 ... final D = 0.2834
+    Realization 5/20 ... final D = 0.1417
+    Realization 6/20 ... final D = 0.0000
+    Realization 7/20 ... final D = 0.0000
+    Realization 8/20 ... final D = 0.0000
+    Realization 9/20 ... final D = 0.1301
+    Realization 10/20 ... final D = 0.0000
+    Realization 11/20 ... final D = 0.0000
+    Realization 12/20 ... final D = 0.0000
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.2246
+    Realization 16/20 ... final D = 0.0000
+    Realization 17/20 ... final D = 0.0000
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0461 ± 0.0853
+
+=== Branching ===
+  Mode: UNIFORM
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.0000
+    Realization 3/20 ... final D = 0.1417
+    Realization 4/20 ... final D = 0.2246
+    Realization 5/20 ... final D = 0.1417
+    Realization 6/20 ... final D = 0.0000
+    Realization 7/20 ... final D = 0.1417
+    Realization 8/20 ... final D = 0.2834
+    Realization 9/20 ... final D = 0.1417
+    Realization 10/20 ... final D = 0.0000
+    Realization 11/20 ... final D = 0.1417
+    Realization 12/20 ... final D = 0.0000
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.2246
+    Realization 16/20 ... final D = 0.0000
+    Realization 17/20 ... final D = 0.0000
+    Realization 18/20 ... final D = 0.1417
+    Realization 19/20 ... final D = 0.0000
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0791 ± 0.0939
+  Mode: RN_BIASED
+    Realization 1/20 ... final D = 0.0000
+    Realization 2/20 ... final D = 0.1943
+    Realization 3/20 ... final D = 0.0000
+    Realization 4/20 ... final D = 0.0000
+    Realization 5/20 ... final D = 0.0000
+    Realization 6/20 ... final D = 0.0000
+    Realization 7/20 ... final D = 0.0000
+    Realization 8/20 ... final D = 0.1150
+    Realization 9/20 ... final D = 0.1417
+    Realization 10/20 ... final D = 0.2195
+    Realization 11/20 ... final D = 0.0000
+    Realization 12/20 ... final D = 0.1417
+    Realization 13/20 ... final D = 0.0000
+    Realization 14/20 ... final D = 0.0000
+    Realization 15/20 ... final D = 0.0000
+    Realization 16/20 ... final D = 0.0000
+    Realization 17/20 ... final D = 0.1301
+    Realization 18/20 ... final D = 0.0000
+    Realization 19/20 ... final D = 0.2246
+    Realization 20/20 ... final D = 0.0000
+    → Mean final D = 0.0583 ± 0.0832
+
+RN-Bias Reduction Summary (ΔD = D_uniform - D_RN)
+----------------------------------------------------------------------------------------------------
+Family       Mean D_uniform     Mean D_RN          Mean ΔD      % RN lower
+----------------------------------------------------------------------------------------------------
+straight     0.0779 ± 0.0705 0.0542 ± 0.0761 0.0237       50.0
+polygonal    0.1175 ± 0.0990 0.0318 ± 0.0757 0.0857       65.0
+curved       0.0803 ± 0.1076 0.0461 ± 0.0853 0.0342       35.0
+branching    0.0791 ± 0.0939 0.0583 ± 0.0832 0.0208       40.0
+----------------------------------------------------------------------------------------------------
+Overall mean ΔD: 0.0411
+Overall % runs RN lower: 47.5%
+WEAK EVIDENCE: Hypothesis not strongly supported
+OPPOSING SUB-HYPOTHESIS WINS: RN-bias does not significantly reduce dimension
+
+Press ENTER to return to the main menu...
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+Enter choice: 18
+Enter number of steps (default=10):
+Enter number of directions N (default=50):
+Enter starting ε (default=0.1):
+Enter grid size (default=3000):
+
+======================================================================
+ SECTOR 18 — Branching Depth Efficiency Hammer - v2.0
+======================================================================
+
+--------------------------------------------------------------------------------
+HYPOTHESIS UNDER TEST (Branching Depth Efficiency):
+Branching tubes with depth ≥ 3 produce the lowest average final D proxy
+among all families (frequently < 0.35 at ε ≈ 0.005 in >75% of realizations),
+potentially indicating near-logarithmic packing efficiency in hierarchical
+tube structures.
+
+OPPOSING SUB-HYPOTHESIS:
+If mean D for depth ≥ 3 is not the lowest or % D < 0.35 ≤ 50%,
+then higher branching depth does not lower effective dimension,
+suggesting hierarchical structures may saturate or increase D due to
+redundancy in branching.
+--------------------------------------------------------------------------------
+
+Run mode [1] Single (default) [2] Brute-force loop (auto-vary): 1
+Running straight-tube baseline (5 realizations)...
+Straight baseline mean D = 0.5415
+
+--- Branch Depth = 1 ---
+  Realization 1/20 ... final D = 0.4251
+  Realization 2/20 ... final D = 0.5025
+  Realization 3/20 ... final D = 0.5668
+  Realization 4/20 ... final D = 0.4251
+  Realization 5/20 ... final D = 0.6124
+  Realization 6/20 ... final D = 0.3978
+  Realization 7/20 ... final D = 0.5536
+  Realization 8/20 ... final D = 0.5909
+  Realization 9/20 ... final D = 0.5347
+  Realization 10/20 ... final D = 0.4707
+  Realization 11/20 ... final D = 0.5395
+  Realization 12/20 ... final D = 0.4251
+  Realization 13/20 ... final D = 0.4902
+  Realization 14/20 ... final D = 0.4492
+  Realization 15/20 ... final D = 0.5668
+  Realization 16/20 ... final D = 0.5792
+  Realization 17/20 ... final D = 0.5243
+  Realization 18/20 ... final D = 0.4902
+  Realization 19/20 ... final D = 0.4707
+  Realization 20/20 ... final D = 0.5536
+  → Mean final D = 0.5084 ± 0.0615
+  → % realizations with D < 0.35 = 0.0%
+  → Adjusted late decay slope ≈ 0.613
+
+--- Branch Depth = 2 ---
+  Realization 1/20 ... final D = 0.4251
+  Realization 2/20 ... final D = 0.4902
+  Realization 3/20 ... final D = 0.5080
+  Realization 4/20 ... final D = 0.4492
+  Realization 5/20 ... final D = 0.4707
+  Realization 6/20 ... final D = 0.6651
+  Realization 7/20 ... final D = 0.5909
+  Realization 8/20 ... final D = 0.4902
+  Realization 9/20 ... final D = 0.5080
+  Realization 10/20 ... final D = 0.5792
+  Realization 11/20 ... final D = 0.5395
+  Realization 12/20 ... final D = 0.5080
+  Realization 13/20 ... final D = 0.5625
+  Realization 14/20 ... final D = 0.5792
+  Realization 15/20 ... final D = 0.5243
+  Realization 16/20 ... final D = 0.5909
+  Realization 17/20 ... final D = 0.5395
+  Realization 18/20 ... final D = 0.5243
+  Realization 19/20 ... final D = 0.5668
+  Realization 20/20 ... final D = 0.5080
+  → Mean final D = 0.5310 ± 0.0545
+  → % realizations with D < 0.35 = 0.0%
+  → Adjusted late decay slope ≈ 0.599
+
+--- Branch Depth = 3 ---
+  Realization 1/20 ... final D = 0.5243
+  Realization 2/20 ... final D = 0.2834
+  Realization 3/20 ... final D = 0.4492
+  Realization 4/20 ... final D = 0.3978
+  Realization 5/20 ... final D = 0.5243
+  Realization 6/20 ... final D = 0.5536
+  Realization 7/20 ... final D = 0.5491
+  Realization 8/20 ... final D = 0.5909
+  Realization 9/20 ... final D = 0.5347
+  Realization 10/20 ... final D = 0.5536
+  Realization 11/20 ... final D = 0.6124
+  Realization 12/20 ... final D = 0.5909
+  Realization 13/20 ... final D = 0.5243
+  Realization 14/20 ... final D = 0.5395
+  Realization 15/20 ... final D = 0.5982
+  Realization 16/20 ... final D = 0.4902
+  Realization 17/20 ... final D = 0.5751
+  Realization 18/20 ... final D = 0.5792
+  Realization 19/20 ... final D = 0.4902
+  Realization 20/20 ... final D = 0.5243
+  → Mean final D = 0.5243 ± 0.0750
+  → % realizations with D < 0.35 = 5.0%
+  → Adjusted late decay slope ≈ 0.603
+
+--- Branch Depth = 4 ---
+  Realization 1/20 ... final D = 0.5668
+  Realization 2/20 ... final D = 0.5792
+>> branch depth 4 still running for now, data will be added later
+
+
+log2 
+
+
+
+========================================================================
+        K A K E Y A   N I R V A N A   C O N J E C T U R E   F R A M E W O R K
+                         Python Suite — Version 0001
+========================================================================
+  A Computational Observatory for Exotic Kakeya Geometries
+  Straight Tubes | Polygonal Tubes | Curved Tubes | Branching Tubes
+  RN Weights | BTLIAD Evolution | SBHFF Stability | RHF Diagnostics
+========================================================================
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+
+======================================================================
+ SECTOR 21 — Directional Coverage Balancer (v1.1 - Final)
+======================================================================
+
+--------------------------------------------------------------------------------
+HYPOTHESIS UNDER TEST (Directional Coverage):
+Optimizing for even directional distribution on the sphere (max min angular separation)
+produces lower mean D than random placement,
+suggesting direction uniformity is key to efficient Kakeya-like packings.
+
+OPPOSING SUB-HYPOTHESIS:
+If directional balancing does not reduce D significantly,
+then direction uniformity is not the dominant factor in finite approximations.
+--------------------------------------------------------------------------------
+  Realization 1/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.5433, random D = 0.6254, ΔD = 0.0821
+  Realization 2/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6574, random D = 0.6340, ΔD = -0.0234
+  Realization 3/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6519, random D = 0.6399, ΔD = -0.0120
+  Realization 4/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6681, random D = 0.7090, ΔD = 0.0410
+  Realization 5/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6181, random D = 0.6964, ΔD = 0.0783
+  Realization 6/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6430, random D = 0.6653, ΔD = 0.0222
+  Realization 7/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.5759, random D = 0.5373, ΔD = -0.0386
+  Realization 8/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.5953, random D = 0.5970, ΔD = 0.0018
+  Realization 9/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6286, random D = 0.6507, ΔD = 0.0221
+  Realization 10/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6257, random D = 0.6599, ΔD = 0.0342
+  Realization 11/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.7436, random D = 0.7282, ΔD = -0.0154
+  Realization 12/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6097, random D = 0.6415, ΔD = 0.0318
+  Realization 13/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.7109, random D = 0.6415, ΔD = -0.0694
+  Realization 14/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6517, random D = 0.5970, ΔD = -0.0547
+  Realization 15/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.5613, random D = 0.5623, ΔD = 0.0009
+  Realization 16/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6269, random D = 0.6419, ΔD = 0.0151
+  Realization 17/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6397, random D = 0.5828, ΔD = -0.0569
+  Realization 18/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.5694, random D = 0.5388, ΔD = -0.0306
+  Realization 19/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.7168, random D = 0.6755, ΔD = -0.0413
+  Realization 20/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+balanced D = 0.6409, random D = 0.6209, ΔD = -0.0200
+
+Directional Balancer vs Random Summary
+----------------------------------------------------------------------------------------------------
+Mean D (Balanced): 0.6339
+Mean D (Random):   0.6323
+ΔD (Random - Balanced): -0.0016
+Noise floor ≈ 0.0505
+% runs Balanced lower: 50.0%
+% D < 0.35 (Balanced): 0.0%
+% D < 0.35 (Random):   0.0%
+----------------------------------------------------------------------------------------------------
+ΔD within noise floor — difference statistically insignificant
+
+INTERPRETATION: If directional balancing lowers D, it suggests even sphere coverage is key to Kakeya efficiency.
+If not, directional distribution may be secondary to spatial structure in finite approximations.
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+
+======================================================================
+ SECTOR 20 — Adaptive Coverage Avoidance System - v2.1 Final
+======================================================================
+
+--------------------------------------------------------------------------------
+HYPOTHESIS UNDER TEST (Adaptive Avoidance):
+Adaptive tubes that minimize overlap with existing coverage produce
+lower D than random placement, suggesting self-organizing systems
+approximate efficient Kakeya packings.
+
+OPPOSING SUB-HYPOTHESIS:
+If adaptive D is not significantly lower than random placement,
+then overlap avoidance does not improve packing efficiency in finite approximations.
+--------------------------------------------------------------------------------
+  Realization 1/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.8337, random D = 0.6610, ΔD = -0.1727
+  Realization 2/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7740, random D = 0.6915, ΔD = -0.0826
+  Realization 3/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7646, random D = 0.6468, ΔD = -0.1178
+  Realization 4/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7817, random D = 0.6738, ΔD = -0.1079
+  Realization 5/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7177, random D = 0.6040, ΔD = -0.1137
+  Realization 6/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7634, random D = 0.6323, ΔD = -0.1311
+  Realization 7/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7693, random D = 0.6265, ΔD = -0.1428
+  Realization 8/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.6384, random D = 0.5901, ΔD = -0.0483
+  Realization 9/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.6861, random D = 0.6475, ΔD = -0.0386
+  Realization 10/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7593, random D = 0.7002, ΔD = -0.0590
+  Realization 11/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7982, random D = 0.6985, ΔD = -0.0997
+  Realization 12/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7282, random D = 0.6776, ΔD = -0.0505
+  Realization 13/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7870, random D = 0.6982, ΔD = -0.0888
+  Realization 14/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7149, random D = 0.6175, ΔD = -0.0973
+  Realization 15/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7303, random D = 0.5988, ΔD = -0.1315
+  Realization 16/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7246, random D = 0.6549, ΔD = -0.0697
+  Realization 17/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7857, random D = 0.6221, ΔD = -0.1636
+  Realization 18/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7926, random D = 0.6858, ΔD = -0.1068
+  Realization 19/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7712, random D = 0.6271, ΔD = -0.1441
+  Realization 20/20
+    Step 1/10 ε=0.1000
+    Step 2/10 ε=0.0750
+    Step 3/10 ε=0.0563
+    Step 4/10 ε=0.0422
+    Step 5/10 ε=0.0316
+    Step 6/10 ε=0.0237
+    Step 7/10 ε=0.0178
+    Step 8/10 ε=0.0133
+    Step 9/10 ε=0.0100
+    Step 10/10 ε=0.0100
+adaptive D = 0.7701, random D = 0.6123, ΔD = -0.1578
+
+Adaptive vs Random Summary
+----------------------------------------------------------------------------------------------------
+Mean D (Adaptive): 0.7546
+Mean D (Random):   0.6483
+ΔD (Random - Adaptive): -0.1062
+Noise floor ≈ 0.0390
+% runs Adaptive lower: 0.0%
+% D < 0.35 (Adaptive): 0.0%
+% D < 0.35 (Random):   0.0%
+----------------------------------------------------------------------------------------------------
+WEAK EVIDENCE: No significant advantage from adaptive placement
+OPPOSING SUB-HYPOTHESIS WINS: Overlap avoidance does not improve packing
+
+INTERPRETATION: In this regime, greedy overlap-avoidance tends to increase D,
+suggesting that 'even coverage' is entropically expensive and not Kakeya-efficient.
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+
+======================================================================
+ SECTOR 19 — Hybrid Synergy Probe (RN + Curved + Branching) - v2.1 Crash-Fixed
+======================================================================
+
+=== Cycle 1 (N=50, grid=3000, realizations=20, ε_start=0.1) ===
+  Realization 1/20 started
+done
+  Realization 2/20 started
+done
+  Realization 3/20 started
+done
+  Realization 4/20 started
+done
+  Realization 5/20 started
+done
+  Realization 6/20 started
+done
+  Realization 7/20 started
+done
+  Realization 8/20 started
+done
+  Realization 9/20 started
+done
+  Realization 10/20 started
+done
+  Realization 11/20 started
+done
+  Realization 12/20 started
+done
+  Realization 13/20 started
+done
+  Realization 14/20 started
+done
+  Realization 15/20 started
+done
+  Realization 16/20 started
+done
+  Realization 17/20 started
+done
+  Realization 18/20 started
+done
+  Realization 19/20 started
+done
+  Realization 20/20 started
+done
+
+Hybrid Synergy Summary
+------------------------------------------------------------------------------------------
+Family       Mean D     Std D      % D < 0.35
+------------------------------------------------------------------------------------------
+straight     0.0288     0.0696     100.0
+curved       0.1538     0.1280     100.0
+branching    0.1615     0.1490     90.0
+hybrid       0.5426     0.0652     0.0
+------------------------------------------------------------------------------------------
+WEAK EVIDENCE: No clear synergy
+OPPOSING SUB-HYPOTHESIS WINS: Hybrid does not outperform individual mechanisms
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+
+======================================================================
+ SECTOR 22 — Save Full Terminal Log
+======================================================================
+
