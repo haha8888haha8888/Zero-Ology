@@ -1464,7 +1464,32 @@ Straight baseline mean D = 0.5415
 --- Branch Depth = 4 ---
   Realization 1/20 ... final D = 0.5668
   Realization 2/20 ... final D = 0.5792
->> branch depth 4 still running for now, data will be added later
+  Realization 3/20 ... final D = 0.5792
+  Realization 4/20 ... final D = 0.6019
+  Realization 5/20 ... final D = 0.5080
+  Realization 6/20 ... final D = 0.5243
+  Realization 7/20 ... final D = 0.4251
+  Realization 8/20 ... final D = 0.6224
+  Realization 9/20 ... final D = 0.5536
+  Realization 10/20 ... final D = 0.5080
+  Realization 11/20 ... final D = 0.6019
+  Realization 12/20 ... final D = 0.5668
+  Realization 13/20 ... final D = 0.5668
+  Realization 14/20 ... final D = 0.4707
+  Realization 15/20 ... final D = 0.5243
+  Realization 16/20 ... final D = 0.4902
+  Realization 17/20 ... final D = 0.5395
+  Realization 18/20 ... final D = 0.4902
+  Realization 19/20 ... final D = 0.5243
+  Realization 20/20 ... final D = 0.5395
+  → Mean final D = 0.5391 ± 0.0478
+  → % realizations with D < 0.35 = 0.0%
+  → Adjusted late decay slope ≈ 0.598
+
+--- Branch Depth = 5 ---
+  Realization 1/20 ... final D = 0.6019
+
+>> branch depth 5 still running for now, data will be added later
 
 
 log2 
