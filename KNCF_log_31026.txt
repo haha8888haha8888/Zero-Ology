@@ -8,7 +8,6 @@
   RN Weights | BTLIAD Evolution | SBHFF Stability | RHF Diagnostics
 ========================================================================
 
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -34,7 +33,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 1
 
 ============================================================
  SECTOR 1 — KNCF MASTER EQUATION SET (v1.0)
@@ -85,9 +83,6 @@ Equation 14 — BTLIAD Evolution:
 Equation 15 — SBHFF Stability:
     F_{n+1} = F_n + π sin(GF_n) - (αF_n²)/π
 
-
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -113,7 +108,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 2
 
 ============================================================
  SECTOR 2 — Straight Tube Simulation (Baseline)
@@ -122,8 +116,6 @@ Overlap Energy E = 712.0000
 Entropy H = 5.4107
 Dimension Proxy D ≈ 2.3498
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -149,7 +141,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 3
 
 ============================================================
  SECTOR 3 — RN Directional Weighting Demo
@@ -178,8 +169,6 @@ Directional Density ρ(v):
   ρ_9 = 0.163636
   ρ_10 = 0.181818
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -205,7 +194,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 4
 
 ============================================================
  SECTOR 4 — BTLIAD Evolution Demo
@@ -215,8 +203,6 @@ n=3 → V=1.9573e+02
 n=4 → V=8.0834e+02
 n=5 → V=2.3017e+03
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -242,7 +228,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 5
 
 ============================================================
  SECTOR 5 — SBHFF Stability Demo
@@ -258,8 +243,6 @@ Step 7: F = 3.530283
 Step 8: F = 1.942987
 Step 9: F = 4.749316
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -285,7 +268,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 6
 
 ============================================================
  SECTOR 6 — Polygonal Tube Simulation
@@ -294,8 +276,6 @@ Overlap Energy E = 6940.0000
 Entropy H = 5.5566
 Dimension Proxy D ≈ 2.4132
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -321,7 +301,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 7
 
 ============================================================
  SECTOR 7 — Curved Tube Simulation
@@ -330,8 +309,6 @@ Overlap Energy E = 3150.0000
 Entropy H = 4.1275
 Dimension Proxy D ≈ 1.7925
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -357,7 +334,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 8
 
 ============================================================
  SECTOR 8 — Branching Tube Simulation
@@ -366,8 +342,6 @@ Overlap Energy E = 1200.0000
 Entropy H = 5.2930
 Dimension Proxy D ≈ 2.2987
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -393,14 +367,12 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 9
 
 ============================================================
  SECTOR 9 — Entropy & Dimension Scan (High Resolution)
 ============================================================
 
 ε Scan Results:
-
 ε = 0.250  →  H = 8.0549   D ≈ 5.8104
 ε = 0.150  →  H = 7.5970   D ≈ 4.0045
 ε = 0.100  →  H = 7.0216   D ≈ 3.0494
@@ -408,8 +380,6 @@ Enter choice: 9
 ε = 0.050  →  H = 6.0241   D ≈ 2.0109
 ε = 0.030  →  H = 5.1961   D ≈ 1.4818
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -435,16 +405,10 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 10
 
 Select Tube Type:
 Options: straight, polygonal, curved, branching
-Enter tube type (default='straight'):
 Invalid or blank. Using default: 'straight'
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 10 — Full KNCF State Evolution
@@ -460,8 +424,6 @@ Step 7: ε=0.01192, E=17.00, H=2.6156, D≈0.5905, λ=3.8100
 Step 8: ε=0.00880, E=12.00, H=1.2425, D≈0.2625, λ=4.4321
 Step 9: ε=0.00649, E=4.00, H=1.3863, D≈0.2752, λ=3.8822
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -487,16 +449,10 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 11
 
 Select Tube Type:
 Options: straight, polygonal, curved, branching
-Enter tube type (default='straight'):
 Invalid or blank. Using default: 'straight'
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 11 — Full KNCF State BTLIAD Evolution
@@ -537,11 +493,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 12
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 12 — Full Full KNCF Evolution for tube type: STRAIGHT
@@ -599,8 +550,6 @@ Step 7: ε=0.01192, E=12.00, H=2.4849, D≈0.5610, V=31841.1261
 Step 8: ε=0.00880, E=6.00, H=1.7918, D≈0.3786, V=50337.0228
 Step 9: ε=0.00649, E=6.00, H=1.7918, D≈0.3557, V=75994.5531
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -626,11 +575,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 13
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 13 — RN-Biased Multi-Family Run
@@ -720,8 +664,6 @@ Branching Step 7: ε=0.01192, E=18.00, H=2.8904, D≈0.6526, V=31841.1261
 Branching Step 8: ε=0.00880, E=10.00, H=2.3026, D≈0.4865, V=50337.0228
 Branching Step 9: ε=0.00649, E=9.00, H=2.1972, D≈0.4362, V=75994.5531
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -747,11 +689,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 14
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 14 — Curvature & Branching Parameter Sweep
@@ -759,7 +696,6 @@ Enter grid size (default=3000):
 
 Select Family to Sweep:
 Options: curved, branching
-Enter family (default='curved'):
 Defaulting to 'curved'
 K (curvature bound)=0.1 Step 0: ε=0.10000, E=6188.00, H=5.4455, D≈2.3650, V=8.6398
 K (curvature bound)=0.1 Step 1: ε=0.07380, E=1079.00, H=5.2492, D≈2.0140, V=195.7336
@@ -802,8 +738,6 @@ K (curvature bound)=2.0 Step 7: ε=0.01192, E=27.00, H=2.4762, D≈0.5591, V=318
 K (curvature bound)=2.0 Step 8: ε=0.00880, E=37.00, H=2.1193, D≈0.4478, V=50337.0228
 K (curvature bound)=2.0 Step 9: ε=0.00649, E=8.00, H=1.5607, D≈0.3099, V=75994.5531
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -829,16 +763,10 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 15
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ============================================================
  SECTOR 15 — Echo-Residue Multi-Family Stability Crown
 ============================================================
-Use RN-biased directions? (y/n, default=n):
 Straight Step 0: ε=0.10000, E=8553.00, D≈2.3099, Ø⁰=0.9625, V=8.6398
 Straight Step 1: ε=0.07380, E=5992.00, D≈1.8002, Ø⁰=0.9799, V=195.7336
 Straight Step 2: ε=0.05446, E=183.00, D≈1.6337, Ø⁰=0.9911, V=808.3392
@@ -890,8 +818,6 @@ curved       0.4571       0.9999       Balanced
 branching    0.3557       0.9999       Chaotic / Other
 ----------------------------------------------------------------------
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -917,11 +843,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 16
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ======================================================================
  SECTOR 16 — High-Curvature Collapse Probe (Curved tubes) - v2.0
@@ -939,98 +860,176 @@ If % D < 0.45 ≤ 50% at high K, curvature does not significantly
 accelerate dimensional collapse beyond moderate levels,
 suggesting geometry-limited packing efficiency.
 --------------------------------------------------------------------------------
-
-Run mode [1] Single (default) [2] Brute-force loop (auto-vary): 1
 Running straight-tube baseline (5 realizations)...
 Straight baseline mean D = 0.5042
 
 --- Curvature K = 1.0 ---
-  Realization 1/20 ... final D = 0.4251
-  Realization 2/20 ... final D = 0.4680
-  Realization 3/20 ... final D = 0.4707
-  Realization 4/20 ... final D = 0.5193
-  Realization 5/20 ... final D = 0.5792
-  Realization 6/20 ... final D = 0.4707
-  Realization 7/20 ... final D = 0.5701
-  Realization 8/20 ... final D = 0.6190
-  Realization 9/20 ... final D = 0.4492
-  Realization 10/20 ... final D = 0.4492
-  Realization 11/20 ... final D = 0.5870
-  Realization 12/20 ... final D = 0.5982
-  Realization 13/20 ... final D = 0.3897
-  Realization 14/20 ... final D = 0.4965
-  Realization 15/20 ... final D = 0.5314
-  Realization 16/20 ... final D = 0.5025
-  Realization 17/20 ... final D = 0.5458
-  Realization 18/20 ... final D = 0.4707
-  Realization 19/20 ... final D = 0.4387
-  Realization 20/20 ... final D = 0.4709
+  Realization 1/20
+final D = 0.4251
+  Realization 2/20
+final D = 0.4680
+  Realization 3/20
+final D = 0.4707
+  Realization 4/20
+final D = 0.5193
+  Realization 5/20
+final D = 0.5792
+  Realization 6/20
+final D = 0.4707
+  Realization 7/20
+final D = 0.5701
+  Realization 8/20
+final D = 0.6190
+  Realization 9/20
+final D = 0.4492
+  Realization 10/20
+final D = 0.4492
+  Realization 11/20
+final D = 0.5870
+  Realization 12/20
+final D = 0.5982
+  Realization 13/20
+final D = 0.3897
+  Realization 14/20
+final D = 0.4965
+  Realization 15/20
+final D = 0.5314
+  Realization 16/20
+final D = 0.5025
+  Realization 17/20
+final D = 0.5458
+  Realization 18/20
+final D = 0.4707
+  Realization 19/20
+final D = 0.4387
+  Realization 20/20
+final D = 0.4709
 
 --- Curvature K = 1.5 ---
-  Realization 1/20 ... final D = 0.4507
-  Realization 2/20 ... final D = 0.4644
-  Realization 3/20 ... final D = 0.4707
-  Realization 4/20 ... final D = 0.5491
-  Realization 5/20 ... final D = 0.5817
-  Realization 6/20 ... final D = 0.3978
-  Realization 7/20 ... final D = 0.5395
-  Realization 8/20 ... final D = 0.5070
-  Realization 9/20 ... final D = 0.4032
-  Realization 10/20 ... final D = 0.3897
-  Realization 11/20 ... final D = 0.4707
-  Realization 12/20 ... final D = 0.4807
-  Realization 13/20 ... final D = 0.5347
-  Realization 14/20 ... final D = 0.5125
-  Realization 15/20 ... final D = 0.5534
-  Realization 16/20 ... final D = 0.4424
-  Realization 17/20 ... final D = 0.5982
-  Realization 18/20 ... final D = 0.5804
-  Realization 19/20 ... final D = 0.4387
-  Realization 20/20 ... final D = 0.5080
+  Realization 1/20
+final D = 0.4507
+  Realization 2/20
+final D = 0.4644
+  Realization 3/20
+final D = 0.4707
+  Realization 4/20
+final D = 0.5491
+  Realization 5/20
+final D = 0.5817
+  Realization 6/20
+final D = 0.3978
+  Realization 7/20
+final D = 0.5395
+  Realization 8/20
+final D = 0.5070
+  Realization 9/20
+final D = 0.4032
+  Realization 10/20
+final D = 0.3897
+  Realization 11/20
+final D = 0.4707
+  Realization 12/20
+final D = 0.4807
+  Realization 13/20
+final D = 0.5347
+  Realization 14/20
+final D = 0.5125
+  Realization 15/20
+final D = 0.5534
+  Realization 16/20
+final D = 0.4424
+  Realization 17/20
+final D = 0.5982
+  Realization 18/20
+final D = 0.5804
+  Realization 19/20
+final D = 0.4387
+  Realization 20/20
+final D = 0.5080
 
 --- Curvature K = 2.0 ---
-  Realization 1/20 ... final D = 0.5458
-  Realization 2/20 ... final D = 0.4680
-  Realization 3/20 ... final D = 0.4914
-  Realization 4/20 ... final D = 0.4042
-  Realization 5/20 ... final D = 0.5347
-  Realization 6/20 ... final D = 0.4509
-  Realization 7/20 ... final D = 0.5909
-  Realization 8/20 ... final D = 0.4715
-  Realization 9/20 ... final D = 0.4591
-  Realization 10/20 ... final D = 0.3862
-  Realization 11/20 ... final D = 0.5572
-  Realization 12/20 ... final D = 0.5491
-  Realization 13/20 ... final D = 0.5306
-  Realization 14/20 ... final D = 0.4383
-  Realization 15/20 ... final D = 0.5536
-  Realization 16/20 ... final D = 0.5025
-  Realization 17/20 ... final D = 0.3663
-  Realization 18/20 ... final D = 0.5594
-  Realization 19/20 ... final D = 0.5625
-  Realization 20/20 ... final D = 0.5625
+  Realization 1/20
+final D = 0.5458
+  Realization 2/20
+final D = 0.4680
+  Realization 3/20
+final D = 0.4914
+  Realization 4/20
+final D = 0.4042
+  Realization 5/20
+final D = 0.5347
+  Realization 6/20
+final D = 0.4509
+  Realization 7/20
+final D = 0.5909
+  Realization 8/20
+final D = 0.4715
+  Realization 9/20
+final D = 0.4591
+  Realization 10/20
+final D = 0.3862
+  Realization 11/20
+final D = 0.5572
+  Realization 12/20
+final D = 0.5491
+  Realization 13/20
+final D = 0.5306
+  Realization 14/20
+final D = 0.4383
+  Realization 15/20
+final D = 0.5536
+  Realization 16/20
+final D = 0.5025
+  Realization 17/20
+final D = 0.3663
+  Realization 18/20
+final D = 0.5594
+  Realization 19/20
+final D = 0.5625
+  Realization 20/20
+final D = 0.5625
 
 --- Curvature K = 3.0 ---
-  Realization 1/20 ... final D = 0.3290
-  Realization 2/20 ... final D = 0.4424
-  Realization 3/20 ... final D = 0.4135
-  Realization 4/20 ... final D = 0.4707
-  Realization 5/20 ... final D = 0.4260
-  Realization 6/20 ... final D = 0.4436
-  Realization 7/20 ... final D = 0.3978
-  Realization 8/20 ... final D = 0.4837
-  Realization 9/20 ... final D = 0.4739
-  Realization 10/20 ... final D = 0.4140
-  Realization 11/20 ... final D = 0.5396
-  Realization 12/20 ... final D = 0.5193
-  Realization 13/20 ... final D = 0.4509
-  Realization 14/20 ... final D = 0.5954
-  Realization 15/20 ... final D = 0.4387
-  Realization 16/20 ... final D = 0.3991
-  Realization 17/20 ... final D = 0.5954
-  Realization 18/20 ... final D = 0.4807
-  Realization 19/20 ... final D = 0.4251
-  Realization 20/20 ... final D = 0.4709
+  Realization 1/20
+final D = 0.3290
+  Realization 2/20
+final D = 0.4424
+  Realization 3/20
+final D = 0.4135
+  Realization 4/20
+final D = 0.4707
+  Realization 5/20
+final D = 0.4260
+  Realization 6/20
+final D = 0.4436
+  Realization 7/20
+final D = 0.3978
+  Realization 8/20
+final D = 0.4837
+  Realization 9/20
+final D = 0.4739
+  Realization 10/20
+final D = 0.4140
+  Realization 11/20
+final D = 0.5396
+  Realization 12/20
+final D = 0.5193
+  Realization 13/20
+final D = 0.4509
+  Realization 14/20
+final D = 0.5954
+  Realization 15/20
+final D = 0.4387
+  Realization 16/20
+final D = 0.3991
+  Realization 17/20
+final D = 0.5954
+  Realization 18/20
+final D = 0.4807
+  Realization 19/20
+final D = 0.4251
+  Realization 20/20
+final D = 0.4709
 
 High-Curvature Collapse Summary (20 realizations)
 ----------------------------------------------------------------------------------------------------
@@ -1045,8 +1044,6 @@ Overall % D < 0.45 for K ≥ 1.5: 31.7%
 WEAK EVIDENCE: Hypothesis not strongly supported
 OPPOSING SUB-HYPOTHESIS WINS: Curvature does not significantly accelerate collapse
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -1072,7 +1069,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 22
 
 ======================================================================
  SECTOR 22 — Save Full Terminal Log
@@ -1080,8 +1076,6 @@ Enter choice: 22
 Log successfully saved to: kncf_logs\KNCF_log_2026-03-10_04-53-48.txt
 Total lines saved: 979
 
-Press ENTER to return to the main menu...
-
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
   [2]  Straight Tube Simulation (Baseline)
@@ -1107,11 +1101,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 17
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ======================================================================
  SECTOR 17 — RN-Bias Reduction Quantifier (Uniform vs RN) - v2.0
@@ -1131,190 +1120,348 @@ indicating directional clustering may not improve packing efficiency
 or could even increase apparent dimension.
 --------------------------------------------------------------------------------
 
-Run mode [1] Single (default) [2] Brute-force loop (auto-vary params): 1
-
 === Straight ===
   Mode: UNIFORM
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.1417
-    Realization 3/20 ... final D = 0.1417
-    Realization 4/20 ... final D = 0.1417
-    Realization 5/20 ... final D = 0.0000
-    Realization 6/20 ... final D = 0.1417
-    Realization 7/20 ... final D = 0.1417
-    Realization 8/20 ... final D = 0.0000
-    Realization 9/20 ... final D = 0.1417
-    Realization 10/20 ... final D = 0.1417
-    Realization 11/20 ... final D = 0.1417
-    Realization 12/20 ... final D = 0.0000
-    Realization 13/20 ... final D = 0.1417
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.0000
-    Realization 16/20 ... final D = 0.1417
-    Realization 17/20 ... final D = 0.0000
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.1417
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.1417
+    Realization 3/20
+final D = 0.1417
+    Realization 4/20
+final D = 0.1417
+    Realization 5/20
+final D = 0.0000
+    Realization 6/20
+final D = 0.1417
+    Realization 7/20
+final D = 0.1417
+    Realization 8/20
+final D = 0.0000
+    Realization 9/20
+final D = 0.1417
+    Realization 10/20
+final D = 0.1417
+    Realization 11/20
+final D = 0.1417
+    Realization 12/20
+final D = 0.0000
+    Realization 13/20
+final D = 0.1417
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.0000
+    Realization 16/20
+final D = 0.1417
+    Realization 17/20
+final D = 0.0000
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.1417
     → Mean final D = 0.0779 ± 0.0705
   Mode: RN_BIASED
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.0000
-    Realization 3/20 ... final D = 0.0000
-    Realization 4/20 ... final D = 0.1150
-    Realization 5/20 ... final D = 0.0000
-    Realization 6/20 ... final D = 0.0000
-    Realization 7/20 ... final D = 0.0000
-    Realization 8/20 ... final D = 0.1774
-    Realization 9/20 ... final D = 0.0000
-    Realization 10/20 ... final D = 0.1943
-    Realization 11/20 ... final D = 0.1301
-    Realization 12/20 ... final D = 0.0000
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.1954
-    Realization 16/20 ... final D = 0.1301
-    Realization 17/20 ... final D = 0.1417
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.0000
+    Realization 3/20
+final D = 0.0000
+    Realization 4/20
+final D = 0.1150
+    Realization 5/20
+final D = 0.0000
+    Realization 6/20
+final D = 0.0000
+    Realization 7/20
+final D = 0.0000
+    Realization 8/20
+final D = 0.1774
+    Realization 9/20
+final D = 0.0000
+    Realization 10/20
+final D = 0.1943
+    Realization 11/20
+final D = 0.1301
+    Realization 12/20
+final D = 0.0000
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.1954
+    Realization 16/20
+final D = 0.1301
+    Realization 17/20
+final D = 0.1417
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0542 ± 0.0761
 
 === Polygonal ===
   Mode: UNIFORM
-    Realization 1/20 ... final D = 0.1417
-    Realization 2/20 ... final D = 0.2834
-    Realization 3/20 ... final D = 0.2834
-    Realization 4/20 ... final D = 0.0000
-    Realization 5/20 ... final D = 0.1417
-    Realization 6/20 ... final D = 0.0000
-    Realization 7/20 ... final D = 0.0000
-    Realization 8/20 ... final D = 0.0000
-    Realization 9/20 ... final D = 0.0000
-    Realization 10/20 ... final D = 0.1417
-    Realization 11/20 ... final D = 0.1417
-    Realization 12/20 ... final D = 0.2246
-    Realization 13/20 ... final D = 0.1417
-    Realization 14/20 ... final D = 0.1417
-    Realization 15/20 ... final D = 0.1417
-    Realization 16/20 ... final D = 0.2834
-    Realization 17/20 ... final D = 0.0000
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.1417
-    Realization 20/20 ... final D = 0.1417
+    Realization 1/20
+final D = 0.1417
+    Realization 2/20
+final D = 0.2834
+    Realization 3/20
+final D = 0.2834
+    Realization 4/20
+final D = 0.0000
+    Realization 5/20
+final D = 0.1417
+    Realization 6/20
+final D = 0.0000
+    Realization 7/20
+final D = 0.0000
+    Realization 8/20
+final D = 0.0000
+    Realization 9/20
+final D = 0.0000
+    Realization 10/20
+final D = 0.1417
+    Realization 11/20
+final D = 0.1417
+    Realization 12/20
+final D = 0.2246
+    Realization 13/20
+final D = 0.1417
+    Realization 14/20
+final D = 0.1417
+    Realization 15/20
+final D = 0.1417
+    Realization 16/20
+final D = 0.2834
+    Realization 17/20
+final D = 0.0000
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.1417
+    Realization 20/20
+final D = 0.1417
     → Mean final D = 0.1175 ± 0.0990
   Mode: RN_BIASED
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.0000
-    Realization 3/20 ... final D = 0.0000
-    Realization 4/20 ... final D = 0.0000
-    Realization 5/20 ... final D = 0.0000
-    Realization 6/20 ... final D = 0.2125
-    Realization 7/20 ... final D = 0.0000
-    Realization 8/20 ... final D = 0.2105
-    Realization 9/20 ... final D = 0.0000
-    Realization 10/20 ... final D = 0.0000
-    Realization 11/20 ... final D = 0.0000
-    Realization 12/20 ... final D = 0.0000
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.0000
-    Realization 16/20 ... final D = 0.0000
-    Realization 17/20 ... final D = 0.2125
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.0000
+    Realization 3/20
+final D = 0.0000
+    Realization 4/20
+final D = 0.0000
+    Realization 5/20
+final D = 0.0000
+    Realization 6/20
+final D = 0.2125
+    Realization 7/20
+final D = 0.0000
+    Realization 8/20
+final D = 0.2105
+    Realization 9/20
+final D = 0.0000
+    Realization 10/20
+final D = 0.0000
+    Realization 11/20
+final D = 0.0000
+    Realization 12/20
+final D = 0.0000
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.0000
+    Realization 16/20
+final D = 0.0000
+    Realization 17/20
+final D = 0.2125
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0318 ± 0.0757
 
 === Curved ===
   Mode: UNIFORM
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.0000
-    Realization 3/20 ... final D = 0.0000
-    Realization 4/20 ... final D = 0.0000
-    Realization 5/20 ... final D = 0.1417
-    Realization 6/20 ... final D = 0.1417
-    Realization 7/20 ... final D = 0.3290
-    Realization 8/20 ... final D = 0.0000
-    Realization 9/20 ... final D = 0.0000
-    Realization 10/20 ... final D = 0.0000
-    Realization 11/20 ... final D = 0.0000
-    Realization 12/20 ... final D = 0.1417
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.2246
-    Realization 15/20 ... final D = 0.2723
-    Realization 16/20 ... final D = 0.0000
-    Realization 17/20 ... final D = 0.1301
-    Realization 18/20 ... final D = 0.2246
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.0000
+    Realization 3/20
+final D = 0.0000
+    Realization 4/20
+final D = 0.0000
+    Realization 5/20
+final D = 0.1417
+    Realization 6/20
+final D = 0.1417
+    Realization 7/20
+final D = 0.3290
+    Realization 8/20
+final D = 0.0000
+    Realization 9/20
+final D = 0.0000
+    Realization 10/20
+final D = 0.0000
+    Realization 11/20
+final D = 0.0000
+    Realization 12/20
+final D = 0.1417
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.2246
+    Realization 15/20
+final D = 0.2723
+    Realization 16/20
+final D = 0.0000
+    Realization 17/20
+final D = 0.1301
+    Realization 18/20
+final D = 0.2246
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0803 ± 0.1076
   Mode: RN_BIASED
-    Realization 1/20 ... final D = 0.1417
-    Realization 2/20 ... final D = 0.0000
-    Realization 3/20 ... final D = 0.0000
-    Realization 4/20 ... final D = 0.2834
-    Realization 5/20 ... final D = 0.1417
-    Realization 6/20 ... final D = 0.0000
-    Realization 7/20 ... final D = 0.0000
-    Realization 8/20 ... final D = 0.0000
-    Realization 9/20 ... final D = 0.1301
-    Realization 10/20 ... final D = 0.0000
-    Realization 11/20 ... final D = 0.0000
-    Realization 12/20 ... final D = 0.0000
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.2246
-    Realization 16/20 ... final D = 0.0000
-    Realization 17/20 ... final D = 0.0000
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.1417
+    Realization 2/20
+final D = 0.0000
+    Realization 3/20
+final D = 0.0000
+    Realization 4/20
+final D = 0.2834
+    Realization 5/20
+final D = 0.1417
+    Realization 6/20
+final D = 0.0000
+    Realization 7/20
+final D = 0.0000
+    Realization 8/20
+final D = 0.0000
+    Realization 9/20
+final D = 0.1301
+    Realization 10/20
+final D = 0.0000
+    Realization 11/20
+final D = 0.0000
+    Realization 12/20
+final D = 0.0000
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.2246
+    Realization 16/20
+final D = 0.0000
+    Realization 17/20
+final D = 0.0000
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0461 ± 0.0853
 
 === Branching ===
   Mode: UNIFORM
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.0000
-    Realization 3/20 ... final D = 0.1417
-    Realization 4/20 ... final D = 0.2246
-    Realization 5/20 ... final D = 0.1417
-    Realization 6/20 ... final D = 0.0000
-    Realization 7/20 ... final D = 0.1417
-    Realization 8/20 ... final D = 0.2834
-    Realization 9/20 ... final D = 0.1417
-    Realization 10/20 ... final D = 0.0000
-    Realization 11/20 ... final D = 0.1417
-    Realization 12/20 ... final D = 0.0000
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.2246
-    Realization 16/20 ... final D = 0.0000
-    Realization 17/20 ... final D = 0.0000
-    Realization 18/20 ... final D = 0.1417
-    Realization 19/20 ... final D = 0.0000
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.0000
+    Realization 3/20
+final D = 0.1417
+    Realization 4/20
+final D = 0.2246
+    Realization 5/20
+final D = 0.1417
+    Realization 6/20
+final D = 0.0000
+    Realization 7/20
+final D = 0.1417
+    Realization 8/20
+final D = 0.2834
+    Realization 9/20
+final D = 0.1417
+    Realization 10/20
+final D = 0.0000
+    Realization 11/20
+final D = 0.1417
+    Realization 12/20
+final D = 0.0000
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.2246
+    Realization 16/20
+final D = 0.0000
+    Realization 17/20
+final D = 0.0000
+    Realization 18/20
+final D = 0.1417
+    Realization 19/20
+final D = 0.0000
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0791 ± 0.0939
   Mode: RN_BIASED
-    Realization 1/20 ... final D = 0.0000
-    Realization 2/20 ... final D = 0.1943
-    Realization 3/20 ... final D = 0.0000
-    Realization 4/20 ... final D = 0.0000
-    Realization 5/20 ... final D = 0.0000
-    Realization 6/20 ... final D = 0.0000
-    Realization 7/20 ... final D = 0.0000
-    Realization 8/20 ... final D = 0.1150
-    Realization 9/20 ... final D = 0.1417
-    Realization 10/20 ... final D = 0.2195
-    Realization 11/20 ... final D = 0.0000
-    Realization 12/20 ... final D = 0.1417
-    Realization 13/20 ... final D = 0.0000
-    Realization 14/20 ... final D = 0.0000
-    Realization 15/20 ... final D = 0.0000
-    Realization 16/20 ... final D = 0.0000
-    Realization 17/20 ... final D = 0.1301
-    Realization 18/20 ... final D = 0.0000
-    Realization 19/20 ... final D = 0.2246
-    Realization 20/20 ... final D = 0.0000
+    Realization 1/20
+final D = 0.0000
+    Realization 2/20
+final D = 0.1943
+    Realization 3/20
+final D = 0.0000
+    Realization 4/20
+final D = 0.0000
+    Realization 5/20
+final D = 0.0000
+    Realization 6/20
+final D = 0.0000
+    Realization 7/20
+final D = 0.0000
+    Realization 8/20
+final D = 0.1150
+    Realization 9/20
+final D = 0.1417
+    Realization 10/20
+final D = 0.2195
+    Realization 11/20
+final D = 0.0000
+    Realization 12/20
+final D = 0.1417
+    Realization 13/20
+final D = 0.0000
+    Realization 14/20
+final D = 0.0000
+    Realization 15/20
+final D = 0.0000
+    Realization 16/20
+final D = 0.0000
+    Realization 17/20
+final D = 0.1301
+    Realization 18/20
+final D = 0.0000
+    Realization 19/20
+final D = 0.2246
+    Realization 20/20
+final D = 0.0000
     → Mean final D = 0.0583 ± 0.0832
 
 RN-Bias Reduction Summary (ΔD = D_uniform - D_RN)
@@ -1330,8 +1477,6 @@ Overall mean ΔD: 0.0411
 Overall % runs RN lower: 47.5%
 WEAK EVIDENCE: Hypothesis not strongly supported
 OPPOSING SUB-HYPOTHESIS WINS: RN-bias does not significantly reduce dimension
-
-Press ENTER to return to the main menu...
 
 Select a Sector to Run:
   [1]  KNCF Master Equation Set
@@ -1358,11 +1503,6 @@ Select a Sector to Run:
   [22] Save Full Terminal Log - manual saves required
   [0]  Exit
 ------------------------------------------------------------
-Enter choice: 18
-Enter number of steps (default=10):
-Enter number of directions N (default=50):
-Enter starting ε (default=0.1):
-Enter grid size (default=3000):
 
 ======================================================================
  SECTOR 18 — Branching Depth Efficiency Hammer - v2.0
@@ -1381,115 +1521,277 @@ then higher branching depth does not lower effective dimension,
 suggesting hierarchical structures may saturate or increase D due to
 redundancy in branching.
 --------------------------------------------------------------------------------
-
-Run mode [1] Single (default) [2] Brute-force loop (auto-vary): 1
 Running straight-tube baseline (5 realizations)...
 Straight baseline mean D = 0.5415
 
 --- Branch Depth = 1 ---
-  Realization 1/20 ... final D = 0.4251
-  Realization 2/20 ... final D = 0.5025
-  Realization 3/20 ... final D = 0.5668
-  Realization 4/20 ... final D = 0.4251
-  Realization 5/20 ... final D = 0.6124
-  Realization 6/20 ... final D = 0.3978
-  Realization 7/20 ... final D = 0.5536
-  Realization 8/20 ... final D = 0.5909
-  Realization 9/20 ... final D = 0.5347
-  Realization 10/20 ... final D = 0.4707
-  Realization 11/20 ... final D = 0.5395
-  Realization 12/20 ... final D = 0.4251
-  Realization 13/20 ... final D = 0.4902
-  Realization 14/20 ... final D = 0.4492
-  Realization 15/20 ... final D = 0.5668
-  Realization 16/20 ... final D = 0.5792
-  Realization 17/20 ... final D = 0.5243
-  Realization 18/20 ... final D = 0.4902
-  Realization 19/20 ... final D = 0.4707
-  Realization 20/20 ... final D = 0.5536
+  Realization 1/20
+final D = 0.4251
+  Realization 2/20
+final D = 0.5025
+  Realization 3/20
+final D = 0.5668
+  Realization 4/20
+final D = 0.4251
+  Realization 5/20
+final D = 0.6124
+  Realization 6/20
+final D = 0.3978
+  Realization 7/20
+final D = 0.5536
+  Realization 8/20
+final D = 0.5909
+  Realization 9/20
+final D = 0.5347
+  Realization 10/20
+final D = 0.4707
+  Realization 11/20
+final D = 0.5395
+  Realization 12/20
+final D = 0.4251
+  Realization 13/20
+final D = 0.4902
+  Realization 14/20
+final D = 0.4492
+  Realization 15/20
+final D = 0.5668
+  Realization 16/20
+final D = 0.5792
+  Realization 17/20
+final D = 0.5243
+  Realization 18/20
+final D = 0.4902
+  Realization 19/20
+final D = 0.4707
+  Realization 20/20
+final D = 0.5536
   → Mean final D = 0.5084 ± 0.0615
   → % realizations with D < 0.35 = 0.0%
   → Adjusted late decay slope ≈ 0.613
 
 --- Branch Depth = 2 ---
-  Realization 1/20 ... final D = 0.4251
-  Realization 2/20 ... final D = 0.4902
-  Realization 3/20 ... final D = 0.5080
-  Realization 4/20 ... final D = 0.4492
-  Realization 5/20 ... final D = 0.4707
-  Realization 6/20 ... final D = 0.6651
-  Realization 7/20 ... final D = 0.5909
-  Realization 8/20 ... final D = 0.4902
-  Realization 9/20 ... final D = 0.5080
-  Realization 10/20 ... final D = 0.5792
-  Realization 11/20 ... final D = 0.5395
-  Realization 12/20 ... final D = 0.5080
-  Realization 13/20 ... final D = 0.5625
-  Realization 14/20 ... final D = 0.5792
-  Realization 15/20 ... final D = 0.5243
-  Realization 16/20 ... final D = 0.5909
-  Realization 17/20 ... final D = 0.5395
-  Realization 18/20 ... final D = 0.5243
-  Realization 19/20 ... final D = 0.5668
-  Realization 20/20 ... final D = 0.5080
+  Realization 1/20
+final D = 0.4251
+  Realization 2/20
+final D = 0.4902
+  Realization 3/20
+final D = 0.5080
+  Realization 4/20
+final D = 0.4492
+  Realization 5/20
+final D = 0.4707
+  Realization 6/20
+final D = 0.6651
+  Realization 7/20
+final D = 0.5909
+  Realization 8/20
+final D = 0.4902
+  Realization 9/20
+final D = 0.5080
+  Realization 10/20
+final D = 0.5792
+  Realization 11/20
+final D = 0.5395
+  Realization 12/20
+final D = 0.5080
+  Realization 13/20
+final D = 0.5625
+  Realization 14/20
+final D = 0.5792
+  Realization 15/20
+final D = 0.5243
+  Realization 16/20
+final D = 0.5909
+  Realization 17/20
+final D = 0.5395
+  Realization 18/20
+final D = 0.5243
+  Realization 19/20
+final D = 0.5668
+  Realization 20/20
+final D = 0.5080
   → Mean final D = 0.5310 ± 0.0545
   → % realizations with D < 0.35 = 0.0%
   → Adjusted late decay slope ≈ 0.599
 
 --- Branch Depth = 3 ---
-  Realization 1/20 ... final D = 0.5243
-  Realization 2/20 ... final D = 0.2834
-  Realization 3/20 ... final D = 0.4492
-  Realization 4/20 ... final D = 0.3978
-  Realization 5/20 ... final D = 0.5243
-  Realization 6/20 ... final D = 0.5536
-  Realization 7/20 ... final D = 0.5491
-  Realization 8/20 ... final D = 0.5909
-  Realization 9/20 ... final D = 0.5347
-  Realization 10/20 ... final D = 0.5536
-  Realization 11/20 ... final D = 0.6124
-  Realization 12/20 ... final D = 0.5909
-  Realization 13/20 ... final D = 0.5243
-  Realization 14/20 ... final D = 0.5395
-  Realization 15/20 ... final D = 0.5982
-  Realization 16/20 ... final D = 0.4902
-  Realization 17/20 ... final D = 0.5751
-  Realization 18/20 ... final D = 0.5792
-  Realization 19/20 ... final D = 0.4902
-  Realization 20/20 ... final D = 0.5243
+  Realization 1/20
+final D = 0.5243
+  Realization 2/20
+final D = 0.2834
+  Realization 3/20
+final D = 0.4492
+  Realization 4/20
+final D = 0.3978
+  Realization 5/20
+final D = 0.5243
+  Realization 6/20
+final D = 0.5536
+  Realization 7/20
+final D = 0.5491
+  Realization 8/20
+final D = 0.5909
+  Realization 9/20
+final D = 0.5347
+  Realization 10/20
+final D = 0.5536
+  Realization 11/20
+final D = 0.6124
+  Realization 12/20
+final D = 0.5909
+  Realization 13/20
+final D = 0.5243
+  Realization 14/20
+final D = 0.5395
+  Realization 15/20
+final D = 0.5982
+  Realization 16/20
+final D = 0.4902
+  Realization 17/20
+final D = 0.5751
+  Realization 18/20
+final D = 0.5792
+  Realization 19/20
+final D = 0.4902
+  Realization 20/20
+final D = 0.5243
   → Mean final D = 0.5243 ± 0.0750
   → % realizations with D < 0.35 = 5.0%
   → Adjusted late decay slope ≈ 0.603
 
 --- Branch Depth = 4 ---
-  Realization 1/20 ... final D = 0.5668
-  Realization 2/20 ... final D = 0.5792
-  Realization 3/20 ... final D = 0.5792
-  Realization 4/20 ... final D = 0.6019
-  Realization 5/20 ... final D = 0.5080
-  Realization 6/20 ... final D = 0.5243
-  Realization 7/20 ... final D = 0.4251
-  Realization 8/20 ... final D = 0.6224
-  Realization 9/20 ... final D = 0.5536
-  Realization 10/20 ... final D = 0.5080
-  Realization 11/20 ... final D = 0.6019
-  Realization 12/20 ... final D = 0.5668
-  Realization 13/20 ... final D = 0.5668
-  Realization 14/20 ... final D = 0.4707
-  Realization 15/20 ... final D = 0.5243
-  Realization 16/20 ... final D = 0.4902
-  Realization 17/20 ... final D = 0.5395
-  Realization 18/20 ... final D = 0.4902
-  Realization 19/20 ... final D = 0.5243
-  Realization 20/20 ... final D = 0.5395
+  Realization 1/20
+final D = 0.5668
+  Realization 2/20
+final D = 0.5792
+  Realization 3/20
+final D = 0.5792
+  Realization 4/20
+final D = 0.6019
+  Realization 5/20
+final D = 0.5080
+  Realization 6/20
+final D = 0.5243
+  Realization 7/20
+final D = 0.4251
+  Realization 8/20
+final D = 0.6224
+  Realization 9/20
+final D = 0.5536
+  Realization 10/20
+final D = 0.5080
+  Realization 11/20
+final D = 0.6019
+  Realization 12/20
+final D = 0.5668
+  Realization 13/20
+final D = 0.5668
+  Realization 14/20
+final D = 0.4707
+  Realization 15/20
+final D = 0.5243
+  Realization 16/20
+final D = 0.4902
+  Realization 17/20
+final D = 0.5395
+  Realization 18/20
+final D = 0.4902
+  Realization 19/20
+final D = 0.5243
+  Realization 20/20
+final D = 0.5395
   → Mean final D = 0.5391 ± 0.0478
   → % realizations with D < 0.35 = 0.0%
   → Adjusted late decay slope ≈ 0.598
 
 --- Branch Depth = 5 ---
-  Realization 1/20 ... final D = 0.6019
+  Realization 1/20
+final D = 0.6019
+  Realization 2/20
+final D = 0.5909
+  Realization 3/20
+final D = 0.4177
+  Realization 4/20
+final D = 0.5243
+  Realization 5/20
+final D = 0.5536
+  Realization 6/20
+final D = 0.6224
+  Realization 7/20
+final D = 0.6953
+  Realization 8/20
+final D = 0.4251
+  Realization 9/20
+final D = 0.5909
+  Realization 10/20
+final D = 0.5792
+  Realization 11/20
+final D = 0.5870
+  Realization 12/20
+final D = 0.3978
+  Realization 13/20
+final D = 0.5751
+  Realization 14/20
+final D = 0.5668
+  Realization 15/20
+final D = 0.5243
+  Realization 16/20
+final D = 0.5243
+  Realization 17/20
+final D = 0.5909
+  Realization 18/20
+final D = 0.5668
+  Realization 19/20
+final D = 0.4251
+  Realization 20/20
+final D = 0.5080
+  → Mean final D = 0.5434 ± 0.0749
+  → % realizations with D < 0.35 = 0.0%
+  → Adjusted late decay slope ≈ 0.593
 
->> branch depth 5 still running for now, data will be added later
+Branching Depth Efficiency Summary (20 realizations)
+----------------------------------------------------------------------------------------------------
+Depth    Mean D ± std       % <0.35    % <0.30    % <0.25    Adj. slope
+----------------------------------------------------------------------------------------------------
+1        0.5084 ± 0.0615 0.0        0.0        0.0        0.613
+2        0.5310 ± 0.0545 0.0        0.0        0.0        0.599
+3        0.5243 ± 0.0750 5.0        5.0        0.0        0.603
+4        0.5391 ± 0.0478 0.0        0.0        0.0        0.598
+5        0.5434 ± 0.0749 0.0        0.0        0.0        0.593
+----------------------------------------------------------------------------------------------------
+Overall % D < 0.35 for depth ≥ 3: 1.7%
+WEAK EVIDENCE: Hypothesis not strongly supported
+OPPOSING SUB-HYPOTHESIS WINS: Higher branching does not lower dimension significantly
+
+Select a Sector to Run:
+  [1]  KNCF Master Equation Set
+  [2]  Straight Tube Simulation (Baseline)
+  [3]  RN Weighting Demo
+  [4]  BTLIAD Evolution Demo
+  [5]  SBHFF Stability Demo
+  [6]  Polygonal Tube Simulation
+  [7]  Curved Tube Simulation
+  [8]  Branching Tube Simulation
+  [9]  Entropy & Dimension Scan
+  [10] Full KNCF State Evolution
+  [11] Full KNCF State BTLIAD Evolution
+  [12] Full Full KNCF Full State Full BTLIAD Full Evolution
+  [13] RN-Biased Multi-Family Run
+  [14] Curvature & Branching Parameter Sweep
+  [15] Echo-Residue Multi-Family Stability Crown
+  [16] @@@ High-Curvature Collapse Probe
+  [17] RN Bias Reduction Sweep
+  [18] Branching Depth Hammer Test
+  [19] Hybrid Synergy Probe (RN + Curved + Branching)
+  [20] Adaptive Coverage Avoidance System
+  [21] Sector 21 - Directional Coverage Balancer
+  [22] Save Full Terminal Log - manual saves required
+  [0]  Exit
+------------------------------------------------------------
+
+======================================================================
+ SECTOR 22 — Save Full Terminal Log
+======================================================================
 
 
 log2 
