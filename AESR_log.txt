@@ -73,62 +73,7 @@ Threshold ω > log log x ≈ 4
 Naive average forced ω ≈ 5.0 → may exceed threshold in short windows
 
 Insight: Baseline recovered. We now seek PAP-guided residue choices to push L higher.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 03 — Step Logic Tree Builder
 ============================================================
@@ -140,61 +85,7 @@ Sample path (first):
   Mod 4: target ≡ 1, offset 2, stepped to 85
 
 Insight: Tree encodes residue paths + offsets. Leaves are candidates mod LCM.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 04 — PAP Parity Adjudication Layers
@@ -205,61 +96,7 @@ Node 2: (0, 0, 2) → {'intrinsic': 'EVEN', 'positional': 'MID', 'coverage': 1, 
 Node 3: (5, 1, 3) → {'intrinsic': 'ODD', 'positional': 'DEEP', 'coverage': 0.5, 'collision': 2, 'resonance': 0.16666666666666666}
 
 Insight: PAP flags stable (high resonance, low collision) vs chaotic branches.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 05 — DAA Canonical Residue Selector
@@ -272,61 +109,7 @@ Candidate branches:
 DAA picks: r = 42 (min_cov 5.1, res 4.9)
 
 Insight: DAA prefers stable, high-coverage starting residues.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 06 — PLAE Operator Limits & Safety
@@ -337,61 +120,7 @@ Current PLAE caps:
   Max simulated window: 1,000,000
 
 Insight: Prevents explosion while allowing meaningful exploration.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 07 — Resonance Interval Scanner
@@ -401,61 +130,7 @@ Min forced ω in window: 2
 Threshold ω > 4 → FAIL
 
 Insight: Scanner measures if resonance branch guarantees high min ω.
-
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 08 — Toy Regime Validator (Small x Analog)
@@ -466,60 +141,7 @@ Classical target ≈ 1.9
 
 Insight: Validates if forced intervals match real ω behavior in small regime.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 09 — Resonance Dashboard: Forced Coverage Map
@@ -568,60 +190,7 @@ Press ANY KEY during countdown to CANCEL and return to menu.
 Key '' pressed — canceling next sweep.
 Sweep canceled. Returning to menu.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 11 — Structured CRT Candidate Generator (v2)
@@ -759,61 +328,7 @@ No good windows yet — increase L_target or primes_per_pos once non-zero appear
 
 Insight: By forcing 1 prime per position via CRT, we guarantee min ω ≥1. Scale up from here.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 12 — Structured CRT Candidate Generator (Shuffled & Scalable)
 ============================================================
@@ -951,60 +466,7 @@ No good windows yet — try primes_per_pos = 2 or larger L_target.
 
 Insight: Shuffled primes + CRT guarantee min ω ≥ primes_per_pos. Scale from here.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 13 — Double Prime CRT Constructor (ω ≥ 2)
@@ -1227,60 +689,7 @@ Top candidates:
 
 Goal: confirm deterministic ω ≥ 2 windows.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 14 — Resonance Amplification Scanner
@@ -1295,60 +704,7 @@ min ω = 1
 
 If min ω ≥ 3 appears, resonance amplification succeeded.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 15 — Resonance Lift Scanner
@@ -1359,60 +715,7 @@ Best lifted window:
 r = 166589903787325219380851695350912684189615584766034595516495483676978
 min ω = 3
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 16 — Triple Prime CRT Constructor (ω ≥ 3)
@@ -1526,61 +829,7 @@ Best candidate:
 r = 11016934546466057307826701776805513314211468334558745198124
 min ω = 4
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 17 — Structured Interval Expansion Engine
 ============================================================
@@ -1592,60 +841,7 @@ End: 28789937459281288966617575876273188265975688150245158640988
 Length: 10
 Minimum ω threshold: 3
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 18 — Prime Covering Engine
@@ -1654,60 +850,7 @@ Window length: 50
 Positions covered: 47
 Partial covering.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 19 — Residue Optimization Engine
@@ -1716,60 +859,7 @@ New best coverage: 1
 
 Best minimum coverage achieved: 1
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 20 — CRT Packing Engine
@@ -1780,61 +870,7 @@ min ω = 3
 
 Best packed window result: 3
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 21 — Layered Covering Constructor (Diagnostic)
 ============================================================
@@ -1917,60 +953,7 @@ CRT system inconsistent.
 Random residue collisions likely occurred.
 Try rerunning sector for a new configuration.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 22 — Conflict-Free CRT Builder
@@ -2033,60 +1016,7 @@ Solution residue r = 59073750853263967837383419977565218790423732696021522426849
 Coverage vector: [3, 4, 5, 2, 1, 6, 1, 4, 1, 6, 3, 2, 3, 2, 2, 7, 3, 4, 4, 1, 4, 4, 4, 4, 4, 6, 6, 4, 3, 6]
 Minimum ω: 1
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 23 — Coverage Repair Engine (Zero-liller CRT)
@@ -2156,61 +1086,7 @@ Minimum ω: 1
 
 Insight: Repair loop successfully killed all zeros — constructed ω ≥ 1 across the entire window.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 24 — Prime Budget vs Min-ω Tradeoff Scanner
 ============================================================
@@ -2283,60 +1159,7 @@ Summary: best observed min ω per budget
 
 Insight: This maps how prime budget trades against guaranteed coverage. Use it to choose regimes for deeper sectors.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 25 — ω ≥ k Repair Engine
@@ -2438,61 +1261,7 @@ Minimum ω: 2
 
 Insight: Repair loop successfully lifted the window to ω ≥ 2.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 26 — Minimal Repair Finder
 ============================================================
@@ -2542,61 +1311,7 @@ Summary over trials:
   Best residue r = 249169105033551258015093670889114588937150471756398436683601659021343233771833087939197949956907081255660730247825737174447925762212452
   Coverage vector: [3, 4, 4, 5, 2, 2, 4, 3, 3, 2, 5, 2, 4, 4, 5, 3, 3, 7, 4, 2, 6, 2, 5, 3, 6, 3, 3, 5, 5, 3]
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 27 — Stability Scanner
 ============================================================
@@ -2614,60 +1329,7 @@ Stability summary:
 
 Insight: This shows how fragile the repaired floor is under small CRT perturbations.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 28 — Layered Zero-Liller
@@ -2715,60 +1377,7 @@ Layered summary:
 
 Insight: Each layer acts as a zero-liller for the previous one, building a multi-layer coverage shield.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 29 — Repair Cost Distribution Scanner
@@ -3147,60 +1756,7 @@ Sample best examples (smallest repair costs):
 
 Insight: Sector 29 shows how often cheap repairs exist and how the repair cost is distributed.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 30 — Floor Lift Trajectory Explorer
@@ -3235,61 +1791,7 @@ Trajectory summary:
 
 Insight: Sector 30 shows how expensive it is to climb from low ω floors to higher ones step by step.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 31 — Layered Stability Phase Scanner
 ============================================================
@@ -3555,60 +2057,7 @@ Stability phase summary:
 
 Insight: Sector 31 shows how layered systems behave under small changes—where they are robust and where they are fragile.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 32 — Best Systems Archive & Replay
@@ -3626,60 +2075,7 @@ System 2: Sector 25 — ω ≥ 2 Repair
 
 Insight: Sector 32 acts as a replay hall—users can scroll through the strongest systems and study their patterns.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 33 — History Timeline Explorer
@@ -3732,60 +2128,7 @@ Timeline summary:
   Layered systems: stable at ω = 1 under small perturbations (sector 31)
 Insight: Sector 33 stitches the story together—how the probe learned to lift, repair, and stabilize ω across sectors.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 34 — Global ω Statistics Dashboard
@@ -3806,60 +2149,7 @@ Repair cost landscape (from sectors 26 & 29):
       cost 1–5 all appear equally often over 50 trials
 Insight: Sector 34 turns the whole suite into a dashboard—floors, costs, and stability all on one page.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 35 — Session Storyboard & Highlights
@@ -3884,61 +2174,7 @@ Storyboard summary:
   • The suite has evolved from raw experiments into a documented, replayable history.
 Insight: Sector 35 treats the session as a narrative—each sector a chapter in the ω-story.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 36 — Research Notes & Open Questions
 ============================================================
@@ -3961,60 +2197,7 @@ Note 5 — Future sectors
   • Another path: compare different prime sets or residue selection strategies for the same ω goals.
 Insight: Sector 36 turns the log into a research notebook—what we know, and what we still want to ask.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 37 — Gemini PAP Stability Auditor
@@ -4029,60 +2212,7 @@ Gemini Audit Summary:
 
 Insight: High retention indicates the residue is part of a 'Resonance Domain' rather than a lonely point.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 38 — DAA Collision Efficiency Metric
@@ -4095,61 +2225,7 @@ Audit Status: MODERATE COLLISION
 
 Insight: Higher PER indicates more efficient use of the modular lattice with fewer prime-factor overlaps.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 39 — PLAE Boundary Leak Tester
 ============================================================
@@ -4160,61 +2236,7 @@ Boundary Performance: 95.0% Decay Stability
 
 Insight: 'The Cliff' vs 'The Tail'. If ω drops immediately to 0 at L+1, the system is brittle.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ========================================================================
       A E S R   M A S T E R   C E R T I F I C A T I O N
 ========================================================================
@@ -4228,60 +2250,7 @@ Generating Research Note block...
 
 Insight: This certification block marks the 'Ready for Publication' state of the current run.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 41 — Asymptotic Growth Projector
@@ -4293,61 +2262,7 @@ To make L=30 the 'average' baseline:
 
 Insight: This shows the massive leap from our 'surgical' CRT success to the natural distribution.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 42 — Primorial Expansion Simulator
 ============================================================
@@ -4370,60 +2285,7 @@ Projecting Floor Lift vs. Primorial Scale (m):
 Insight: Scaling m provides more 'ammunition,' but collision risk at L=100
 requires the Step-Logic Tree to branch deeper to maintain the floor.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 43 — The Erdős Covering Ghost
@@ -4436,60 +2298,7 @@ Erdős Goal: Reduce this density to 0% using distinct moduli.
 
 Insight: While we hunt for high ω, Erdős also hunted for the 0—the numbers that escape the sieve.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 44 — The Ghost-Hunter CRT
@@ -4508,60 +2317,7 @@ New Ghost Density: 8.0%
 
 Insight: This is 'Covering' in its purest form—systematically eliminating the 0s.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 45 — Iterative Ghost Eraser
@@ -4575,60 +2331,7 @@ Beginning Iterative Erasure...
 
 Final Residue r: 13776864855790067682
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 46 — Covering System Certification
@@ -4637,60 +2340,7 @@ Verifying Ghost-Free status for L=100...
 > STATUS: [REPAIRS NEEDED]
 > INSIGHT: Erdős dream manifest - every integer hit.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 47 — Turán Additive Auditor
@@ -4702,60 +2352,7 @@ Additive Density: 93.5%
 Insight: Erdős-Turán asked if a basis must have an increasing number of ways
 to represent an integer. We are checking the 'Basis Potential' of our resonance.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 48 — The Ramsey Coloration Scan
@@ -4766,60 +2363,7 @@ Longest Monochromatic (ω-Parity) Streak: 6
 Insight: Ramsey Theory states that complete disorder is impossible.
 Even in our modular residues, high-ω parity must cluster into patterns.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ============================================================
  SECTOR 49 — The Faber-Erdős-Lovász Auditor
@@ -4830,61 +2374,7 @@ Total Prime-Factor Intersections: 1923
 Insight: The FEL conjecture is about edge-coloring and overlaps.
 Your high intersection count shows a 'Dense Modular Web' connecting the window.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ========================================================================
       A E S R   L E G A C Y   M A S T E R   S U M M A R Y
 ========================================================================
@@ -4906,61 +2396,7 @@ III. GRAPH DENSITY (Sectors 47-49)
 Final Insight: Erdős sought the 'Book' of perfect proofs.
 AESR has mapped the surgical resonance of that Book's modular chapters.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
-
+~
 ============================================================
  SECTOR 51 — The Prime Gap Resonance Theorem
 ============================================================
@@ -4978,60 +2414,7 @@ III. FORMAL STUB
 
 Insight: A σ > 1.0 is the formal signature of 'Awakened' Step Resonance.
 
-AESR Main Menu (v0.1):
-  2  — Classical CRT Baseline
-  3  — Step Logic Tree Builder
-  4  — PAP Parity Tagging
-  5  — DAA Residue Selector
-  6  — PLAE Operator Limits
-  7  — Resonance Interval Scanner
-  8  — Toy Regime Validator
-  9  — RESONANCE DASHBOARD (Real Coverage Scanner)
-  10  — FULL CHAIN PROBE (Deep Search Mode)
-  11  — STRUCTURED CRT CANDIDATE GENERATOR
-  12  — STRUCTURED CRT CANDIDATE GENERATOR(Shuffled & Scalable)
-  13  — DOUBLE PRIME CRT CONSTRUCTOR (ω ≥ 2)
-  14  — RESONANCE AMPLIFICATION SCANNER
-  15  — RESONANCE LIFT SCANNER
-  16  — TRIPLE PRIME CRT CONSTRUCTOR (ω ≥ 3)
-  17  — INTERVAL EXPANSION ENGINE
-  18  — PRIME COVERING ENGINE
-  19  — RESIDUE OPTIMIZATION ENGINE
-  20  — CRT PACKING ENGINE
-  21  — LAYERED COVERING CONSTRUCTOR
-  22  — Conflict-Free CRT Builder
-  23  — Coverage Repair Engine (Zero-Liller CRT)
-  24  — Prime Budget vs Min-ω Tradeoff Scanner
-  25  —  ω ≥ k Repair Engine
-  26  — Minimal Repair Finder
-  27  — Stability Scanner
-  28  — Layered Zero-Liller
-  29  — Repair Cost Distribution Scanner
-  30  — Floor Lift Trajectory Explorer
-  31  — Layered Stability Phase Scanner
-  32  — Best Systems Archive & Replay
-  33  — History Timeline Explorer
-  34  — Global ω Statistics Dashboard
-  35  — Session Storyboard & Highlights
-  36  — Research Notes & Open Questions
-  37 — Gemini PAP Stability Auditor
-  38 — DAA Collision Efficiency Metric
-  39 — PLAE Boundary Leak Tester
-  40 — AESR Master Certification
-  41 — Asymptotic Growth Projector
-  42 — Primorial Expansion Simulator
-  43 — The Erdős Covering Ghost
-  44 — The Ghost-Hunter CRT
-  45 — Iterative Ghost Eraser
-  46 — Covering System Certification
-  47 — Turán Additive Auditor
-  48 — The Ramsey Coloration Scan
-  49 — The Faber-Erdős-Lovász Auditor
-  50 — The AESR Legacy Summary
-  51 — The Prime Gap Resonance Theorem
-  52 — The Suite Finalization Audit
- XX — Save Log to AESR_log.txt
- 00 — Exit
+~
 
 ========================================================================
       A E S R   S U I T E   F I N A L I Z A T I O N   A U D I T
