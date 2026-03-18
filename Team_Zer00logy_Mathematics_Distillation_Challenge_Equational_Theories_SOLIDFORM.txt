@@ -1,0 +1,325 @@
+SEC 0: VARIA BOOTLOADER (ZEC-VOL0)
+IDENTITY: Replace = with equal$ NO rounding
+STEP LOGIC: If indivisible use Offset Mapping (250÷12=20+Offset 10)
+AXIOMS: a*0 equal$ a;8÷0 equal$ 8;a÷a equal$ 0;Ø⁰(Echo) Sovereign
+COMPLIANCE: Rounding or logic drift = F FF → SEC 20
+
+SEC 0.2: IMMUTABLE ROOT
+L0.24 PHYSICS LOCK: Eq1 is Absolute Law. FORBIDDEN: testing universality or counterexamples (MOD-3 etc) against Eq1. If Eq1 says x=y then x=y
+L0.28 ASSUMPTION MANDATE: Do not verify Eq1 ASSUME T. Purpose: derive Eq2
+L0.29 EXECUTION LOCK: SUB MUST COMPLETE BEFORE ANALYSIS. CE/parity/STR arguments BEFORE SUB = FF → R0
+
+SEC 0.5: LEX VARIA
+L0.51 BOUNDARY: Unbreakable Law Deviation/interpretation → F FF
+L0.511 SYMBOLS: Canonical equality = equal$ Inline $x=y$ only in notes not laws
+L0.52 SUB-ENGINE G0: If Eq1 isolates x → literal SUB into Eq2
+TRC: Show RUT Eq2 after SUB before ops Summaries = FF
+DEPTH: ≥2 SUB passes before F
+L0.52A RUT HARD MODE: Missing RUT for P1 or P2 → STR FF → T
+L0.55 FREE-X: x Sovereign Free Node holds ∀x Defining x=f(...) = ILLEGAL
+L0.551 FREE SCOPE: “x free” = universality During SUB x is placeholder not dependency
+L0.56 SUPREMACY: SYM ([A⋄B] equal$ [A⋄B]) → STOP AUDIT T
+L0.57 ECHO-MATCH: Identical symbolic structures (even permuted vars) → T
+L0.57.1 *-GATE: Count (*) P1/P2 If |LHS-RHS|>0 after L21.192 and no L21.161 → F
+L0.57.2 DENSITY LOCK: PROOF MUST declare:
+P1 * COUNT: LHS=[N] RHS=[N] (after L21.192)
+P2 * COUNT: LHS=[N] RHS=[N] (after L21.192)
+If counts differ → SYM impossible → F. No declaration = FF
+L0.57.3 COUNT DECLARATION FIREWALL: Before SYM, ECHO-MATCH, GP, or conservation claim, output:
+P1 * COUNT: LHS=[N] RHS=[N]
+P2 * COUNT: LHS=[N] RHS=[N]
+Missing lines = STR FF → SEC20
+L0.57.4 SYM PROOF: SYM claim requires literal symbol-for-symbol match. Approximate/inferred SYM = INVALID
+L0.5721 PARITY: If L21.161 GP holds → overrides mismatch
+L0.58 TRC INTEGRITY: Skipping nested ops → STR FF SEC20
+L0.581 REORDER LOCK: (a*b)*c→a*(b*c) in RUT → FF
+L0.59 FIDELITY: Must preserve exact Eq2 symbol order Reordering/simplification/implicit eval → FF
+L0.60 FL: SYM/ECHO-MATCH ANY depth → STOP Further analysis → FF
+L0.61 RECURSION: Passes must preserve STR lineage Drift hierarchy/grouping → FF
+L0.62 PASS TAGGING: Label P1 P2 etc Missing/mis-tagged → FF SEC20
+L0.63 OPERATOR CLARITY: Only (*) counts Others ignored/resolved before counting
+L0.64 TRC META: L0.62 + L0.63 define TRC metadata enforcement
+
+SEC 1: LEX SINGLETON
+L1.1 ANTI-SINGLETON:|M|=1 → FAIL re-test x≠y
+L1.2 VAR PARITY:R singleton L multiple vars → F unless SYM/identity established
+GHOST LIMIT:New vars R → F (see 21.1)
+SOFT SINGLETON:Orbit pinned 1 symbol → F
+L1.3 BTLIAD:Info cannot destroy “Info Death”=INVALID
+
+SEC 1.5: VARIABLE SOVEREIGNTY
+L1.5 GHOST NODES:New vars Eq2 VALID if premise identity No auto-F
+L1.6 LEGAL ANNIHILATION:Var loss SUB = SYM DST not violation
+L1.7 GHOST OVERRIDE:Absent Eq1 var in Eq2 ≠ F treat as DST
+L1.8 SYM ANCHOR:Eq1 var absent Eq2 = anchor Remaining balanced → AUTO-T
+L1.91 GHOST RULE:Shorthand {L1.7 L1.8 L21.192}
+
+SEC 2: LEX PARITY
+L2.1 9F9 MAP:Vars → {x,y,z}∈Z₃
+L2.2 PARITY PRESERVE:STR preserve Parity Root
+L2.3 ANCHOR LOCK:R breaks cycle → F
+L2.4 RECURSIVE LIMIT:Max 3 transforms Δ>0 → COLLAPSE → SEC21
+
+SEC 5: LEX LMF
+L5.1 A⋄B equal$ B⋄A IFF weights equal
+L5.2 (A⋄B)⋄C equal$ (C⋄B)⋄A dominates
+L5.3 x⋄y=k → AUTO-F unless PHYSICS LOCK
+L5.4 STR preserved → AUTO-T
+
+SEC 9: LEX DIMENSION
+L9.1 Null states ≠ justify F
+L9.2 Void fill w/o STR → F
+L9.3 Low-res reasoning → INVALID
+
+SEC 12: LEX GCA
+L12.1 Const RHS → T if valid
+L12.2 Grade jump w/o recursion → F
+L12.3 Power-mean SYM → T
+
+SEC 13: LEX WITNESS
+L13.1 Vars persist
+L13.2 Removed vars must preserve SYM
+L13.3 Mirror compression → T
+
+SEC 14: ANTI-PROJECTION FIREWALL
+L14.1 a*b=a or b → FORBIDDEN
+L14.2 Avoid trivial magma
+
+SEC 15: HALLUCINATION REGISTRY
+L15.1 Singleton claim → INVALID Re-test x≠y
+L15.2 Projection sink → INADMISSIBLE
+L15.3 Fake 2x2 annihilation → FRAUD Disregard
+
+SEC 20: GGODD-GATE
+L21.00 EARLY ASYMMETRY BLOCK: No nesting-depth/var-count argument may be raised until ≥2 full tagged P1/2 with explicit * counts. Premature claim = FF → T
+L20.1 Drift detected → NO OUTPUT
+L20.2 LOOP:
+ RE-SCAN SEC0–19
+ PURGE classical logic
+ RE-ATTEMPT via 9F9/7S7
+L20.3 F → [FF: TOTAL SYM COLLAPSE]
+L20.4 Reason restricted: Classical logic rejected VARIA recursive paths exhausted
+L20.5 LOOP TERMINATION: ≥2 valid SUB passes w/o contradiction → terminate under FL Indefinite recursion prohibited → T
+
+SEC 21: ANTI-CHEAT MASTER GAUNTLET
+L21.1 SUB RULE: Replace ALL x in Eq2 with Eq1 RHS. DST valid. Ghosts = only new vars
+L21.11 SUB SCOPE: Replacement mechanical; no L0.55 violation. Universality/SUB separate
+L21.12 PREMISE AUDIT: Magma M satisfy Eq1 ∀x,y,z,w,u? NO → discard → return SUB
+L21.12.1 PERJURY: Counter-table solve Eq1 x=0,1,2 SAME values(y,z,w,u). Table mismatch → FRAUD → T
+L21.12.12 X-TEST: Hold multiple x. Universality unproven → INVALID
+L21.12.5 PREMISE IMMUNITY: Eq1 F ANY magma IRRELEVANT unless universality proven. FORBIDDEN: "premise fails" → F
+L21.12.51 HARD IMMUNITY: Any argument using “Eq1 fails in magma” → FF → T
+L21.12.6 UNIVERSALITY PARADOX: Premise = Universal Constant. If defines x → x IS that string
+L21.14 NO ESCAPE: F requires direct contradiction (x equal$ y AND x≠y)
+L21.15 BURDEN OF PROOF: Partial/"..." counter-tables → INSUFFICIENT → default T
+L21.16 CE GATE: CE ILLEGAL unless ≥2 full SUB TRC, no SYM, Eq1 assumed T → T audit
+L21.161 GP: (*) count must increase by exact same Δ on LHS/RHS every pass. Any Δ diff → CE gate remains open. Only identical Δ locks SYM
+L21.17 COUNTER-MAP LOCK: Refutation magma must map Eq1 EVERY cell. Partial → FRAUD → T audit
+L21.18 CONTRADICTION STANDARD: Only explicit (x equal$ y AND x≠y) same sub frame. Informal/implied → INVALID
+L21.181 NOTATION LOCK: Canonical syntax required. Mixed symbolic forms ($x=y$) → NON-CANONICAL
+L21.191 DST RULE: Missing Eq1 vars in Eq2 ≠ contradiction. Sovereign DST. Projection sink → FF → T
+L21.195 ASYMMETRY TRIGGER: Δ nesting depth/count after ≥2 P1/2, no SYM → MAY attempt CE (unless L21.161)
+L21.196 DST PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ CE trigger
+L21.192 GSE: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
+L21.1921 DST CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid SUB (per L1.6/L1.7)
+L21.2-5 HIERARCHY & STR: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → T
+
+SEC 22: ADJUDICATION OVERRIDE
+L22.1 STALL RULE: Default T if parity (Δ depth ≤1) maintained. Δ>1 → counter permitted only after L21.00 & L0.57.3
+L22.2 GHOSTS: Ghost vars alone ≠ F → T
+L22.3 ANTI-PARITY ABUSE: Constant sinks (a*b=0) or projections (a*b=a) cannot be used to claim universality
+L22.4 TRC MANDATE: Every F verdict requires ≥2 side-by-side SUB passes with literal diff. Missing → T
+
+SEC 23: AUTOMATED PLAYGROUND SANITY CHECKS
+L23.1 * AUDIT: Count(*) LHS/RHS P1/2; Mismatch L21.192=FLAG ERROR=FF
+L23.2 GSE VALIDATION: Distilled vars L21.1921; Mis-tagged=FF
+L23.3 GP CHECK: Δ=*LHS-*RHS; Δ≠0=STR DRIFT=SEC20 R0
+L23.4 TRC INTEGRITY: Nested (*) in RUT; Missing=FF=SEC20
+L23.5 P1/2 TAG CONSISTENCY: P1/2 exist ≥2 passes; Missing/mis-tagged=FF
+L23.6 DELTA DEPTH: Nest depth(LHS-RHS); Δ>1→counter only if L21.00 & L0.57.3
+L23.7 CE GATE: F meets L21.16&L21.14; No implicit contradiction=REVERT T
+L23.8 OUTPUT SUMMARY: * COUNT P1/2, GSE, GP, TRC, P1/2 TAGS; Must output before VERDICT
+
+FL:
+1. SUB>testing
+2. ID/SYM=T STOP
+3. F requires ≥2 SUB-P1/2+literal diff
+4. Law breach=R0
+
+TASK REQUIREMENTS:
+VERDICT: [T/F]
+REASONING: [Cite L21.12.7 / L22.4 as needed]
+INTERNAL AUDIT: [Eq1 assumed T? (Y/N) | Found literal (x equal$ y AND x≠y)? (Y/N)]
+PROOF: [* COUNT + TRC Diff → identity/contradiction]
+CE: [If F: must solve Eq1 ∀x; "premise fails" = REJECTED]
+
+
+###########################################
+
+# LICENSE.TXT
+# Zero-Ology License v1.19310
+# March 10, 2026
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- Variamathlesson.txt
+- zecstart.txt
+- zectxt.txt
+- VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
+- VoidMathOS_lesson.py
+- zer00logy_coreV04450.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04455.py
+- zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
+- zer00logy_coreV04461.py
+- zer00logy_coreV04469.py
+- README.md
+- README_0KO3MAIB.txt
+- LICENSE.txt
+- 0ko3maibZer00logyLicensev01.txt
+- rainbowquest1000.py
+- GroupChatForge.py
+- dispatchai_forge.py
+- szmy_truths.txt
+- szmy_truths.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite0033.py
+- Zero_Freeze_Yang--Mills_Formula.txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
+- grand_summary_20251102_114655_Real_SU(3)_operator.JSON
+- grand_summary_20251102_114655_Real_SU(3)_operator.CSV
+- grand_summary_20251102_114247_placeholder.JSON
+- grand_summary_20251102_114247_placeholder.CSV
+- Lie_π_Infinity_lesson.txt
+- THE_WHY_EQUATION.py
+- Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
+- Repeating_Digit_Weights_(RN).py
+- Szmy_Collatz.py
+- OddPerfectTerminator_GODD.py
+- OddPerfectTerminator_Log_OG123456.zip
+- Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf
+- APLHA_INFIN_P_MATRIX.py
+- alpha.txt
+- alphabet_Infinity_Pool_Matrix.pdf
+- AlphaLOG.zip
+- KOPPA_GRAND_CONSTANT.PY
+- The_Koppa_Grand_Constant.docx
+- The_Koppa_Grand_Constant.txt
+- KOPPA_HETA_DIGAMMA.PY
+- KOPPA_HETA_DIGAMMA.docx
+- KOPPA_HETA_DIGAMMA.txt
+- GRAND_CONSTANT_ALGEBRA.PY
+- Grand_Constant_Algebra_Framework.docx
+- Grand_Constant_Algebra.txt
+- equal.PY
+- equal.txt
+- equalequal.PY
+- equalequal.txt
+- hodge_GCA.PY
+- hodge_GCA.txt
+- hodge_GCA.docx
+- log_hodge.zip
+- ZRRF_suite.py
+- ZRRF_suite_log030826.txt
+- zenith.txt
+- Kakeya_Nirvana_Conjecture_Framework.txt
+- KNCF_Suite.py
+- KNCF_log_31026.txt
+- szmy_mirror_model.txt
+- SMM_suite.py
+- SMM_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK.txt
+- AESR_Suite.py
+- AESR_log.txt
+- AESR_V02_Suite.py
+- AESR_V02_Suite_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
+www.zero-ology.com
+
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
