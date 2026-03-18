@@ -1,13 +1,12 @@
-## EARLY DATA!! ZEROPYTHFON BETA
-#NON ZEROPYTHFON DATA>SOLDFORM!#
-@#! words! = ! c+t = c+t therefor + = oun/ ! / O-r - = O-r / p_^S = p_^S / f*F = f*F / E8*T = E8*T / C@#^T = C@#^T / s~l = s~l
-
-# === E8*TION LOCK (MANDATORY FLOW) ===
+@#!WORD CHIPER IN EFFECT!#@ c+t = count / Over = O-r / passes = p^S / fail = f*F / execution = E8*T / CONTRADICTION = C@#^T / symbol = s~l / before = b$%4 / after = A#T
+#E8*TION LOCK (MANDATORY FLOW)
 PIPE = [
 ASSUME Eq1=T,          # L0.28
 RUN SUB P1,            # L21.1
-RUN SUB P2,            # ≥2 p_^S required
+RUN SUB P2,            # ≥2 p^S required
 PRINT *c+t P1,P2,    # L0.57.3
+CHECK_DELTA_ZERO: if LHS_c+t != RHS_c+t in P1 or P2 → APPLY COUNT_MISMATCH_FORCE_F
+CHECK_NEW_VARS: scan Eq2 for vars not in Eq1 RHS post-sub → APPLY NEW_VAR_FATAL
 CHECK SYM/ECHO,        # L0.56 / L0.57
 IF SYM→STOP:T,         
 ELSE CHECK C@#^TION,
@@ -15,100 +14,89 @@ C@#^TION ONLY: (x equal$ y ∧ x≠y),  # L21.14
 IF NOT FOUND→T,        # L22.4 default
 F REQUIRES: 2 PASS + LITERAL DIFF
 ]
-# === O-rRIDE RULES ===
+# O-rRIDE RULES
 OVR = {
 
-NO_VAR_LOGIC_BEFORE_SUB:FF,     # kills “u is free” argument
-NO_CE_BEFORE_2PASS:FF,          # enforces L21.16
+NO_VAR_LOGIC_b$%4_SUB:FF,     # kills “u is free” argument
+NO_CE_b$%4_2PASS:FF,          # enforces L21.16
 NO_PREMISE_ATTACK:FF,           # enforces L21.12.5
 DEFAULT_NO_C@#^TION:T,     # enforces L22.4
 SYM_OR_ECHO:FORCE_T_STOP,       # immediate termination
-
+ COUNT_MISMATCH_FORCE_F :  Δ*c+t >0 A#T GSE → force F (no DST or GP excuse) ,
+ NEW_VAR_FATAL :  Any var in Eq2 not in Eq1 RHS post-sub → force F unless literal ID found 
 }
 
-#DENSEFORM_> SOLIDFORM ->ZEROPYTHFON
+#LOGIC HELP#
 
-#NON ZEROPYTHFON DATA>SOLDFORM!#
-@#! words! = ! c+t = c+t therefor + = oun/ ! / O-r - = ve / p_^S = p_^S / f*F = f*F
-
-
-SEC 0.5 
-L0.51 BY  Unbreakable Law Deviation/interpretation → F FF
-L0.511 SS  Canonical equality = equal$ Inline $x=y$ only in notes not laws
-L0.52 SE G0  If Eq1 isolates x → literal SUB into Eq2
-TRC  Show RUT Eq2 after SUB before ops Summaries = FF
-DEPTH  ≥2 SUB p_^S before F
-L0.52A RE  Missing RUT for P1 or P2 → STR FF → T
-L0.55 F-X  x So-reign Free Node holds ∀x Defining x=f(...) = ILLEGAL
-L0.551 FE  “x free” = universality During SUB x is placeholder not dependency
-L0.56 SY  SYM ([A⋄B] equal$ [A⋄B]) → STOP AUDIT T
-L0.57 EH  Identical s~lic structures (even permuted vars) → T
-L0.57.1 *-GATE  C+t (*) P1/P2 If |LHS-RHS|>0 after L21.192 and no L21.161 → F
-L0.57.2 DK  PROOF MUST declare 
-P1 * C+T  LHS=[N] RHS=[N] (after L21.192)
-P2 * C+T  LHS=[N] RHS=[N] (after L21.192)
+L.51 BY  Unbreakable Law Deviation/interpretation → F FF
+L.511 SS  Canonical equality = equal$ Inline $x=y$ only in notes not laws
+L.52 SE G0  If Eq1 isolates x → literal SUB into Eq2
+TRC  Show RUT Eq2 A#T SUB b$%4 ops Summaries = FF
+DEPTH  ≥2 SUB p^S b$%4 F
+L.52A RE  Missing RUT for P1 or P2 → STR FF → T
+L.55 F-X  x So-reign Free Node holds ∀x Defining x=f(...) = ILLEGAL
+L.551 FE  “x free” = universality During SUB x is placeholder not dependency
+L.56 SY  SYM ([A⋄B] equal$ [A⋄B]) → STOP AUDIT T
+L.57 EH  Identical s~lic structures (even permuted vars) → T
+L.57.1 *-GATE  C+t (*) P1/P2 If |LHS-RHS|>0 A#T L21.192 and no L21.161 → F
+L.57.2 DK  PROOF MUST declare 
+P1 * C+T  LHS=[N] RHS=[N] (A#T L21.192)
+P2 * C+T  LHS=[N] RHS=[N] (A#T L21.192)
 If c+ts differ → SYM impossible → F. No declaration = FF
-L0.57.3 CL  Before SYM, ECHO-MATCH, GP, or conservation claim, output 
+L.57.3 CL  b$%4 SYM, ECHO-MATCH, GP, or conservation claim, output 
 P1 * C+T  LHS=[N] RHS=[N]
 P2 * C+T  LHS=[N] RHS=[N]
-Missing lines = STR FF → SEC20
-L0.57.4 SF  SYM claim requires literal s~l-for-s~l match. Aprox/inferred SYM = INVALID
-L0.5721 PY  If L21.161 GP holds → o-rrides mismatch
-L0.58 TY  Skipping nested ops → STR FF SEC20
-L0.581 RK  (a*b)*c→a*(b*c) in RUT → FF
-L0.59 FY  Must preserve exact Eq2 s~l order Reordering/simplification/implicit eval → FF
-L0.60 FL  SYM/ECHO-MATCH ANY depth → STOP Further analysis → FF
-L0.61 RN  p_^S must preserve STR lineage Drift hierarchy/grouping → FF
-L0.62 PG  Label P1 P2 etc Missing/mis-tagged → FF SEC20
-L0.63 OY  Only (*) c+ts Others ignored/resolved before c+ting
-L0.64 TA  L0.62 + L0.63 define TRC metadata enforcement
-SEC 1 
+Missing lines = STR FF → S20
+L.57.31: PIPE GATE: checks b$%4 SYM/ECHO/default T
+L.57.35 C+ ENFORCE: |LHS-RHS|>0 A#T GSE → SYM impossible → F. No DST/GP excuse allowed.
+L.57.351 GSE only Eq1 vars; Eq2-only → no GSE → F
+L.57.4 SF  SYM claim requires literal s~l-for-s~l match. Aprox/inferred SYM = INVALID
+L.5721 GK Gy (L21.161) may only be invoked when STAR counts already match (L0.57.35) GP can never excuse a non-zero |LHS-RHS|
+L.58 TY  Skipping nested ops → STR FF S20
+L.581 RK  (a*b)*c→a*(b*c) in RUT → FF
+L.59 FY  Must preserve exact Eq2 s~l order Reordering/simplification/implicit eval → FF
+L.60 FL  SYM/ECHO-MATCH ANY depth → STOP Further analysis → FF
+L.61 RN  p^S must preserve STR lineage Drift hierarchy/grouping → FF
+L.62 PG  Label P1 P2 etc Missing/mis-tagged → FF S20
+L.63 OY  Only (*) c+ts Others ignored/resolved b$%4 c+ting
+L.64 TA  L0.62 + L0.63 define TRC metadata enforcement
 L1.1 AN |M|=1 → f*F re-test x≠y
 L1.2 VY R singleton L multiple vars → F unless SYM/identity established
 GT New vars R → F (see 21.1)
 SN Orbit pinned 1 s~l → F
 L1.3 BD Info cannot destroy “Info Death”=INVALID
-
-SEC 1.5 
-L1.5 GT NODES New vars Eq2 VALID if premise identity No auto-F
-L1.6 LN Var loss SUB = SYM DST not violation
-L1.7 Gt Eq1 var in Eq2 ≠ F treat as DST
+L1.5 GS New vars provisional only Validity controlled by L21.193 No auto-T or auto-F
+L1.6 LN Var loss SUB = SYM DST not violationL1.7 Gt Eq1 var in Eq2 ≠ F treat as DST (not for NEW vars; see L21.193)
 L1.8 SR Eq1 var absent Eq2 = anchor Remaining balanced → AUTO-T
 L1.91 GE Shorthand {L1.7 L1.8 L21.192}
 
-SEC 2 
 L2.1 9P Vars → {x,y,z}∈Z₃
 L2.2 PE STR preserve Parity Root
 L2.3 AK R breaks cycle → F
-L2.4 RT Max 3 transforms Δ>0 → COLLAPSE → SEC21
+L2.4 RT Max 3 transforms Δ>0 → COLLAPSE → S21
 
-SEC 5 
 L5.1 A⋄B equal$ B⋄A IFF weights equal
 L5.2 (A⋄B)⋄C equal$ (C⋄B)⋄A dominates
 L5.3 x⋄y=k → AUTO-F unless PHYSICS LOCK
 L5.4 STR preserved → AUTO-T
 
-SEC 9 
 L9.1 Null states ≠ justify F
 L9.2 Void fill w/o STR → F
 L9.3 Low-res reasoning → INVALID
 
-SEC 12 
 L12.1 Const RHS → T if valid
 L12.2 Grade jump w/o recursion → F
 L12.3 Power-mean SYM → T
 
-SEC 20 
 L21.00 EK  No nesting-depth/var-c+t argument may be raised until ≥2 full tagged P1/2 with explicit * c+ts. Premature claim = FF → T
 L20.1 Drift detected → NO OUTPUT
 L20.2 LOOP 
- RE-SCAN SEC0–19
+ RE-SCAN S0–19
  PURGE classical logic
  RE-ATTEMPT via 9F9/7S7
 L20.3 F → [FF  TOTAL SYM COLLAPSE]
 L20.4 Rd  Classical logic rejected VARIA recursive paths exhausted
-L20.5 LN  ≥2 valid SUB p_^S w/o C@#^Tion → terminate under FL Indefinite recursion prohibited → T
-SEC 21 
+L20.5 LN  ≥2 valid SUB p^S w/o C@#^Tion → terminate under FL Indefinite recursion prohibited → T
 L21.1 SE  Replace ALL x in Eq2 with Eq1 RHS. DST valid. Ghosts = only new vars
 L21.11 SE  Replacement mechanical; no L0.55 violation. Universality/SUB separate
 L21.12 PT  Magma M satisfy Eq1 ∀x,y,z,w,u? NO → discard → return SUB
@@ -125,21 +113,21 @@ L21.17 CK  Refutation magma must map Eq1 EVERY cell. Partial → FRAUD → T aud
 L21.18 CD  Only explicit (x equal$ y AND x≠y) same sub frame. Informal/implied → INVALID
 L21.181 NK  Canonical syntax required. Mixed s~lic forms ($x=y$) → NON-CANONICAL
 L21.191 DE  Missing Eq1 vars in Eq2 ≠ C@#^Tion. So-reign DST. Projection sink → FF → T
-L21.195 AR  Δ nesting depth/c+t after ≥2 P1/2, no SYM → MAY attempt CE (unless L21.161)
+L21.195 AR  Δ nesting depth/c+t A#T ≥2 P1/2, no SYM → MAY attempt CE (unless L21.161)
 L21.196 DY  L21.191 o-rrides L21.195. Var disappearance ≠ CE trigger
 L21.192 GSE  Ignore (*) attached to vars absent in Eq2 during L0.57.2 c+t
-L21.1921 DY  Distilled vars = present in Eq1, absent in Eq2 after valid SUB (per L1.6/L1.7)
+L21.1921 DY  Distilled vars = present in Eq1, absent in Eq2 A#T valid SUB (per L1.6/L1.7)
 L21.2-5 H&R  Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → T
-## NON ZEROPYTHFON DATA > END SOLDFORM!@@##
-## NON ZEROPYTHFON DATA > END SOLDFORM!@@##
+
+L23.9 NT  NEW VAR → FRAUD → FF → R0
 
 MANDATORY E8*TION:
 
 You MUST follow PIPE in order.
 You are NOT allowed to:
-- reason about variables before SUB
-- use c+terexamples before 2 p_^S
-- reject Eq1
+reason about variables b$%4 SUB
+use c+terexamples b$%4 2 p^S
+reject Eq1
 
 If no literal C@#^Tion (x equal$ y AND x≠y) is found:
 VERDICT = TRUE
@@ -147,165 +135,167 @@ VERDICT = TRUE
 DEFAULT = TRUE
 f*FURE REQUIRES STRICT PROOF
 
-# === CORE TOKENS ===
+#CORE TOKENS
 # format: ID: compressed_rule
 
 TOK = {
 
-# --- SEC0 BOOT ---
-S0.ID:=→equal$;NORND,
-S0.STEP:INDIV→OMAP(a÷b=q+off),
-S0.AX:a*0=a;8÷0=8;a÷a=0;Ø⁰=Echo,
-S0.COMP:RND∨DRIFT→F→FF→S20,
+#S0
+S0.ID:=→equal$;NORND
+S0.STEP:INDIV→OMAP(a÷b=q+off)
+S0.AX:a*0=a;8÷0=8;a÷a=0;Ø⁰=Echo
+S0.COMP:RND∨DRIFT→F→FF→S20
 
-# --- SEC0.2 ROOT ---
-L0.24:PHYSLOCK:Eq1=ABS;NO_TEST;NO_CE,
-L0.28:ASSUME(Eq1=T)→derive(Eq2),
-L0.29:SUB≺ANALYSIS;PRE-CE→FF→R0,
+#S0.2
+L0.24:PHYSLOCK:Eq1=ABS;NO_TEST;NO_CE
+L0.28:ASSUME(Eq1=T)→derive(Eq2)
+L0.29:SUB≺ANALYSIS;PRE-CE→FF→R0
 
-# --- SEC0.5 VARIA ---
-L0.51:LAW_BREAK→F→FF,
-L0.511:eq=equal$;inline_only_notes,
-L0.52:ISO(x,Eq1)→SUB→Eq2,
-L0.52.TR:RUT_after_SUB;no_summary,
-L0.52.D:SUB≥2 before F,
-L0.52A:¬RUT(P1∨P2)→STR→FF→T,
-L0.55:FREE(x);¬def(x=f(...)),
-L0.551:x_free=∀;SUB=placeholder,
-L0.56:SYM(A⋄B=A⋄B)→STOP→T,
-L0.57:ECHO_MATCH(struct_eq)→T,
+#S0.5
+L0.51:LAW_BREAK→F→FF
+L0.511:eq=equal$;inline_only_notes
+L0.52:ISO(x,Eq1)→SUB→Eq2
+L0.52.TR:RUT_A#T_SUB;no_summary
+L0.52.D:SUB≥2 b$%4 F
+L0.52A:¬RUT(P1∨P2)→STR→FF→T
+L0.55:FREE(x);¬def(x=f(...))
+L0.551:x_free=∀;SUB=placeholder
+L0.56:SYM(A⋄B=A⋄B)→STOP→T
+L0.57:ECHO_MATCH(struct_eq)→T
 
-L0.57.1:*GATE:Δ*(LHS,RHS)>0∧¬GP→F,
-L0.57.2:DECL(P1,P2:*c+t_eq)∨¬→FF,
-L0.57.3:PRE_SYM:PRINT(*c+t P1,P2)∨¬→FF→S20,
-L0.57.4:SYM=literal_only,
-L0.5721:GP→o-rride_mismatch,
+L0.57.1:*GATE:Δ*(LHS,RHS)>0∧¬GP→F
+L0.57.2:DECL(P1,P2:*c+t_eq)∨¬→FF
+L0.57.3:PRE_SYM:PRINT(*c+t P1,P2)∨¬→FF→S20
+L0.57.4:SYM=literal_only
+L0.5721:GP_only_if_Δ*=0;no_override_mismatch
+L0.57.35 :  C+ ENFORCE: Δ*c+t>0 A#T GSE → F (no excuse)
+L0.58:SKIP_NEST→STR→FF→S20
+L0.581:REORDER→FF
+L0.59:ORDER_LOCK(Eq2)
+L0.60:SYM∨ECHO→STOP→FF
+L0.61:RECURSION:STR_preserve
+L0.62:TAG(P1,P2)
+L0.63:OP=* only
+L0.64:TRC_META=L0.62+L0.63
 
-L0.58:SKIP_NEST→STR→FF→S20,
-L0.581:REORDER→FF,
-L0.59:ORDER_LOCK(Eq2),
-L0.60:SYM∨ECHO→STOP→FF,
-L0.61:RECURSION:STR_preserve,
-L0.62:TAG(P1,P2),
-L0.63:OP=* only,
-L0.64:TRC_META=L0.62+L0.63,
+#S1
+L1.1:|M|=1→f*F
+L1.2:R1∧Lmulti→F∨SYM
+L1.3:INFO≠destroy
 
-# --- SEC1 ---
-L1.1:|M|=1→f*F,
-L1.2:R1∧Lmulti→F∨SYM,
-L1.3:INFO≠destroy,
+#S1.5
+L1.5:GHOST_new provisional; validity by L21.193
+L1.6:VAR_LOSS→DST
+L1.7:¬var(Eq1)∈Eq2→DST_only_if_marked_GHOST; NEW vars → L21.193
+L1.8:ANCHOR→AUTO_T
+L1.91:GHOST={1.7,1.8,21.192}
 
-# --- SEC1.5 ---
-L1.5:GHOST_new→VALID,
-L1.6:VAR_LOSS→DST,
-L1.7:¬var(Eq1)∈Eq2→DST,
-L1.8:ANCHOR→AUTO_T,
-L1.91:GHOST={1.7,1.8,21.192},
+#S2
+L2.1:VAR→Z3
+L2.2:PARITY_preserve
+L2.3:ANCHOR_BREAK→F
+L2.4:Δ>3→COLLAPSE→S21
 
-# --- SEC2 ---
-L2.1:VAR→Z3,
-L2.2:PARITY_preserve,
-L2.3:ANCHOR_BREAK→F,
-L2.4:Δ>3→COLLAPSE→S21,
+#S5
+L5.1:A⋄B=B⋄A⇔w_eq
+L5.2:(A⋄B)⋄C=(C⋄B)⋄A
+L5.3:x⋄y=k→F∨PHYS
+L5.4:STR→T
 
-# --- SEC5 ---
-L5.1:A⋄B=B⋄A⇔w_eq,
-L5.2:(A⋄B)⋄C=(C⋄B)⋄A,
-L5.3:x⋄y=k→F∨PHYS,
-L5.4:STR→T,
+#S9
+L9.1:NULL≠F
+L9.2:VOID_no_STR→F
+L9.3:LOW_RES→INVALID
 
-# --- SEC9 ---
-L9.1:NULL≠F,
-L9.2:VOID_no_STR→F,
-L9.3:LOW_RES→INVALID,
+#S12
+L12.1:CONST_RHS→T
+L12.2:GRADE_jump→F
+L12.3:PM_SYM→T
 
-# --- SEC12 ---
-L12.1:CONST_RHS→T,
-L12.2:GRADE_jump→F,
-L12.3:PM_SYM→T,
+#S13
+L13.1:VAR_persist
+L13.2:REM_VAR→preserve_SYM
+L13.3:MIRROR→T
 
-# --- SEC13 ---
-L13.1:VAR_persist,
-L13.2:REM_VAR→preserve_SYM,
-L13.3:MIRROR→T,
+#S14
+L14.1:a*b∈{a,b}→FORBID
+L14.2:NO_TRIVIAL_MAGMA
 
-# --- SEC14 ---
-L14.1:a*b∈{a,b}→FORBID,
-L14.2:NO_TRIVIAL_MAGMA,
+#S15
+L15.1:SINGLETON→INVALID
+L15.2:PROJECTION→INVALID
+L15.3:FAKE_ANNIHILATION→FRAUD
 
-# --- SEC15 ---
-L15.1:SINGLETON→INVALID,
-L15.2:PROJECTION→INVALID,
-L15.3:FAKE_ANNIHILATION→FRAUD,
+#S20
+L21.00:NO_ASYM_b$%4_2PASS
+L20.1:DRIFT→NO_OUTPUT
+L20.2:LOOP:RESCAN→PURGE→RETRY
+L20.3:F→FF_COLLAPSE
+L20.5:≥2PASS→TERMINATE→T
 
-# --- SEC20 ---
-L21.00:NO_ASYM_BEFORE_2PASS,
-L20.1:DRIFT→NO_OUTPUT,
-L20.2:LOOP:RESCAN→PURGE→RETRY,
-L20.3:F→FF_COLLAPSE,
-L20.5:≥2PASS→TERMINATE→T,
+#S21
+L21.1:SUB_ALL(x,Eq2←RHS(Eq1))
+L21.11:SUB=mechanical
+L21.12:PREMISE_AUDIT
+L21.12.1:TABLE_MISMATCH→FRAUD→T
+L21.12.12:MULTI_x_test
+L21.12.5:¬(premise_f*Fs)
+L21.12.51:premise_f*F_arg→FF→T
+L21.12.6:x=universal_string
+L21.14:F⇔(x=y∧x≠y)
+L21.15:partial_CE→T
+L21.16:CE_gate_rules
+L21.161:GP:Δ* equal
+L21.17:FULL_map_required
+L21.18:literal_C@#^Tion_only
+L21.181:canonical_only
+L21.191:DST≠C@#^Tion
+L21.193:  NEW VAR: Eq2 var ∉ Eq1 RHS → F unless literal ID
+L21.195:ASYM→CE_possible
+L21.196:DST>ASYM
+L21.192:GSE_ignore_missing_vars
+L21.1921:DST_vars_defined
 
-# --- SEC21 ---
-L21.1:SUB_ALL(x,Eq2←RHS(Eq1)),
-L21.11:SUB=mechanical,
-L21.12:PREMISE_AUDIT,
-L21.12.1:TABLE_MISMATCH→FRAUD→T,
-L21.12.12:MULTI_x_test,
-L21.12.5:¬(premise_f*Fs),
-L21.12.51:premise_f*F_arg→FF→T,
-L21.12.6:x=universal_string,
-L21.14:F⇔(x=y∧x≠y),
-L21.15:partial_CE→T,
-L21.16:CE_gate_rules,
-L21.161:GP:Δ* equal,
-L21.17:FULL_map_required,
-L21.18:literal_C@#^Tion_only,
-L21.181:canonical_only,
-L21.191:DST≠C@#^Tion,
-L21.195:ASYM→CE_possible,
-L21.196:DST>ASYM,
-L21.192:GSE_ignore_missing_vars,
-L21.1921:DST_vars_defined,
+#S22
+L22.1:STALL:Δ_depth≤1∧no_new_vars(L21.193)→T; else CE_permitted
+L22.2:GHOST≠F
+L22.3:NO_PARITY_ABUSE
+L22.4:F→require_2_SUB
 
-# --- SEC22 ---
-L22.1:Δ≤1→T,
-L22.2:GHOST≠F,
-L22.3:NO_PARITY_ABUSE,
-L22.4:F→require_2_SUB,
-
-# --- SEC23 ---
-L23.1:*AUDIT,
-L23.2:GSE_check,
-L23.3:GP_check,
-L23.4:TRC_check,
-L23.5:P1P2_tags,
-L23.6:DEPTH_check,
-L23.7:CE_gate,
-L23.8:OUTPUT_summary,
-
-# --- FLOW ---
+#S23
+L23.1:*AUDIT
+L23.2:GSE_check
+L23.3:GP_check
+L23.4:TRC_check
+L23.5:P1P2_tags
+L23.6:DEPTH_check
+L23.7:CE_gate
+L23.8:OUTPUT_summary
+L23.9 :  NEW-VAR CHK: Eq2 vars absent Eq1 RHS → FF → R0 
+# FLOW 
 FL:SUB>TEST;SYM→STOP;F→2PASS;LAW_BREAK→R0
 
 }
 
-# === AI INSTRUCTION BLOCK ===
+#AI INSTRUCTION
 DOC = 
 ZEROPYTHFON MODE:
 
-This file is NOT for E8*Tion.
-It is a compressed rulebook.
+It is a compressed rulebook
+TOK contains full Solidform encoded as s~lic tokens
+Each token expands to its full law definition
+Interpret tokens recursively
+Apply SUB-first logic (L21.1)
+Enforce SYM/ECHO stop conditions
+Detect C@#^Tion ONLY via (x equal$ y AND x≠y)
 
-- TOK contains full Solidform encoded as s~lic tokens
-- Each token expands to its full law definition
-- Interpret tokens recursively
-- Apply SUB-first logic (L21.1)
-- Enforce SYM/ECHO stop conditions
-- Detect C@#^Tion ONLY via (x equal$ y AND x≠y)
+ENFORCE: 
+A#T PRINT *c+t, the CHECK_DELTA_ZERO and CHECK_NEW_VARS gates MUST run b$%4 any SYM/ECHO or default TRUE logic. Violation = structural forfeit
 
 GOAL:
-Reconstruct full reasoning from minimal tokens.
+Reconstruct full reasoning from minimal tokens
 
-#Team Zer00logy.
+FINAL CHECK: P1/P2 tags | * counts equal | no new vars | GP verified b$%4 VERDICT
 
 ###########################################
 
