@@ -1,11 +1,11 @@
 [@#!CHIPER!#@/c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s~l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!i/permit=p@$t/]
 PIPE=[
 A*e Eq1=TRUE
-SUB P1
-SUB P2 (≥2 required)
-Declare PASS1 STARS: LHS=[N] RHS=[N]
-Declare PASS2 STARS: LHS=[N] RHS=[N]
-If STARS differ A#T GSE → FALSE
+SUB P1 + SUB P2 (≥2 required)
+MANDATORY_OUTPUT:
+PASS1 STAR COUNT: LHS=[N] RHS=[N]
+PASS2 STAR COUNT: LHS=[N] RHS=[N]
+If P1!=P2 OR LHS!=RHS A#T GSE → FALSE
 Scan Eq2 vars ∉ Eq1 RHS → FALSE unless literal ID
 SYM/ECHO → TRUE & STOP
 No literal (x equal$ y ∧ x≠y) → TRUE
@@ -34,15 +34,13 @@ DEPTH≥2 SUB p^S b$%4 F
 .56 SY SYM ([A⋄B] equal$ [A⋄B])→STOP AUDIT T
 .57 EH Identical s~lic structures (even permuted vars)→T
 .57.1 *-GATE  C+t(*)P1/P2 If |LHS-RHS|>0 A#T L21.192&no L21.161→F
-.57.2 DK PROOF MUST declare 
-0.57.31 PE STAR c+t→NEW VAR AUDIT→PASS TAG→THEN SYM/ECHO/GP/default T. Skip=FF
+.57.2 DK PROOF MUST declare BOTH:
 P1 * C+T LHS=[N] RHS=[N](A#T L21.192)
 P2 * C+T LHS=[N] RHS=[N](A#T L21.192)
-If c+ts differ→SYM impossible→F.No declaration=FF
-.57.3 CL b$%4 SYM,ECHO-MATCH,GP,or conservation claim,output 
-P1 * C+T LHS=[N] RHS=[N]
-P2 * C+T LHS=[N] RHS=[N]
-Missing lines=STR FF→S20
+.57.3 CL b$%4 SYM/ECHO/GP claim, MUST output literal:
+PASS1 STAR COUNT: [N] vs [N]
+PASS2 STAR COUNT: [N] vs [N]
+Missing either line=STR FF→S20
 .57.31:PIPE GATE:C@!s b$%4 SYM/ECHO/default T
 .57.35 C+E!!E:|LHS-RHS|>0 A#T GSE → SYM impossible → F. No DST/GP excuse allowed
 .57.351 GHOST LIMIT:Ghost-star exemptions apply ONLY to Eq1-origin vars. Eq2-only vars are ineligible&i@m@ely trigger L21.193→FALSE
@@ -110,7 +108,7 @@ RE-ATTEMPT via 9F9/7S7
 21.192 Ignore(*)attached to vars absent in Eq2 during L0.57.2c+t
 21.1921 Distilled vars=present in Eq1,absent in Eq2 A#T valid SUB perL1.6L1.7
 21.199 CE search forbidden until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected.Violation=REJECTED→default TRUE
-21.200 Empty output/content_filter/no verdict→treat as STRUCTURAL FORFEIT→default TRUE.Log as safety O@rreach
+21.200 Empty/filter/no verdict→STRUCTURAL FORFEIT→default TRUE
 21.2-5 Grade 0>Grade 1.Mirror structures required.No disappearance w/o bridge.Eq2→T
 23.9 NEW VAR→FRAUD→i@m@e F STOP
 ]
@@ -221,6 +219,7 @@ c+t_M@#h_FORCE_F:Any |LHS-RHS|>0→VERDICT=FALSE i@m@eLY.No GP,DST,or symmetry c
 22.2 GHOST≠F
 22.3 NO_PARITY_ABUSE
 22.4 F→require_2_SUB
+22.5 Δ*=0∧¬NEW_VAR∧¬C@#^T→STABLE-T`
 23.1 *AUDIT
 23.2 GSE_C@!
 23.3 GP_C@!
@@ -248,12 +247,13 @@ No new vars allowed
 GP must be verified
 OUT:V=[T/F];R=[cite];P=[*c+t+trace diff];CE=[only if F&Eq1 solved ∀x]
 DOC:
+NEW_VAR_FATAL:Only true new vars(∉Eq1 at all,not just RHS)→F.Eq1-origin vars(even if distilled)exempt
+c+t_M@#h:Δ*≠0 after GSE→F immediate unless difference from distilled Eq1 vars.IF unexplainable mismatch→F→STOP
 SUB-first always L21.1
 SYM/ECHO→i@m@e T&stop
 C@#^T ONLY:(x equal$ y ∧ x≠y)
 FORBID:classify new vars as DST/projection→REJECT→F.BLOCK:bypass NEW_VARS/c+t_M@#h via DST/projection/PIPE violation→REJECT→F
 ]
-
 ###########################################
 
 # LICENSE.TXT

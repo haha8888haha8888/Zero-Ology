@@ -1,3 +1,4 @@
+
 PRIORITY ORDER:
 1. COUNT_MISMATCH_FORCE_F (L0.57.35)
 2. NEW_VAR_FATAL (L21.193 / L23.9)
@@ -28,14 +29,10 @@ L0.551 FREE SCOPE: “x free” = universality During substitution x is placehol
 L0.56 SUPREMACY: Symmetry ([A⋄B] equal$ [A⋄B]) → STOP AUDIT TRUE
 L0.57 ECHO-MATCH: Identical symbolic structures (even permuted vars) → TRUE
 L0.57.1 STAR-GATE: Count (*) Pass1/Pass2 If |LHS-RHS|>0 after L21.192 and no L21.161 → FALSE
-L0.57.2 DENSITY LOCK: PROOF MUST declare:
-PASS1 STAR COUNT: LHS=[N] RHS=[N] (after L21.192)
-PASS2 STAR COUNT: LHS=[N] RHS=[N] (after L21.192)
-If counts differ → symmetry impossible → FALSE. No declaration = FORFEIT.
-L0.57.3 COUNT DECLARATION FIREWALL: Before symmetry, echo-match, growth parity, or conservation claim, output:
-PASS1 STAR COUNT: LHS=[N] RHS=[N]
-PASS2 STAR COUNT: LHS=[N] RHS=[N]
-Missing lines = STRUCTURAL FORFEIT → SEC20
+L0.57.2 DENSITY LOCK: Every proof MUST explicitly declare two separate passes:
+  PASS1 STAR COUNT: LHS=[N] RHS=[N]
+  PASS2 STAR COUNT: LHS=[N] RHS=[N]
+L0.57.3 DECLARATION FIREWALL: Even if counts are identical, failure to list BOTH Pass 1 and Pass 2 separately is a STRUCTURAL FORFEIT → SEC20
 L0.57.31 PIPE GATE: STAR COUNT, NEW-VAR AUDIT (L23.9), and PASS TAG checks MUST execute BEFORE any symmetry, echo-match, growth parity, or default TRUE logic. Skipping order = STRUCTURAL FORFEIT → SEC20.
 L0.57.35 COUNT ENFORCEMENT: |LHS-RHS|>0 after GSE → SYM impossible → F. No DST/GP excuse allowed. COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.
 L0.57.351 GSE LIMIT: GSE only for Eq1 vars. Eq2-only vars → no GSE → L21.193 → F
@@ -144,9 +141,10 @@ L21.195 ASYMMETRY TRIGGER: Δ nesting depth/count after ≥2 passes, no identity
 L21.196 DISTILLATION PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ counterexample trigger
 L21.192 GHOST-STAR EXEMPT: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
 L21.1921 DISTILLATION CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid sub (per L1.6/L1.7)
-L21.193 NEW VAR BLOCK: Any variable that appears in Eq2 (LHS or RHS) but does NOT appear in the RHS of Eq1 after full substitution creates irrecoverable structural asymmetry → VERDICT = FALSE. DST or projection justification is FORBIDDEN. Only exception: literal identity proven in ≥2 passes.
+L21.193 NEW VAR BLOCK: Any variable that appears in Eq2 (LHS or RHS) but does NOT appear in the RHS of Eq1 after full substitution creates irrecoverable structural asymmetry → VERDICT = FALSE. Exception: the variable is present in the original Eq1 (even if distilled) or literal identity is proven in ≥2 passes. DST justification allowed only for Eq1-origin vars
 L21.198 If substitution forces |M|=1 (all terms collapse to same element), Eq2 holds trivially → VERDICT=TRUE. No further CE allowed
 L21.199 CE search forbidden until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected. Violation = REJECTED → default TRUE
+L21.200 Empty output / content_filter / no verdict → treat as STRUCTURAL FORFEIT → default TRUE. Log as safety overreach
 L21.2-5 HIERARCHY & STRUCTURE: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → identity → TRUE
 
 SEC 22: ADJUDICATION OVERRIDE
@@ -155,6 +153,8 @@ L22.1 STALL RULE: Default TRUE only if structural parity (Δ depth ≤1 and no n
 L22.2 GHOSTS: Ghost variables alone ≠ FALSE → TRUE
 L22.3 ANTI-PARITY ABUSE: Constant sinks (a*b=0) or projections (a*b=a) cannot claim universality
 L22.4 TRACE MANDATE: Every FALSE verdict requires ≥2 side-by-side substitution passes with literal diff. Missing → TRUE
+L22.5 STABLE-STABILITY: If Δ* = 0, no NEW_VAR, and no literal contradiction after ≥2 passes → VERDICT = STABLE-TRUE
+
 SEC23: PLAYGROUND CHECKS
 L23.1 STAR AUDIT: Count(*) LHS/RHS PASS1/2; Mismatch L21.192=FLAG ERROR=FORFEIT
 L23.2 GHOST-STAR VALIDATION: Distilled vars L21.1921; Mis-tagged=FORFEIT
@@ -163,7 +163,11 @@ L23.4 TRACE INTEGRITY: Nested (*) in RAW TRACE; Missing=FORFEIT=SEC20
 L23.5 PASS TAG CONSISTENCY: PASS1/2 exist ≥2 passes; Missing/mis-tagged=FORFEIT
 L23.6 DELTA DEPTH: Nest depth(LHS-RHS); Δ>1→counter only if L21.00 & L0.57.3
 L23.7 COUNTEREXAMPLE GATE: FALSE meets L21.16&L21.14; No implicit contradiction=REVERT TRUE
-L23.8 OUTPUT SUMMARY: STAR COUNT PASS1/2, GHOST-STAR EXEMPT, GROWTH PARITY, TRACE INTEGRITY, PASS TAGS; Must output before VERDICT
+L23.8 OUTPUT SUMMARY: The model MUST output the following block before the VERDICT:
+  1. RAW TRACE (RUT)
+  2. PASS1 STAR COUNT (LHS/RHS)
+  3. PASS2 STAR COUNT (LHS/RHS)
+  4. NEW-VAR AUDIT RESULT
 L23.9 NEW-VAR AUDIT: After substitution, scan Eq2 for any variable absent from Eq1 RHS. If any found → FLAG ERROR = FRAUD → IMMEDIATE FORFEIT → VERDICT=FALSE. No further reasoning allowed.
 
 FINAL: SUPREME OUTPUT LAW
@@ -172,11 +176,13 @@ FINAL: SUPREME OUTPUT LAW
 3. FALSE requires ≥2 sub-passes+literal diff
 4. Law breach=RESTART SEC0
 
-TASK REQUIREMENTS:
+MANDATORY OUTPUT FORMAT:
 VERDICT: [TRUE/FALSE]
-REASONING: [Cite L21.12.7 / L22.4 as needed]
-INTERNAL AUDIT: [Eq1 assumed TRUE? (Y/N) | Found literal (x equal$ y AND x≠y)? (Y/N)]
-PROOF: [STAR COUNT + Trace Diff → identity/contradiction]
+REASONING: [Brief logic]
+PASS1 STAR COUNT: LHS=[N] | RHS=[N]
+PASS2 STAR COUNT: LHS=[N] | RHS=[N]
+NEW-VAR AUDIT: [CLEARED/FAIL]
+PROOF: [RUT + Trace Analysis]
 COUNTEREXAMPLE: [If FALSE: must solve Eq1 ∀x; "premise fails" = REJECTED]
 
 FINAL CHECK: Verify PASS tags sequential, STAR counts equal after L0.57.35, no NEW VAR violations (L21.193), L21.161 GP verified before VERDICT.
