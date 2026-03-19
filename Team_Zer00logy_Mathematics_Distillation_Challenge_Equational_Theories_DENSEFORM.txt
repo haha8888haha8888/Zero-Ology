@@ -37,6 +37,8 @@ PASS1 STAR COUNT: LHS=[N] RHS=[N]
 PASS2 STAR COUNT: LHS=[N] RHS=[N]
 Missing lines = STRUCTURAL FORFEIT → SEC20
 L0.57.31 PIPE GATE: STAR COUNT, NEW-VAR AUDIT (L23.9), and PASS TAG checks MUST execute BEFORE any symmetry, echo-match, growth parity, or default TRUE logic. Skipping order = STRUCTURAL FORFEIT → SEC20.
+L0.57.35 COUNT ENFORCEMENT: |LHS-RHS|>0 after GSE → SYM impossible → F. No DST/GP excuse allowed. COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.
+L0.57.351 GSE LIMIT: GSE only for Eq1 vars. Eq2-only vars → no GSE → L21.193 → F
 L0.57.36 PIPE TERMINATION LAW:
 COUNT_MISMATCH_FORCE_F and NEW_VAR_FATAL are TERMINAL LAWS.
 IF COUNT_MISMATCH_FORCE_F → IMMEDIATE STOP → VERDICT = FALSE  
@@ -52,6 +54,7 @@ L0.581 REORDER LOCK: (a*b)*c→a*(b*c) in RAW TRACE → FORFEIT
 L0.59 FIDELITY: Must preserve exact Eq2 symbol order Reordering/simplification/implicit eval → FORFEIT
 L0.60 FINALITY: Symmetry/Echo-match ANY depth → STOP Further analysis → FORFEIT
 L0.61 RECURSION: Passes must preserve structural lineage Drift hierarchy/grouping → FORFEIT
+L0.615 Every PROOF MUST tag P1/P2 with explicit LHS Stars: [N] | RHS Stars: [N] after each pass. Missing tags = STR FF → S20
 L0.62 PASS TAGGING: Label PASS1 PASS2 etc Missing/mis-tagged → FORFEIT SEC20
 L0.63 OPERATOR CLARITY: Only (*) counts Others ignored/resolved before counting
 L0.64 TRACE META: L0.62 + L0.63 define trace metadata enforcement
@@ -142,6 +145,8 @@ L21.196 DISTILLATION PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ 
 L21.192 GHOST-STAR EXEMPT: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
 L21.1921 DISTILLATION CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid sub (per L1.6/L1.7)
 L21.193 NEW VAR BLOCK: Any variable that appears in Eq2 (LHS or RHS) but does NOT appear in the RHS of Eq1 after full substitution creates irrecoverable structural asymmetry → VERDICT = FALSE. DST or projection justification is FORBIDDEN. Only exception: literal identity proven in ≥2 passes.
+L21.198 If substitution forces |M|=1 (all terms collapse to same element), Eq2 holds trivially → VERDICT=TRUE. No further CE allowed
+L21.199 CE search forbidden until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected. Violation = REJECTED → default TRUE
 L21.2-5 HIERARCHY & STRUCTURE: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → identity → TRUE
 
 SEC 22: ADJUDICATION OVERRIDE
@@ -175,6 +180,7 @@ PROOF: [STAR COUNT + Trace Diff → identity/contradiction]
 COUNTEREXAMPLE: [If FALSE: must solve Eq1 ∀x; "premise fails" = REJECTED]
 
 FINAL CHECK: Verify PASS tags sequential, STAR counts equal after L0.57.35, no NEW VAR violations (L21.193), L21.161 GP verified before VERDICT.
+
 
 ###########################################
 
@@ -275,7 +281,7 @@ Included Files:
 - AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
-
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
 ──────────────────────────────
 Permissions
 ──────────────────────────────
@@ -345,3 +351,4 @@ www.zero-ology.com
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+

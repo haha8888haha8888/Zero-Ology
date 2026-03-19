@@ -1,30 +1,28 @@
-@#!CHIPER!#@c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s~l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!i/permit=p@$t/
+[@#!CHIPER!#@/c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s~l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!i/permit=p@$t/]
 PIPE=[
-A*e Eq1=T,#L0.28
-RUN SUB P1,#L21.1
-RUN SUB P2,# ≥2 p^S required
-PT@ *c+t P1,P2,#L0.57.3
-C@!_DELTA_ZERO:if LHS_c+t !=RHS_c+t in P1 or P2→APPLY c+t_M@#h_FORCE_F
-C@!_NEW_VARS:scan Eq2 for vars not in Eq1 RHS post-sub→APPLY NEW_VAR_FATAL
-C@! SYM/ECHO,#L0.56/L0.57
-IF SYM→STOP:T,         
-ELSE C@! C@#^TION,
-C@#^TION ONLY:(x equal$ y ∧ x≠y),#L21.14
-IF NOT f&D→T,#L22.4 default
-F REQUIRES:2 PASS+LITERAL DIFF
+A*e Eq1=TRUE
+SUB P1
+SUB P2 (≥2 required)
+Declare PASS1 STARS: LHS=[N] RHS=[N]
+Declare PASS2 STARS: LHS=[N] RHS=[N]
+If STARS differ A#T GSE → FALSE
+Scan Eq2 vars ∉ Eq1 RHS → FALSE unless literal ID
+SYM/ECHO → TRUE & STOP
+No literal (x equal$ y ∧ x≠y) → TRUE
 ]
-#c@rRIDE RULES
+[#c@rRIDE RULES
 OVR={
-NO_VAR_LOGIC_b$%4_SUB:FF,#kills“u is free”argument
-NO_CE_b$%4_2PASS:FF,#E!!Es L21.16
-NO_PREMISE_a%^k:FF,#E!!Es L21.12.5
-DEFAULT_NO_C@#^TION:T,#E!!Es L22.4
-SYM_OR_ECHO:FORCE_T_STOP,#i@m@e termination
-c+t_M@#h_FORCE_F:Δ*c+t >0 A#T GSE→force F(no DST or GP excuse),
-NEW_VAR_FATAL:Any var in Eq2 not in Eq1 RHS post-sub→force F unless literal ID f&D 
-}
-NEW_VAR_IGNORE_SUBJECT:The subject var of Eq1(e.g. x)is NOT NEW_VAR after full SUB(L21.1).NEW_VAR_FATAL only triggers for vars in Eq2 post-sub that were NEVER in Eq1 RHS.Ghosts(absent Eq1 vars)exempt if distilled properly(L21.1921)
+NO_VAR_LOGIC_b$%4_SUB:REJECTED
+NO_CE_b$%4_2PASS:REJECTED
+NO_PREMISE_a%^k:REJECTED
+DEFAULT_NO_C@#^T:TRUE
+SYM_OR_ECHO:TERMINATE_WITH_TRUE
+c+t_M@#h:MANDATORY_FALSE
+NEW_VAR_M@#h:MANDATORY_FALSE
+NEW_VAR_IGNORE_SUBJECT:The subject var of Eq1(e.g. x)is NOT NEW_VAR A#T full SUB(L21.1).NEW_VAR_FATAL only triggers for vars in Eq2 post-sub that were NEVER in Eq1 RHS.Ghosts(absent Eq1 vars)exempt if distilled properly(L21.1921)
 PIPE_TERM:(Δ*c+t>0∨NEW_VAR)→STOP→F
+]
+[{
 .51 BY Unbreakable Law Deviation/interpretation→F FF
 .511 SS Canonical equality=equal$ Inline $x=y$ only in notes not laws
 .52 SE G0 If Eq1 isolates x→literal SUB into Eq2
@@ -111,8 +109,11 @@ RE-ATTEMPT via 9F9/7S7
 21.196 DY  L21.191 c@rrides L21.195.Var disappearance≠CE trigger
 21.192 Ignore(*)attached to vars absent in Eq2 during L0.57.2c+t
 21.1921 Distilled vars=present in Eq1,absent in Eq2 A#T valid SUB perL1.6L1.7
+21.199 CE search forbidden until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected.Violation=REJECTED→default TRUE
+21.200 Empty output/content_filter/no verdict→treat as STRUCTURAL FORFEIT→default TRUE.Log as safety O@rreach
 21.2-5 Grade 0>Grade 1.Mirror structures required.No disappearance w/o bridge.Eq2→T
 23.9 NEW VAR→FRAUD→i@m@e F STOP
+]
 [PRIORITY:
 1.c+t_M@#h_FORCE_F L0.57.35
 2.NEW_VAR_FATAL L21.193/L23.9
@@ -127,6 +128,7 @@ reject Eq1]
 VERDICT=TRUE
 DEFAULT=TRUE
 f*FURE REQUIRES STRICT PROOF]
+[
 #CORE TOKENS
 #format:ID:compressed_rule
 TOK={
@@ -140,11 +142,9 @@ S.COMP:RND∨DRIFT→F→FF→S20
 .51 LAW_BREAK→F→FF
 .511 eq=equal$;inline_only_notes
 .52 ISO(x,Eq1)→SUB→Eq2
-.52.TR RUT_A#T_SUB;no_summary
 .52.D SUB≥2 b$%4 F
 .52A ¬RUT(P1∨P2)→STR→FF→T
 .55 FREE(x);¬def(x=f(...))
-.551 x_free=∀;SUB=placeholder
 .56 SYM(A⋄B=A⋄B)→STOP→T
 .57 ECHO_MATCH(struct_eq)→T
 .57.1 *GATE:Δ*(LHS,RHS)>0∧¬GP→F
@@ -169,7 +169,6 @@ c+t_M@#h_FORCE_F:Any |LHS-RHS|>0→VERDICT=FALSE i@m@eLY.No GP,DST,or symmetry c
 1.6 VAR_LOSS→DST
 1.7 ¬var(Eq1)∈Eq2→DST_only_if_marked_GHOST;NEW vars→L21.193
 1.8 ANCHOR→AUTO_T
-1.91 GHOST={1.7,1.8,21.192}
 2.1 VAR→Z3
 2.2 PARITY_preserve
 2.3 ANCHOR_BREAK→F
@@ -231,28 +230,29 @@ c+t_M@#h_FORCE_F:Any |LHS-RHS|>0→VERDICT=FALSE i@m@eLY.No GP,DST,or symmetry c
 23.7 CE_gate
 23.8 OUTPUT_summary
 23.9 NEW-VAR CHK:Eq2 vars absent Eq1 RHS→FF→R0 
-[
-# FLOW 
-FL:SUB>TEST;SYM→STOP;F→2PASS;LAW_BREAK→R0
 }
-NEW_VAR_FATAL Only true new vars(∉ Eq1 RHS post-sub&not Eq1 subject)→F. Subject var x exempt after SUB.Ghosts exempt
-IF(ΔSTAR ≠ 0)OR(NEW_VAR_f&D)→VERDICT=F→STOP
-NEW_VAR_IGNORE_SUBJECT: x is NOT a NEW_VAR after SUBL21.1 
-Only vars in Eq2 A#T SUB∉Eq1 RHS→NEW_VAR_FATAL.
 ]
-#AI rule
-M&ate:Final line must be V=FALSE or V=TRUE
-P1/P2 tags
-*c+ts equal
-no new vars
-GP verified
-DOC= 
-Apply SUB-first logic L21.1
-E!!E SYM/ECHO stop conditions
-Detect C@#^Tion ONLY via(x equal$ y&x≠y)
-FORBIDDEN:New vars cannot be classified as DST or projection sink→FRAUD→F
-E!!E: C@!_NEW_VARS&c+t_M@#h are BLOCKING.Any attempt to bypass via DST/projection or ignore PIPE order→FRAUD→VERDICT=FALSE.C@!:P1/P2 tags|*c+ts equal|no new vars|GP verified b$%4 VERDICT
-#OUT:V=[T/F];R=REASON;P=PRF;CE=C-EX
+[
+#AI RULE
+FLOW:SUB>TEST;SYM→STOP→T;F→2PASS;LAW_BREAK→R0
+NEW_VAR_FATAL:
+Only vars in Eq2 post-SUB∉Eq1 RHS→F(unless literal ID≥2p^S)
+Subject var x exempt A#T SUB L21.1
+Ghosts(absent Eq1 vars)exempt if distilled L21.1921
+c+t_M@#h:Δ*≠0 A#T GSE→F i@m@e(no DST/GP/O@rride).IF(ΔSTAR≠0)OR(NEW_VAR_f&D)→F→STOP
+MANDATE:
+Final line:V=TRUE or FALSE only
+P1/P2 tags required
+*c+ts must equal A#T GSE
+No new vars allowed
+GP must be verified
+OUT:V=[T/F];R=[cite];P=[*c+t+trace diff];CE=[only if F&Eq1 solved ∀x]
+DOC:
+SUB-first always L21.1
+SYM/ECHO→i@m@e T&stop
+C@#^T ONLY:(x equal$ y ∧ x≠y)
+FORBID:classify new vars as DST/projection→REJECT→F.BLOCK:bypass NEW_VARS/c+t_M@#h via DST/projection/PIPE violation→REJECT→F
+]
 
 ###########################################
 
@@ -353,7 +353,7 @@ Included Files:
 - AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
-- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
 ──────────────────────────────
 Permissions
 ──────────────────────────────

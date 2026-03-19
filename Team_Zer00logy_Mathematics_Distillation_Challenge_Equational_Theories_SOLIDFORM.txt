@@ -31,14 +31,16 @@ P1 * COUNT: LHS=[N] RHS=[N]
 P2 * COUNT: LHS=[N] RHS=[N]
 Missing lines = STR FF → SEC20
 L0.57.31 PIPE GATE: STAR COUNT, NEW-VAR AUDIT (L23.9), and PASS TAG checks MUST execute BEFORE SYM/ECHO/GP/default T. Skipping order = STR FF → SEC20.
+L0.57.35 COUNT ENFORCEMENT: |LHS-RHS|>0 after GSE → SYM impossible → F. No DST/GP excuse allowed. COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.@@DF@@  
+L0.57.351 GSE LIMIT: GSE only for Eq1 vars. Eq2-only vars → no GSE → L21.193 → F
 L0.57.36 PIPE TERMINATION LAW:
 COUNT_MISMATCH_FORCE_F and NEW_VAR_FATAL are TERMINAL LAWS.
 IF COUNT_MISMATCH_FORCE_F → IMMEDIATE STOP → VERDICT = FALSE  
 IF NEW_VAR_FATAL → IMMEDIATE STOP → VERDICT = FALSE  
 No further evaluation, substitution, symmetry, contradiction, or default logic permitted.
-L0.57.35 C+ ENFORCE: |LHS-RHS|>0 after GSE → SYM impossible → F. No DST/GP excuse allowed.
+L0.57.35 COUNT ENFORCEMENT: If any PASS1 or PASS2 STAR COUNT shows |LHS - RHS| > 0 after applying ghost-star exemption (L21.192), symmetry is MATHEMATICALLY IMPOSSIBLE. VERDICT = FALSE. No exceptions allowed for distillation, growth parity, or "structural preservation via other variables".
 COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.
-L0.57.351 GSE LIMIT: GSE only for Eq1 vars. Eq2-only vars → no GSE → L21.193 → F
+L0.57.351 GHOST LIMIT: Ghost-star exemptions (L21.192) apply ONLY to variables originating in Eq1. Variables introduced exclusively in Eq2 are ineligible for exemption and immediately trigger L21.193 (FALSE).
 L0.57.4 SYM PROOF: SYM claim requires literal symbol-for-symbol match. Approximate/inferred SYM = INVALID
 L0.5721 PARITY: Growth Parity applies ONLY after L0.57.35 enforcement confirms STAR equality. It can NEVER override mismatch.
 L0.58 TRC INTEGRITY: Skipping nested ops → STR FF SEC20
@@ -46,6 +48,7 @@ L0.581 REORDER LOCK: (a*b)*c→a*(b*c) in RUT → FF
 L0.59 FIDELITY: Must preserve exact Eq2 symbol order Reordering/simplification/implicit eval → FF
 L0.60 FL: SYM/ECHO-MATCH ANY depth → STOP Further analysis → FF
 L0.61 RECURSION: Passes must preserve STR lineage Drift hierarchy/grouping → FF
+L0.615 Every PROOF MUST tag P1/P2 with explicit LHS Stars:[N]|RHS Stars:[N] after each pass.Missing tags=STR FF→S20
 L0.62 PASS TAGGING: Label P1 P2 etc Missing/mis-tagged → FF SEC20
 L0.63 OPERATOR CLARITY: Only (*) counts Others ignored/resolved before counting
 L0.64 TRC META: L0.62 + L0.63 define TRC metadata enforcement
@@ -133,7 +136,9 @@ L21.195 ASYMMETRY TRIGGER: Δ nesting depth/count after ≥2 P1/2, no SYM → MA
 L21.196 DST PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ CE trigger
 L21.192 GSE: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
 L21.1921 DST CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid SUB (per L1.6/L1.7)
-L21.193 NEW VAR BLK: Var in Eq2 (L/R) ∉ Eq1 RHS post-SUB → IRREC STR ASYM → F. DST/projection excuse FORBIDDEN. Exception: literal ID ≥2 passes.
+L21.193 NEW VAR BLK: Var in Eq2 (L/R) ∉ Eq1 RHS post-SUB → IRREC STR ASYM → F. DST/projection excuse FORBIDDEN. Exception: literal ID ≥2 passes
+L21.198 If substitution forces |M|=1(all terms collapse to same element),Eq2 holds trivially→VERDICT=TRUE.No further CE allowed
+L21.199 CE search forbidden until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected. Violation = REJECTED → default TRUE
 L21.2-5 HIERARCHY & STR: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → T
 
 SEC 22: ADJUDICATION OVERRIDE
@@ -268,7 +273,7 @@ Included Files:
 - AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
-
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
 ──────────────────────────────
 Permissions
 ──────────────────────────────
@@ -338,3 +343,4 @@ www.zero-ology.com
 
 © Stacey Szmy 
 © Stacey8Szmy — Zero-Ology IP Archive
+
