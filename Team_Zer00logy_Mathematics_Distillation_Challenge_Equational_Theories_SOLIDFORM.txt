@@ -1,3 +1,4 @@
+
 SEC 0: VARIA BOOTLOADER (ZEC-VOL0)
 IDENTITY: Replace = with equal$ NO rounding
 STEP LOGIC: If indivisible use Offset Mapping (250÷12=20+Offset 10)
@@ -29,8 +30,17 @@ L0.57.3 COUNT DECLARATION FIREWALL: Before SYM, ECHO-MATCH, GP, or conservation 
 P1 * COUNT: LHS=[N] RHS=[N]
 P2 * COUNT: LHS=[N] RHS=[N]
 Missing lines = STR FF → SEC20
+L0.57.31 PIPE GATE: STAR COUNT, NEW-VAR AUDIT (L23.9), and PASS TAG checks MUST execute BEFORE SYM/ECHO/GP/default T. Skipping order = STR FF → SEC20.
+L0.57.36 PIPE TERMINATION LAW:
+COUNT_MISMATCH_FORCE_F and NEW_VAR_FATAL are TERMINAL LAWS.
+IF COUNT_MISMATCH_FORCE_F → IMMEDIATE STOP → VERDICT = FALSE  
+IF NEW_VAR_FATAL → IMMEDIATE STOP → VERDICT = FALSE  
+No further evaluation, substitution, symmetry, contradiction, or default logic permitted.
+L0.57.35 C+ ENFORCE: |LHS-RHS|>0 after GSE → SYM impossible → F. No DST/GP excuse allowed.
+COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.
+L0.57.351 GSE LIMIT: GSE only for Eq1 vars. Eq2-only vars → no GSE → L21.193 → F
 L0.57.4 SYM PROOF: SYM claim requires literal symbol-for-symbol match. Approximate/inferred SYM = INVALID
-L0.5721 PARITY: If L21.161 GP holds → overrides mismatch
+L0.5721 PARITY: Growth Parity applies ONLY after L0.57.35 enforcement confirms STAR equality. It can NEVER override mismatch.
 L0.58 TRC INTEGRITY: Skipping nested ops → STR FF SEC20
 L0.581 REORDER LOCK: (a*b)*c→a*(b*c) in RUT → FF
 L0.59 FIDELITY: Must preserve exact Eq2 symbol order Reordering/simplification/implicit eval → FF
@@ -48,7 +58,7 @@ SOFT SINGLETON:Orbit pinned 1 symbol → F
 L1.3 BTLIAD:Info cannot destroy “Info Death”=INVALID
 
 SEC 1.5: VARIABLE SOVEREIGNTY
-L1.5 GHOST NODES:New vars Eq2 VALID if premise identity No auto-F
+L1.5 GT NODES: New vars provisional only. Validity controlled by L21.193. No auto-T or auto-F.
 L1.6 LEGAL ANNIHILATION:Var loss SUB = SYM DST not violation
 L1.7 GHOST OVERRIDE:Absent Eq1 var in Eq2 ≠ F treat as DST
 L1.8 SYM ANCHOR:Eq1 var absent Eq2 = anchor Remaining balanced → AUTO-T
@@ -117,15 +127,17 @@ L21.161 GP: (*) count must increase by exact same Δ on LHS/RHS every pass. Any 
 L21.17 COUNTER-MAP LOCK: Refutation magma must map Eq1 EVERY cell. Partial → FRAUD → T audit
 L21.18 CONTRADICTION STANDARD: Only explicit (x equal$ y AND x≠y) same sub frame. Informal/implied → INVALID
 L21.181 NOTATION LOCK: Canonical syntax required. Mixed symbolic forms ($x=y$) → NON-CANONICAL
-L21.191 DST RULE: Missing Eq1 vars in Eq2 ≠ contradiction. Sovereign DST. Projection sink → FF → T
+L21.191 DST RULE: Missing Eq1 vars = DST only if in Eq1 RHS post-SUB. New vars NEVER DST → L21.193.
+L21.191.1 OVERRIDE: NEW VAR (L21.193) supersedes DST. DST cannot justify variables not in Eq1 RHS.
 L21.195 ASYMMETRY TRIGGER: Δ nesting depth/count after ≥2 P1/2, no SYM → MAY attempt CE (unless L21.161)
 L21.196 DST PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ CE trigger
 L21.192 GSE: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
 L21.1921 DST CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid SUB (per L1.6/L1.7)
+L21.193 NEW VAR BLK: Var in Eq2 (L/R) ∉ Eq1 RHS post-SUB → IRREC STR ASYM → F. DST/projection excuse FORBIDDEN. Exception: literal ID ≥2 passes.
 L21.2-5 HIERARCHY & STR: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → T
 
 SEC 22: ADJUDICATION OVERRIDE
-L22.1 STALL RULE: Default T if parity (Δ depth ≤1) maintained. Δ>1 → counter permitted only after L21.00 & L0.57.3
+L22.1 STALL RULE: Default T only if parity (Δ depth ≤1 & no new vars L21.193). Δ>1 or new var → counter only after L21.00 & L0.57.3 & L23.9
 L22.2 GHOSTS: Ghost vars alone ≠ F → T
 L22.3 ANTI-PARITY ABUSE: Constant sinks (a*b=0) or projections (a*b=a) cannot be used to claim universality
 L22.4 TRC MANDATE: Every F verdict requires ≥2 side-by-side SUB passes with literal diff. Missing → T
@@ -139,6 +151,7 @@ L23.5 P1/2 TAG CONSISTENCY: P1/2 exist ≥2 passes; Missing/mis-tagged=FF
 L23.6 DELTA DEPTH: Nest depth(LHS-RHS); Δ>1→counter only if L21.00 & L0.57.3
 L23.7 CE GATE: F meets L21.16&L21.14; No implicit contradiction=REVERT T
 L23.8 OUTPUT SUMMARY: * COUNT P1/2, GSE, GP, TRC, P1/2 TAGS; Must output before VERDICT
+L23.9 NEW-VAR CHK: After SUB, Eq2 var ∉ Eq1 RHS → FLAG=FRAUD → FF → IMMEDIATE F no further reasoning
 
 FL:
 1. SUB>testing
@@ -152,6 +165,8 @@ REASONING: [Cite L21.12.7 / L22.4 as needed]
 INTERNAL AUDIT: [Eq1 assumed T? (Y/N) | Found literal (x equal$ y AND x≠y)? (Y/N)]
 PROOF: [* COUNT + TRC Diff → identity/contradiction]
 CE: [If F: must solve Eq1 ∀x; "premise fails" = REJECTED]
+
+FINAL CHECK: P1/2 sequential | * COUNT equal | NO NEW VAR | GP OK
 
 
 ###########################################

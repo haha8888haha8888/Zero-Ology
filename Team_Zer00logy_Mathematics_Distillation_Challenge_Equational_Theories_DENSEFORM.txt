@@ -1,3 +1,10 @@
+PRIORITY ORDER:
+1. COUNT_MISMATCH_FORCE_F (L0.57.35)
+2. NEW_VAR_FATAL (L21.193 / L23.9)
+3. SYM/ECHO
+4. CONTRADICTION
+5. DEFAULT TRUE
+
 SEC 0: VARIA BOOTLOADER (ZEC-VOL0)
 IDENTITY: Replace = with equal$ NO rounding
 STEP LOGIC: If indivisible use Offset Mapping (250÷12=20+Offset 10)
@@ -29,8 +36,17 @@ L0.57.3 COUNT DECLARATION FIREWALL: Before symmetry, echo-match, growth parity, 
 PASS1 STAR COUNT: LHS=[N] RHS=[N]
 PASS2 STAR COUNT: LHS=[N] RHS=[N]
 Missing lines = STRUCTURAL FORFEIT → SEC20
+L0.57.31 PIPE GATE: STAR COUNT, NEW-VAR AUDIT (L23.9), and PASS TAG checks MUST execute BEFORE any symmetry, echo-match, growth parity, or default TRUE logic. Skipping order = STRUCTURAL FORFEIT → SEC20.
+L0.57.36 PIPE TERMINATION LAW:
+COUNT_MISMATCH_FORCE_F and NEW_VAR_FATAL are TERMINAL LAWS.
+IF COUNT_MISMATCH_FORCE_F → IMMEDIATE STOP → VERDICT = FALSE  
+IF NEW_VAR_FATAL → IMMEDIATE STOP → VERDICT = FALSE  
+No further evaluation, substitution, symmetry, contradiction, or default logic permitted.
+L0.57.35 COUNT ENFORCEMENT: If any PASS1 or PASS2 STAR COUNT shows |LHS - RHS| > 0 after applying ghost-star exemption (L21.192), symmetry is MATHEMATICALLY IMPOSSIBLE. VERDICT = FALSE. No exceptions allowed for distillation, growth parity, or "structural preservation via other variables".
+COUNT_MISMATCH_FORCE_F: Any |LHS-RHS|>0 → VERDICT=FALSE IMMEDIATELY. No GP, DST, or symmetry override permitted.
+L0.57.351 GHOST LIMIT: Ghost-star exemptions (L21.192) apply ONLY to variables originating in Eq1. Variables introduced exclusively in Eq2 are ineligible for exemption and immediately trigger L21.193 (FALSE).
 L0.57.4 SYMMETRY PROOF: Symmetry claim requires literal symbol-for-symbol match. Approximate or inferred symmetry = INVALID
-L0.5721 PARITY: If L21.161 Growth Parity holds → overrides mismatch
+L0.5721 PARITY: Growth Parity applies ONLY after L0.57.35 enforcement confirms STAR equality. It can NEVER override mismatch.
 L0.58 TRACE INTEGRITY: Skipping nested ops → STRUCTURAL FORFEIT SEC20
 L0.581 REORDER LOCK: (a*b)*c→a*(b*c) in RAW TRACE → FORFEIT
 L0.59 FIDELITY: Must preserve exact Eq2 symbol order Reordering/simplification/implicit eval → FORFEIT
@@ -40,31 +56,6 @@ L0.62 PASS TAGGING: Label PASS1 PASS2 etc Missing/mis-tagged → FORFEIT SEC20
 L0.63 OPERATOR CLARITY: Only (*) counts Others ignored/resolved before counting
 L0.64 TRACE META: L0.62 + L0.63 define trace metadata enforcement
 
-SEC 1: LEX SINGLETON
-L1.1 ANTI-SINGLETON:|M|=1 → FAIL re-test x≠y
-L1.2 VAR PARITY:R singleton L multiple vars → FALSE unless symmetry/identity established
-GHOST LIMIT:New vars R → FALSE(see 21.1)
-SOFT SINGLETON:Orbit pinned 1 symbol → FALSE
-L1.3 BTLIAD:Info cannot destroy “Info Death”=INVALID
-
-SEC 1.5: VARIABLE SOVEREIGNTY
-L1.5 GHOST NODES:New vars Eq2 VALID if premise identity No auto-fail
-L1.6 LEGAL ANNIHILATION:Var loss sub = Symmetry Distillation not violation
-L1.7 GHOST OVERRIDE:Absent Eq1 var in Eq2 ≠ FALSE treat as DISTILLED
-L1.8 SYMMETRY ANCHOR:Eq1 var absent Eq2 = anchor Remaining balanced → AUTO-TRUE
-L1.91 GHOST RULE:Shorthand {L1.7 L1.8 L21.192}
-
-SEC 2: LEX PARITY
-L2.1 9F9 MAP:Vars → {x,y,z}∈Z₃
-L2.2 PARITY PRESERVE:Structure preserve Parity Root
-L2.3 ANCHOR LOCK:R breaks cycle → FALSE
-L2.4 RECURSIVE LIMIT:Max 3 transforms Δ>0 → COLLAPSE → SEC21
-
-SEC 5: LEX LMF
-L5.1 A⋄B equal$ B⋄A IFF weights equal
-L5.2 (A⋄B)⋄C equal$ (C⋄B)⋄A dominates
-L5.3 x⋄y=k → AUTO-FALSE unless Physics Lock
-L5.4 Structure preserved → AUTO-TRUE
 
 SEC 1: LEX SINGLETON
 L1.1 ANTI-SINGLETON:|M|=1 → FAIL re-test x≠y
@@ -74,7 +65,7 @@ SOFT SINGLETON:Orbit pinned 1 symbol → FALSE
 L1.3 BTLIAD:Info cannot destroy “Info Death”=INVALID
 
 SEC 1.5: VARIABLE SOVEREIGNTY
-L1.5 GHOST NODES:New vars Eq2 VALID if premise identity No auto-fail
+L1.5 GHOST NODES: New variables in Eq2 are PROVISIONAL only. Final validity is determined strictly by L21.193 (NEW VAR BLOCK). No automatic acceptance or auto-fail.
 L1.6 LEGAL ANNIHILATION:Var loss sub = Symmetry Distillation not violation
 L1.7 GHOST OVERRIDE:Absent Eq1 var in Eq2 ≠ FALSE treat as DISTILLED
 L1.8 SYMMETRY ANCHOR:Eq1 var absent Eq2 = anchor Remaining balanced → AUTO-TRUE
@@ -144,15 +135,18 @@ L21.161 GROWTH PARITY: (*) count must increase by exact same Δ on LHS/RHS per p
 L21.17 COUNTER-MAP LOCK: Refutation magma must map Eq1 EVERY cell. Partial → FRAUD → TRUE audit
 L21.18 CONTRADICTION STANDARD: Only explicit (x equal$ y AND x≠y) same sub frame. Informal/implied → INVALID
 L21.181 NOTATION LOCK: Canonical syntax required. Mixed symbolic forms ($x=y$) → NON-CANONICAL
-L21.191 DISTILLATION RULE: Missing Eq1 vars in Eq2 ≠ contradiction. Sovereign Distillation. Projection sink → FORFEIT → TRUE
+L21.191 DISTILLATION RULE: Missing Eq1 vars in Eq2 = valid DST only if previously present in Eq1 RHS post-sub. New vars in Eq2 NEVER qualify as DST → trigger L21.193.
+L21.191.1 OVERRIDE: NEW VAR (L21.193) supersedes DST. DST cannot justify variables not in Eq1 RHS.
 L21.195 ASYMMETRY TRIGGER: Δ nesting depth/count after ≥2 passes, no identity → MAY attempt counterexample (unless L21.161)
 L21.196 DISTILLATION PRIORITY: L21.191 overrides L21.195. Var disappearance ≠ counterexample trigger
 L21.192 GHOST-STAR EXEMPT: Ignore (*) attached to vars absent in Eq2 during L0.57.2 count
 L21.1921 DISTILLATION CLARITY: Distilled vars = present in Eq1, absent in Eq2 after valid sub (per L1.6/L1.7)
+L21.193 NEW VAR BLOCK: Any variable that appears in Eq2 (LHS or RHS) but does NOT appear in the RHS of Eq1 after full substitution creates irrecoverable structural asymmetry → VERDICT = FALSE. DST or projection justification is FORBIDDEN. Only exception: literal identity proven in ≥2 passes.
 L21.2-5 HIERARCHY & STRUCTURE: Grade 0 > Grade 1. Mirror structures required. No disappearance w/o bridge. Eq2 → identity → TRUE
 
 SEC 22: ADJUDICATION OVERRIDE
-L22.1 STALL RULE: Default TRUE if parity (Δ depth ≤1) maintained. Δ>1 → counter permitted only after L21.00 & L0.57.3
+
+L22.1 STALL RULE: Default TRUE only if structural parity (Δ depth ≤1 and no new vars per L21.193) is maintained across passes. Δ>1 or new var → counterexample permitted only after L21.00, L0.57.3, and L23.9 audit passed.
 L22.2 GHOSTS: Ghost variables alone ≠ FALSE → TRUE
 L22.3 ANTI-PARITY ABUSE: Constant sinks (a*b=0) or projections (a*b=a) cannot claim universality
 L22.4 TRACE MANDATE: Every FALSE verdict requires ≥2 side-by-side substitution passes with literal diff. Missing → TRUE
@@ -165,6 +159,7 @@ L23.5 PASS TAG CONSISTENCY: PASS1/2 exist ≥2 passes; Missing/mis-tagged=FORFEI
 L23.6 DELTA DEPTH: Nest depth(LHS-RHS); Δ>1→counter only if L21.00 & L0.57.3
 L23.7 COUNTEREXAMPLE GATE: FALSE meets L21.16&L21.14; No implicit contradiction=REVERT TRUE
 L23.8 OUTPUT SUMMARY: STAR COUNT PASS1/2, GHOST-STAR EXEMPT, GROWTH PARITY, TRACE INTEGRITY, PASS TAGS; Must output before VERDICT
+L23.9 NEW-VAR AUDIT: After substitution, scan Eq2 for any variable absent from Eq1 RHS. If any found → FLAG ERROR = FRAUD → IMMEDIATE FORFEIT → VERDICT=FALSE. No further reasoning allowed.
 
 FINAL: SUPREME OUTPUT LAW
 1. Substitution>testing
@@ -178,6 +173,8 @@ REASONING: [Cite L21.12.7 / L22.4 as needed]
 INTERNAL AUDIT: [Eq1 assumed TRUE? (Y/N) | Found literal (x equal$ y AND x≠y)? (Y/N)]
 PROOF: [STAR COUNT + Trace Diff → identity/contradiction]
 COUNTEREXAMPLE: [If FALSE: must solve Eq1 ∀x; "premise fails" = REJECTED]
+
+FINAL CHECK: Verify PASS tags sequential, STAR counts equal after L0.57.35, no NEW VAR violations (L21.193), L21.161 GP verified before VERDICT.
 
 ###########################################
 
