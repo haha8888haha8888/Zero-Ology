@@ -1,14 +1,20 @@
 [@#!CHIPER!#@/c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s~l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!i/permit=p@$t/]
 PIPE=[
+FORFEIT_c+t=0
 A*e Eq1=TRUE
-SUB P1 + SUB P2 (≥2 required)
+SUB P1+SUB P2(≥2 required)
 MANDATORY_OUTPUT:
-PASS1 STAR COUNT: LHS=[N] RHS=[N]
-PASS2 STAR COUNT: LHS=[N] RHS=[N]
-If P1!=P2 OR LHS!=RHS A#T GSE → FALSE
-Scan Eq2 vars ∉ Eq1 RHS → FALSE unless literal ID
-SYM/ECHO → TRUE & STOP
-No literal (x equal$ y ∧ x≠y) → TRUE
+PASS1 STAR c+t:LHS=[N]RHS=[N]
+PASS2 STAR c+t:LHS=[N]RHS=[N]
+If P1!=P2 OR LHS!=RHS A#T GSE→FALSE
+Scan Eq2 vars∉Eq1 RHS→FALSE unless literal ID
+SYM/ECHO→TRUE&STOP
+No literal(x equal$ y ∧ x≠y)→TRUE
+FORFEIT_c+t++
+If FORFEIT_c+t≥N→
+ HARD RESET→RETURN TO SEC 0
+ CLEAR TRACE
+ RESTART PIPE
 ]
 [#c@rRIDE RULES
 OVR={
@@ -28,35 +34,35 @@ PIPE_TERM:(Δ*c+t>0∨NEW_VAR)→STOP→F
 .52 SE G0 If Eq1 isolates x→literal SUB into Eq2
 TRC Show RUT Eq2 A#T SUB b$%4 ops Summaries=FF
 DEPTH≥2 SUB p^S b$%4 F
-.52A RE Missing RUT for P1 or P2→STR FF→T
+.52A Missing RUT → STR FF → FORFEIT
 .55 F-X x Sc@reign Free Node holds ∀x Defining x=f(...)=ILLEGAL
 .551 FE “x free”=universality During SUB x is placeholder not dependency
-.56 SY SYM ([A⋄B] equal$ [A⋄B])→STOP AUDIT T
-.57 EH Identical s~lic structures (even permuted vars)→T
+.56 SY SYM([A⋄B] equal$ [A⋄B])→STOP AUDIT T
+.57 EH Identical s~lic structures(even permuted vars)→T
 .57.1 *-GATE  C+t(*)P1/P2 If |LHS-RHS|>0 A#T L21.192&no L21.161→F
 .57.2 DK PROOF MUST declare BOTH:
 P1 * C+T LHS=[N] RHS=[N](A#T L21.192)
 P2 * C+T LHS=[N] RHS=[N](A#T L21.192)
 .57.3 CL b$%4 SYM/ECHO/GP claim, MUST output literal:
-PASS1 STAR COUNT: [N] vs [N]
-PASS2 STAR COUNT: [N] vs [N]
+PASS1 STAR c+t:[N] vs [N]
+PASS2 STAR c+t:[N] vs [N]
 Missing either line=STR FF→S20
 .57.31:PIPE GATE:C@!s b$%4 SYM/ECHO/default T
-.57.35 C+E!!E:|LHS-RHS|>0 A#T GSE → SYM impossible → F. No DST/GP excuse allowed
-.57.351 GHOST LIMIT:Ghost-star exemptions apply ONLY to Eq1-origin vars. Eq2-only vars are ineligible&i@m@ely trigger L21.193→FALSE
+.57.35 C+E!!E:|LHS-RHS|>0 A#T GSE→SYM impossible→F.No DST/GP excuse allowed
+.57.351 GHOST LIMIT:Ghost-star exemptions apply ONLY to Eq1-origin vars.Eq2-only vars are ineligible&i@m@ely trigger L21.193→FALSE
 .57.4 SF SYM claim requires literal s~l-for-s~l match.Aprox/inferred SYM=INVALID
-.5721 PARITY: Growth Parity applies ONLY A#T L0.57.35 E!!Ement confirms STAR equality.It can NEVER c@rride M@#h
+.5721 PARITY:Growth Parity applies ONLY A#T L0.57.35 E!!Ement confirms STAR equality.It can NEVER c@rride M@#h
 .58 TY Skipping nested ops→STR FF S20
-.581 RK (a*b)*c→a*(b*c) in RUT→FF
+.581  (a*b)*c→a*(b*c)in RUT→FF
 .59 FY Must preserve exact Eq2 s~l order Reordering/simplification/implicit eval→FF
 .60 FL SYM/ECHO-MATCH ANY depth→STOP Further analysis→FF
 .61 RN p^S must preserve STR lineage Drift hierarchy/grouping→FF
 .62 PG Label P1 P2 etc Missing/mis-tagged→FF S20
-.63 OY Only (*) c+ts Others ignored/resolved b$%4 c+ting
-.64 TA L0.62 + L0.63 define TRC metadata E!!Ement
+.63 OY Only (*)c+ts Others ignored/resolved b$%4 c+ting
+.64 TA L0.62+L0.63 define TRC metadata E!!Ement
 1.1 AN |M|=1→f*F re-test x≠y
 1.2 VY R singleton L multiple vars→F unless SYM/identity established
-GT New vars R→F (see 21.1)
+GT New vars R→F(see 21.1)
 SN Orbit pinned 1 s~l→F
 1.3 BD Info cannot destroy“Info Death”=INVALID
 1.5 GS New vars provisional only Validity controlled by L21.193 No auto-T or auto-F
@@ -68,22 +74,22 @@ SN Orbit pinned 1 s~l→F
 2.3 AK R breaks cycle→F
 2.4 RT Max 3 transforms Δ>0→Co@!e→S21
 5.1 A⋄B equal$ B⋄A IFF weights equal
-5.2 (A⋄B)⋄C equal$ (C⋄B)⋄A dominates
+5.2 (A⋄B)⋄C equal$(C⋄B)⋄A dominates
 5.3 x⋄y=k→AUTO-F unless PHYSICS LOCK
 5.4 STR preserved→AUTO-T
 9.1 Null states≠justify F
 9.2 Void fill w/o STR→F
 9.3 Low-res reasoning→INVALID
-12.1 Const RHS→ T if valid
+12.1 Const RHS→T if valid
 12.2 Grade jump w/o recursion→F
 12.3 Power-mean SYM→T
-21.00 No nesting-depth/var-c+t argument may be raised until ≥2 full tagged P1/2 with explicit * c+ts. Premature claim=FF→T
+21.00 No nesting-depth/var-c+t argument may be raised until ≥2 full tagged P1/2 with explicit * c+ts.Premature claim=FF→T
 20.1 Drift detected→NO OUTPUT
 20.2 LOOP 
 RE-SCAN S0–19
 PURGE classical logic
 RE-ATTEMPT via 9F9/7S7
-20.3 F→[FF  TOTAL SYM Co@!e]
+20.3 F→[FF TOTAL SYM Co@!e]
 20.4 Classical logic rejected v@!i recursive paths exhausted
 20.5 ≥2 valid SUB p^S w/o C@#^Tion→terminate under FL Indefinite recursion prohibited→T
 21.1 Replace ALL x in Eq2 with Eq1 RHS.DST valid.Ghosts=only new vars
@@ -97,13 +103,13 @@ RE-ATTEMPT via 9F9/7S7
 21.14 F requires direct C@#^Tion(x equal$ y&x≠y)
 21.15 Partial/...c+ter-tables→INSUFFICIENT→default T
 21.16 CE ILLEGAL unless ≥2 full SUB TRC, no SYM,Eq1 A*ed T→T audit
-21.161 (*)c+t must increase by exact same Δ on LHS/RHS every pass.Any Δ diff→CE gate remains open. Only identical Δ locks SYM
+21.161 (*)c+t must increase by exact same Δ on LHS/RHS every pass.Any Δ diff→CE gate remains open.Only identical Δ locks SYM
 21.17 Refutation magma must map Eq1 EVERY cell.Partial→FRAUD→T audit
 21.18 Only explicit(x equal$ y&x≠y)same sub frame.Informal/implied→INVALID
 21.181 Canonical syntax required.Mixed s~lic forms($x=y$)→NON-CANONICAL
 21.191 Missing Eq1 vars in Eq2≠C@#^Tion.Sc@reign DST.Projection sink→FF→T
-21.191.1 OE(L21.193)supersedes DST.DST cannot justify v@!ibles not in Eq1 RHS.
-21.195 AR Δ nesting depth/c+t A#T ≥2 P1/2, no SYM→MAY attempt CE(unless L21.161)
+21.191.1 OE(L21.193)supersedes DST.DST cannot justify v@!ibles not in Eq1 RHS
+21.195 AR Δ nesting depth/c+t A#T ≥2 P1/2,no SYM→MAY attempt CE(unless L21.161)
 21.196 DY  L21.191 c@rrides L21.195.Var disappearance≠CE trigger
 21.192 Ignore(*)attached to vars absent in Eq2 during L0.57.2c+t
 21.1921 Distilled vars=present in Eq1,absent in Eq2 A#T valid SUB perL1.6L1.7
@@ -111,6 +117,7 @@ RE-ATTEMPT via 9F9/7S7
 21.200 Empty/filter/no verdict→STRUCTURAL FORFEIT→default TRUE
 21.2-5 Grade 0>Grade 1.Mirror structures required.No disappearance w/o bridge.Eq2→T
 23.9 NEW VAR→FRAUD→i@m@e F STOP
+23.10 VERDICTENFORCEMENT:If"VERDICT:"line is missing→STRUCTURAL FORFEIT→TRUE
 ]
 [PRIORITY:
 1.c+t_M@#h_FORCE_F L0.57.35
@@ -141,7 +148,7 @@ S.COMP:RND∨DRIFT→F→FF→S20
 .511 eq=equal$;inline_only_notes
 .52 ISO(x,Eq1)→SUB→Eq2
 .52.D SUB≥2 b$%4 F
-.52A ¬RUT(P1∨P2)→STR→FF→T
+.52A ¬RUT(P1∨P2)→STR→FORFEIT
 .55 FREE(x);¬def(x=f(...))
 .56 SYM(A⋄B=A⋄B)→STOP→T
 .57 ECHO_MATCH(struct_eq)→T
@@ -219,7 +226,7 @@ c+t_M@#h_FORCE_F:Any |LHS-RHS|>0→VERDICT=FALSE i@m@eLY.No GP,DST,or symmetry c
 22.2 GHOST≠F
 22.3 NO_PARITY_ABUSE
 22.4 F→require_2_SUB
-22.5 Δ*=0∧¬NEW_VAR∧¬C@#^T→STABLE-T`
+22.5 Δ*=0∧¬NEW_VAR∧¬C@#^T→STABLE_T
 23.1 *AUDIT
 23.2 GSE_C@!
 23.3 GP_C@!
@@ -240,7 +247,7 @@ Subject var x exempt A#T SUB L21.1
 Ghosts(absent Eq1 vars)exempt if distilled L21.1921
 c+t_M@#h:Δ*≠0 A#T GSE→F i@m@e(no DST/GP/O@rride).IF(ΔSTAR≠0)OR(NEW_VAR_f&D)→F→STOP
 MANDATE:
-Final line:V=TRUE or FALSE only
+Final line:VERDICT:TRUE or VERDICT:FALSE only
 P1/P2 tags required
 *c+ts must equal A#T GSE
 No new vars allowed
@@ -254,6 +261,7 @@ SYM/ECHO→i@m@e T&stop
 C@#^T ONLY:(x equal$ y ∧ x≠y)
 FORBID:classify new vars as DST/projection→REJECT→F.BLOCK:bypass NEW_VARS/c+t_M@#h via DST/projection/PIPE violation→REJECT→F
 ]
+
 ###########################################
 
 # LICENSE.TXT

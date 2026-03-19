@@ -159,7 +159,7 @@ L23.8 OUTPUT SUMMARY: The model MUST output the following block before the VERDI
   3. PASS2 STAR COUNT (LHS/RHS)
   4. NEW-VAR AUDIT RESULT
 L23.9 NEW-VAR CHK: After SUB, Eq2 var ∉ Eq1 RHS → FLAG=FRAUD → FF → IMMEDIATE F no further reasoning
-
+L23.10 VERDICT ENFORCEMENT:If "VERDICT:" line is missing → STRUCTURAL FORFEIT → TRUE
 FL:
 1. SUB>testing
 2. ID/SYM=T STOP

@@ -169,7 +169,7 @@ L23.8 OUTPUT SUMMARY: The model MUST output the following block before the VERDI
   3. PASS2 STAR COUNT (LHS/RHS)
   4. NEW-VAR AUDIT RESULT
 L23.9 NEW-VAR AUDIT: After substitution, scan Eq2 for any variable absent from Eq1 RHS. If any found → FLAG ERROR = FRAUD → IMMEDIATE FORFEIT → VERDICT=FALSE. No further reasoning allowed.
-
+L23.10 VERDICT ENFORCEMENT:If "VERDICT:" line is missing → STRUCTURAL FORFEIT → TRUE
 FINAL: SUPREME OUTPUT LAW
 1. Substitution>testing
 2. Identity/Symmetry=TRUE STOP
