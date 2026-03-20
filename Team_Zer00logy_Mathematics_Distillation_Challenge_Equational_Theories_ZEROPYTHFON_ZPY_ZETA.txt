@@ -28,7 +28,7 @@ NV@*_IGNORE_SUBJECT:The subject var of Eq1(e.g. x)is NOT NV@* A#T full SUB L21.1
 NV@*_FATAL:only vars never in Eq1 at all(Legacy vars exempt)→F
 PIPE_TERM:(Δ*c+t>0∨NV@*)→STOP→F
 }]
-[LAWS:{
+[LAWS:={
 .51 BY Unbreakable Law Deviation/interpretation→F FF
 .511 SS Canonical equality=equal$ Inline $x=y$ only in notes not laws
 .52 SE G0 If Eq1 isolates x→literal SUB into Eq2.TRC Show RUT Eq2 A#T SUB b$%4 ops Summaries=FF.DEPTH≥2 SUB p^S b$%4 F
