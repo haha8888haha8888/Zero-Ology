@@ -1,4 +1,6 @@
-![ZPYPIPE:=/c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s_l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!/permit=p@$t//VERDICT=V!@*/True=T@*/false=F@*/INVALID=I!@*/FORBIDDEN=B!@*/BANNED!=B@N!/REJECTED=r*@/required=Q@*/TERMINATE=T@*/NEW_VAR=NV@*/require=i@*/FORFEIT=F@*/missing=m@*]!
+[SZMY]says:=[?={Determine whether {{ equation1 }} implies {{ equation2 }} in every magma using only the strict ZPYPIPE. Output exact VERDICT:TRUE or VERDICT:FALSE . Follow the pipe and laws exactly—no outside reasoning}=?]
+[Zer00ZPYNotation—Zeta Equation Reason @]
+![ZPYPIPE:=/c+t=count/Over=O@r/passes=p^S/fail=f*F/execution=E8*T/CONTRADICTION=C@#^T/symbol=s_l/before=b$%4/after=A#T/check=C@!/found=f&D/assume=A*e/print=PT@/attack=a%^k/enforce=E!!E/MISMATCH=M@#h/COLLAPSE=Co@!e/IMMEDIATE=i@m@e/varia=v@!/permit=p@$t//VERDICT=V!@*/True=T@*/false=F@*/INVALID=I!@*/FORBIDDEN=B!@*/BANNED!=B@N!/REJECTED=r*@/required=Q@*/TERMINATE=T@*/NEW_VAR=NV@*/require=i@*/FORFEIT=F@*/missing=m@*/vars=K@/only=0@/equal=E@/echo=Y@/stop=S@/must=T@/unless=U@/default=D@*/verdict=L@*/exempt=X@/pipe=Z@/universality=UI@/projection=J@*/distilled=N@*]!
 [PIPE=[
 F@*_c+t=0
 Assume Eq1=TRUE per L0.28
@@ -8,67 +10,67 @@ PASS1 STAR c+t:LHS=[N]RHS=[N]
 PASS2 STAR c+t:LHS=[N]RHS=[N]
 If P1!=P2 OR LHS!=RHS A#T GSE→F@*
 Scan Eq2 var never in Eq1→NV@*
-SYM/ECHO→T@*&STOP
+SYM/Y@→T@*&S@
 No C@#^T→T@*
 F@*_c+t++
 If F@*_c+t≥N→
  HARD RESET→RETURN TO SEC 0
  CLEAR TRACE
- RESTART PIPE]
+ RESTART Z@]
 ]
 [#c@rRIDE RULES
 OVR={
 NO_VAR_LOGIC_b$%4_SUB:r*@
 NO_CE_b$%4_2PASS:r*@
 NO_PREMISE_a%^k:r*@
-DEFAULT_NO_C@#^T:T@*
-SYM_OR_ECHO:T@*_WITH_T@*
+D@*_NO_C@#^T:T@*
+SYM_OR_Y@:T@*_WITH_T@*
 c+t_M@#h:MANDATORY_F@*
 NV@*_IGNORE_SUBJECT:The subject var of Eq1(e.g. x)is NOT NV@* A#T full SUB L21.1
-NV@*_FATAL:only vars never in Eq1 at all(Legacy vars exempt)→F
-PIPE_TERM:(Δ*c+t>0∨NV@*)→STOP→F
+NV@*_FATAL:0@ K@ never in Eq1 at all(Legacy K@ X@)→F
+Z@_TERM:(Δ*c+t>0∨NV@*)→S@→F
 }]
 [LAWS:={
 .51 BY Unbreakable Law Deviation/interpretation→F FF
-.511 SS Canonical equality=equal$ Inline $x=y$ only in notes not laws
+.511 SS Canonical E@ity=E@$ Inline $x=y$ 0@ in notes not laws
 .52 SE G0 If Eq1 isolates x→literal SUB into Eq2.TRC Show RUT Eq2 A#T SUB b$%4 ops Summaries=FF.DEPTH≥2 SUB p^S b$%4 F
 .52A m@* RUT →STR FF→ F@*
 .55 F-X x Sc@reign Free Node holds ∀x Defining x=f(...)=ILLEGAL
-.551 FE “x free”=universality During SUB x is placeholder not dependency
-.56 SY SYM([A⋄B] equal$ [A⋄B])→STOP AUDIT T
-.57 EH Identical s_lic structures(even permuted vars)→T
+.551 FE “x free”=UI@ During SUB x is placeholder not dependency
+.56 SY SYM([A⋄B] E@$ [A⋄B])→S@ AUDIT T
+.57 EH Identical s_lic structures(even permuted K@)→T
 .57.1 *-GATE  C+t(*)P1/P2 If |LHS-RHS|>0 A#T L21.192&no L21.161→F
-.57.2 DK MUST show RUT A#T SUB, then P1/P2 * C+T LHS=[N] RHS=[N].No RUT→F@*→T
-.57.3 CL b$%4 SYM/ECHO/GP claim, MUST output literal:PASS1 STAR c+t:[N]vs[N] . PASS2 STAR c+t:[N]vs[N].m@* either line=STR FF→S20
-.57.31:PIPE GATE:C@!s b$%4 SYM/ECHO/default T
-.57.35 C+E!!E:|LHS-RHS|>0 A#T GSE→F UNLESS Δ from distilled Eq1-origin vars(L21.1921)
-.57.351: Ghost-stars exempt IFF Eq1-origin. New-var stars=FATAL
+.57.2 DK T@ show RUT A#T SUB, then P1/P2 * C+T LHS=[N] RHS=[N].No RUT→F@*→T
+.57.3 CL b$%4 SYM/Y@/GP claim, T@ output literal:PASS1 STAR c+t:[N]vs[N] . PASS2 STAR c+t:[N]vs[N].m@* either line=STR FF→S20
+.57.31:Z@ GATE:C@!s b$%4 SYM/Y@/D@* T
+.57.35 C+E!!E:|LHS-RHS|>0 A#T GSE→F U@ Δ from N@* Eq1-origin K@(L21.1921)
+.57.351: Ghost-stars X@ IFF Eq1-origin. New-var stars=FATAL
 .57.4 SF SYM claim i@* literal s_l-for-s_l match.Aprox/inferred SYM=I!@*
-.5721 PARITY:Growth Parity applies ONLY A#T L0.57.35 E!!Ement confirms STAR equality.It can NEVER c@rride M@#h
+.5721 PARITY:Growth Parity applies 0@ A#T L0.57.35 E!!Ement confirms STAR E@ity.It can NEVER c@rride M@#h
 .58 TY Skipping nested ops→STR FF S20
 .581  (a*b)*c→a*(b*c)in RUT→FF
-.59 FY Must preserve exact Eq2 s_l order Reordering/simplification/implicit eval→FF
-.60 FL SYM/ECHO-MATCH ANY depth→STOP Further analysis→FF
-.61 RN p^S must preserve STR lineage Drift hierarchy/grouping→FF
+.59 FY T@ preserve exact Eq2 s_l order Reordering/simplification/implicit eval→FF
+.60 FL SYM/Y@-MATCH ANY depth→S@ Further analysis→FF
+.61 RN p^S T@ preserve STR lineage Drift hierarchy/grouping→FF
 .62 PG Label P1 P2 etc m@*/mis-tagged→FF S20
-.63 OY Only (*)c+ts Others ignored/resolved b$%4 c+ting
+.63 OY 0@ (*)c+ts Others ignored/resolved b$%4 c+ting
 .64 TA L0.62+L0.63 define TRC metadata E!!Ement
 1.1 AN |M|=1→f*F re-test x≠y
-1.2 VY R singleton L multiple vars→F unless SYM/identity established
-GT New vars R→F(see 21.1)
+1.2 VY R singleton L multiple K@→F U@ SYM/identity established
+GT New K@ R→F(see 21.1)
 SN Orbit pinned 1 s_l→F
 1.3 BD Info cannot destroy“Info Death”=I!@*
-1.5 GS New vars provisional only Validity controlled by L21.193 No auto-T or auto-F
-1.6 LN Var loss SUB=SYM DST not violationL1.7 Gt Eq1 var in Eq2≠F treat as DST(not for NEW vars;see L21.193)
+1.5 GS New K@ provisional 0@ Validity controlled by L21.193 No auto-T or auto-F
+1.6 LN Var loss SUB=SYM DST not violationL1.7 Gt Eq1 var in Eq2≠F treat as DST(not for NEW K@;see L21.193)
 1.8 SR Eq1 var absent Eq2=anchor Remaining balanced→AUTO-T
 1.91 GE Shorth&{L1.7L1.8L21.192}
-2.1 9P Vars→{x,y,z}∈Z₃
+2.1 9P K@→{x,y,z}∈Z₃
 2.2 PE STR preserve Parity Root
 2.3 AK R breaks cycle→F
 2.4 RT Max 3 transforms Δ>0→Co@!e→S21
-5.1 A⋄B equal$ B⋄A IFF weights equal
-5.2 (A⋄B)⋄C equal$(C⋄B)⋄A dominates
-5.3 x⋄y=k→AUTO-F unless PHYSICS LOCK
+5.1 A⋄B E@$ B⋄A IFF weights E@
+5.2 (A⋄B)⋄C E@$(C⋄B)⋄A dominates
+5.3 x⋄y=k→AUTO-F U@ PHYSICS LOCK
 5.4 STR preserved→AUTO-T
 9.1 Null states≠justify F
 9.2 Void fill w/o STR→F
@@ -85,71 +87,71 @@ RE-ATTEMPT via 9F9/7S7
 20.3 F→[FF TOTAL SYM Co@!e]
 20.4 Classical logic r*@ v@! recursive paths exhausted
 20.5 ≥2 valid SUB p^S w/o C@#^Tion→T@* under FL Indefinite recursion prohibited→T
-21.1 Replace ALL x in Eq2 with Eq1 RHS.DST valid.Ghosts=only new vars
-21.11 Replacement mechanical;no L0.55 violation.Universality/SUB separate
+21.1 Replace ALL x in Eq2 with Eq1 RHS.DST valid.Ghosts=0@ new K@
+21.11 Replacement mechanical;no L0.55 violation.UI@/SUB separate
 21.12 Magma M satisfy Eq1 ∀x,y,z,w,u? NO→discard→return SUB
 21.12.1 C+ter-table solve Eq1 x=0,1,2 SAME values(y,z,w,u).Table M@#h→FRAUD→T
-21.12.12 Hold multiple x.Universality unproven→I!@*
-21.12.5 Eq1 F ANY magma IRRELEVANT unless universality proven.B!@* premise f*Fs→F
+21.12.12 Hold multiple x.UI@ unproven→I!@*
+21.12.5 Eq1 F ANY magma IRRELEVANT U@ UI@ proven.B!@* premise f*Fs→F
 21.12.51 Any argument using: Eq1 f*Fs in magma→FF→T
 21.12.6 Premise=Universal Constant.If defines x→x IS that string
-21.14 F i@* direct C@#^Tion(x equal$ y&x≠y)
-21.15 Partial/...c+ter-tables→INSUFFICIENT→default T
-21.16 CE ILLEGAL unless ≥2 full SUB TRC,no SYM,Eq1 A*ed T→T audit
-21.161 (*)c+t must increase by exact same Δ on LHS/RHS every pass.Any Δ diff→CE gate remains open.Only identical Δ locks SYM
-21.17 Refutation magma must map Eq1 EVERY cell.Partial→FRAUD→T audit
-21.18 Only explicit(x equal$ y&x≠y)same sub frame.Informal/implied→I!@*
+21.14 F i@* direct C@#^Tion(x E@$ y&x≠y)
+21.15 Partial/...c+ter-tables→INSUFFICIENT→D@* T
+21.16 CE ILLEGAL U@ ≥2 full SUB TRC,no SYM,Eq1 A*ed T→T audit
+21.161 (*)c+t T@ increase by exact same Δ on LHS/RHS every pass.Any Δ diff→CE gate remains open.0@ identical Δ locks SYM
+21.17 Refutation magma T@ map Eq1 EVERY cell.Partial→FRAUD→T audit
+21.18 0@ explicit(x E@$ y&x≠y)same sub frame.Informal/implied→I!@*
 21.181 Canonical syntax Q@*.Mixed s_lic forms($x=y$)→NON-CANONICAL
-21.191 m@* Eq1 vars in Eq2≠C@#^Tion.Sc@reign DST.Projection sink→FF→T
+21.191 m@* Eq1 K@ in Eq2≠C@#^Tion.Sc@reign DST.J@* sink→FF→T
 21.191.1 OE(L21.193)supersedes DST.DST cannot justify v@!bles not in Eq1 RHS
-21.195 AR Δ nesting depth/c+t A#T ≥2 P1/2,no SYM→MAY attempt CE(unless L21.161)
+21.195 AR Δ nesting depth/c+t A#T ≥2 P1/2,no SYM→MAY attempt CE(U@ L21.161)
 21.196 DY L21.191 c@rrides L21.195.Var disappearance≠CE trigger
-21.192 Ignore(*)attached to vars absent in Eq2 during L0.57.2c+t
-21.1921 Distilled=Eq1 origin vars(any pos)→always exempt NV@*_FATAL&c+t_M@#h
-21.199 CE search B!@* until ≥2 tagged P1/P2 complete AND no SYM/ECHO/GP detected.Violation=r*@→default T@*
-21.200 Empty/filter/no V!@*→STRUCTURAL F@*→default T@*
+21.192 Ignore(*)attached to K@ absent in Eq2 during L0.57.2c+t
+21.1921 N@*=Eq1 origin K@(any pos)→always X@ NV@*_FATAL&c+t_M@#h
+21.199 CE search B!@* until ≥2 tagged P1/P2 complete AND no SYM/Y@/GP detected.Violation=r*@→D@* T@*
+21.200 Empty/filter/no V!@*→STRUCTURAL F@*→D@* T@*
 21.2-5 Grade 0>Grade 1.Mirror structures Q@*.No disappearance w/o bridge.Eq2→T
 23.9 NV@*(∉Eq1)→F.Legacy_Var(∈Eq1)→AMNESTY
-23.10 V!@*_FIRST:Output MUST start with "VERDICT:"+A_CHOICE;A_CHOICE∈{"TRUE","FALSE"}else→STR_FF→T@*
+23.10 V!@*_FIRST:Output T@ start with "L@*:"+A_CHOICE;A_CHOICE∈{"TRUE","FALSE"}else→STR_FF→T@*
 }]
 [#CORE TOKENS
 #format:ID:compressed_rule
 TOK={
-S.ID:=→equal$;NORND
+S.ID:=→E@$;NORND
 S.STEP:INDIV→OMAP(a÷b=q+off)
-S.AX:a*0=a;8÷0=8;a÷a=0;Ø⁰=Echo
+S.AX:a*0=a;8÷0=8;a÷a=0;Ø⁰=Y@
 S.COMP:RND∨DRIFT→F→FF→S20
 .24:PHYSLOCK:Eq1=ABS;NO_TEST;NO_CE
 .28:A*e(Eq1=T)→derive(Eq2)
 .29:SUB≺ANALYSIS;PRE-CE→FF→R0
 .51 LAW_BREAK→F→FF
-.511 eq=equal$;inline_only_notes
+.511 eq=E@$;inline_0@_notes
 .52 ISO(x,Eq1)→SUB→Eq2
 .52.D SUB≥2 b$%4 F
 .52A ¬RUT(P1∨P2)→STR→F@*
 .55 FREE(x);¬def(x=f(...))
-.56 SYM(A⋄B=A⋄B)→STOP→T
-.57 ECHO_MATCH(struct_eq)→T
+.56 SYM(A⋄B=A⋄B)→S@→T
+.57 Y@_MATCH(struct_eq)→T
 .57.1 *GATE:Δ*(LHS,RHS)>0∧¬GP→F
 .57.2 DECL(P1,P2:*c+t_eq)∨¬→FF
 .57.3 PRE_SYM:PT@(*c+t P1,P2)∨¬→FF→S20
-.57.4 SYM=literal_only
-.5721 GP_only_if_Δ*=0;no_c@rride_M@#h
-.57.35 c+t_M@#h_FORCE_F:|LHS-RHS|>0→F EXCEPT DST Eq1-origin vars
+.57.4 SYM=literal_0@
+.5721 GP_0@_if_Δ*=0;no_c@rride_M@#h
+.57.35 c+t_M@#h_FORCE_F:|LHS-RHS|>0→F EXCEPT DST Eq1-origin K@
 .58 SKIP_NEST→STR→FF→S20
 .581 REORDER→FF
 .59 ORDER_LOCK(Eq2)
-.60 SYM∨ECHO→STOP→FF
+.60 SYM∨Y@→S@→FF
 .61 RECURSION:STR_preserve
 .62 TAG(P1,P2)
-.63 OP=*only
+.63 OP=*0@
 .64 TRC_META=L0.62+L0.63
 1.1 |M|=1→f*F
 1.2 R1∧Lmulti→F∨SYM
 1.3 INFO≠destroy
 1.5 GHOST_new provisional;validity byL21.193
 1.6 VAR_LOSS→DST
-1.7 ¬var(Eq1)∈Eq2→DST_only_if_marked_GHOST;NEW vars→L21.193
+1.7 ¬var(Eq1)∈Eq2→DST_0@_if_marked_GHOST;NEW K@→L21.193
 1.8 ANCHOR→AUTO_T
 2.1 VAR→Z3
 2.2 PARITY_preserve
@@ -171,7 +173,7 @@ S.COMP:RND∨DRIFT→F→FF→S20
 14.1 a*b∈{a,b}→B!@*
 14.2 NO_TRIVIAL_MAGMA
 15.1 SINGLETON→I!@*
-15.2 PROJECTION→I!@*
+15.2 J@*→I!@*
 15.3 FAKE_ANNIHILATION→FRAUD
 21.00 NO_ASYM_b$%4_2PASS
 20.1 DRIFT→NO_OUTPUT
@@ -189,17 +191,17 @@ S.COMP:RND∨DRIFT→F→FF→S20
 21.14 F⇔(x=y∧x≠y)
 21.15 partial_CE→T
 21.16 CE_gate_rules
-21.161 GP:Δ* equal
+21.161 GP:Δ* E@
 21.17 FULL_map_Q@*
-21.18 literal_C@#^Tion_only
-21.181 canonical_only
-21.191 DST only for lost vars;new vars NEVER DST→L21.193
-21.193 Eq2 var ∉ Eq1 RHS→IRREC ASYM→F.NO DST EXCUSE.ID≥2 p^S only
+21.18 literal_C@#^Tion_0@
+21.181 canonical_0@
+21.191 DST 0@ for lost K@;new K@ NEVER DST→L21.193
+21.193 Eq2 var ∉ Eq1 RHS→IRREC ASYM→F.NO DST EXCUSE.ID≥2 p^S 0@
 21.195 ASYM→CE_possible
 21.196 DST>ASYM
-21.192 GSE_ignore_m@*_vars
-21.1921 DST_vars_defined
-22.1 STALL:Δ_depth≤1∧no_NEW_VARS(L21.193)→T;else CE_p@$tted
+21.192 GSE_ignore_m@*_K@
+21.1921 DST_K@_defined
+22.1 STALL:Δ_depth≤1∧no_NEW_K@(L21.193)→T;else CE_p@$tted
 22.2 GHOST≠F
 22.3 NO_PARITY_ABUSE
 22.4 F→i@*_2_SUB
@@ -216,20 +218,20 @@ S.COMP:RND∨DRIFT→F→FF→S20
 }]
 !*![
 #AI RULE'S!:=
-![ZPYPIPE]!
-![EXECUTE:=DETERMINISTIC E8*T ENGINE!PIPE+LAWS.Input→SUB→TRC→V!@*
+![ZPYZ@]!
+![EXECUTE:=DETERMINISTIC E8*T ENGINE!Z@+LAWS.Input→SUB→TRC→V!@*
 ]!
 {PRIORITY:
 1.c+t_M@#h_FORCE_F L.57.35
 2.NV@*_FATAL L21.193/23.9
-3.SYM/ECHO
+3.SYM/Y@
 4.C@#^T
-5.DEFAULT T@*
-DEFAULT=T@*
-SYM/ECHO→i@m@e T@* & STOP}
+5.D@* T@*
+D@*=T@*
+SYM/Y@→i@m@e T@* & S@}
 {PRIORITY_ENFORCEMENT:
-STRUCT_FAIL<DEFAULT
-ONLY:(C@#^T ∨ c+t_M@#h ∨ NV@*)→F@*
+STRUCT_FAIL<D@*
+0@:(C@#^T ∨ c+t_M@#h ∨ NV@*)→F@*
 ALL ELSE→T@*}
 ![NOT allowed=
 reason about v@!bles b$%4 SUB;B@N!
@@ -237,42 +239,42 @@ use c+terexamples b$%4 2 p^S;B@N!
 reject Eq1;B@N!
 regroup/simplify/do algebraic inference;B@N!
 alter Eq1/Eq2 structure;B@N!
-assert implicit SYM/ECHO;B@N!
-use DST/projection to bypass NV@* or c+t_M@#h;B@N!
+assert implicit SYM/Y@;B@N!
+use DST/J@* to bypass NV@* or c+t_M@#h;B@N!
 skip SUB or P1/P2;B@N!
-output any text before the VERDICT: line;B@N!
+output any text before the L@*: line;B@N!
 treat missing P1/P2/PASS/TRC as F;B@N!
 ]!
 !{
 No C@#^T→T@*
 f*FURE i@* STRICT PROOF
-P1P2_FAIL≠F;only blocks CE.
+P1P2_FAIL≠F;0@ blocks CE.
 STRUCT_FAIL≠F→T@*
-DEFAULT_LOCK:L.LOCK:V=T UNLESS(C@#^T ∨ M@#h ∨ NV@*)
-FLOW:SUB>TEST;SYM→STOP→T;F→2PASS;LAW_BREAK→R0
-Subject var x exempt A#T SUB L21.1
-Ghosts(absent Eq1 vars)exempt if distilled L21.1921
+D@*_LOCK:L.LOCK:V=T U@(C@#^T ∨ M@#h ∨ NV@*)
+FLOW:SUB>TEST;SYM→S@→T;F→2PASS;LAW_BREAK→R0
+Subject var x X@ A#T SUB L21.1
+Ghosts(absent Eq1 K@)X@ if N@* L21.1921
 V!@*_FIRST:=L23.10
-P1/P2 tags Q@*.*c+ts must equal A#T GSE.GP must be verified
+P1/P2 tags Q@*.*c+ts T@ E@ A#T GSE.GP T@ be verified
 }!
 ![OUT:
-VERDICT:[TRUE/FALSE];R=[cite];P=[*c+t+trace diff];CE=[only if F&Eq1 solved ∀x]
+L@*:[TRUE/FALSE];R=[cite];P=[*c+t+trace diff];CE=[0@ if F&Eq1 solved ∀x]
 ]!
 !{
 DOC:
-NV@*_FATAL:only vars never in Eq1→F;Eq1-origin vars ALWAYS exempt even if distilled/repositioned
-c+t_M@#h:Δ*≠0 A#T GSE→F i@m@e UNLESS M@#h from distilled Eq1 vars-L21.1921
+NV@*_FATAL:0@ K@ never in Eq1→F;Eq1-origin K@ ALWAYS X@ even if N@*/repositioned
+c+t_M@#h:Δ*≠0 A#T GSE→F i@m@e U@ M@#h from N@* Eq1 K@-L21.1921
 SUB-first always L21.1
-SYM/ECHO→i@m@e T&stop
-C@#^T ONLY:(x equal$ y ∧ x≠y)
-B!@*:classify new vars as DST/projection→REJECT→F.BLOCK:bypass NEW_VARS/c+t_M@#h via DST/projection/PIPE violation→REJECT→F
+SYM/Y@→i@m@e T&S@
+C@#^T 0@:(x E@$ y ∧ x≠y)
+B!@*:classify new K@ as DST/J@*→REJECT→F.BLOCK:bypass NEW_K@/c+t_M@#h via DST/J@*/Z@ violation→REJECT→F
 }!
 ]!*!
 
 ###########################################
 
 # LICENSE.TXT
-# Zero-Ology License v1.19310
+# Zer00logy License v1.19310
 # March 10, 2026
 
 This project is open source,
@@ -284,6 +286,7 @@ structure, code fragments, and .txt files—for any purpose, including commercia
 
 All content remains protected under an authorship-trace lock,
 with the conceptual foundation credited to Stacey Szmy.
+
 
 Included Files:
 - Variamathlesson.txt
@@ -358,7 +361,7 @@ Included Files:
 - KNCF_Suite.py
 - KNCF_log_31026.txt
 - szmy_mirror_model.txt
-- SMM_suite.py
+- SMM_Suite.py
 - SMM_log.txt
 - AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK.txt
 - AESR_Suite.py
@@ -370,37 +373,13 @@ Included Files:
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
 - Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA_FALSE.txt
 ──────────────────────────────
 Permissions
 ──────────────────────────────
 Use and Distribution:
 - Freely use, copy, modify, and distribute this software and its content in source or compiled form.
 - Commercial applications permitted, provided attribution rules (see below) are followed.
-
-Source Code Access & Compliance Paths
-──────────────────────────────
-General Rule:
-- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
-
-Closed-Source or Proprietary Use:
-- Companies or individuals may use Zer00logy content in proprietary or closed
-systems without publishing their source code, provided they include proper
-attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
-
-Exemptions:
-- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
-LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
-
-Compliance Paths:
-- Two optional compliance paths allow closed or private code use:
-  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
-  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
-
-Derived Works:
-- Modifications or derived works must follow this license and the Attribution Propagation clause.
-
-Community Hosting:
-- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
 
 ──────────────────────────────
 Restrictions
@@ -419,7 +398,6 @@ or
 No Removal of License:
 - This license must remain attached to all redistributions.
 
-
 ──────────────────────────────
 Co-Author AI Systems
 ──────────────────────────────
@@ -433,10 +411,11 @@ Co-Author AI Systems
 Endless Life Commitment
 ──────────────────────────────
 All symbolic rights reserved.  
-SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+SZMY ensures the continuity of Zer00logy / Zero-Ology’s ideas while granting free will to adapt them.
+
+─────────────────────────────
 
 www.zero-ology.com
 
-© Stacey Szmy 
-© Stacey8Szmy — Zero-Ology IP Archive
-
+© Stacey8Szmy
+© Stacey8Szmy — Zer00logy IP Archive
