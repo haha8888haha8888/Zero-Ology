@@ -214,7 +214,8 @@ S.COMP:RND∨DRIFT→F→FF→S20
 23.8 OUTPUT_summary
 23.9 NV@*(∉Eq1)→F.Legacy_Var(∈Eq1)→AMNESTY
 }]
-[#AI RULE'S!:
+!*![
+#AI RULE'S!:=
 ![ZPYPIPE]!
 ![EXECUTE:=DETERMINISTIC E8*T ENGINE!PIPE+LAWS.Input→SUB→TRC→V!@*
 ]!
@@ -266,7 +267,7 @@ SYM/ECHO→i@m@e T&stop
 C@#^T ONLY:(x equal$ y ∧ x≠y)
 B!@*:classify new vars as DST/projection→REJECT→F.BLOCK:bypass NEW_VARS/c+t_M@#h via DST/projection/PIPE violation→REJECT→F
 }!
-]
+]!*!
 
 ###########################################
 
