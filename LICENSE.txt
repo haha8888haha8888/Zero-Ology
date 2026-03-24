@@ -12,6 +12,7 @@ structure, code fragments, and .txt files—for any purpose, including commercia
 All content remains protected under an authorship-trace lock,
 with the conceptual foundation credited to Stacey Szmy.
 
+
 Included Files:
 - Variamathlesson.txt
 - zecstart.txt
@@ -53,6 +54,56 @@ Included Files:
 - THE_WHY_EQUATION.py
 - Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
 - Repeating_Digit_Weights_(RN).py
+- Szmy_Collatz.py
+- OddPerfectTerminator_GODD.py
+- OddPerfectTerminator_Log_OG123456.zip
+- Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf
+- APLHA_INFIN_P_MATRIX.py
+- alpha.txt
+- alphabet_Infinity_Pool_Matrix.pdf
+- AlphaLOG.zip
+- KOPPA_GRAND_CONSTANT.PY
+- The_Koppa_Grand_Constant.docx
+- The_Koppa_Grand_Constant.txt
+- KOPPA_HETA_DIGAMMA.PY
+- KOPPA_HETA_DIGAMMA.docx
+- KOPPA_HETA_DIGAMMA.txt
+- GRAND_CONSTANT_ALGEBRA.PY
+- Grand_Constant_Algebra_Framework.docx
+- Grand_Constant_Algebra.txt
+- equal.PY
+- equal.txt
+- equalequal.PY
+- equalequal.txt
+- hodge_GCA.PY
+- hodge_GCA.txt
+- hodge_GCA.docx
+- log_hodge.zip
+- ZRRF_suite.py
+- ZRRF_suite_log030826.txt
+- zenith.txt
+- Kakeya_Nirvana_Conjecture_Framework.txt
+- KNCF_Suite.py
+- KNCF_log_31026.txt
+- szmy_mirror_model.txt
+- SMM_Suite.py
+- SMM_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK.txt
+- AESR_Suite.py
+- AESR_log.txt
+- AESR_V02_Suite.py
+- AESR_V02_Suite_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA_FALSE.txt
+- Six_Gem_States_of_Stereo-Identity_in_Ternary_Algebra_Suite.py
+- Six_Gem_States_of_Stereo-Identity_in_Ternary_Algebra.txt
+-Six_Gem_Logic_System_Dissertation.txt
+-Six_Gem_Logic_System_Dissertation_Suite.py
+
 
 ──────────────────────────────
 Permissions
