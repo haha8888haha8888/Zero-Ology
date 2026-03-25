@@ -1400,6 +1400,20 @@ def one_thousand_two_gem_ladder():
     print("────────────────────────────────────────────")
 
 
+# -------------------------------------------------------------------------
+# SECTOR 0: FULL SI VALUE TABLE (216 entries)
+# -------------------------------------------------------------------------
+def print_si_table():
+    print("\nFULL SI TABLE — All 216 (A,B,C) combinations")
+    print("──────────────────────────────────────────────")
+    for a in range(6):
+        for b in range(6):
+            for c in range(6):
+                result = si_operator(a, b, c)
+                print(f" [{a}, {b}, {c}] → {result}")
+    print("──────────────────────────────────────────────\n")
+
+
 # -----------------------------------------------------------------------------
 # MAIN MENU & REPL — 
 # -----------------------------------------------------------------------------
@@ -1433,12 +1447,13 @@ def main():
     print("   SEC21        → Fixed Points, Cycles, Attractors")
     print("   SEC22        → Entropy / Chaos Scanner")
     print("   SEC23        → Phase Transition Scanner (Order ↔ Chaos)")
-    print("    MEGA24       → 1,002 Gem Logic Ladder Simulator")
+    print("    MEGA24      → 1,002 Gem Logic Ladder Simulator")
+    print("    TABLE / SI  → FULL SI TABLE — All 216 (A,B,C) combinations")
     print("   XX           → Exit")
     print("="*85)
 
     while True:
-        cmd = input("\n[Sector] (Blank=Ladder, STAB2, ORD2, L = LADDER, A = AUDIT, M = MODAL, C = CLASSIC, CHI2, MUL2, TRACE2, DIV2, SCOPE2, AUD12, EXP13, PARA14, HIST15, PARA16, QUANT17, ARCH18, RES19, SEC20, SEC21, SEC22, SEC23, MEGA24,  XX=Exit): ").strip().upper()
+        cmd = input("\n[Sector] (Blank=Ladder, STAB2, ORD2, L = LADDER, A = AUDIT, M = MODAL, C = CLASSIC, CHI2, MUL2, TRACE2, DIV2, SCOPE2, AUD12, EXP13, PARA14, HIST15, PARA16, QUANT17, ARCH18, RES19, SEC20, SEC21, SEC22, SEC23, MEGA24,TABLE / SI,  XX=Exit): ").strip().upper()
 
         if cmd == "XX":
             print("\nExiting Ladder Hyperspace. Continuity maintained.\n")
@@ -1453,6 +1468,15 @@ def main():
             print(f" OR(A,B)  : [A, B, 1]")
             for i in [0, 3]:
                 print(f" NOT {color_logic(i)} → {color_logic((i + 3) % 6)}")
+        elif cmd in ("C", "CLASSIC"):
+                print(f"\n{BOLD}CLASSICAL BRIDGE MAPPINGS{RESET}")
+                print(f" NOT(A)   : (A + 3) mod 6")
+                print(f" AND(A,B) : [A, B, 0]")
+                print(f" OR(A,B)  : [A, B, 1]")
+                for i in [0, 3]:
+                        print(f" NOT {color_logic(i)} → {color_logic((i + 3) % 6)}")
+        elif cmd in ("TABLE", "SI"):
+                    print_si_table()
         elif cmd == "STAB2":   ladder_stability_test(3, 1000)
         elif cmd == "ORD2":    ladder_order_sensitivity(3, 1000)
         elif cmd == "CHI2":    ladder_chirality_flow(5)
@@ -1478,6 +1502,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 # LICENSE.TXT
 # Zero-Ology License v1.19310
