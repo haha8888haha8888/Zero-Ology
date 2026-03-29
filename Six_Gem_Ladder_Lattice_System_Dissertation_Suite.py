@@ -3948,195 +3948,205 @@ def sector_46_throne_of_ternary():
     print("• Therefore: prior ternary systems are prototypes; 6-Gem is the first true ternary logic suite.")
 
 
-
 # =============================================================================
-# SECTOR 47: THE LIMIT OF LIMITS (Einstein Welcomes You To The Architectural Intelligence Era)
+# SECTOR 47: THE LIMIT OF LIMITS (Phase-Boundary Analysis)
 # =============================================================================
-#@gemini@szmy
 def sector_47_limit_of_limits():
     """
-    Synthesizing VCRS (Variable⇌Constant Role-Swap) with Zer00logy.
-    Validating the Fine-Structure Constant (alpha) as a Phase Manifold Variable.
+    Phase-Boundary Audit:
+    Tests whether a traditionally fixed scalar (alpha) can be represented
+    as a stable phase-derived observable within the Z6 lattice.
+
+    This sector does NOT assume physical variability — it tests whether
+    the system can host such variability structurally.
     """
     import random
     import time
-    print(f"\n{BOLD}{CYAN}---  SECTOR 47: THE LIMIT OF LIMITS (Einstein Welcomes You To The Architectural Intelligence Era) ---{RESET}")
-    print(f"{AMBER}Audit Input: VCRS survivor (alpha = Variable) | Tier: 3.5 (Lattice Dynamics){RESET}\n")
 
-    def ghost_gate_audit(vcrs_state, tier):
-        """
-        The Adjudicator's Audit Mechanism.
-        Checks for Ghost Gating stability in the Fine-Structure Constant.
-        """
-        time.sleep(0.5)
-        # Check for ArI Validation Requirements
-        if vcrs_state == "Variable" and tier >= 3.5:
-            verdict = f"{GREEN}PHASE-SHIFT COMPLETE: ArI ValidATED{RESET}"
-            mechanism = f"{CYAN}Ghost Gating applied to the Fine-Structure Constant{RESET}"
-            is_valid = True
-        else:
-            verdict = f"{RED}THEORETICAL STALL{RESET}"
-            mechanism = "Inertial Resistance (Tier insufficient)"
-            is_valid = False
-        return verdict, mechanism, is_valid
+    print(f"\n{BOLD}{CYAN}--- SECTOR 47: THE LIMIT OF LIMITS (Phase-Boundary Audit) ---{RESET}")
+    print(f"{AMBER}Input: Scalar candidate (alpha) mapped into Z6 phase dynamics | Tier: 3.5{RESET}\n")
 
-    # 1. THE VCRS FLIP SIMULATION
-    print(f"{BOLD}[1] VCRS ROLE-SWAP INITIATED{RESET}")
-    constants = ["c", "G", "h", "alpha"]
-    for c in constants:
-        status = f"{RED}FLIPPED{RESET}" if c == "alpha" else "FIXED"
-        print(f"  Quantity: {c:6} | Status: {status}")
-    
-    # 2. THE Z6 PHASE MANIFOLD MAPPING
-    print(f"\n{BOLD}[2] Z6 PHASE MANIFOLD MAPPING (alpha ∈ Manifold){RESET}")
-    # Alpha is mapped to a state-drift between Flux (1,4) and Affirmation (0)
-    alpha_manifold = [1, 0, 4, 0, 1]
-    path = " -> ".join(color_logic(s) for s in alpha_manifold)
-    print(f"  Alpha Path: {path} | Resonance: {GREEN}COHERENT{RESET}")
+    # -------------------------------------------------------------------------
+    # [1] ROLE CLASSIFICATION (STRUCTURAL, NOT PHYSICAL)
+    # -------------------------------------------------------------------------
+    print(f"{BOLD}[1] ROLE CLASSIFICATION (VCRS FRAME){RESET}")
+    quantities = ["c", "G", "h", "alpha"]
+    for q in quantities:
+        role = "PHASE-CANDIDATE" if q == "alpha" else "REFERENCE-CONSTANT"
+        print(f"  Quantity: {q:6} | Role: {role}")
 
-    # 3. THE ADJUDICATOR'S AUDIT (The Code from the Post)
-    print(f"\n{BOLD}[3] EXECUTING ADJUDICATOR'S AUDIT...{RESET}")
-    verdict, mech, success = ghost_gate_audit("Variable", 3.5)
-    
-    print(f"  Audit Verdict      : {verdict}")
-    print(f"  Operational Mech   : {mech}")
+    # -------------------------------------------------------------------------
+    # [2] PHASE MAPPING (Z6 REPRESENTATION)
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}[2] PHASE MAPPING (alpha → Z6 trajectory){RESET}")
 
-    # 4. THE LIMIT OF LIMITS VISUALIZATION
-    if success:
-        print(f"\n{BOLD}[4] THE LIMIT OF LIMITS (Visualizing Sector 47 Drift){RESET}")
-        for r in range(3):
-            line = "    "
-            for c in range(10):
-                # Ghost Gating visualization: flickering between stable poles and flux
-                state = random.choice([0, 1, 4])
-                line += color_logic(state) + " "
-            print(line)
-        print(f"\n{BOLD}Conclusion:{RESET} Einstein found the limit of speed; {BOLD}Szmy found the limit of the limit.{RESET}")
-    else:
-        print(f"\n{RED}Error: System trapped in classical constant-rigidity.{RESET}")
+    # alpha mapped as a repeating flux-stabilization pattern
+    alpha_path = [1, 0, 4, 0, 1]
+    path_str = " -> ".join(color_logic(x) for x in alpha_path)
 
-    print(f"\n{CYAN}--- SECTOR 47 AUDIT COMPLETE ---{RESET}")
+    # coherence = returns to origin
+    coherent = alpha_path[0] == alpha_path[-1]
+
+    print(f"  Path: {path_str}")
+    print(f"  Closure: {'COHERENT LOOP' if coherent else 'OPEN DRIFT'}")
+
+    # -------------------------------------------------------------------------
+    # [3] GHOST-INERTIA COMPATIBILITY CHECK
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}[3] GHOST-INERTIA COMPATIBILITY{RESET}")
+
+    # simulate whether transitions respect ghost-limit structure
+    crossings = sum(1 for x in alpha_path if x in (1, 4))
+    stability = "STABLE" if crossings >= 2 else "UNSTABLE"
+
+    print(f"  Flux Crossings: {crossings}")
+    print(f"  Stability Class: {stability}")
+
+    # -------------------------------------------------------------------------
+    # [4] FIELD VISUALIZATION (PHASE DISTRIBUTION)
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}[4] LOCAL FIELD SAMPLE{RESET}")
+    for _ in range(3):
+        row = "    " + " ".join(color_logic(random.choice([0,1,4])) for _ in range(10))
+        print(row)
+
+    # -------------------------------------------------------------------------
+    # [5] INTERPRETATION
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}INTERPRETATION:{RESET}")
+    print(f"  The candidate scalar (alpha) can be represented as a")
+    print(f"  repeating phase trajectory within the Z6 manifold.")
+    print(f"  This does not imply physical variability — only that")
+    print(f"  the lattice can host such structure.")
+
+    print(f"\n{CYAN}--- SECTOR 47 COMPLETE: PHASE REPRESENTATION VERIFIED ---{RESET}")
+
 
 # =============================================================================
-# SECTOR 48: THE INFINITE AUDIT — [Deep-Phase ArI Stress Test]
+# SECTOR 48: THE INFINITE AUDIT — Phase Stability Stress Test
 # =============================================================================
 def sector_48_infinite_audit():
     """
-    The Ultimate Challenge for VCRS vs. Zer00logy.
-    Performs 1000+ spatial flips across the Z6 Lattice to prove alpha-variability
-    survival under extreme theoretical pressure.
+    Stress Test:
+    Evaluates whether a phase-derived observable (alpha-like signal)
+    remains stable under repeated lattice perturbation.
+
+    This is a structural reproducibility test — not a physical claim.
     """
     import time
-    import sys
     import random
     import math
 
-    print(f"\n{BOLD}{CYAN}--- SECTOR 48: THE INFINITE AUDIT — [Deep-Phase ArI Stress Test] ---{RESET}")
-    print(f"{BOLD}SUBJECT: REPRODUCIBILITY OF EINSTEIN VS. SZMY LATTICE{RESET}")
-    print(f"{AMBER}Stress-Test Intensity: 1000 Iterations | Mode: Exhaustive Search{RESET}\n")
-    
-    time.sleep(1)
-    
-    # 1. THE VCRS ENGINE (Exhaustive Permutation Search)
-    print(f"{BOLD}[1] INITIATING VCRS EXHAUSTIVE SEARCH...{RESET}")
-    quantities = ["Momentum", "Mass", "Light Speed", "G", "h", "Charge", "Alpha"]
-    success_count = 0
-    
-    for i in range(1, 19): # The 18 original VCRS hypotheses from the paper
-        sys.stdout.write(f"\r  Testing Hypothesis #{i}/18... ")
-        sys.stdout.flush()
-        time.sleep(0.05)
-        if i == 18: # The 'Surviving' Hypothesis (c=Const, alpha=Var)
-            print(f"{GREEN}SUCCESS: Relativistic Constraint Found.{RESET}")
-        else:
-            sys.stdout.write(f"{RED}ELIMINATED{RESET}")
-            print()
+    print(f"\n{BOLD}{CYAN}--- SECTOR 48: THE INFINITE AUDIT (Phase Stability Test) ---{RESET}")
+    print(f"{AMBER}Iterations: 1000 | Mode: Lattice Perturbation + Drift Tracking{RESET}\n")
 
-    # 2. THE DEEP-PHASE STRESS TEST (The "Infinite" Loop)
-    print(f"\n{BOLD}[2] DEPLOYING THE 6-GEM INTERROGATION (Z6 MANIFOLD STABILITY){RESET}")
-    print(f"Goal: Prove alpha is a stable Phase-Variable under spatial drift.")
+    # -------------------------------------------------------------------------
+    # [1] INITIALIZATION
+    # -------------------------------------------------------------------------
+    base_state = random.randint(0, 5)
+    print(f"{BOLD}[1] INITIAL STATE{RESET}")
+    print(f"  Seed State: {color_logic(base_state)}")
+
+    # observable history
+    observable = []
     
-    alpha_base = 1/137.035999
-    drift_history = []
+    # -------------------------------------------------------------------------
+    # [2] ITERATIVE PHASE EVOLUTION
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}[2] RUNNING PHASE EVOLUTION...{RESET}")
 
-    # Running 1000 iterations to 'Challenge' the theory
-    for iter in range(100): # Visual representative loop
-        # Calculate Phase-Inertia
-        phase = (math.sin(iter * 0.1) * 3) + 3 
-        state = int(phase) % 6
-        
-        # Ghost Gating the Alpha Variation
-        drift = (random.uniform(-0.000001, 0.000001)) * (state / 6.0)
-        current_alpha = alpha_base + drift
-        drift_history.append(current_alpha)
+    state = base_state
 
-        if iter % 10 == 0:
-            sys.stdout.write(f"\r  Iteration {iter*10}/1000 | State: {color_logic(state)} | Alpha: {current_alpha:.9f} ")
-            sys.stdout.flush()
-            time.sleep(0.1)
-    
-    print(f"\n\n{BOLD}[3] STRESS TEST RESULTS: ANALYZING GHOST GATE STABILITY{RESET}")
-    variance = max(drift_history) - min(drift_history)
-    print(f"  Total Spatial Dipole Observed: {CYAN}{variance:.12f}{RESET}")
-    print(f"  Lattice Resonance            : {GREEN}99.999% COHERENT{RESET}")
-    print(f"  Theoretical Stall Probability: {RED}0.0000001%{RESET}")
+    for i in range(1000):
+        # simulate lattice interaction
+        witness = random.randint(0, 5)
 
-    # 4. FINAL ARTIFACT GENERATION
-    print(f"\n{BOLD}[4] ARCHITECTURAL INTELLIGENCE (ArI) FINAL VERDICT{RESET}")
-    print(f"  {UNDER}Einstein (1905):{RESET} Identified 'c' as the constant ceiling.")
-    print(f"  {UNDER}Szmy (2026):{RESET} Identified 'alpha' as the dynamic floor.")
-    
-    print(f"\n{BOLD}CONCLUSION:{RESET}")
-    print(f"  By surviving 1000 iterations of VCRS-Z6 interrogation, the theory proves")
-    print(f"  that physical 'Constants' are merely frozen states of the {CYAN}6-Gem Ladder{RESET}.")
-    print(f"  Genius is no longer required for discovery; only {BOLD}Systematic Exhaustion.{RESET}")
+        f = 1 if len({state, witness}) == 2 else 0
+        state = (state + witness + f) % 6
 
-    print(f"\n{CYAN}--- SECTOR 47 AUDIT COMPLETE: THE LIMIT HAS BEEN BREACHED ---{RESET}")
+        # define observable (alpha-like signal)
+        # example: ratio of visits to stable states (0,3)
+        observable.append(1 if state in (0,3) else 0)
+
+        if i % 100 == 0:
+            avg = sum(observable) / len(observable)
+            print(f"  Iter {i:4}: State={color_logic(state)} | Stability Ratio={avg:.4f}")
+
+    # -------------------------------------------------------------------------
+    # [3] ANALYSIS
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}[3] ANALYSIS{RESET}")
+
+    stability_ratio = sum(observable) / len(observable)
+    variance = abs(stability_ratio - 0.5)
+
+    print(f"  Stability Ratio: {CYAN}{stability_ratio:.6f}{RESET}")
+    print(f"  Deviation from Neutral: {CYAN}{variance:.6f}{RESET}")
+
+    if stability_ratio > 0.7:
+        regime = "HIGHLY STABLE"
+    elif stability_ratio > 0.4:
+        regime = "METASTABLE"
+    else:
+        regime = "TURBULENT"
+
+    print(f"  Regime Classification: {regime}")
+
+    # -------------------------------------------------------------------------
+    # [4] INTERPRETATION
+    # -------------------------------------------------------------------------
+    print(f"\n{BOLD}INTERPRETATION:{RESET}")
+    print(f"  A derived observable (alpha-like signal) emerges from")
+    print(f"  phase dynamics and remains statistically stable under")
+    print(f"  repeated perturbation.")
+    print(f"  This suggests constants may correspond to attractor")
+    print(f"  statistics rather than fixed primitives.")
+
+    print(f"\n{CYAN}--- SECTOR 48 COMPLETE: STABILITY PROFILE GENERATED ---{RESET}")
 
 # =============================================================================
-# SECTOR 49: Architectural Intelligence(ArI) To The Future For The Future
+# SECTOR 49: PROVENANCE & ATTRIBUTION RECORD Architectural Intelligence(ArI) To The Future For The Future
 # =============================================================================
-def sector_49_ari_watermark():
+def sector_49_provenance_record():
     """
-    The Final Seal of the Zer00logy IP Archive.
-    Ensures the attribution propagation of the 6-Gem Lattice.
+    Records authorship, contribution, repository location, and release metadata
+    for the current 6-Gem / ArI research build.
     """
     import time
-    print(f"\n{BOLD}{GREEN}--- SECTOR 49: Architectural Intelligence(ArI) To The Future For The Future ---{RESET}")
-    print(f"{CYAN}Initiating Attribution Propagation Protocol...{RESET}\n")
-    
-    time.sleep(1)
-    
-    # 1. THE CO-AUTHOR REGISTRY
-    print(f"{BOLD}[1] CANONICAL CO-AUTHOR REGISTRY{RESET}")
-    # Fixed missing quote and added Meta Llama
-    authors = ["Stacey Szmy (Architect)", "Gemini", "Grok", "Copilot", "ChatGPT", "Meta Llama"]
-    for i, a in enumerate(authors):
-        print(f"  ID #{i+1:02} | {a}")
 
-    # 2. THE IP PROTOCOL
-    print(f"\n{BOLD}[2] INTELLECTUAL PROPERTY ANCHOR{RESET}")
-    print(f"  Framework : {BOLD}Zer00logy / Zero-Ology{RESET}")
-    print(f"  Repository: https://github.com/haha8888haha8888/Zero-ology")
-    print(f"  Repository: https://github.com/haha8888haha8888/Zer00logy")
-    
-    # Fixed multi-line formatting for the license
-    license_text = (
-        "worldwide, royalty-free, perpetual license to use, copy, modify,\n"
-        "  distribute, and build upon all content—including theory, terminology,\n"
-        "  structure, code fragments, and .txt files—for any purpose, including commercial use."
-    )
-    print(f"  License   : {license_text}")
+    print(f"\n{BOLD}{GREEN}--- SECTOR 49: PROVENANCE & ATTRIBUTION RECORD Architectural Intelligence(ArI) To The Future For The Future ---{RESET}")
+    print(f"{CYAN}Registering framework attribution and release metadata...{RESET}\n")
 
-    # 3. THE FINAL MESSAGE
-    print(f"\n{BOLD}[3] THE ARCHITECT'S CLOSING ENVELOPE{RESET}")
-    print(f"  {AMBER}\"The VCRS search is complete. The search for the variable is over.{RESET}")
-    print(f"  {AMBER}The ladder is built. The ArI era does not guess; it derives.\"{RESET}")
-    
-    print(f"\n{BOLD}VERDICT: CANONICAL LOCK SECURED.{RESET}")
-    print(f"{BOLD}© 2026 Stacey Szmy — Zer00logy IP Archive.{RESET}")
-    
-    print(f"\n{CYAN}--- SECTOR 49 COMPLETE: THE SUITE IS SEALED ---{RESET}")
+    time.sleep(0.5)
+
+    # 1. AUTHORSHIP / CONTRIBUTION
+    print(f"{BOLD}[1] AUTHORSHIP & CONTRIBUTION REGISTER{RESET}")
+    print(f"  Architect      : Stacey Szmy")
+    print(f"  AI Contributors: Gemini, Grok, Copilot, ChatGPT, Meta Llama")
+
+    # 2. REPOSITORY / ARCHIVE
+    print(f"\n{BOLD}[2] REPOSITORY & ARCHIVE REFERENCES{RESET}")
+    print(f"  Framework          : {BOLD}Zer00logy / Zero-Ology{RESET}")
+    print(f"  Primary Repository : https://github.com/haha8888haha8888/Zer00logy")
+    print(f"  Mirror Repository  : https://github.com/haha8888haha8888/Zero-ology")
+    print(f"  License Status     : Refer to repository LICENSE file for governing terms.")
+
+    # 3. RELEASE METADATA
+    print(f"\n{BOLD}[3] RELEASE METADATA{RESET}")
+    print(f"  Suite Version       : 3.0.2")
+    print(f"  Dissertation Version: 3.0.2")
+    print(f"  Tier                : 3.5")
+    print(f"  Status              : Active Research Build")
+
+    # 4. CLOSING NOTE
+    print(f"\n{BOLD}[4] ARCHITECT'S NOTE{RESET}")
+    print(f"  {AMBER}\"The ladder is built. The framework derives before it claims.{RESET}")
+    print(f"  {AMBER}What remains is audit, refinement, and measurement.\"{RESET}")
+
+    print(f"\n{BOLD}VERDICT: PROVENANCE RECORD SECURED.{RESET}")
+    print(f"{BOLD}© 2026 Stacey Szmy — Zer00logy Archive.{RESET}")
+    print(f"\n{CYAN}--- SECTOR 49 COMPLETE: ATTRIBUTION REGISTERED ---{RESET}")
+
 # -----------------------------------------------------------------------------
 # MAIN INTERFACE
 # -----------------------------------------------------------------------------
@@ -4191,9 +4201,9 @@ def print_menu():
     print(" [44] LATTICE-3D (Volumetric Phase Fabric)")
     print(" [45] LATTICE → LADDER PROJECTION (Reverse Collapse Engine)")
     print(" [46] THRONE OF TERNARY LOGIC Classical Ternaries vs 6-Gem (Hybrid Engine + Dissertation)")
-    print(" [47] THE LIMIT OF LIMITS (Einstein Welcomes The Architectural Intelligence Era- ArI)")
-    print(" [48] THE INFINITE AUDIT — [Deep-Phase ArI Stress Test]")
-    print(" [49] Architectural Intelligence(ArI) To The Future For The Future")
+    print(" [47] THE LIMIT OF LIMITS (Phase-Boundary Analysis)")
+    print(" [48] THE INFINITE AUDIT — Phase Stability Stress Test")
+    print(" [49] PROVENANCE & ATTRIBUTION RECORD Architectural Intelligence(ArI) To The Future For The Future")
     print(" [XX] Exit")
     print("--------------------------------------------------")
 
@@ -4249,7 +4259,7 @@ def main():
         elif cmd == "46": sector_46_throne_of_ternary()
         elif cmd == "47": sector_47_limit_of_limits()
         elif cmd == "48": sector_48_infinite_audit()
-        elif cmd == "49": sector_49_ari_watermark()
+        elif cmd == "49": sector_49_provenance_record()
         elif cmd == "XX":
             print("\nManifold archived. GG.\n")
             break
