@@ -1,0 +1,2401 @@
+6-GEM_MANIFOLD_Z12_Z16.txt
+
+
+
+6-GEM MANIFOLD Z12 + Z16 DOUBLING STABILITY FRAMEWORK v1.0
+
+===================================================================== 
+PURPOSE
+The purpose of the Z12 and Z16 expansion series is to determine whether the canonical 6-Gem manifold skeleton remains stable when the underlying Gaussian wrapping modulus is doubled.
+
+Native Track:
+
+Z6  -> Z12
+Mirror Track:
+
+Z8  -> Z16
+The objective is not to increase dimensionality.
+
+The system continues to evolve:
+
+(a,b,c)
+where a,b,c are complex coordinates.
+
+Therefore:
+
+3 Complex Dimensions
+6 Real Dimensions
+remain unchanged.
+
+The modulus modifies the toroidal wrapping geometry only.
+
+===================================================================== 
+CANONICAL MANIFOLD STATES
+Primary Hyperbolic Skeleton:
+
+[2+,4-,0^0]
+Meaning:
+
+Positive Lyapunov Directions = 2
+Negative Lyapunov Directions = 4
+Neutral Directions = 0
+Center Chamber Candidate:
+
+[2+,2-,2^0]
+Meaning:
+
+Positive Lyapunov Directions = 2
+Negative Lyapunov Directions = 2
+Neutral Directions = 2
+This state is interpreted as a potential center manifold or center chamber if it becomes persistent.
+
+===================================================================== 
+MODULUS DOUBLING PROGRAM
+Stage 1
+
+Z6
+Original native manifold.
+
+Stage 2
+
+Z8
+Mirror-state extension.
+
+Stage 3
+
+Z12
+Native modulus doubled.
+
+    Z12 = 2 × Z6
+Stage 4
+
+Z16
+Mirror modulus doubled.
+
+    Z16 = 2 × Z8
+This establishes the first complete doubling-stability framework.
+
+===================================================================== 
+Z12 MIRROR STRUCTURE
+Half-Modulus Offset:
+
++6
+Mirror Brackets:
+
+(0,6)
+(1,7)
+(2,8)
+(3,9)
+(4,10)
+(5,11)
+Interpretation:
+
+Each state belongs to one mirror bracket pair separated by exactly one half modulus.
+
+===================================================================== 
+Z16 MIRROR STRUCTURE
+Half-Modulus Offset:
+
++8
+Mirror Brackets:
+
+(0,8)
+(1,9)
+(2,10)
+(3,11)
+(4,12)
+(5,13)
+(6,14)
+(7,15)
+Interpretation:
+
+The Z8 mirror-state extension is doubled while preserving mirror symmetry.
+
+===================================================================== 
+PRIMARY OBSERVATIONS
+OBSERVATION 1
+
+The [2+,4-,0^0] skeleton survives modulus doubling.
+
+Observed Across:
+
+Z6
+Z8
+Z12
+and preliminary Z16 testing.
+
+Conclusion:
+
+The manifold skeleton appears to be modulus-family invariant.
+
+OBSERVATION 2
+
+Mirror brackets remain approximately balanced.
+
+No mirror bracket demonstrates runaway dominance.
+
+Conclusion:
+
+No directional hidden-state bias detected.
+
+OBSERVATION 3
+
+The [2+,2-,2^0] chamber remains transient.
+
+Observed behavior:
+
+P22Max = 0
+P22Max = 1
+P22Max = 2
+in most unrestricted scans.
+
+Conclusion:
+
+Center chamber remains corridor-like rather than self-sustaining.
+
+OBSERVATION 4
+
+Perturbation amplification increases with modulus expansion.
+
+Small perturbations can significantly alter trace values while still preserving final attractor classification.
+
+Conclusion:
+
+Larger moduli appear more sensitive while remaining globally stable.
+
+OBSERVATION 5
+
+Stable24 locking continues to emerge rapidly.
+
+Examples:
+
+Large Negative Scale
+Ultra Complex Seeds
+Phase Ring Configurations
+Golden Diagonal Configurations
+all eventually recover the canonical skeleton.
+
+Conclusion:
+
+The attractor remains dominant.
+
+===================================================================== 
+DOUBLING STABILITY HYPOTHESIS
+Hypothesis:
+
+The 6-Gem manifold possesses a modulus-invariant hyperbolic skeleton.
+
+Specifically:
+
+[2+,4-,0^0]
+remains stable under modulus doubling.
+
+Current Evidence:
+
+Z6  -> PASS
+Z8  -> PASS
+Z12 -> PASS
+Z16 -> PRELIMINARY PASS
+Therefore:
+
+Modulus changes alter wrapping geometry,
+mirror-state organization,
+convergence behavior,
+and perturbation sensitivity,
+but do not presently destroy the primary attractor.
+
+===================================================================== 
+CURRENT RESEARCH STATUS
+Confirmed:
+
+Z6 -> Z8 robustness
+Z6 -> Z12 robustness
+Balanced mirror-state behavior
+Persistent [2+,4-,0^0] skeleton
+Unresolved:
+
+Full Z16 review
+Long-lived [2+,2-,2^0] chamber formation
+Higher-order mirror nesting
+Continuous-limit transition
+===================================================================== 
+NEXT RECOMMENDED TESTS
+Phase III Expansion
+
+Z24 = 2 × Z12
+Z32 = 2 × Z16
+Factor Expansion
+
+Z18
+Z20
+Z36
+Prime Tests
+
+Z7
+Z11
+Z13
+Z17
+Continuous Limit
+
+M -> infinity
+where Gaussian wrapping becomes increasingly non-local.
+
+===================================================================== 
+WORKING VERDICT
+Current evidence supports the proposition that the 6-Gem manifold is not a Z6 artifact.
+
+The [2+,4-,0^0] hyperbolic skeleton survives:
+
+Z6
+Z8
+Z12
+Z16
+suggesting the existence of a modulus-family invariant attractor structure within the 6-Gem manifold class.
+
+===================================================================== 
+===================================================================== 
+
+Z12 vs Z16 — MINIMAL ANALYSIS WITH EQUATION EXAMPLES
+
+6-GEM ternary map:
+
+si(a,b,c) =
+(a + b + c + tanh(|(a−b)(b−c)(c−a)|)) mod M
+Jacobian spectrum classifications:
+
+Hyperbolic Skeleton:
+    [2+,4-,0^0]
+
+Center Corridor:
+    [2+,2-,2^0]
+Mirror-pair definitions:
+
+Z12:
+    (k, k+6)
+
+Z16:
+    (k, k+8)
+Z12 OBSERVATIONS
+Example 1 — Large Real Seed
+
+a=b=c=−10^6
+Since
+
+(a−b)(b−c)(c−a)=0
+we obtain
+
+tanh(0)=0
+and therefore
+
+si ≈ 3a mod 12
+Observed behavior:
+
+Stable [2+,4-,0^0]
+Balanced mirror occupancy
+P22Max ≈ 0–2
+No persistent center chamber observed.
+
+Example 2 — Phase Ring
+
+(z, rot120(z), rot240(z))
+The orbit respects the native ternary rotational structure.
+
+Observed behavior:
+
+First22 = 2
+P22Max = 1
+Stable24 lock present
+Transient corridor crossings occur but do not persist.
+
+Example 3 — Golden Diagonal
+
+(φ,φ,φ)
+Again:
+
+tanh(0)=0
+giving
+
+si = 3φ mod 12
+Observed behavior:
+
+Stable hyperbolic spectrum
+No long-lived neutral directions
+Stable [2+,4-,0^0] attractor
+Z12 SUMMARY
+
+• Ternary symmetry remains intact.
+• Mirror brackets remain approximately balanced.
+• [2+,4-,0^0] remains dominant.
+• [2+,2-,2^0] appears only as a transient corridor.
+• No evidence of a naturally sustained center chamber.
+Z16 WORKING HYPOTHESIS
+Z16 represents the doubled mirror-state extension:
+
+Z8 → Z16
+with mirror pairing
+
+(k, k+8)
+This modulus is of particular interest because it is a power-of-two extension rather than a multiple of three.
+
+Potential mechanisms to investigate:
+
+• Increased wrapping freedom.
+• Larger mirror-state hierarchy.
+• Possible growth of neutral directions.
+• Possible center-corridor amplification.
+Example Investigation 1 — Golden Diagonal
+
+si = 3φ mod 16
+Question:
+
+Does the larger modulus create longer-lived
+near-neutral eigenvalue pairs?
+Metric:
+
+P22Max
+Stable24
+Center Drift
+Example Investigation 2 — Phase Ring
+
+(z, rot120(z), rot240(z))
+Question:
+
+Does 120° rotational structure remain as stable
+under modulus 16 as under modulus 12?
+Metrics:
+
+Mirror distribution
+Stable24 lock
+P22 persistence
+Example Investigation 3 — Random Basins
+
+Question:
+
+Do random seeds show increased center drift
+or increased neutral clustering?
+Metrics:
+
+P22Max
+Drift
+Mirror balance
+Final spectrum classification
+CURRENT VERDICT
+
+Z12:
+
+Strong evidence for modulus-doubling stability.
+
+Z6 → Z12
+
+preserves the dominant
+
+    [2+,4-,0^0]
+
+hyperbolic skeleton.
+Z16:
+
+Investigation remains ongoing.
+
+Preliminary interest focuses on whether
+power-of-two doubling introduces stronger
+neutral-direction behavior or extended
+center corridors.
+At present, Z16 should be described as:
+
+"a candidate symmetry-stress test"
+rather than
+
+"a demonstrated symmetry-breaking extension."
+WORKING RESEARCH CLAIM
+
+Current evidence supports:
+
+Z6 → Z12
+as a stable doubling of the native ternary manifold.
+
+The status of
+
+Z8 → Z16
+should remain an open empirical question until the full Z16 closure, perturbation, gamma, submap, and basin scans are completed.
+
+===================================================================== 
+================##6-GEM_MANIFOLD_Z12_Z16_SUITE.py ##================= 
+
+#6-GEM_MANIFOLD_Z12_Z16_SUITE.py
+
+#!/usr/bin/env python3
+"""
+===========================================================================
+6-GEM MANIFOLD — Z12 + Z16 DOUBLING-STABILITY COMPARATIVE SUITE
+===========================================================================
+
+Purpose:
+    Test the paired modulus-doubling sequence:
+
+        Native track:  Z6  -> Z12
+        Mirror track:  Z8  -> Z16
+
+    Z12 tests direct doubling of the original 6-Gem modulus.
+    Z16 tests direct doubling of the Z8 mirror-state extension.
+
+Important dimensional note:
+    This suite still evolves three complex coordinates (a,b,c), so the
+    phase space remains 6 real dimensions. Z12 and Z16 change the Gaussian
+    wrapping boundary, not the coordinate dimension.
+
+Derived from the Z8 mirror-state comparative suite architecture.
+===========================================================================
+"""
+
+import math
+import random
+from dataclasses import dataclass
+from typing import Dict, Iterable, List, Optional, Tuple
+
+ComplexState = Tuple[complex, complex, complex]
+MirrorPair = Tuple[int, int]
+
+
+# ===========================================================================
+# GEOMETRY / CORE MAP
+# ===========================================================================
+
+def rot(z: complex, deg: float) -> complex:
+    t = math.radians(deg)
+    return z * complex(math.cos(t), math.sin(t))
+
+
+def f_scaled(a: complex, b: complex, c: complex, scale: float = 1.0) -> float:
+    """Continuous 6-Gem nonlinear separation primitive."""
+    if scale == 0.0:
+        return 0.0
+    return math.tanh(scale * abs((a - b) * (b - c) * (c - a)))
+
+
+@dataclass(frozen=True)
+class ModulusConfig:
+    label: str
+    modulus: float
+    parent_label: str
+    track_name: str
+
+    @property
+    def half(self) -> int:
+        return int(self.modulus // 2)
+
+    @property
+    def int_modulus(self) -> int:
+        return int(self.modulus)
+
+    def mirror_keys(self) -> Dict[MirrorPair, int]:
+        """Half-modulus mirror-pair brackets: (k, k+M/2)."""
+        return {(k, k + self.half): 0 for k in range(self.half)}
+
+
+Z12 = ModulusConfig(
+    label="Z12",
+    modulus=12.0,
+    parent_label="Z6",
+    track_name="Native doubled 6-Gem track"
+)
+
+Z16 = ModulusConfig(
+    label="Z16",
+    modulus=16.0,
+    parent_label="Z8",
+    track_name="Power-of-two doubled mirror track"
+)
+
+DEFAULT_CONFIGS = (Z12, Z16)
+
+
+def mod_gaussian(z: complex, cfg: ModulusConfig) -> complex:
+    """Gaussian torus wrap on [0,M) x [0,M)."""
+    return complex(z.real % cfg.modulus, z.imag % cfg.modulus)
+
+
+def si(a: complex, b: complex, c: complex, cfg: ModulusConfig, scale: float = 1.0) -> complex:
+    """Ternary 6-Gem map under a selected Gaussian wrapping modulus."""
+    return mod_gaussian(a + b + c + f_scaled(a, b, c, scale), cfg)
+
+
+def mirror_pair(z: complex, cfg: ModulusConfig) -> MirrorPair:
+    """
+    Half-modulus mirror bracket for Z12 or Z16.
+
+    Z12 pairs: (0,6), (1,7), ..., (5,11)
+    Z16 pairs: (0,8), (1,9), ..., (7,15)
+    """
+    k = int(z.real) % cfg.int_modulus
+    base = k % cfg.half
+    return base, base + cfg.half
+
+
+# ===========================================================================
+# CONSTRAINT ENGINE
+# ===========================================================================
+
+def apply_constraint(state: ComplexState, cfg: ModulusConfig, mode: str = "none") -> ComplexState:
+    a, b, c = state
+
+    if mode == "force_equal_ab":
+        return a, a, c
+
+    if mode == "force_conjugate_ac":
+        return a, b, complex(a.real, -a.imag)
+
+    if mode == "force_phase120":
+        return a, rot(a, 120), rot(a, 240)
+
+    if mode == "force_diagonal":
+        return a, a, a
+
+    if mode == "force_mirror_ac":
+        return a, b, mod_gaussian(a + cfg.half, cfg)
+
+    return a, b, c
+
+
+def next_state(state: ComplexState, cfg: ModulusConfig, scale: float = 1.0, constraint: str = "none") -> ComplexState:
+    a, b, c = apply_constraint(state, cfg, constraint)
+    return apply_constraint((b, c, si(a, b, c, cfg, scale)), cfg, constraint)
+
+
+def get_full_map_jacobian_6d(
+    state: ComplexState,
+    cfg: ModulusConfig,
+    scale: float = 1.0,
+    eps: float = 1e-6,
+    constraint: str = "none"
+) -> List[List[float]]:
+    base = next_state(state, cfg, scale, constraint)
+    base_coords = [
+        base[0].real, base[0].imag,
+        base[1].real, base[1].imag,
+        base[2].real, base[2].imag,
+    ]
+
+    coords = [
+        state[0].real, state[0].imag,
+        state[1].real, state[1].imag,
+        state[2].real, state[2].imag,
+    ]
+
+    J = [[0.0] * 6 for _ in range(6)]
+
+    for col in range(6):
+        shifted = coords[:]
+        shifted[col] += eps
+
+        s2 = (
+            complex(shifted[0], shifted[1]),
+            complex(shifted[2], shifted[3]),
+            complex(shifted[4], shifted[5]),
+        )
+
+        pert = next_state(s2, cfg, scale, constraint)
+        pert_coords = [
+            pert[0].real, pert[0].imag,
+            pert[1].real, pert[1].imag,
+            pert[2].real, pert[2].imag,
+        ]
+
+        for row in range(6):
+            J[row][col] = (pert_coords[row] - base_coords[row]) / eps
+
+    return J
+
+
+# ===========================================================================
+# CLASSIFIER
+# ===========================================================================
+
+def classify_spectrum_ternary(spec: Iterable[float], threshold: float = 1e-4) -> Dict[str, object]:
+    s = sorted(spec, reverse=True)
+
+    pos = sum(x > threshold for x in s)
+    neg = sum(x < -threshold for x in s)
+    zer = 6 - pos - neg
+
+    trace = sum(s)
+    stable_mean = sum(s[2:]) / 4
+    unstable_mean = sum(s[:2]) / 2
+    ratio = abs(unstable_mean / stable_mean) if abs(stable_mean) > 1e-12 else float("inf")
+
+    center_pair_floor = max(sorted(abs(x) for x in s)[:2])
+
+    is_24 = pos == 2 and neg == 4 and zer == 0
+    is_22 = pos == 2 and neg == 2 and zer == 2
+
+    label = "[2+,4-,0^0]" if is_24 else "[2+,2-,2^0]" if is_22 else f"[{pos}+,{neg}-,{zer}^0]"
+
+    return {
+        "label": label,
+        "is_24": is_24,
+        "is_22": is_22,
+        "trace": trace,
+        "ratio": ratio,
+        "center": center_pair_floor,
+        "sorted": s,
+    }
+
+
+def calculate_center_drift(history: List[Tuple[int, float]], start: int = 5, end: int = 50) -> float:
+    pts = [(n, c) for n, c in history if start <= n <= end and c > 0]
+
+    if len(pts) < 2:
+        return 0.0
+
+    xm = sum(n for n, _ in pts) / len(pts)
+    ym = sum(math.log10(c) for _, c in pts) / len(pts)
+
+    den = sum((n - xm) ** 2 for n, _ in pts)
+    num = sum((n - xm) * (math.log10(c) - ym) for n, c in pts)
+
+    return num / den if den else 0.0
+
+
+# ===========================================================================
+# MAIN EVALUATOR
+# ===========================================================================
+
+def evaluate_dual_skeleton(
+    a: complex,
+    b: complex,
+    c: complex,
+    cfg: ModulusConfig,
+    max_steps: int = 5000,
+    scale: float = 1.0,
+    eps: float = 1e-6,
+    threshold: float = 1e-4,
+    constraint: str = "none",
+    required_24_locks: int = 10,
+) -> Dict[str, object]:
+    Q = [[1.0 if i == j else 0.0 for j in range(6)] for i in range(6)]
+    lsums = [0.0] * 6
+
+    st = apply_constraint((complex(a), complex(b), complex(c)), cfg, constraint)
+
+    first_22: Optional[int] = None
+    first_24: Optional[int] = None
+    stable_24: Optional[int] = None
+
+    p22_current = p22_max = p22_total = 0
+    p24_current = p24_max = p24_total = 0
+
+    center_history: List[Tuple[int, float]] = []
+    mirror_counts = cfg.mirror_keys()
+
+    for step in range(1, max_steps + 1):
+        J = get_full_map_jacobian_6d(st, cfg, scale, eps, constraint)
+        ns = next_state(st, cfg, scale, constraint)
+
+        pair = mirror_pair(ns[2], cfg)
+        mirror_counts[pair] = mirror_counts.get(pair, 0) + 1
+
+        new_Q = [
+            [sum(J[row][col] * Q[v][col] for col in range(6)) for row in range(6)]
+            for v in range(6)
+        ]
+
+        for i in range(6):
+            for j in range(i):
+                dot = sum(new_Q[i][k] * new_Q[j][k] for k in range(6))
+                for k in range(6):
+                    new_Q[i][k] -= dot * new_Q[j][k]
+
+            norm = math.sqrt(sum(new_Q[i][k] ** 2 for k in range(6)))
+
+            if norm > 1e-12:
+                lsums[i] += math.log(norm)
+                for k in range(6):
+                    new_Q[i][k] /= norm
+
+            Q[i] = new_Q[i]
+
+        st = ns
+
+        spec = [x / step for x in lsums]
+        cls = classify_spectrum_ternary(spec, threshold)
+        center_history.append((step, float(cls["center"])))
+
+        if cls["is_22"]:
+            p22_total += 1
+            p22_current += 1
+            first_22 = first_22 or step
+            p22_max = max(p22_max, p22_current)
+        else:
+            p22_current = 0
+
+        if cls["is_24"]:
+            p24_total += 1
+            p24_current += 1
+            first_24 = first_24 or step
+            p24_max = max(p24_max, p24_current)
+
+            if p24_current >= required_24_locks and stable_24 is None:
+                stable_24 = step - required_24_locks + 1
+        else:
+            p24_current = 0
+
+    final_spec = [x / max_steps for x in lsums]
+    final = classify_spectrum_ternary(final_spec, threshold)
+
+    return {
+        "first_22": first_22,
+        "p22_max": p22_max,
+        "p22_total": p22_total,
+        "first_24": first_24,
+        "stable_24": stable_24,
+        "p24_max": p24_max,
+        "p24_total": p24_total,
+        "trace": final["trace"],
+        "ratio": final["ratio"],
+        "center": final["center"],
+        "label": final["label"],
+        "drift": calculate_center_drift(center_history),
+        "spec": final_spec,
+        "mirror_counts": mirror_counts,
+    }
+
+
+# ===========================================================================
+# SEEDS
+# ===========================================================================
+
+def build_core_targets(cfg: ModulusConfig) -> List[Tuple[str, ComplexState]]:
+    phi = (1 + math.sqrt(5)) / 2
+    pi = math.pi
+    z = complex(phi, pi)
+    edge = cfg.modulus - 0.0001
+
+    return [
+        ("Golden Diagonal", (phi, phi, phi)),
+        ("Cubic Roots Phase", (z, rot(z, 120), rot(z, 240))),
+        ("Quarter Roots Phase", (z, rot(z, 90), rot(z, 180))),
+        ("Phase Ring 180", (z, rot(z, 180), rot(z, 360))),
+        ("Large +1e6", (1e6, 1e6, 1e6)),
+        ("Large -1e6", (-1e6, -1e6, -1e6)),
+        ("Ultra Complex 1e6+i1e6", (
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+        )),
+        (f"Boundary Edge {edge:.4f}+i{edge:.4f}", (
+            complex(edge, edge),
+            complex(edge, edge),
+            complex(edge, edge),
+        )),
+    ]
+
+
+def perturb_seed(seed: ComplexState, p: float, mode: str) -> ComplexState:
+    a, b, c = seed
+
+    if mode == "c_wedge":
+        return a, b, c + complex(p, -p)
+
+    if mode == "a_wedge":
+        return a + complex(p, -p), b, c
+
+    if mode == "b_wedge":
+        return a, b + complex(p, -p), c
+
+    if mode == "all_wedge":
+        return a + complex(p, -p), b + complex(-p, p), c + complex(p, p)
+
+    if mode == "real_all":
+        return a + p, b - p, c + p
+
+    if mode == "imag_all":
+        return a + 1j * p, b - 1j * p, c + 1j * p
+
+    return seed
+
+
+# ===========================================================================
+# SCRIPT 1: SOVEREIGN CLOSURE MATRIX
+# ===========================================================================
+
+def run_sovereign_closure_scan(cfg: ModulusConfig, base_abc: ComplexState, name: str, steps: int) -> None:
+    perturbations = [0.0, 1e-15, 1e-12, 1e-9, 1e-8]
+    thresholds = [1e-3, 1e-4, 1e-5, 1e-6]
+
+    print(f"\n[{cfg.label} SOVEREIGN CLOSURE SCAN] {name} | Steps={steps}")
+
+    for th in thresholds:
+        print(f"\nThreshold={th:.0e}")
+        print(f"{'Pert':<10} | {'First22':<8} | {'P22Max':<7} | {'Stable24':<8} | {'Trace':<10} | Drift | MirrorCounts")
+
+        for p in perturbations:
+            a, b, c = base_abc
+            r = evaluate_dual_skeleton(
+                a,
+                b,
+                c + complex(p, -p),
+                cfg,
+                max_steps=steps,
+                threshold=th,
+            )
+
+            print(
+                f"{p:<10.1e} | "
+                f"{str(r['first_22']):<8} | "
+                f"{r['p22_max']:<7} | "
+                f"{str(r['stable_24']):<8} | "
+                f"{r['trace']:+.6f} | "
+                f"{r['drift']:+.3e} | "
+                f"{r['mirror_counts']}"
+            )
+
+
+def run_v5142_block(cfg: ModulusConfig) -> None:
+    phi = (1 + math.sqrt(5)) / 2
+    pi = math.pi
+    z = complex(phi, pi)
+
+    broad = [
+        ("Large Negative Real Scale (-10^6)", (-1e6, -1e6, -1e6)),
+        ("Ultra Complex Float (10^6+i10^6)", (
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+        )),
+        ("Phase Ring 30", (z, rot(z, 30), rot(z, 60))),
+        ("Phase Ring 45", (z, rot(z, 45), rot(z, 90))),
+        ("Phase Ring 90", (z, rot(z, 90), rot(z, 180))),
+        ("Phase Ring 120", (z, rot(z, 120), rot(z, 240))),
+    ]
+
+    deep = [
+        ("Deep Golden Diagonal", (phi, phi, phi)),
+        ("Deep Cubic Roots Phase", (z, rot(z, 120), rot(z, 240))),
+        ("Deep Phase Ring 180", (z, rot(z, 180), rot(z, 360))),
+    ]
+
+    print(f"\n=== {cfg.label} V5.1.4.2 SOVEREIGN CLOSURE MATRIX ===")
+    print(f"Track: {cfg.parent_label} -> {cfg.label} | {cfg.track_name}")
+
+    for name, seed in broad:
+        run_sovereign_closure_scan(cfg, seed, name, steps=1000)
+
+    for name, seed in deep:
+        run_sovereign_closure_scan(cfg, seed, name, steps=5000)
+
+
+# ===========================================================================
+# SCRIPT 2: ISSUE SCANS
+# ===========================================================================
+
+def run_center_dwell_report(cfg: ModulusConfig) -> None:
+    print(f"\n[{cfg.label} ISSUE 1] CENTER DWELL / DRIFT REPORT")
+
+    for name, seed in build_core_targets(cfg):
+        r = evaluate_dual_skeleton(*seed, cfg=cfg, max_steps=5000)
+
+        note = "NO CENTER ROOM"
+        if r["p22_max"] == 1:
+            note = "ONE-STEP CORRIDOR"
+        elif 2 <= r["p22_max"] < 100:
+            note = "METASTABLE SHORT CORRIDOR"
+        elif r["p22_max"] >= 100:
+            note = "LONG-LIVED CHAMBER CANDIDATE"
+
+        print(
+            f"{name:<36} | "
+            f"First22={r['first_22']} | "
+            f"P22Max={r['p22_max']} | "
+            f"P22Total={r['p22_total']} | "
+            f"Stable24={r['stable_24']} | "
+            f"Drift={r['drift']:+.3e} | "
+            f"Final={r['label']} | "
+            f"{note}"
+        )
+
+
+def run_multi_axis_perturbation_scan(cfg: ModulusConfig) -> None:
+    print(f"\n[{cfg.label} ISSUE 2] MULTI-AXIS PERTURBATION SCAN")
+
+    modes = ["c_wedge", "a_wedge", "b_wedge", "all_wedge", "real_all", "imag_all"]
+    perturbations = [0.0, 1e-15, 1e-12, 1e-9, 1e-8]
+
+    for name, seed in build_core_targets(cfg)[:4]:
+        print(f"\nTarget: {name}")
+
+        for mode in modes:
+            for p in perturbations:
+                r = evaluate_dual_skeleton(
+                    *perturb_seed(seed, p, mode),
+                    cfg=cfg,
+                    max_steps=1000,
+                )
+
+                print(
+                    f"{mode:<10} p={p:.1e} | "
+                    f"First22={r['first_22']} | "
+                    f"P22Max={r['p22_max']} | "
+                    f"Stable24={r['stable_24']} | "
+                    f"Trace={r['trace']:+.6f} | "
+                    f"Drift={r['drift']:+.3e}"
+                )
+
+
+def run_gamma_sweep(cfg: ModulusConfig) -> None:
+    print(f"\n[{cfg.label} ISSUE 3] GAMMA / SCALE SWEEP")
+
+    for name, seed in build_core_targets(cfg)[:5]:
+        print(f"\nTarget: {name}")
+
+        for sc in [0.0, 0.01, 0.1, 0.5, 1.0, 2.0, 5.0]:
+            r = evaluate_dual_skeleton(*seed, cfg=cfg, max_steps=1000, scale=sc)
+
+            print(
+                f"scale={sc:<4} | "
+                f"First22={r['first_22']} | "
+                f"P22Max={r['p22_max']} | "
+                f"Stable24={r['stable_24']} | "
+                f"Trace={r['trace']:+.6f} | "
+                f"Ratio={r['ratio']:.4f} | "
+                f"Final={r['label']}"
+            )
+
+
+def run_constrained_submap_scan(cfg: ModulusConfig) -> None:
+    print(f"\n[{cfg.label} ISSUE 4] CONSTRAINED SUBMAP / TRUE CHAMBER HUNT")
+
+    constraints = [
+        "none",
+        "force_equal_ab",
+        "force_conjugate_ac",
+        "force_phase120",
+        "force_diagonal",
+        "force_mirror_ac",
+    ]
+
+    for name, seed in build_core_targets(cfg)[:5]:
+        print(f"\nTarget: {name}")
+
+        for con in constraints:
+            r = evaluate_dual_skeleton(*seed, cfg=cfg, max_steps=2000, constraint=con)
+
+            print(
+                f"{con:<20} | "
+                f"First22={r['first_22']} | "
+                f"P22Max={r['p22_max']} | "
+                f"P22Total={r['p22_total']} | "
+                f"P24Max={r['p24_max']} | "
+                f"Trace={r['trace']:+.6f} | "
+                f"Final={r['label']}"
+            )
+
+
+def run_random_basin_scan(
+    cfg: ModulusConfig,
+    samples: int = 100,
+    max_steps: int = 1000,
+    seed_value: int = 1337,
+) -> Dict[str, object]:
+    print(f"\n[{cfg.label} ISSUE 5] RANDOM BASIN COVERAGE SCAN")
+
+    rng = random.Random(seed_value)
+
+    p22_hits = 0
+    no_24 = 0
+    max_p22 = 0
+    best = None
+    mirror_total = cfg.mirror_keys()
+
+    for i in range(samples):
+        seed = tuple(
+            complex(rng.uniform(0, cfg.modulus), rng.uniform(0, cfg.modulus))
+            for _ in range(3)
+        )
+
+        r = evaluate_dual_skeleton(*seed, cfg=cfg, max_steps=max_steps)
+
+        if r["p22_max"] > 0:
+            p22_hits += 1
+
+        if r["stable_24"] is None:
+            no_24 += 1
+
+        for k, v in r["mirror_counts"].items():
+            mirror_total[k] = mirror_total.get(k, 0) + v
+
+        if r["p22_max"] > max_p22:
+            max_p22 = r["p22_max"]
+            best = (i, seed, r)
+
+    print(f"Samples checked: {samples}")
+    print(f"P22 hits: {p22_hits}")
+    print(f"No stable [2+,4-,0^0] lock: {no_24}")
+    print(f"Max P22 observed: {max_p22}")
+    print(f"Aggregate {cfg.label} mirror counts: {mirror_total}")
+
+    if best:
+        i, seed, r = best
+        print(f"Best candidate index={i} | seed={seed}")
+        print(
+            f"First22={r['first_22']} | "
+            f"P22Max={r['p22_max']} | "
+            f"Stable24={r['stable_24']} | "
+            f"Trace={r['trace']:+.6f} | "
+            f"Ratio={r['ratio']:.4f} | "
+            f"Final={r['label']}"
+        )
+
+    return {
+        "label": cfg.label,
+        "samples": samples,
+        "p22_hits": p22_hits,
+        "no_24": no_24,
+        "max_p22": max_p22,
+        "mirror_total": mirror_total,
+        "best": best,
+    }
+
+
+# ===========================================================================
+# MODULUS MASTER + PAIRWISE COMPARISON
+# ===========================================================================
+
+def execute_single_modulus_suite(cfg: ModulusConfig, random_samples: int = 100, random_steps: int = 1000) -> Dict[str, object]:
+    print("\n" + "#" * 79)
+    print(f"### 6-GEM MANIFOLD — {cfg.label} DOUBLING-STABILITY SUITE")
+    print(f"### TRACK: {cfg.parent_label} -> {cfg.label}")
+    print(f"### MODULUS = {cfg.modulus}")
+    print(f"### HALF-MODULUS MIRROR OFFSET = +{cfg.half}")
+    print("### PHASE SPACE: three complex coordinates = six real dimensions")
+    print("#" * 79)
+
+    run_v5142_block(cfg)
+    run_center_dwell_report(cfg)
+    run_multi_axis_perturbation_scan(cfg)
+    run_gamma_sweep(cfg)
+    run_constrained_submap_scan(cfg)
+    random_summary = run_random_basin_scan(cfg, samples=random_samples, max_steps=random_steps)
+
+    print(f"\n[{cfg.label} DECISION RULE]")
+    print(f"If [2+,4-,0^0] remains stable under {cfg.label}, the {cfg.parent_label}->{cfg.label} doubled skeleton is robust.")
+    print(f"If [2+,2-,2^0] grows naturally under {cfg.label}, the doubled modulus creates a true free-map center chamber.")
+    print(f"If mirror brackets distribute evenly, {cfg.label} behaves as a balanced half-modulus ignorance-state extension.")
+    print(f"If one mirror bracket dominates, {cfg.label} introduces directional hidden-state bias.")
+    print(f"If {cfg.label} destroys the lock, the parent signature is modulus-sensitive.")
+
+    return random_summary
+
+
+def print_pairwise_final_verdict(summaries: List[Dict[str, object]]) -> None:
+    print("\n" + "=" * 79)
+    print("Z12 / Z16 PAIRWISE DOUBLING-STABILITY VERDICT")
+    print("=" * 79)
+
+    for summary in summaries:
+        label = summary["label"]
+        p22_hits = summary["p22_hits"]
+        no_24 = summary["no_24"]
+        max_p22 = summary["max_p22"]
+        mirror_total = summary["mirror_total"]
+        total = sum(mirror_total.values())
+        expected = total / len(mirror_total) if mirror_total else 0.0
+        max_dev = max((abs(v - expected) for v in mirror_total.values()), default=0.0)
+        dev_pct = (max_dev / expected * 100.0) if expected else 0.0
+
+        print(f"\n{label} SUMMARY")
+        print(f"  Random basin P22 hits      : {p22_hits}")
+        print(f"  Random basin no-24 locks   : {no_24}")
+        print(f"  Max P22 corridor length    : {max_p22}")
+        print(f"  Mirror count max deviation : {dev_pct:.4f}% from equal distribution")
+        print(f"  Mirror totals              : {mirror_total}")
+
+    print("\nINTERPRETATION")
+    print("  Z12 is the native doubled test: Z6 -> Z12.")
+    print("  Z16 is the mirror doubled test: Z8 -> Z16.")
+    print("  If both preserve [2+,4-,0^0], the skeleton survives both doubled tracks.")
+    print("  If Z12 preserves and Z16 fails, the native 6-family is stronger.")
+    print("  If Z16 preserves and Z12 fails, the power-of-two mirror family is stronger.")
+    print("  If both fail, the skeleton is modulus-sensitive under doubling.")
+    print("  If neither fails, the skeleton is a stable invariant of the ternary map family.")
+    print("=" * 79)
+
+
+def execute_combined_z12_z16_suite(
+    configs: Tuple[ModulusConfig, ...] = DEFAULT_CONFIGS,
+    random_samples: int = 100,
+    random_steps: int = 1000,
+) -> None:
+    print("### 6-GEM MANIFOLD — Z12 + Z16 DOUBLING-STABILITY COMPARATIVE SUITE")
+    print("### ORDER:")
+    print("###   Z6  -> Z12  : native doubled 6-Gem test")
+    print("###   Z8  -> Z16  : doubled mirror-state test")
+    print("### PURPOSE: test whether the [2+,4-,0^0] skeleton survives modulus doubling")
+
+    summaries = []
+    for cfg in configs:
+        summaries.append(execute_single_modulus_suite(cfg, random_samples=random_samples, random_steps=random_steps))
+
+    print_pairwise_final_verdict(summaries)
+
+
+if __name__ == "__main__":
+    execute_combined_z12_z16_suite(random_samples=100, random_steps=1000)
+
+## end of python script
+
+
+===================================================================== 
+===================================================================== 
+===========##LOGS 6-GEM_MANIFOLD_Z12_Z16_SUITE.py LOGS##============= 
+
+
+python .\6-GEM_MANIFOLD_Z12_Z16.py
+### 6-GEM MANIFOLD — Z12 + Z16 DOUBLING-STABILITY COMPARATIVE SUITE
+### ORDER:
+###   Z6  -> Z12  : native doubled 6-Gem test
+###   Z8  -> Z16  : doubled mirror-state test
+### PURPOSE: test whether the [2+,4-,0^0] skeleton survives modulus doubling
+
+###############################################################################
+### 6-GEM MANIFOLD — Z12 DOUBLING-STABILITY SUITE
+### TRACK: Z6 -> Z12
+### MODULUS = 12.0
+### HALF-MODULUS MIRROR OFFSET = +6
+### PHASE SPACE: three complex coordinates = six real dimensions
+###############################################################################
+
+=== Z12 V5.1.4.2 SOVEREIGN CLOSURE MATRIX ===
+Track: Z6 -> Z12 | Native doubled 6-Gem track
+
+[Z12 SOVEREIGN CLOSURE SCAN] Large Negative Real Scale (-10^6) | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 54       | +0.059497 | +1.522e-03 | {(0, 6): 162, (1, 7): 164, (2, 8): 158, (3, 9): 177, (4, 10): 166, (5, 11): 173}
+1.0e-15    | None     | 0       | 42       | +0.546005 | +1.287e-01 | {(0, 6): 172, (1, 7): 172, (2, 8): 155, (3, 9): 174, (4, 10): 155, (5, 11): 172}
+1.0e-12    | None     | 0       | 44       | +0.387751 | +1.447e-01 | {(0, 6): 152, (1, 7): 175, (2, 8): 148, (3, 9): 149, (4, 10): 198, (5, 11): 178}
+1.0e-09    | 4        | 2       | 14       | +0.205667 | +7.725e-02 | {(0, 6): 161, (1, 7): 168, (2, 8): 173, (3, 9): 164, (4, 10): 164, (5, 11): 170}
+1.0e-08    | 4        | 2       | 10       | +0.139061 | +5.166e-02 | {(0, 6): 172, (1, 7): 153, (2, 8): 167, (3, 9): 166, (4, 10): 174, (5, 11): 168}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 54       | +0.059497 | +1.522e-03 | {(0, 6): 162, (1, 7): 164, (2, 8): 158, (3, 9): 177, (4, 10): 166, (5, 11): 173}
+1.0e-15    | None     | 0       | 42       | +0.546005 | +1.287e-01 | {(0, 6): 172, (1, 7): 172, (2, 8): 155, (3, 9): 174, (4, 10): 155, (5, 11): 172}
+1.0e-12    | None     | 0       | 44       | +0.387751 | +1.447e-01 | {(0, 6): 152, (1, 7): 175, (2, 8): 148, (3, 9): 149, (4, 10): 198, (5, 11): 178}
+1.0e-09    | 4        | 2       | 14       | +0.205667 | +7.725e-02 | {(0, 6): 161, (1, 7): 168, (2, 8): 173, (3, 9): 164, (4, 10): 164, (5, 11): 170}
+1.0e-08    | 4        | 2       | 10       | +0.139061 | +5.166e-02 | {(0, 6): 172, (1, 7): 153, (2, 8): 167, (3, 9): 166, (4, 10): 174, (5, 11): 168}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 54       | +0.059497 | +1.522e-03 | {(0, 6): 162, (1, 7): 164, (2, 8): 158, (3, 9): 177, (4, 10): 166, (5, 11): 173}
+1.0e-15    | None     | 0       | 42       | +0.546005 | +1.287e-01 | {(0, 6): 172, (1, 7): 172, (2, 8): 155, (3, 9): 174, (4, 10): 155, (5, 11): 172}
+1.0e-12    | None     | 0       | 44       | +0.387751 | +1.447e-01 | {(0, 6): 152, (1, 7): 175, (2, 8): 148, (3, 9): 149, (4, 10): 198, (5, 11): 178}
+1.0e-09    | 4        | 2       | 14       | +0.205667 | +7.725e-02 | {(0, 6): 161, (1, 7): 168, (2, 8): 173, (3, 9): 164, (4, 10): 164, (5, 11): 170}
+1.0e-08    | 4        | 2       | 10       | +0.139061 | +5.166e-02 | {(0, 6): 172, (1, 7): 153, (2, 8): 167, (3, 9): 166, (4, 10): 174, (5, 11): 168}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 54       | +0.059497 | +1.522e-03 | {(0, 6): 162, (1, 7): 164, (2, 8): 158, (3, 9): 177, (4, 10): 166, (5, 11): 173}
+1.0e-15    | None     | 0       | 42       | +0.546005 | +1.287e-01 | {(0, 6): 172, (1, 7): 172, (2, 8): 155, (3, 9): 174, (4, 10): 155, (5, 11): 172}
+1.0e-12    | None     | 0       | 44       | +0.387751 | +1.447e-01 | {(0, 6): 152, (1, 7): 175, (2, 8): 148, (3, 9): 149, (4, 10): 198, (5, 11): 178}
+1.0e-09    | 4        | 2       | 14       | +0.205667 | +7.725e-02 | {(0, 6): 161, (1, 7): 168, (2, 8): 173, (3, 9): 164, (4, 10): 164, (5, 11): 170}
+1.0e-08    | 4        | 2       | 10       | +0.139061 | +5.166e-02 | {(0, 6): 172, (1, 7): 153, (2, 8): 167, (3, 9): 166, (4, 10): 174, (5, 11): 168}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Ultra Complex Float (10^6+i10^6) | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-15    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-12    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-09    | 2        | 1       | 3        | +0.068128 | +2.958e-03 | {(0, 6): 164, (1, 7): 164, (2, 8): 164, (3, 9): 180, (4, 10): 140, (5, 11): 188}
+1.0e-08    | 2        | 1       | 3        | +0.069541 | +2.901e-03 | {(0, 6): 168, (1, 7): 168, (2, 8): 167, (3, 9): 179, (4, 10): 165, (5, 11): 153}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-15    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-12    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-09    | 2        | 1       | 3        | +0.068128 | +2.958e-03 | {(0, 6): 164, (1, 7): 164, (2, 8): 164, (3, 9): 180, (4, 10): 140, (5, 11): 188}
+1.0e-08    | 2        | 1       | 3        | +0.069541 | +2.901e-03 | {(0, 6): 168, (1, 7): 168, (2, 8): 167, (3, 9): 179, (4, 10): 165, (5, 11): 153}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-15    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-12    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-09    | 2        | 1       | 3        | +0.068128 | +2.958e-03 | {(0, 6): 164, (1, 7): 164, (2, 8): 164, (3, 9): 180, (4, 10): 140, (5, 11): 188}
+1.0e-08    | 2        | 1       | 3        | +0.069541 | +2.901e-03 | {(0, 6): 168, (1, 7): 168, (2, 8): 167, (3, 9): 179, (4, 10): 165, (5, 11): 153}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-15    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-12    | None     | 0       | 51       | +0.027326 | +1.828e-03 | {(0, 6): 151, (1, 7): 166, (2, 8): 172, (3, 9): 178, (4, 10): 161, (5, 11): 172}
+1.0e-09    | None     | 0       | 3        | +0.068128 | +2.958e-03 | {(0, 6): 164, (1, 7): 164, (2, 8): 164, (3, 9): 180, (4, 10): 140, (5, 11): 188}
+1.0e-08    | None     | 0       | 3        | +0.069541 | +2.901e-03 | {(0, 6): 168, (1, 7): 168, (2, 8): 167, (3, 9): 179, (4, 10): 165, (5, 11): 153}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Phase Ring 30 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000314 | +2.643e-03 | {(0, 6): 156, (1, 7): 153, (2, 8): 166, (3, 9): 189, (4, 10): 153, (5, 11): 183}
+1.0e-15    | 2        | 1       | 3        | -0.001383 | +2.643e-03 | {(0, 6): 169, (1, 7): 146, (2, 8): 171, (3, 9): 167, (4, 10): 170, (5, 11): 177}
+1.0e-12    | 2        | 1       | 3        | -0.000054 | +2.643e-03 | {(0, 6): 182, (1, 7): 171, (2, 8): 143, (3, 9): 165, (4, 10): 163, (5, 11): 176}
+1.0e-09    | 2        | 1       | 3        | -0.002538 | +2.642e-03 | {(0, 6): 166, (1, 7): 178, (2, 8): 161, (3, 9): 163, (4, 10): 164, (5, 11): 168}
+1.0e-08    | 2        | 1       | 3        | -0.000180 | +2.642e-03 | {(0, 6): 168, (1, 7): 178, (2, 8): 180, (3, 9): 163, (4, 10): 165, (5, 11): 146}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000314 | +2.643e-03 | {(0, 6): 156, (1, 7): 153, (2, 8): 166, (3, 9): 189, (4, 10): 153, (5, 11): 183}
+1.0e-15    | 2        | 1       | 3        | -0.001383 | +2.643e-03 | {(0, 6): 169, (1, 7): 146, (2, 8): 171, (3, 9): 167, (4, 10): 170, (5, 11): 177}
+1.0e-12    | 2        | 1       | 3        | -0.000054 | +2.643e-03 | {(0, 6): 182, (1, 7): 171, (2, 8): 143, (3, 9): 165, (4, 10): 163, (5, 11): 176}
+1.0e-09    | 2        | 1       | 3        | -0.002538 | +2.642e-03 | {(0, 6): 166, (1, 7): 178, (2, 8): 161, (3, 9): 163, (4, 10): 164, (5, 11): 168}
+1.0e-08    | 2        | 1       | 3        | -0.000180 | +2.642e-03 | {(0, 6): 168, (1, 7): 178, (2, 8): 180, (3, 9): 163, (4, 10): 165, (5, 11): 146}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000314 | +2.643e-03 | {(0, 6): 156, (1, 7): 153, (2, 8): 166, (3, 9): 189, (4, 10): 153, (5, 11): 183}
+1.0e-15    | 2        | 1       | 3        | -0.001383 | +2.643e-03 | {(0, 6): 169, (1, 7): 146, (2, 8): 171, (3, 9): 167, (4, 10): 170, (5, 11): 177}
+1.0e-12    | 2        | 1       | 3        | -0.000054 | +2.643e-03 | {(0, 6): 182, (1, 7): 171, (2, 8): 143, (3, 9): 165, (4, 10): 163, (5, 11): 176}
+1.0e-09    | 2        | 1       | 3        | -0.002538 | +2.642e-03 | {(0, 6): 166, (1, 7): 178, (2, 8): 161, (3, 9): 163, (4, 10): 164, (5, 11): 168}
+1.0e-08    | 2        | 1       | 3        | -0.000180 | +2.642e-03 | {(0, 6): 168, (1, 7): 178, (2, 8): 180, (3, 9): 163, (4, 10): 165, (5, 11): 146}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000314 | +2.643e-03 | {(0, 6): 156, (1, 7): 153, (2, 8): 166, (3, 9): 189, (4, 10): 153, (5, 11): 183}
+1.0e-15    | 2        | 1       | 3        | -0.001383 | +2.643e-03 | {(0, 6): 169, (1, 7): 146, (2, 8): 171, (3, 9): 167, (4, 10): 170, (5, 11): 177}
+1.0e-12    | 2        | 1       | 3        | -0.000054 | +2.643e-03 | {(0, 6): 182, (1, 7): 171, (2, 8): 143, (3, 9): 165, (4, 10): 163, (5, 11): 176}
+1.0e-09    | 2        | 1       | 3        | -0.002538 | +2.642e-03 | {(0, 6): 166, (1, 7): 178, (2, 8): 161, (3, 9): 163, (4, 10): 164, (5, 11): 168}
+1.0e-08    | 2        | 1       | 3        | -0.000180 | +2.642e-03 | {(0, 6): 168, (1, 7): 178, (2, 8): 180, (3, 9): 163, (4, 10): 165, (5, 11): 146}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Phase Ring 45 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003387 | +2.642e-03 | {(0, 6): 172, (1, 7): 149, (2, 8): 164, (3, 9): 172, (4, 10): 173, (5, 11): 170}
+1.0e-15    | 2        | 1       | 3        | -0.000207 | +2.642e-03 | {(0, 6): 168, (1, 7): 156, (2, 8): 160, (3, 9): 168, (4, 10): 164, (5, 11): 184}
+1.0e-12    | 2        | 1       | 3        | +0.002131 | +2.642e-03 | {(0, 6): 166, (1, 7): 164, (2, 8): 160, (3, 9): 166, (4, 10): 165, (5, 11): 179}
+1.0e-09    | 2        | 1       | 3        | +0.001780 | +2.642e-03 | {(0, 6): 161, (1, 7): 154, (2, 8): 164, (3, 9): 170, (4, 10): 185, (5, 11): 166}
+1.0e-08    | 2        | 1       | 3        | +0.002435 | +2.642e-03 | {(0, 6): 172, (1, 7): 181, (2, 8): 164, (3, 9): 153, (4, 10): 159, (5, 11): 171}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003387 | +2.642e-03 | {(0, 6): 172, (1, 7): 149, (2, 8): 164, (3, 9): 172, (4, 10): 173, (5, 11): 170}
+1.0e-15    | 2        | 1       | 3        | -0.000207 | +2.642e-03 | {(0, 6): 168, (1, 7): 156, (2, 8): 160, (3, 9): 168, (4, 10): 164, (5, 11): 184}
+1.0e-12    | 2        | 1       | 3        | +0.002131 | +2.642e-03 | {(0, 6): 166, (1, 7): 164, (2, 8): 160, (3, 9): 166, (4, 10): 165, (5, 11): 179}
+1.0e-09    | 2        | 1       | 3        | +0.001780 | +2.642e-03 | {(0, 6): 161, (1, 7): 154, (2, 8): 164, (3, 9): 170, (4, 10): 185, (5, 11): 166}
+1.0e-08    | 2        | 1       | 3        | +0.002435 | +2.642e-03 | {(0, 6): 172, (1, 7): 181, (2, 8): 164, (3, 9): 153, (4, 10): 159, (5, 11): 171}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003387 | +2.642e-03 | {(0, 6): 172, (1, 7): 149, (2, 8): 164, (3, 9): 172, (4, 10): 173, (5, 11): 170}
+1.0e-15    | 2        | 1       | 3        | -0.000207 | +2.642e-03 | {(0, 6): 168, (1, 7): 156, (2, 8): 160, (3, 9): 168, (4, 10): 164, (5, 11): 184}
+1.0e-12    | 2        | 1       | 3        | +0.002131 | +2.642e-03 | {(0, 6): 166, (1, 7): 164, (2, 8): 160, (3, 9): 166, (4, 10): 165, (5, 11): 179}
+1.0e-09    | 2        | 1       | 3        | +0.001780 | +2.642e-03 | {(0, 6): 161, (1, 7): 154, (2, 8): 164, (3, 9): 170, (4, 10): 185, (5, 11): 166}
+1.0e-08    | 2        | 1       | 3        | +0.002435 | +2.642e-03 | {(0, 6): 172, (1, 7): 181, (2, 8): 164, (3, 9): 153, (4, 10): 159, (5, 11): 171}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003387 | +2.642e-03 | {(0, 6): 172, (1, 7): 149, (2, 8): 164, (3, 9): 172, (4, 10): 173, (5, 11): 170}
+1.0e-15    | 2        | 1       | 3        | -0.000207 | +2.642e-03 | {(0, 6): 168, (1, 7): 156, (2, 8): 160, (3, 9): 168, (4, 10): 164, (5, 11): 184}
+1.0e-12    | 2        | 1       | 3        | +0.002131 | +2.642e-03 | {(0, 6): 166, (1, 7): 164, (2, 8): 160, (3, 9): 166, (4, 10): 165, (5, 11): 179}
+1.0e-09    | 2        | 1       | 3        | +0.001780 | +2.642e-03 | {(0, 6): 161, (1, 7): 154, (2, 8): 164, (3, 9): 170, (4, 10): 185, (5, 11): 166}
+1.0e-08    | 2        | 1       | 3        | +0.002435 | +2.642e-03 | {(0, 6): 172, (1, 7): 181, (2, 8): 164, (3, 9): 153, (4, 10): 159, (5, 11): 171}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Phase Ring 90 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000310 | +2.642e-03 | {(0, 6): 160, (1, 7): 171, (2, 8): 177, (3, 9): 174, (4, 10): 166, (5, 11): 152}
+1.0e-15    | 2        | 1       | 3        | +0.000475 | +2.642e-03 | {(0, 6): 157, (1, 7): 175, (2, 8): 161, (3, 9): 159, (4, 10): 185, (5, 11): 163}
+1.0e-12    | 2        | 1       | 3        | +0.000231 | +2.642e-03 | {(0, 6): 139, (1, 7): 176, (2, 8): 191, (3, 9): 175, (4, 10): 163, (5, 11): 156}
+1.0e-09    | 2        | 1       | 3        | +0.000463 | +2.642e-03 | {(0, 6): 144, (1, 7): 169, (2, 8): 191, (3, 9): 163, (4, 10): 162, (5, 11): 171}
+1.0e-08    | 2        | 1       | 3        | +0.000118 | +2.642e-03 | {(0, 6): 168, (1, 7): 182, (2, 8): 167, (3, 9): 161, (4, 10): 162, (5, 11): 160}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000310 | +2.642e-03 | {(0, 6): 160, (1, 7): 171, (2, 8): 177, (3, 9): 174, (4, 10): 166, (5, 11): 152}
+1.0e-15    | 2        | 1       | 3        | +0.000475 | +2.642e-03 | {(0, 6): 157, (1, 7): 175, (2, 8): 161, (3, 9): 159, (4, 10): 185, (5, 11): 163}
+1.0e-12    | 2        | 1       | 3        | +0.000231 | +2.642e-03 | {(0, 6): 139, (1, 7): 176, (2, 8): 191, (3, 9): 175, (4, 10): 163, (5, 11): 156}
+1.0e-09    | 2        | 1       | 3        | +0.000463 | +2.642e-03 | {(0, 6): 144, (1, 7): 169, (2, 8): 191, (3, 9): 163, (4, 10): 162, (5, 11): 171}
+1.0e-08    | 2        | 1       | 3        | +0.000118 | +2.642e-03 | {(0, 6): 168, (1, 7): 182, (2, 8): 167, (3, 9): 161, (4, 10): 162, (5, 11): 160}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000310 | +2.642e-03 | {(0, 6): 160, (1, 7): 171, (2, 8): 177, (3, 9): 174, (4, 10): 166, (5, 11): 152}
+1.0e-15    | 2        | 1       | 3        | +0.000475 | +2.642e-03 | {(0, 6): 157, (1, 7): 175, (2, 8): 161, (3, 9): 159, (4, 10): 185, (5, 11): 163}
+1.0e-12    | 2        | 1       | 3        | +0.000231 | +2.642e-03 | {(0, 6): 139, (1, 7): 176, (2, 8): 191, (3, 9): 175, (4, 10): 163, (5, 11): 156}
+1.0e-09    | 2        | 1       | 3        | +0.000463 | +2.642e-03 | {(0, 6): 144, (1, 7): 169, (2, 8): 191, (3, 9): 163, (4, 10): 162, (5, 11): 171}
+1.0e-08    | 2        | 1       | 3        | +0.000118 | +2.642e-03 | {(0, 6): 168, (1, 7): 182, (2, 8): 167, (3, 9): 161, (4, 10): 162, (5, 11): 160}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000310 | +2.642e-03 | {(0, 6): 160, (1, 7): 171, (2, 8): 177, (3, 9): 174, (4, 10): 166, (5, 11): 152}
+1.0e-15    | 2        | 1       | 3        | +0.000475 | +2.642e-03 | {(0, 6): 157, (1, 7): 175, (2, 8): 161, (3, 9): 159, (4, 10): 185, (5, 11): 163}
+1.0e-12    | 2        | 1       | 3        | +0.000231 | +2.642e-03 | {(0, 6): 139, (1, 7): 176, (2, 8): 191, (3, 9): 175, (4, 10): 163, (5, 11): 156}
+1.0e-09    | 2        | 1       | 3        | +0.000463 | +2.642e-03 | {(0, 6): 144, (1, 7): 169, (2, 8): 191, (3, 9): 163, (4, 10): 162, (5, 11): 171}
+1.0e-08    | 2        | 1       | 3        | +0.000118 | +2.642e-03 | {(0, 6): 168, (1, 7): 182, (2, 8): 167, (3, 9): 161, (4, 10): 162, (5, 11): 160}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Phase Ring 120 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001983 | +2.642e-03 | {(0, 6): 172, (1, 7): 175, (2, 8): 166, (3, 9): 163, (4, 10): 146, (5, 11): 178}
+1.0e-15    | 2        | 1       | 3        | +0.017244 | +2.642e-03 | {(0, 6): 172, (1, 7): 165, (2, 8): 149, (3, 9): 162, (4, 10): 179, (5, 11): 173}
+1.0e-12    | 2        | 1       | 3        | +0.017124 | +2.642e-03 | {(0, 6): 157, (1, 7): 200, (2, 8): 167, (3, 9): 150, (4, 10): 164, (5, 11): 162}
+1.0e-09    | 2        | 1       | 3        | +0.016768 | +2.642e-03 | {(0, 6): 153, (1, 7): 185, (2, 8): 153, (3, 9): 165, (4, 10): 190, (5, 11): 154}
+1.0e-08    | 2        | 1       | 3        | +0.017148 | +2.642e-03 | {(0, 6): 174, (1, 7): 162, (2, 8): 168, (3, 9): 161, (4, 10): 182, (5, 11): 153}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001983 | +2.642e-03 | {(0, 6): 172, (1, 7): 175, (2, 8): 166, (3, 9): 163, (4, 10): 146, (5, 11): 178}
+1.0e-15    | 2        | 1       | 3        | +0.017244 | +2.642e-03 | {(0, 6): 172, (1, 7): 165, (2, 8): 149, (3, 9): 162, (4, 10): 179, (5, 11): 173}
+1.0e-12    | 2        | 1       | 3        | +0.017124 | +2.642e-03 | {(0, 6): 157, (1, 7): 200, (2, 8): 167, (3, 9): 150, (4, 10): 164, (5, 11): 162}
+1.0e-09    | 2        | 1       | 3        | +0.016768 | +2.642e-03 | {(0, 6): 153, (1, 7): 185, (2, 8): 153, (3, 9): 165, (4, 10): 190, (5, 11): 154}
+1.0e-08    | 2        | 1       | 3        | +0.017148 | +2.642e-03 | {(0, 6): 174, (1, 7): 162, (2, 8): 168, (3, 9): 161, (4, 10): 182, (5, 11): 153}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001983 | +2.642e-03 | {(0, 6): 172, (1, 7): 175, (2, 8): 166, (3, 9): 163, (4, 10): 146, (5, 11): 178}
+1.0e-15    | 2        | 1       | 3        | +0.017244 | +2.642e-03 | {(0, 6): 172, (1, 7): 165, (2, 8): 149, (3, 9): 162, (4, 10): 179, (5, 11): 173}
+1.0e-12    | 2        | 1       | 3        | +0.017124 | +2.642e-03 | {(0, 6): 157, (1, 7): 200, (2, 8): 167, (3, 9): 150, (4, 10): 164, (5, 11): 162}
+1.0e-09    | 2        | 1       | 3        | +0.016768 | +2.642e-03 | {(0, 6): 153, (1, 7): 185, (2, 8): 153, (3, 9): 165, (4, 10): 190, (5, 11): 154}
+1.0e-08    | 2        | 1       | 3        | +0.017148 | +2.642e-03 | {(0, 6): 174, (1, 7): 162, (2, 8): 168, (3, 9): 161, (4, 10): 182, (5, 11): 153}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001983 | +2.642e-03 | {(0, 6): 172, (1, 7): 175, (2, 8): 166, (3, 9): 163, (4, 10): 146, (5, 11): 178}
+1.0e-15    | 2        | 1       | 3        | +0.017244 | +2.642e-03 | {(0, 6): 172, (1, 7): 165, (2, 8): 149, (3, 9): 162, (4, 10): 179, (5, 11): 173}
+1.0e-12    | 2        | 1       | 3        | +0.017124 | +2.642e-03 | {(0, 6): 157, (1, 7): 200, (2, 8): 167, (3, 9): 150, (4, 10): 164, (5, 11): 162}
+1.0e-09    | 2        | 1       | 3        | +0.016768 | +2.642e-03 | {(0, 6): 153, (1, 7): 185, (2, 8): 153, (3, 9): 165, (4, 10): 190, (5, 11): 154}
+1.0e-08    | 2        | 1       | 3        | +0.017148 | +2.642e-03 | {(0, 6): 174, (1, 7): 162, (2, 8): 168, (3, 9): 161, (4, 10): 182, (5, 11): 153}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Deep Golden Diagonal | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.018944 | +2.619e-03 | {(0, 6): 843, (1, 7): 864, (2, 8): 834, (3, 9): 783, (4, 10): 865, (5, 11): 811}
+1.0e-15    | 22       | 2       | 35       | +0.107962 | +1.297e-01 | {(0, 6): 866, (1, 7): 782, (2, 8): 824, (3, 9): 830, (4, 10): 854, (5, 11): 844}
+1.0e-12    | 22       | 2       | 25       | +0.075725 | +1.454e-01 | {(0, 6): 817, (1, 7): 863, (2, 8): 828, (3, 9): 832, (4, 10): 853, (5, 11): 807}
+1.0e-09    | None     | 0       | 21       | +0.040022 | +9.154e-02 | {(0, 6): 862, (1, 7): 801, (2, 8): 857, (3, 9): 824, (4, 10): 833, (5, 11): 823}
+1.0e-08    | None     | 0       | 21       | +0.026095 | +6.046e-02 | {(0, 6): 816, (1, 7): 808, (2, 8): 838, (3, 9): 846, (4, 10): 859, (5, 11): 833}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.018944 | +2.619e-03 | {(0, 6): 843, (1, 7): 864, (2, 8): 834, (3, 9): 783, (4, 10): 865, (5, 11): 811}
+1.0e-15    | 22       | 2       | 35       | +0.107962 | +1.297e-01 | {(0, 6): 866, (1, 7): 782, (2, 8): 824, (3, 9): 830, (4, 10): 854, (5, 11): 844}
+1.0e-12    | 22       | 2       | 25       | +0.075725 | +1.454e-01 | {(0, 6): 817, (1, 7): 863, (2, 8): 828, (3, 9): 832, (4, 10): 853, (5, 11): 807}
+1.0e-09    | None     | 0       | 21       | +0.040022 | +9.154e-02 | {(0, 6): 862, (1, 7): 801, (2, 8): 857, (3, 9): 824, (4, 10): 833, (5, 11): 823}
+1.0e-08    | None     | 0       | 21       | +0.026095 | +6.046e-02 | {(0, 6): 816, (1, 7): 808, (2, 8): 838, (3, 9): 846, (4, 10): 859, (5, 11): 833}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.018944 | +2.619e-03 | {(0, 6): 843, (1, 7): 864, (2, 8): 834, (3, 9): 783, (4, 10): 865, (5, 11): 811}
+1.0e-15    | 22       | 2       | 35       | +0.107962 | +1.297e-01 | {(0, 6): 866, (1, 7): 782, (2, 8): 824, (3, 9): 830, (4, 10): 854, (5, 11): 844}
+1.0e-12    | 22       | 2       | 25       | +0.075725 | +1.454e-01 | {(0, 6): 817, (1, 7): 863, (2, 8): 828, (3, 9): 832, (4, 10): 853, (5, 11): 807}
+1.0e-09    | None     | 0       | 21       | +0.040022 | +9.154e-02 | {(0, 6): 862, (1, 7): 801, (2, 8): 857, (3, 9): 824, (4, 10): 833, (5, 11): 823}
+1.0e-08    | None     | 0       | 21       | +0.026095 | +6.046e-02 | {(0, 6): 816, (1, 7): 808, (2, 8): 838, (3, 9): 846, (4, 10): 859, (5, 11): 833}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.018944 | +2.619e-03 | {(0, 6): 843, (1, 7): 864, (2, 8): 834, (3, 9): 783, (4, 10): 865, (5, 11): 811}
+1.0e-15    | 22       | 2       | 35       | +0.107962 | +1.297e-01 | {(0, 6): 866, (1, 7): 782, (2, 8): 824, (3, 9): 830, (4, 10): 854, (5, 11): 844}
+1.0e-12    | 22       | 2       | 25       | +0.075725 | +1.454e-01 | {(0, 6): 817, (1, 7): 863, (2, 8): 828, (3, 9): 832, (4, 10): 853, (5, 11): 807}
+1.0e-09    | None     | 0       | 21       | +0.040022 | +9.154e-02 | {(0, 6): 862, (1, 7): 801, (2, 8): 857, (3, 9): 824, (4, 10): 833, (5, 11): 823}
+1.0e-08    | None     | 0       | 21       | +0.026095 | +6.046e-02 | {(0, 6): 816, (1, 7): 808, (2, 8): 838, (3, 9): 846, (4, 10): 859, (5, 11): 833}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Deep Cubic Roots Phase | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000590 | +2.642e-03 | {(0, 6): 887, (1, 7): 832, (2, 8): 828, (3, 9): 803, (4, 10): 805, (5, 11): 845}
+1.0e-15    | 2        | 1       | 3        | +0.003924 | +2.642e-03 | {(0, 6): 780, (1, 7): 829, (2, 8): 837, (3, 9): 826, (4, 10): 891, (5, 11): 837}
+1.0e-12    | 2        | 1       | 3        | +0.004081 | +2.642e-03 | {(0, 6): 811, (1, 7): 924, (2, 8): 798, (3, 9): 815, (4, 10): 812, (5, 11): 840}
+1.0e-09    | 2        | 1       | 3        | +0.003028 | +2.642e-03 | {(0, 6): 836, (1, 7): 817, (2, 8): 831, (3, 9): 842, (4, 10): 869, (5, 11): 805}
+1.0e-08    | 2        | 1       | 3        | +0.003179 | +2.642e-03 | {(0, 6): 866, (1, 7): 822, (2, 8): 817, (3, 9): 807, (4, 10): 873, (5, 11): 815}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000590 | +2.642e-03 | {(0, 6): 887, (1, 7): 832, (2, 8): 828, (3, 9): 803, (4, 10): 805, (5, 11): 845}
+1.0e-15    | 2        | 1       | 3        | +0.003924 | +2.642e-03 | {(0, 6): 780, (1, 7): 829, (2, 8): 837, (3, 9): 826, (4, 10): 891, (5, 11): 837}
+1.0e-12    | 2        | 1       | 3        | +0.004081 | +2.642e-03 | {(0, 6): 811, (1, 7): 924, (2, 8): 798, (3, 9): 815, (4, 10): 812, (5, 11): 840}
+1.0e-09    | 2        | 1       | 3        | +0.003028 | +2.642e-03 | {(0, 6): 836, (1, 7): 817, (2, 8): 831, (3, 9): 842, (4, 10): 869, (5, 11): 805}
+1.0e-08    | 2        | 1       | 3        | +0.003179 | +2.642e-03 | {(0, 6): 866, (1, 7): 822, (2, 8): 817, (3, 9): 807, (4, 10): 873, (5, 11): 815}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000590 | +2.642e-03 | {(0, 6): 887, (1, 7): 832, (2, 8): 828, (3, 9): 803, (4, 10): 805, (5, 11): 845}
+1.0e-15    | 2        | 1       | 3        | +0.003924 | +2.642e-03 | {(0, 6): 780, (1, 7): 829, (2, 8): 837, (3, 9): 826, (4, 10): 891, (5, 11): 837}
+1.0e-12    | 2        | 1       | 3        | +0.004081 | +2.642e-03 | {(0, 6): 811, (1, 7): 924, (2, 8): 798, (3, 9): 815, (4, 10): 812, (5, 11): 840}
+1.0e-09    | 2        | 1       | 3        | +0.003028 | +2.642e-03 | {(0, 6): 836, (1, 7): 817, (2, 8): 831, (3, 9): 842, (4, 10): 869, (5, 11): 805}
+1.0e-08    | 2        | 1       | 3        | +0.003179 | +2.642e-03 | {(0, 6): 866, (1, 7): 822, (2, 8): 817, (3, 9): 807, (4, 10): 873, (5, 11): 815}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000590 | +2.642e-03 | {(0, 6): 887, (1, 7): 832, (2, 8): 828, (3, 9): 803, (4, 10): 805, (5, 11): 845}
+1.0e-15    | 2        | 1       | 3        | +0.003924 | +2.642e-03 | {(0, 6): 780, (1, 7): 829, (2, 8): 837, (3, 9): 826, (4, 10): 891, (5, 11): 837}
+1.0e-12    | 2        | 1       | 3        | +0.004081 | +2.642e-03 | {(0, 6): 811, (1, 7): 924, (2, 8): 798, (3, 9): 815, (4, 10): 812, (5, 11): 840}
+1.0e-09    | 2        | 1       | 3        | +0.003028 | +2.642e-03 | {(0, 6): 836, (1, 7): 817, (2, 8): 831, (3, 9): 842, (4, 10): 869, (5, 11): 805}
+1.0e-08    | 2        | 1       | 3        | +0.003179 | +2.642e-03 | {(0, 6): 866, (1, 7): 822, (2, 8): 817, (3, 9): 807, (4, 10): 873, (5, 11): 815}
+
+[Z12 SOVEREIGN CLOSURE SCAN] Deep Phase Ring 180 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000835 | +2.673e-03 | {(0, 6): 833, (1, 7): 814, (2, 8): 831, (3, 9): 887, (4, 10): 817, (5, 11): 818}
+1.0e-15    | 2        | 1       | 3        | +0.001194 | +2.673e-03 | {(0, 6): 870, (1, 7): 810, (2, 8): 834, (3, 9): 841, (4, 10): 833, (5, 11): 812}
+1.0e-12    | 2        | 1       | 3        | +0.000774 | +2.674e-03 | {(0, 6): 816, (1, 7): 811, (2, 8): 851, (3, 9): 824, (4, 10): 820, (5, 11): 878}
+1.0e-09    | 2        | 1       | 3        | +0.000612 | +1.269e-03 | {(0, 6): 817, (1, 7): 810, (2, 8): 836, (3, 9): 869, (4, 10): 828, (5, 11): 840}
+1.0e-08    | 2        | 1       | 3        | +0.000716 | +1.268e-03 | {(0, 6): 823, (1, 7): 830, (2, 8): 827, (3, 9): 856, (4, 10): 817, (5, 11): 847}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000835 | +2.673e-03 | {(0, 6): 833, (1, 7): 814, (2, 8): 831, (3, 9): 887, (4, 10): 817, (5, 11): 818}
+1.0e-15    | 2        | 1       | 3        | +0.001194 | +2.673e-03 | {(0, 6): 870, (1, 7): 810, (2, 8): 834, (3, 9): 841, (4, 10): 833, (5, 11): 812}
+1.0e-12    | 2        | 1       | 3        | +0.000774 | +2.674e-03 | {(0, 6): 816, (1, 7): 811, (2, 8): 851, (3, 9): 824, (4, 10): 820, (5, 11): 878}
+1.0e-09    | 2        | 1       | 3        | +0.000612 | +1.269e-03 | {(0, 6): 817, (1, 7): 810, (2, 8): 836, (3, 9): 869, (4, 10): 828, (5, 11): 840}
+1.0e-08    | 2        | 1       | 3        | +0.000716 | +1.268e-03 | {(0, 6): 823, (1, 7): 830, (2, 8): 827, (3, 9): 856, (4, 10): 817, (5, 11): 847}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000835 | +2.673e-03 | {(0, 6): 833, (1, 7): 814, (2, 8): 831, (3, 9): 887, (4, 10): 817, (5, 11): 818}
+1.0e-15    | 2        | 1       | 3        | +0.001194 | +2.673e-03 | {(0, 6): 870, (1, 7): 810, (2, 8): 834, (3, 9): 841, (4, 10): 833, (5, 11): 812}
+1.0e-12    | 2        | 1       | 3        | +0.000774 | +2.674e-03 | {(0, 6): 816, (1, 7): 811, (2, 8): 851, (3, 9): 824, (4, 10): 820, (5, 11): 878}
+1.0e-09    | 2        | 1       | 3        | +0.000612 | +1.269e-03 | {(0, 6): 817, (1, 7): 810, (2, 8): 836, (3, 9): 869, (4, 10): 828, (5, 11): 840}
+1.0e-08    | 2        | 1       | 3        | +0.000716 | +1.268e-03 | {(0, 6): 823, (1, 7): 830, (2, 8): 827, (3, 9): 856, (4, 10): 817, (5, 11): 847}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000835 | +2.673e-03 | {(0, 6): 833, (1, 7): 814, (2, 8): 831, (3, 9): 887, (4, 10): 817, (5, 11): 818}
+1.0e-15    | 2        | 1       | 3        | +0.001194 | +2.673e-03 | {(0, 6): 870, (1, 7): 810, (2, 8): 834, (3, 9): 841, (4, 10): 833, (5, 11): 812}
+1.0e-12    | 2        | 1       | 3        | +0.000774 | +2.674e-03 | {(0, 6): 816, (1, 7): 811, (2, 8): 851, (3, 9): 824, (4, 10): 820, (5, 11): 878}
+1.0e-09    | 2        | 1       | 3        | +0.000612 | +1.269e-03 | {(0, 6): 817, (1, 7): 810, (2, 8): 836, (3, 9): 869, (4, 10): 828, (5, 11): 840}
+1.0e-08    | 2        | 1       | 3        | +0.000716 | +1.268e-03 | {(0, 6): 823, (1, 7): 830, (2, 8): 827, (3, 9): 856, (4, 10): 817, (5, 11): 847}
+
+[Z12 ISSUE 1] CENTER DWELL / DRIFT REPORT
+Golden Diagonal                      | First22=None | P22Max=0 | P22Total=0 | Stable24=12 | Drift=+2.619e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Cubic Roots Phase                    | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.642e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Quarter Roots Phase                  | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.642e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Phase Ring 180                       | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.673e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Large +1e6                           | First22=None | P22Max=0 | P22Total=0 | Stable24=60 | Drift=+2.168e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Large -1e6                           | First22=None | P22Max=0 | P22Total=0 | Stable24=54 | Drift=+1.522e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Ultra Complex 1e6+i1e6               | First22=None | P22Max=0 | P22Total=0 | Stable24=51 | Drift=+1.828e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Boundary Edge 11.9999+i11.9999       | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.525e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+
+[Z12 ISSUE 2] MULTI-AXIS PERTURBATION SCAN
+
+Target: Golden Diagonal
+c_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+c_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=35 | Trace=+0.541396 | Drift=+1.297e-01
+c_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=25 | Trace=+0.380509 | Drift=+1.454e-01
+c_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.199502 | Drift=+9.154e-02
+c_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.135490 | Drift=+6.046e-02
+a_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+a_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=36 | Trace=+0.557200 | Drift=+1.236e-01
+a_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=26 | Trace=+0.392580 | Drift=+1.450e-01
+a_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.217449 | Drift=+1.028e-01
+a_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.151154 | Drift=+6.358e-02
+b_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+b_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=35 | Trace=+0.541396 | Drift=+1.297e-01
+b_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=25 | Trace=+0.378571 | Drift=+1.454e-01
+b_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.199617 | Drift=+9.154e-02
+b_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=21 | Trace=+0.135768 | Drift=+6.045e-02
+all_wedge  p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+all_wedge  p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.000111 | Drift=+2.619e-03
+all_wedge  p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=-0.000977 | Drift=+2.618e-03
+all_wedge  p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.004619 | Drift=+2.413e-03
+all_wedge  p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.001562 | Drift=+2.642e-03
+real_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+real_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.009593 | Drift=+2.619e-03
+real_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.025516 | Drift=+2.619e-03
+real_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.028678 | Drift=+2.457e-03
+real_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.013323 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Drift=+2.619e-03
+imag_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.000087 | Drift=+2.619e-03
+imag_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=-0.000673 | Drift=+2.618e-03
+imag_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.002806 | Drift=+2.425e-03
+imag_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.002444 | Drift=+2.642e-03
+
+Target: Cubic Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017244 | Drift=+2.642e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017124 | Drift=+2.642e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016768 | Drift=+2.642e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017148 | Drift=+2.642e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017156 | Drift=+2.642e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.015151 | Drift=+2.642e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016183 | Drift=+2.642e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016623 | Drift=+2.642e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016995 | Drift=+2.642e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016010 | Drift=+2.642e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.010187 | Drift=+2.642e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.018548 | Drift=+2.642e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000872 | Drift=+2.642e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003193 | Drift=+2.642e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000413 | Drift=+2.642e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000109 | Drift=+2.642e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000100 | Drift=+2.642e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000627 | Drift=+2.642e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000435 | Drift=+2.642e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003104 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Drift=+2.642e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000130 | Drift=+2.642e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000461 | Drift=+2.642e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000178 | Drift=+2.642e-03
+
+Target: Quarter Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000475 | Drift=+2.642e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000231 | Drift=+2.642e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000463 | Drift=+2.642e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000118 | Drift=+2.642e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001851 | Drift=+2.642e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000212 | Drift=+2.642e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000309 | Drift=+2.642e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000788 | Drift=+2.642e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000318 | Drift=+2.642e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003049 | Drift=+2.642e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000949 | Drift=+2.642e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000465 | Drift=+2.642e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001231 | Drift=+2.642e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001365 | Drift=+2.642e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000003 | Drift=+2.642e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000397 | Drift=+2.642e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.003334 | Drift=+2.642e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001082 | Drift=+2.642e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000155 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Drift=+2.642e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000531 | Drift=+2.642e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000838 | Drift=+2.642e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000321 | Drift=+2.643e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000420 | Drift=+2.642e-03
+
+Target: Phase Ring 180
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006041 | Drift=+2.673e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.005608 | Drift=+2.674e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006158 | Drift=+1.269e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006958 | Drift=+1.268e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007819 | Drift=+2.673e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008622 | Drift=+2.673e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007395 | Drift=+1.269e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007602 | Drift=+1.269e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007775 | Drift=+2.673e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008421 | Drift=+2.673e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.009456 | Drift=+2.688e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.005993 | Drift=+1.263e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007048 | Drift=+2.673e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007219 | Drift=+2.674e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008797 | Drift=+1.269e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007557 | Drift=+1.269e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007557 | Drift=+2.673e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007785 | Drift=+2.673e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007687 | Drift=+2.673e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007212 | Drift=+2.679e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Drift=+2.673e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006641 | Drift=+2.673e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008124 | Drift=+2.673e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007924 | Drift=+2.673e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.005039 | Drift=+2.673e-03
+
+[Z12 ISSUE 3] GAMMA / SCALE SWEEP
+
+Target: Golden Diagonal
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.030853 | Ratio=1.9505 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=4 | Trace=-0.016956 | Ratio=1.9721 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=9 | Trace=+0.048983 | Ratio=2.0832 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=12 | Trace=+0.021668 | Ratio=2.0360 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=11 | Trace=+0.039584 | Ratio=2.0670 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=14 | Trace=+0.042716 | Ratio=2.0728 | Final=[2+,4-,0^0]
+
+Target: Cubic Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016300 | Ratio=2.0268 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.004022 | Ratio=1.9934 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001217 | Ratio=2.0020 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000981 | Ratio=2.0016 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001983 | Ratio=2.0033 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000446 | Ratio=1.9993 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000001 | Ratio=2.0000 | Final=[2+,4-,0^0]
+
+Target: Quarter Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.006501 | Ratio=1.9894 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001239 | Ratio=2.0020 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.004536 | Ratio=1.9926 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000310 | Ratio=1.9995 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002538 | Ratio=2.0042 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+
+Target: Phase Ring 180
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008684 | Ratio=1.9858 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001192 | Ratio=1.9980 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007013 | Ratio=2.0115 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006595 | Ratio=2.0108 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.009409 | Ratio=2.0154 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.011221 | Ratio=2.0184 | Final=[2+,4-,0^0]
+
+Target: Large +1e6
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=None | P22Max=0 | Stable24=47 | Trace=-0.011054 | Ratio=1.9820 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=55 | Trace=-0.011622 | Ratio=1.9808 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=101 | Trace=+0.030461 | Ratio=2.0510 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=60 | Trace=+0.046416 | Ratio=2.0777 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=62 | Trace=+0.090778 | Ratio=2.1534 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=64 | Trace=+0.159889 | Ratio=2.2728 | Final=[2+,4-,0^0]
+
+[Z12 ISSUE 4] CONSTRAINED SUBMAP / TRUE CHAMBER HUNT
+
+Target: Golden Diagonal
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=1989 | Trace=+0.019973 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Cubic Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=+0.000713 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Quarter Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=+0.000479 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Phase Ring 180
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=+0.002722 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Large +1e6
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=1941 | Trace=+0.038132 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000362 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000362 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000557 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+[Z12 ISSUE 5] RANDOM BASIN COVERAGE SCAN
+Samples checked: 100
+P22 hits: 100
+No stable [2+,4-,0^0] lock: 0
+Max P22 observed: 1
+Aggregate Z12 mirror counts: {(0, 6): 16684, (1, 7): 16774, (2, 8): 16484, (3, 9): 16534, (4, 10): 16837, (5, 11): 16687}
+Best candidate index=0 | seed=((7.413034283417648+6.399186883260009j), (4.390180310992506+7.0294482468272586j), (1.98824740426537+9.892484962891578j))
+First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002396 | Ratio=2.0040 | Final=[2+,4-,0^0]
+
+[Z12 DECISION RULE]
+If [2+,4-,0^0] remains stable under Z12, the Z6->Z12 doubled skeleton is robust.
+If [2+,2-,2^0] grows naturally under Z12, the doubled modulus creates a true free-map center chamber.
+If mirror brackets distribute evenly, Z12 behaves as a balanced half-modulus ignorance-state extension.
+If one mirror bracket dominates, Z12 introduces directional hidden-state bias.
+If Z12 destroys the lock, the parent signature is modulus-sensitive.
+
+###############################################################################
+### 6-GEM MANIFOLD — Z16 DOUBLING-STABILITY SUITE
+### TRACK: Z8 -> Z16
+### MODULUS = 16.0
+### HALF-MODULUS MIRROR OFFSET = +8
+### PHASE SPACE: three complex coordinates = six real dimensions
+###############################################################################
+
+=== Z16 V5.1.4.2 SOVEREIGN CLOSURE MATRIX ===
+Track: Z8 -> Z16 | Power-of-two doubled mirror track
+
+[Z16 SOVEREIGN CLOSURE SCAN] Large Negative Real Scale (-10^6) | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 59       | +0.555282 | +1.312e-01 | {(0, 8): 116, (1, 9): 115, (2, 10): 126, (3, 11): 129, (4, 12): 114, (5, 13): 139, (6, 14): 115, (7, 15): 146}
+1.0e-12    | None     | 0       | 45       | +0.393084 | +1.470e-01 | {(0, 8): 114, (1, 9): 104, (2, 10): 120, (3, 11): 136, (4, 12): 123, (5, 13): 140, (6, 14): 127, (7, 15): 136}
+1.0e-09    | 4        | 2       | 14       | +0.194372 | +9.292e-02 | {(0, 8): 117, (1, 9): 132, (2, 10): 124, (3, 11): 110, (4, 12): 125, (5, 13): 138, (6, 14): 119, (7, 15): 135}
+1.0e-08    | 4        | 2       | 10       | +0.131846 | +6.116e-02 | {(0, 8): 119, (1, 9): 132, (2, 10): 113, (3, 11): 139, (4, 12): 110, (5, 13): 131, (6, 14): 140, (7, 15): 116}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 59       | +0.555282 | +1.312e-01 | {(0, 8): 116, (1, 9): 115, (2, 10): 126, (3, 11): 129, (4, 12): 114, (5, 13): 139, (6, 14): 115, (7, 15): 146}
+1.0e-12    | None     | 0       | 45       | +0.393084 | +1.470e-01 | {(0, 8): 114, (1, 9): 104, (2, 10): 120, (3, 11): 136, (4, 12): 123, (5, 13): 140, (6, 14): 127, (7, 15): 136}
+1.0e-09    | 4        | 2       | 14       | +0.194372 | +9.292e-02 | {(0, 8): 117, (1, 9): 132, (2, 10): 124, (3, 11): 110, (4, 12): 125, (5, 13): 138, (6, 14): 119, (7, 15): 135}
+1.0e-08    | 4        | 2       | 10       | +0.131846 | +6.116e-02 | {(0, 8): 119, (1, 9): 132, (2, 10): 113, (3, 11): 139, (4, 12): 110, (5, 13): 131, (6, 14): 140, (7, 15): 116}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 59       | +0.555282 | +1.312e-01 | {(0, 8): 116, (1, 9): 115, (2, 10): 126, (3, 11): 129, (4, 12): 114, (5, 13): 139, (6, 14): 115, (7, 15): 146}
+1.0e-12    | None     | 0       | 45       | +0.393084 | +1.470e-01 | {(0, 8): 114, (1, 9): 104, (2, 10): 120, (3, 11): 136, (4, 12): 123, (5, 13): 140, (6, 14): 127, (7, 15): 136}
+1.0e-09    | 4        | 2       | 14       | +0.194372 | +9.292e-02 | {(0, 8): 117, (1, 9): 132, (2, 10): 124, (3, 11): 110, (4, 12): 125, (5, 13): 138, (6, 14): 119, (7, 15): 135}
+1.0e-08    | 4        | 2       | 10       | +0.131846 | +6.116e-02 | {(0, 8): 119, (1, 9): 132, (2, 10): 113, (3, 11): 139, (4, 12): 110, (5, 13): 131, (6, 14): 140, (7, 15): 116}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 59       | +0.555282 | +1.312e-01 | {(0, 8): 116, (1, 9): 115, (2, 10): 126, (3, 11): 129, (4, 12): 114, (5, 13): 139, (6, 14): 115, (7, 15): 146}
+1.0e-12    | None     | 0       | 45       | +0.393084 | +1.470e-01 | {(0, 8): 114, (1, 9): 104, (2, 10): 120, (3, 11): 136, (4, 12): 123, (5, 13): 140, (6, 14): 127, (7, 15): 136}
+1.0e-09    | 4        | 2       | 14       | +0.194372 | +9.292e-02 | {(0, 8): 117, (1, 9): 132, (2, 10): 124, (3, 11): 110, (4, 12): 125, (5, 13): 138, (6, 14): 119, (7, 15): 135}
+1.0e-08    | 4        | 2       | 10       | +0.131846 | +6.116e-02 | {(0, 8): 119, (1, 9): 132, (2, 10): 113, (3, 11): 139, (4, 12): 110, (5, 13): 131, (6, 14): 140, (7, 15): 116}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Ultra Complex Float (10^6+i10^6) | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-12    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-09    | 4        | 2       | 14       | +0.194365 | +7.119e-02 | {(0, 8): 115, (1, 9): 122, (2, 10): 119, (3, 11): 117, (4, 12): 142, (5, 13): 130, (6, 14): 124, (7, 15): 131}
+1.0e-08    | 4        | 2       | 10       | +0.132134 | +4.632e-02 | {(0, 8): 111, (1, 9): 124, (2, 10): 114, (3, 11): 150, (4, 12): 116, (5, 13): 138, (6, 14): 117, (7, 15): 130}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-12    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-09    | 4        | 2       | 14       | +0.194365 | +7.119e-02 | {(0, 8): 115, (1, 9): 122, (2, 10): 119, (3, 11): 117, (4, 12): 142, (5, 13): 130, (6, 14): 124, (7, 15): 131}
+1.0e-08    | 4        | 2       | 10       | +0.132134 | +4.632e-02 | {(0, 8): 111, (1, 9): 124, (2, 10): 114, (3, 11): 150, (4, 12): 116, (5, 13): 138, (6, 14): 117, (7, 15): 130}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-12    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-09    | 4        | 2       | 14       | +0.194365 | +7.119e-02 | {(0, 8): 115, (1, 9): 122, (2, 10): 119, (3, 11): 117, (4, 12): 142, (5, 13): 130, (6, 14): 124, (7, 15): 131}
+1.0e-08    | 4        | 2       | 10       | +0.132134 | +4.632e-02 | {(0, 8): 111, (1, 9): 124, (2, 10): 114, (3, 11): 150, (4, 12): 116, (5, 13): 138, (6, 14): 117, (7, 15): 130}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-15    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-12    | None     | 0       | 47       | +0.013816 | +1.038e-03 | {(0, 8): 1000, (1, 9): 0, (2, 10): 0, (3, 11): 0, (4, 12): 0, (5, 13): 0, (6, 14): 0, (7, 15): 0}
+1.0e-09    | None     | 0       | 14       | +0.194365 | +7.119e-02 | {(0, 8): 115, (1, 9): 122, (2, 10): 119, (3, 11): 117, (4, 12): 142, (5, 13): 130, (6, 14): 124, (7, 15): 131}
+1.0e-08    | None     | 0       | 10       | +0.132134 | +4.632e-02 | {(0, 8): 111, (1, 9): 124, (2, 10): 114, (3, 11): 150, (4, 12): 116, (5, 13): 138, (6, 14): 117, (7, 15): 130}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Phase Ring 30 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001001 | +2.642e-03 | {(0, 8): 116, (1, 9): 134, (2, 10): 125, (3, 11): 106, (4, 12): 133, (5, 13): 121, (6, 14): 123, (7, 15): 142}
+1.0e-15    | 2        | 1       | 3        | +0.000723 | +2.642e-03 | {(0, 8): 151, (1, 9): 103, (2, 10): 142, (3, 11): 116, (4, 12): 130, (5, 13): 117, (6, 14): 122, (7, 15): 119}
+1.0e-12    | 2        | 1       | 3        | +0.000634 | +2.642e-03 | {(0, 8): 158, (1, 9): 126, (2, 10): 130, (3, 11): 122, (4, 12): 127, (5, 13): 117, (6, 14): 100, (7, 15): 120}
+1.0e-09    | 2        | 1       | 3        | -0.000186 | +2.642e-03 | {(0, 8): 119, (1, 9): 131, (2, 10): 128, (3, 11): 132, (4, 12): 134, (5, 13): 115, (6, 14): 119, (7, 15): 122}
+1.0e-08    | 2        | 1       | 3        | +0.000885 | +2.642e-03 | {(0, 8): 146, (1, 9): 113, (2, 10): 113, (3, 11): 125, (4, 12): 116, (5, 13): 125, (6, 14): 131, (7, 15): 131}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001001 | +2.642e-03 | {(0, 8): 116, (1, 9): 134, (2, 10): 125, (3, 11): 106, (4, 12): 133, (5, 13): 121, (6, 14): 123, (7, 15): 142}
+1.0e-15    | 2        | 1       | 3        | +0.000723 | +2.642e-03 | {(0, 8): 151, (1, 9): 103, (2, 10): 142, (3, 11): 116, (4, 12): 130, (5, 13): 117, (6, 14): 122, (7, 15): 119}
+1.0e-12    | 2        | 1       | 3        | +0.000634 | +2.642e-03 | {(0, 8): 158, (1, 9): 126, (2, 10): 130, (3, 11): 122, (4, 12): 127, (5, 13): 117, (6, 14): 100, (7, 15): 120}
+1.0e-09    | 2        | 1       | 3        | -0.000186 | +2.642e-03 | {(0, 8): 119, (1, 9): 131, (2, 10): 128, (3, 11): 132, (4, 12): 134, (5, 13): 115, (6, 14): 119, (7, 15): 122}
+1.0e-08    | 2        | 1       | 3        | +0.000885 | +2.642e-03 | {(0, 8): 146, (1, 9): 113, (2, 10): 113, (3, 11): 125, (4, 12): 116, (5, 13): 125, (6, 14): 131, (7, 15): 131}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001001 | +2.642e-03 | {(0, 8): 116, (1, 9): 134, (2, 10): 125, (3, 11): 106, (4, 12): 133, (5, 13): 121, (6, 14): 123, (7, 15): 142}
+1.0e-15    | 2        | 1       | 3        | +0.000723 | +2.642e-03 | {(0, 8): 151, (1, 9): 103, (2, 10): 142, (3, 11): 116, (4, 12): 130, (5, 13): 117, (6, 14): 122, (7, 15): 119}
+1.0e-12    | 2        | 1       | 3        | +0.000634 | +2.642e-03 | {(0, 8): 158, (1, 9): 126, (2, 10): 130, (3, 11): 122, (4, 12): 127, (5, 13): 117, (6, 14): 100, (7, 15): 120}
+1.0e-09    | 2        | 1       | 3        | -0.000186 | +2.642e-03 | {(0, 8): 119, (1, 9): 131, (2, 10): 128, (3, 11): 132, (4, 12): 134, (5, 13): 115, (6, 14): 119, (7, 15): 122}
+1.0e-08    | 2        | 1       | 3        | +0.000885 | +2.642e-03 | {(0, 8): 146, (1, 9): 113, (2, 10): 113, (3, 11): 125, (4, 12): 116, (5, 13): 125, (6, 14): 131, (7, 15): 131}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001001 | +2.642e-03 | {(0, 8): 116, (1, 9): 134, (2, 10): 125, (3, 11): 106, (4, 12): 133, (5, 13): 121, (6, 14): 123, (7, 15): 142}
+1.0e-15    | 2        | 1       | 3        | +0.000723 | +2.642e-03 | {(0, 8): 151, (1, 9): 103, (2, 10): 142, (3, 11): 116, (4, 12): 130, (5, 13): 117, (6, 14): 122, (7, 15): 119}
+1.0e-12    | 2        | 1       | 3        | +0.000634 | +2.642e-03 | {(0, 8): 158, (1, 9): 126, (2, 10): 130, (3, 11): 122, (4, 12): 127, (5, 13): 117, (6, 14): 100, (7, 15): 120}
+1.0e-09    | 2        | 1       | 3        | -0.000186 | +2.642e-03 | {(0, 8): 119, (1, 9): 131, (2, 10): 128, (3, 11): 132, (4, 12): 134, (5, 13): 115, (6, 14): 119, (7, 15): 122}
+1.0e-08    | 2        | 1       | 3        | +0.000885 | +2.642e-03 | {(0, 8): 146, (1, 9): 113, (2, 10): 113, (3, 11): 125, (4, 12): 116, (5, 13): 125, (6, 14): 131, (7, 15): 131}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Phase Ring 45 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000026 | +2.642e-03 | {(0, 8): 123, (1, 9): 120, (2, 10): 132, (3, 11): 110, (4, 12): 121, (5, 13): 118, (6, 14): 140, (7, 15): 136}
+1.0e-15    | 2        | 1       | 3        | -0.001342 | +2.642e-03 | {(0, 8): 149, (1, 9): 105, (2, 10): 123, (3, 11): 110, (4, 12): 133, (5, 13): 126, (6, 14): 125, (7, 15): 129}
+1.0e-12    | 2        | 1       | 3        | -0.002218 | +2.642e-03 | {(0, 8): 116, (1, 9): 141, (2, 10): 122, (3, 11): 119, (4, 12): 138, (5, 13): 124, (6, 14): 111, (7, 15): 129}
+1.0e-09    | 2        | 1       | 3        | +0.000695 | +2.642e-03 | {(0, 8): 129, (1, 9): 109, (2, 10): 136, (3, 11): 116, (4, 12): 123, (5, 13): 138, (6, 14): 122, (7, 15): 127}
+1.0e-08    | 2        | 1       | 3        | -0.000149 | +2.642e-03 | {(0, 8): 135, (1, 9): 122, (2, 10): 119, (3, 11): 142, (4, 12): 127, (5, 13): 121, (6, 14): 121, (7, 15): 113}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000026 | +2.642e-03 | {(0, 8): 123, (1, 9): 120, (2, 10): 132, (3, 11): 110, (4, 12): 121, (5, 13): 118, (6, 14): 140, (7, 15): 136}
+1.0e-15    | 2        | 1       | 3        | -0.001342 | +2.642e-03 | {(0, 8): 149, (1, 9): 105, (2, 10): 123, (3, 11): 110, (4, 12): 133, (5, 13): 126, (6, 14): 125, (7, 15): 129}
+1.0e-12    | 2        | 1       | 3        | -0.002218 | +2.642e-03 | {(0, 8): 116, (1, 9): 141, (2, 10): 122, (3, 11): 119, (4, 12): 138, (5, 13): 124, (6, 14): 111, (7, 15): 129}
+1.0e-09    | 2        | 1       | 3        | +0.000695 | +2.642e-03 | {(0, 8): 129, (1, 9): 109, (2, 10): 136, (3, 11): 116, (4, 12): 123, (5, 13): 138, (6, 14): 122, (7, 15): 127}
+1.0e-08    | 2        | 1       | 3        | -0.000149 | +2.642e-03 | {(0, 8): 135, (1, 9): 122, (2, 10): 119, (3, 11): 142, (4, 12): 127, (5, 13): 121, (6, 14): 121, (7, 15): 113}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000026 | +2.642e-03 | {(0, 8): 123, (1, 9): 120, (2, 10): 132, (3, 11): 110, (4, 12): 121, (5, 13): 118, (6, 14): 140, (7, 15): 136}
+1.0e-15    | 2        | 1       | 3        | -0.001342 | +2.642e-03 | {(0, 8): 149, (1, 9): 105, (2, 10): 123, (3, 11): 110, (4, 12): 133, (5, 13): 126, (6, 14): 125, (7, 15): 129}
+1.0e-12    | 2        | 1       | 3        | -0.002218 | +2.642e-03 | {(0, 8): 116, (1, 9): 141, (2, 10): 122, (3, 11): 119, (4, 12): 138, (5, 13): 124, (6, 14): 111, (7, 15): 129}
+1.0e-09    | 2        | 1       | 3        | +0.000695 | +2.642e-03 | {(0, 8): 129, (1, 9): 109, (2, 10): 136, (3, 11): 116, (4, 12): 123, (5, 13): 138, (6, 14): 122, (7, 15): 127}
+1.0e-08    | 2        | 1       | 3        | -0.000149 | +2.642e-03 | {(0, 8): 135, (1, 9): 122, (2, 10): 119, (3, 11): 142, (4, 12): 127, (5, 13): 121, (6, 14): 121, (7, 15): 113}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000026 | +2.642e-03 | {(0, 8): 123, (1, 9): 120, (2, 10): 132, (3, 11): 110, (4, 12): 121, (5, 13): 118, (6, 14): 140, (7, 15): 136}
+1.0e-15    | 2        | 1       | 3        | -0.001342 | +2.642e-03 | {(0, 8): 149, (1, 9): 105, (2, 10): 123, (3, 11): 110, (4, 12): 133, (5, 13): 126, (6, 14): 125, (7, 15): 129}
+1.0e-12    | 2        | 1       | 3        | -0.002218 | +2.642e-03 | {(0, 8): 116, (1, 9): 141, (2, 10): 122, (3, 11): 119, (4, 12): 138, (5, 13): 124, (6, 14): 111, (7, 15): 129}
+1.0e-09    | 2        | 1       | 3        | +0.000695 | +2.642e-03 | {(0, 8): 129, (1, 9): 109, (2, 10): 136, (3, 11): 116, (4, 12): 123, (5, 13): 138, (6, 14): 122, (7, 15): 127}
+1.0e-08    | 2        | 1       | 3        | -0.000149 | +2.642e-03 | {(0, 8): 135, (1, 9): 122, (2, 10): 119, (3, 11): 142, (4, 12): 127, (5, 13): 121, (6, 14): 121, (7, 15): 113}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Phase Ring 90 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000147 | +2.642e-03 | {(0, 8): 146, (1, 9): 106, (2, 10): 107, (3, 11): 157, (4, 12): 145, (5, 13): 104, (6, 14): 113, (7, 15): 122}
+1.0e-15    | 2        | 1       | 3        | -0.000766 | +2.642e-03 | {(0, 8): 118, (1, 9): 135, (2, 10): 123, (3, 11): 113, (4, 12): 121, (5, 13): 123, (6, 14): 132, (7, 15): 135}
+1.0e-12    | 2        | 1       | 3        | -0.000001 | +2.642e-03 | {(0, 8): 119, (1, 9): 127, (2, 10): 130, (3, 11): 120, (4, 12): 115, (5, 13): 125, (6, 14): 129, (7, 15): 135}
+1.0e-09    | 2        | 1       | 3        | +0.000191 | +2.642e-03 | {(0, 8): 136, (1, 9): 121, (2, 10): 113, (3, 11): 121, (4, 12): 120, (5, 13): 123, (6, 14): 116, (7, 15): 150}
+1.0e-08    | 2        | 1       | 3        | +0.002772 | +2.642e-03 | {(0, 8): 123, (1, 9): 121, (2, 10): 139, (3, 11): 114, (4, 12): 119, (5, 13): 132, (6, 14): 130, (7, 15): 122}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000147 | +2.642e-03 | {(0, 8): 146, (1, 9): 106, (2, 10): 107, (3, 11): 157, (4, 12): 145, (5, 13): 104, (6, 14): 113, (7, 15): 122}
+1.0e-15    | 2        | 1       | 3        | -0.000766 | +2.642e-03 | {(0, 8): 118, (1, 9): 135, (2, 10): 123, (3, 11): 113, (4, 12): 121, (5, 13): 123, (6, 14): 132, (7, 15): 135}
+1.0e-12    | 2        | 1       | 3        | -0.000001 | +2.642e-03 | {(0, 8): 119, (1, 9): 127, (2, 10): 130, (3, 11): 120, (4, 12): 115, (5, 13): 125, (6, 14): 129, (7, 15): 135}
+1.0e-09    | 2        | 1       | 3        | +0.000191 | +2.642e-03 | {(0, 8): 136, (1, 9): 121, (2, 10): 113, (3, 11): 121, (4, 12): 120, (5, 13): 123, (6, 14): 116, (7, 15): 150}
+1.0e-08    | 2        | 1       | 3        | +0.002772 | +2.642e-03 | {(0, 8): 123, (1, 9): 121, (2, 10): 139, (3, 11): 114, (4, 12): 119, (5, 13): 132, (6, 14): 130, (7, 15): 122}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000147 | +2.642e-03 | {(0, 8): 146, (1, 9): 106, (2, 10): 107, (3, 11): 157, (4, 12): 145, (5, 13): 104, (6, 14): 113, (7, 15): 122}
+1.0e-15    | 2        | 1       | 3        | -0.000766 | +2.642e-03 | {(0, 8): 118, (1, 9): 135, (2, 10): 123, (3, 11): 113, (4, 12): 121, (5, 13): 123, (6, 14): 132, (7, 15): 135}
+1.0e-12    | 2        | 1       | 3        | -0.000001 | +2.642e-03 | {(0, 8): 119, (1, 9): 127, (2, 10): 130, (3, 11): 120, (4, 12): 115, (5, 13): 125, (6, 14): 129, (7, 15): 135}
+1.0e-09    | 2        | 1       | 3        | +0.000191 | +2.642e-03 | {(0, 8): 136, (1, 9): 121, (2, 10): 113, (3, 11): 121, (4, 12): 120, (5, 13): 123, (6, 14): 116, (7, 15): 150}
+1.0e-08    | 2        | 1       | 3        | +0.002772 | +2.642e-03 | {(0, 8): 123, (1, 9): 121, (2, 10): 139, (3, 11): 114, (4, 12): 119, (5, 13): 132, (6, 14): 130, (7, 15): 122}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000147 | +2.642e-03 | {(0, 8): 146, (1, 9): 106, (2, 10): 107, (3, 11): 157, (4, 12): 145, (5, 13): 104, (6, 14): 113, (7, 15): 122}
+1.0e-15    | 2        | 1       | 3        | -0.000766 | +2.642e-03 | {(0, 8): 118, (1, 9): 135, (2, 10): 123, (3, 11): 113, (4, 12): 121, (5, 13): 123, (6, 14): 132, (7, 15): 135}
+1.0e-12    | 2        | 1       | 3        | -0.000001 | +2.642e-03 | {(0, 8): 119, (1, 9): 127, (2, 10): 130, (3, 11): 120, (4, 12): 115, (5, 13): 125, (6, 14): 129, (7, 15): 135}
+1.0e-09    | 2        | 1       | 3        | +0.000191 | +2.642e-03 | {(0, 8): 136, (1, 9): 121, (2, 10): 113, (3, 11): 121, (4, 12): 120, (5, 13): 123, (6, 14): 116, (7, 15): 150}
+1.0e-08    | 2        | 1       | 3        | +0.002772 | +2.642e-03 | {(0, 8): 123, (1, 9): 121, (2, 10): 139, (3, 11): 114, (4, 12): 119, (5, 13): 132, (6, 14): 130, (7, 15): 122}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Phase Ring 120 | Steps=1000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000053 | +2.642e-03 | {(0, 8): 136, (1, 9): 115, (2, 10): 127, (3, 11): 126, (4, 12): 107, (5, 13): 120, (6, 14): 120, (7, 15): 149}
+1.0e-15    | 2        | 1       | 3        | +0.014907 | +2.642e-03 | {(0, 8): 127, (1, 9): 122, (2, 10): 121, (3, 11): 126, (4, 12): 123, (5, 13): 137, (6, 14): 123, (7, 15): 121}
+1.0e-12    | 2        | 1       | 3        | +0.016862 | +2.642e-03 | {(0, 8): 132, (1, 9): 128, (2, 10): 107, (3, 11): 134, (4, 12): 130, (5, 13): 114, (6, 14): 122, (7, 15): 133}
+1.0e-09    | 2        | 1       | 3        | +0.014091 | +2.642e-03 | {(0, 8): 138, (1, 9): 139, (2, 10): 117, (3, 11): 131, (4, 12): 114, (5, 13): 124, (6, 14): 124, (7, 15): 113}
+1.0e-08    | 2        | 1       | 3        | +0.016584 | +2.642e-03 | {(0, 8): 130, (1, 9): 132, (2, 10): 120, (3, 11): 133, (4, 12): 117, (5, 13): 118, (6, 14): 121, (7, 15): 129}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000053 | +2.642e-03 | {(0, 8): 136, (1, 9): 115, (2, 10): 127, (3, 11): 126, (4, 12): 107, (5, 13): 120, (6, 14): 120, (7, 15): 149}
+1.0e-15    | 2        | 1       | 3        | +0.014907 | +2.642e-03 | {(0, 8): 127, (1, 9): 122, (2, 10): 121, (3, 11): 126, (4, 12): 123, (5, 13): 137, (6, 14): 123, (7, 15): 121}
+1.0e-12    | 2        | 1       | 3        | +0.016862 | +2.642e-03 | {(0, 8): 132, (1, 9): 128, (2, 10): 107, (3, 11): 134, (4, 12): 130, (5, 13): 114, (6, 14): 122, (7, 15): 133}
+1.0e-09    | 2        | 1       | 3        | +0.014091 | +2.642e-03 | {(0, 8): 138, (1, 9): 139, (2, 10): 117, (3, 11): 131, (4, 12): 114, (5, 13): 124, (6, 14): 124, (7, 15): 113}
+1.0e-08    | 2        | 1       | 3        | +0.016584 | +2.642e-03 | {(0, 8): 130, (1, 9): 132, (2, 10): 120, (3, 11): 133, (4, 12): 117, (5, 13): 118, (6, 14): 121, (7, 15): 129}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000053 | +2.642e-03 | {(0, 8): 136, (1, 9): 115, (2, 10): 127, (3, 11): 126, (4, 12): 107, (5, 13): 120, (6, 14): 120, (7, 15): 149}
+1.0e-15    | 2        | 1       | 3        | +0.014907 | +2.642e-03 | {(0, 8): 127, (1, 9): 122, (2, 10): 121, (3, 11): 126, (4, 12): 123, (5, 13): 137, (6, 14): 123, (7, 15): 121}
+1.0e-12    | 2        | 1       | 3        | +0.016862 | +2.642e-03 | {(0, 8): 132, (1, 9): 128, (2, 10): 107, (3, 11): 134, (4, 12): 130, (5, 13): 114, (6, 14): 122, (7, 15): 133}
+1.0e-09    | 2        | 1       | 3        | +0.014091 | +2.642e-03 | {(0, 8): 138, (1, 9): 139, (2, 10): 117, (3, 11): 131, (4, 12): 114, (5, 13): 124, (6, 14): 124, (7, 15): 113}
+1.0e-08    | 2        | 1       | 3        | +0.016584 | +2.642e-03 | {(0, 8): 130, (1, 9): 132, (2, 10): 120, (3, 11): 133, (4, 12): 117, (5, 13): 118, (6, 14): 121, (7, 15): 129}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.000053 | +2.642e-03 | {(0, 8): 136, (1, 9): 115, (2, 10): 127, (3, 11): 126, (4, 12): 107, (5, 13): 120, (6, 14): 120, (7, 15): 149}
+1.0e-15    | 2        | 1       | 3        | +0.014907 | +2.642e-03 | {(0, 8): 127, (1, 9): 122, (2, 10): 121, (3, 11): 126, (4, 12): 123, (5, 13): 137, (6, 14): 123, (7, 15): 121}
+1.0e-12    | 2        | 1       | 3        | +0.016862 | +2.642e-03 | {(0, 8): 132, (1, 9): 128, (2, 10): 107, (3, 11): 134, (4, 12): 130, (5, 13): 114, (6, 14): 122, (7, 15): 133}
+1.0e-09    | 2        | 1       | 3        | +0.014091 | +2.642e-03 | {(0, 8): 138, (1, 9): 139, (2, 10): 117, (3, 11): 131, (4, 12): 114, (5, 13): 124, (6, 14): 124, (7, 15): 113}
+1.0e-08    | 2        | 1       | 3        | +0.016584 | +2.642e-03 | {(0, 8): 130, (1, 9): 132, (2, 10): 120, (3, 11): 133, (4, 12): 117, (5, 13): 118, (6, 14): 121, (7, 15): 129}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Deep Golden Diagonal | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.012888 | +2.969e-03 | {(0, 8): 663, (1, 9): 621, (2, 10): 609, (3, 11): 613, (4, 12): 639, (5, 13): 610, (6, 14): 598, (7, 15): 647}
+1.0e-15    | 22       | 2       | 35       | +0.111029 | +1.320e-01 | {(0, 8): 643, (1, 9): 600, (2, 10): 596, (3, 11): 674, (4, 12): 615, (5, 13): 605, (6, 14): 610, (7, 15): 657}
+1.0e-12    | 22       | 2       | 25       | +0.077782 | +1.483e-01 | {(0, 8): 637, (1, 9): 623, (2, 10): 637, (3, 11): 593, (4, 12): 622, (5, 13): 633, (6, 14): 608, (7, 15): 647}
+1.0e-09    | None     | 0       | 22       | +0.041443 | +9.275e-02 | {(0, 8): 626, (1, 9): 621, (2, 10): 664, (3, 11): 611, (4, 12): 612, (5, 13): 623, (6, 14): 626, (7, 15): 617}
+1.0e-08    | None     | 0       | 37       | +0.028385 | +6.187e-02 | {(0, 8): 674, (1, 9): 619, (2, 10): 619, (3, 11): 597, (4, 12): 631, (5, 13): 647, (6, 14): 603, (7, 15): 610}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.012888 | +2.969e-03 | {(0, 8): 663, (1, 9): 621, (2, 10): 609, (3, 11): 613, (4, 12): 639, (5, 13): 610, (6, 14): 598, (7, 15): 647}
+1.0e-15    | 22       | 2       | 35       | +0.111029 | +1.320e-01 | {(0, 8): 643, (1, 9): 600, (2, 10): 596, (3, 11): 674, (4, 12): 615, (5, 13): 605, (6, 14): 610, (7, 15): 657}
+1.0e-12    | 22       | 2       | 25       | +0.077782 | +1.483e-01 | {(0, 8): 637, (1, 9): 623, (2, 10): 637, (3, 11): 593, (4, 12): 622, (5, 13): 633, (6, 14): 608, (7, 15): 647}
+1.0e-09    | None     | 0       | 22       | +0.041443 | +9.275e-02 | {(0, 8): 626, (1, 9): 621, (2, 10): 664, (3, 11): 611, (4, 12): 612, (5, 13): 623, (6, 14): 626, (7, 15): 617}
+1.0e-08    | None     | 0       | 37       | +0.028385 | +6.187e-02 | {(0, 8): 674, (1, 9): 619, (2, 10): 619, (3, 11): 597, (4, 12): 631, (5, 13): 647, (6, 14): 603, (7, 15): 610}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.012888 | +2.969e-03 | {(0, 8): 663, (1, 9): 621, (2, 10): 609, (3, 11): 613, (4, 12): 639, (5, 13): 610, (6, 14): 598, (7, 15): 647}
+1.0e-15    | 22       | 2       | 35       | +0.111029 | +1.320e-01 | {(0, 8): 643, (1, 9): 600, (2, 10): 596, (3, 11): 674, (4, 12): 615, (5, 13): 605, (6, 14): 610, (7, 15): 657}
+1.0e-12    | 22       | 2       | 25       | +0.077782 | +1.483e-01 | {(0, 8): 637, (1, 9): 623, (2, 10): 637, (3, 11): 593, (4, 12): 622, (5, 13): 633, (6, 14): 608, (7, 15): 647}
+1.0e-09    | None     | 0       | 22       | +0.041443 | +9.275e-02 | {(0, 8): 626, (1, 9): 621, (2, 10): 664, (3, 11): 611, (4, 12): 612, (5, 13): 623, (6, 14): 626, (7, 15): 617}
+1.0e-08    | None     | 0       | 37       | +0.028385 | +6.187e-02 | {(0, 8): 674, (1, 9): 619, (2, 10): 619, (3, 11): 597, (4, 12): 631, (5, 13): 647, (6, 14): 603, (7, 15): 610}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 12       | +0.012888 | +2.969e-03 | {(0, 8): 663, (1, 9): 621, (2, 10): 609, (3, 11): 613, (4, 12): 639, (5, 13): 610, (6, 14): 598, (7, 15): 647}
+1.0e-15    | 22       | 2       | 35       | +0.111029 | +1.320e-01 | {(0, 8): 643, (1, 9): 600, (2, 10): 596, (3, 11): 674, (4, 12): 615, (5, 13): 605, (6, 14): 610, (7, 15): 657}
+1.0e-12    | 22       | 2       | 25       | +0.077782 | +1.483e-01 | {(0, 8): 637, (1, 9): 623, (2, 10): 637, (3, 11): 593, (4, 12): 622, (5, 13): 633, (6, 14): 608, (7, 15): 647}
+1.0e-09    | None     | 0       | 22       | +0.041443 | +9.275e-02 | {(0, 8): 626, (1, 9): 621, (2, 10): 664, (3, 11): 611, (4, 12): 612, (5, 13): 623, (6, 14): 626, (7, 15): 617}
+1.0e-08    | None     | 0       | 37       | +0.028385 | +6.187e-02 | {(0, 8): 674, (1, 9): 619, (2, 10): 619, (3, 11): 597, (4, 12): 631, (5, 13): 647, (6, 14): 603, (7, 15): 610}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Deep Cubic Roots Phase | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000176 | +2.642e-03 | {(0, 8): 636, (1, 9): 666, (2, 10): 605, (3, 11): 611, (4, 12): 563, (5, 13): 646, (6, 14): 598, (7, 15): 675}
+1.0e-15    | 2        | 1       | 3        | +0.002767 | +2.642e-03 | {(0, 8): 652, (1, 9): 594, (2, 10): 623, (3, 11): 630, (4, 12): 612, (5, 13): 649, (6, 14): 625, (7, 15): 615}
+1.0e-12    | 2        | 1       | 3        | +0.003495 | +2.642e-03 | {(0, 8): 582, (1, 9): 642, (2, 10): 617, (3, 11): 650, (4, 12): 665, (5, 13): 602, (6, 14): 617, (7, 15): 625}
+1.0e-09    | 2        | 1       | 3        | +0.003294 | +2.642e-03 | {(0, 8): 641, (1, 9): 665, (2, 10): 610, (3, 11): 625, (4, 12): 619, (5, 13): 613, (6, 14): 619, (7, 15): 608}
+1.0e-08    | 2        | 1       | 3        | +0.003435 | +2.642e-03 | {(0, 8): 623, (1, 9): 637, (2, 10): 624, (3, 11): 635, (4, 12): 599, (5, 13): 637, (6, 14): 607, (7, 15): 638}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000176 | +2.642e-03 | {(0, 8): 636, (1, 9): 666, (2, 10): 605, (3, 11): 611, (4, 12): 563, (5, 13): 646, (6, 14): 598, (7, 15): 675}
+1.0e-15    | 2        | 1       | 3        | +0.002767 | +2.642e-03 | {(0, 8): 652, (1, 9): 594, (2, 10): 623, (3, 11): 630, (4, 12): 612, (5, 13): 649, (6, 14): 625, (7, 15): 615}
+1.0e-12    | 2        | 1       | 3        | +0.003495 | +2.642e-03 | {(0, 8): 582, (1, 9): 642, (2, 10): 617, (3, 11): 650, (4, 12): 665, (5, 13): 602, (6, 14): 617, (7, 15): 625}
+1.0e-09    | 2        | 1       | 3        | +0.003294 | +2.642e-03 | {(0, 8): 641, (1, 9): 665, (2, 10): 610, (3, 11): 625, (4, 12): 619, (5, 13): 613, (6, 14): 619, (7, 15): 608}
+1.0e-08    | 2        | 1       | 3        | +0.003435 | +2.642e-03 | {(0, 8): 623, (1, 9): 637, (2, 10): 624, (3, 11): 635, (4, 12): 599, (5, 13): 637, (6, 14): 607, (7, 15): 638}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000176 | +2.642e-03 | {(0, 8): 636, (1, 9): 666, (2, 10): 605, (3, 11): 611, (4, 12): 563, (5, 13): 646, (6, 14): 598, (7, 15): 675}
+1.0e-15    | 2        | 1       | 3        | +0.002767 | +2.642e-03 | {(0, 8): 652, (1, 9): 594, (2, 10): 623, (3, 11): 630, (4, 12): 612, (5, 13): 649, (6, 14): 625, (7, 15): 615}
+1.0e-12    | 2        | 1       | 3        | +0.003495 | +2.642e-03 | {(0, 8): 582, (1, 9): 642, (2, 10): 617, (3, 11): 650, (4, 12): 665, (5, 13): 602, (6, 14): 617, (7, 15): 625}
+1.0e-09    | 2        | 1       | 3        | +0.003294 | +2.642e-03 | {(0, 8): 641, (1, 9): 665, (2, 10): 610, (3, 11): 625, (4, 12): 619, (5, 13): 613, (6, 14): 619, (7, 15): 608}
+1.0e-08    | 2        | 1       | 3        | +0.003435 | +2.642e-03 | {(0, 8): 623, (1, 9): 637, (2, 10): 624, (3, 11): 635, (4, 12): 599, (5, 13): 637, (6, 14): 607, (7, 15): 638}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000176 | +2.642e-03 | {(0, 8): 636, (1, 9): 666, (2, 10): 605, (3, 11): 611, (4, 12): 563, (5, 13): 646, (6, 14): 598, (7, 15): 675}
+1.0e-15    | 2        | 1       | 3        | +0.002767 | +2.642e-03 | {(0, 8): 652, (1, 9): 594, (2, 10): 623, (3, 11): 630, (4, 12): 612, (5, 13): 649, (6, 14): 625, (7, 15): 615}
+1.0e-12    | 2        | 1       | 3        | +0.003495 | +2.642e-03 | {(0, 8): 582, (1, 9): 642, (2, 10): 617, (3, 11): 650, (4, 12): 665, (5, 13): 602, (6, 14): 617, (7, 15): 625}
+1.0e-09    | 2        | 1       | 3        | +0.003294 | +2.642e-03 | {(0, 8): 641, (1, 9): 665, (2, 10): 610, (3, 11): 625, (4, 12): 619, (5, 13): 613, (6, 14): 619, (7, 15): 608}
+1.0e-08    | 2        | 1       | 3        | +0.003435 | +2.642e-03 | {(0, 8): 623, (1, 9): 637, (2, 10): 624, (3, 11): 635, (4, 12): 599, (5, 13): 637, (6, 14): 607, (7, 15): 638}
+
+[Z16 SOVEREIGN CLOSURE SCAN] Deep Phase Ring 180 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001612 | +2.673e-03 | {(0, 8): 636, (1, 9): 630, (2, 10): 644, (3, 11): 580, (4, 12): 609, (5, 13): 625, (6, 14): 627, (7, 15): 649}
+1.0e-15    | 2        | 1       | 3        | +0.001431 | +2.673e-03 | {(0, 8): 594, (1, 9): 594, (2, 10): 610, (3, 11): 612, (4, 12): 643, (5, 13): 659, (6, 14): 653, (7, 15): 635}
+1.0e-12    | 2        | 1       | 3        | +0.001489 | +2.674e-03 | {(0, 8): 649, (1, 9): 599, (2, 10): 624, (3, 11): 637, (4, 12): 618, (5, 13): 613, (6, 14): 649, (7, 15): 611}
+1.0e-09    | 2        | 1       | 3        | +0.000264 | +1.269e-03 | {(0, 8): 633, (1, 9): 614, (2, 10): 665, (3, 11): 630, (4, 12): 581, (5, 13): 581, (6, 14): 671, (7, 15): 625}
+1.0e-08    | 2        | 1       | 3        | +0.000866 | +1.269e-03 | {(0, 8): 628, (1, 9): 620, (2, 10): 635, (3, 11): 599, (4, 12): 637, (5, 13): 622, (6, 14): 630, (7, 15): 629}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001612 | +2.673e-03 | {(0, 8): 636, (1, 9): 630, (2, 10): 644, (3, 11): 580, (4, 12): 609, (5, 13): 625, (6, 14): 627, (7, 15): 649}
+1.0e-15    | 2        | 1       | 3        | +0.001431 | +2.673e-03 | {(0, 8): 594, (1, 9): 594, (2, 10): 610, (3, 11): 612, (4, 12): 643, (5, 13): 659, (6, 14): 653, (7, 15): 635}
+1.0e-12    | 2        | 1       | 3        | +0.001489 | +2.674e-03 | {(0, 8): 649, (1, 9): 599, (2, 10): 624, (3, 11): 637, (4, 12): 618, (5, 13): 613, (6, 14): 649, (7, 15): 611}
+1.0e-09    | 2        | 1       | 3        | +0.000264 | +1.269e-03 | {(0, 8): 633, (1, 9): 614, (2, 10): 665, (3, 11): 630, (4, 12): 581, (5, 13): 581, (6, 14): 671, (7, 15): 625}
+1.0e-08    | 2        | 1       | 3        | +0.000866 | +1.269e-03 | {(0, 8): 628, (1, 9): 620, (2, 10): 635, (3, 11): 599, (4, 12): 637, (5, 13): 622, (6, 14): 630, (7, 15): 629}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001612 | +2.673e-03 | {(0, 8): 636, (1, 9): 630, (2, 10): 644, (3, 11): 580, (4, 12): 609, (5, 13): 625, (6, 14): 627, (7, 15): 649}
+1.0e-15    | 2        | 1       | 3        | +0.001431 | +2.673e-03 | {(0, 8): 594, (1, 9): 594, (2, 10): 610, (3, 11): 612, (4, 12): 643, (5, 13): 659, (6, 14): 653, (7, 15): 635}
+1.0e-12    | 2        | 1       | 3        | +0.001489 | +2.674e-03 | {(0, 8): 649, (1, 9): 599, (2, 10): 624, (3, 11): 637, (4, 12): 618, (5, 13): 613, (6, 14): 649, (7, 15): 611}
+1.0e-09    | 2        | 1       | 3        | +0.000264 | +1.269e-03 | {(0, 8): 633, (1, 9): 614, (2, 10): 665, (3, 11): 630, (4, 12): 581, (5, 13): 581, (6, 14): 671, (7, 15): 625}
+1.0e-08    | 2        | 1       | 3        | +0.000866 | +1.269e-03 | {(0, 8): 628, (1, 9): 620, (2, 10): 635, (3, 11): 599, (4, 12): 637, (5, 13): 622, (6, 14): 630, (7, 15): 629}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | +0.001612 | +2.673e-03 | {(0, 8): 636, (1, 9): 630, (2, 10): 644, (3, 11): 580, (4, 12): 609, (5, 13): 625, (6, 14): 627, (7, 15): 649}
+1.0e-15    | 2        | 1       | 3        | +0.001431 | +2.673e-03 | {(0, 8): 594, (1, 9): 594, (2, 10): 610, (3, 11): 612, (4, 12): 643, (5, 13): 659, (6, 14): 653, (7, 15): 635}
+1.0e-12    | 2        | 1       | 3        | +0.001489 | +2.674e-03 | {(0, 8): 649, (1, 9): 599, (2, 10): 624, (3, 11): 637, (4, 12): 618, (5, 13): 613, (6, 14): 649, (7, 15): 611}
+1.0e-09    | 2        | 1       | 3        | +0.000264 | +1.269e-03 | {(0, 8): 633, (1, 9): 614, (2, 10): 665, (3, 11): 630, (4, 12): 581, (5, 13): 581, (6, 14): 671, (7, 15): 625}
+1.0e-08    | 2        | 1       | 3        | +0.000866 | +1.269e-03 | {(0, 8): 628, (1, 9): 620, (2, 10): 635, (3, 11): 599, (4, 12): 637, (5, 13): 622, (6, 14): 630, (7, 15): 629}
+
+[Z16 ISSUE 1] CENTER DWELL / DRIFT REPORT
+Golden Diagonal                      | First22=None | P22Max=0 | P22Total=0 | Stable24=12 | Drift=+2.969e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Cubic Roots Phase                    | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.642e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Quarter Roots Phase                  | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.642e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Phase Ring 180                       | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.673e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Large +1e6                           | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Large -1e6                           | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Ultra Complex 1e6+i1e6               | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Boundary Edge 15.9999+i15.9999       | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.525e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+
+[Z16 ISSUE 2] MULTI-AXIS PERTURBATION SCAN
+
+Target: Golden Diagonal
+c_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+c_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=35 | Trace=+0.553929 | Drift=+1.320e-01
+c_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=25 | Trace=+0.389928 | Drift=+1.483e-01
+c_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=22 | Trace=+0.206433 | Drift=+9.275e-02
+c_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=37 | Trace=+0.141029 | Drift=+6.187e-02
+a_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+a_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=36 | Trace=+0.573167 | Drift=+1.258e-01
+a_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=26 | Trace=+0.404458 | Drift=+1.474e-01
+a_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=22 | Trace=+0.222506 | Drift=+1.042e-01
+a_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=22 | Trace=+0.156136 | Drift=+6.436e-02
+b_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+b_wedge    p=1.0e-15 | First22=22 | P22Max=2 | Stable24=35 | Trace=+0.553929 | Drift=+1.320e-01
+b_wedge    p=1.0e-12 | First22=22 | P22Max=2 | Stable24=25 | Trace=+0.389482 | Drift=+1.483e-01
+b_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=22 | Trace=+0.206472 | Drift=+9.275e-02
+b_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=34 | Trace=+0.143267 | Drift=+6.187e-02
+all_wedge  p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+all_wedge  p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.003641 | Drift=+2.969e-03
+all_wedge  p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.003657 | Drift=+2.969e-03
+all_wedge  p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.004191 | Drift=+2.876e-03
+all_wedge  p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.003699 | Drift=+2.969e-03
+real_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+real_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.031911 | Drift=+2.969e-03
+real_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.037530 | Drift=+2.969e-03
+real_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.028417 | Drift=+2.969e-03
+real_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.032145 | Drift=+2.969e-03
+imag_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Drift=+2.969e-03
+imag_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.003797 | Drift=+2.969e-03
+imag_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.005996 | Drift=+2.969e-03
+imag_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.004590 | Drift=+2.965e-03
+imag_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=12 | Trace=+0.002580 | Drift=+2.969e-03
+
+Target: Cubic Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.014907 | Drift=+2.642e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016862 | Drift=+2.642e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.014091 | Drift=+2.642e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016584 | Drift=+2.642e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016202 | Drift=+2.642e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.018244 | Drift=+2.642e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016575 | Drift=+2.642e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016582 | Drift=+2.642e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.018344 | Drift=+2.642e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017887 | Drift=+2.642e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016907 | Drift=+2.642e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.017631 | Drift=+2.642e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000152 | Drift=+2.642e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001852 | Drift=+2.642e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000086 | Drift=+2.642e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000006 | Drift=+2.642e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001060 | Drift=+2.642e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000041 | Drift=+2.642e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000592 | Drift=+2.642e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000568 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Drift=+2.642e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000043 | Drift=+2.642e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000230 | Drift=+2.642e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000072 | Drift=+2.642e-03
+
+Target: Quarter Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000766 | Drift=+2.642e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000001 | Drift=+2.642e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000191 | Drift=+2.642e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002772 | Drift=+2.642e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000255 | Drift=+2.642e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000355 | Drift=+2.642e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000302 | Drift=+2.642e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001576 | Drift=+2.642e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000441 | Drift=+2.642e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000192 | Drift=+2.642e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002461 | Drift=+2.642e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000021 | Drift=+2.642e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000009 | Drift=+2.642e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000014 | Drift=+2.642e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Drift=+2.642e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000100 | Drift=+2.642e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000002 | Drift=+2.642e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000050 | Drift=+2.642e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000501 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Drift=+2.642e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000329 | Drift=+2.642e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000006 | Drift=+2.642e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001149 | Drift=+2.642e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000566 | Drift=+2.642e-03
+
+Target: Phase Ring 180
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008121 | Drift=+2.673e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007315 | Drift=+2.674e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.003927 | Drift=+1.269e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007492 | Drift=+1.269e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008779 | Drift=+2.673e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007834 | Drift=+2.674e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007822 | Drift=+1.269e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007960 | Drift=+1.269e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008229 | Drift=+2.673e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007995 | Drift=+2.673e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006632 | Drift=+2.688e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006105 | Drift=+1.263e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007865 | Drift=+2.673e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008283 | Drift=+2.674e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007820 | Drift=+1.269e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008580 | Drift=+1.269e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008274 | Drift=+2.673e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007910 | Drift=+2.673e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.008210 | Drift=+2.673e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.006336 | Drift=+2.673e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Drift=+2.673e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007794 | Drift=+2.673e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007545 | Drift=+2.673e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007861 | Drift=+2.673e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007000 | Drift=+2.673e-03
+
+[Z16 ISSUE 3] GAMMA / SCALE SWEEP
+
+Target: Golden Diagonal
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.026748 | Ratio=1.9568 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=4 | Trace=+0.005204 | Ratio=2.0087 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=8 | Trace=-0.011110 | Ratio=1.9819 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=12 | Trace=+0.024217 | Ratio=2.0404 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=12 | Trace=+0.023108 | Ratio=2.0386 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=15 | Trace=+0.026505 | Ratio=2.0445 | Final=[2+,4-,0^0]
+
+Target: Cubic Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.016588 | Ratio=2.0273 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.007853 | Ratio=1.9872 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.004448 | Ratio=1.9927 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000949 | Ratio=1.9984 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000053 | Ratio=2.0001 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+
+Target: Quarter Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002408 | Ratio=1.9960 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001112 | Ratio=1.9982 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000777 | Ratio=1.9987 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000147 | Ratio=2.0002 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000001 | Ratio=2.0000 | Final=[2+,4-,0^0]
+
+Target: Phase Ring 180
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008976 | Ratio=1.9854 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.003397 | Ratio=2.0056 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007404 | Ratio=2.0122 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.007860 | Ratio=2.0129 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.009228 | Ratio=2.0151 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.011049 | Ratio=2.0181 | Final=[2+,4-,0^0]
+
+Target: Large +1e6
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.013816 | Ratio=2.0227 | Final=[2+,4-,0^0]
+
+[Z16 ISSUE 4] CONSTRAINED SUBMAP / TRUE CHAMBER HUNT
+
+Target: Golden Diagonal
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=1989 | Trace=+0.030470 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Cubic Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=-0.000854 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Quarter Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=+0.000307 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Phase Ring 180
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=1998 | Trace=+0.003944 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000347 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+Target: Large +1e6
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=1954 | Trace=+0.006908 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=2000 | P22Total=2000 | P24Max=0 | Trace=+0.000362 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000362 | Final=[2+,0-,4^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000549 | Final=[2+,0-,4^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000557 | Final=[2+,0-,4^0]
+force_mirror_ac      | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000347 | Final=[2+,0-,4^0]
+
+[Z16 ISSUE 5] RANDOM BASIN COVERAGE SCAN
+Samples checked: 100
+P22 hits: 100
+No stable [2+,4-,0^0] lock: 0
+Max P22 observed: 1
+Aggregate Z16 mirror counts: {(0, 8): 12497, (1, 9): 12621, (2, 10): 12315, (3, 11): 12601, (4, 12): 12316, (5, 13): 12704, (6, 14): 12454, (7, 15): 12492}
+Best candidate index=0 | seed=((9.88404571122353+8.532249177680013j), (5.8535737479900085+9.372597662436345j), (2.6509965390204933+13.189979950522103j))
+First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000003 | Ratio=2.0000 | Final=[2+,4-,0^0]
+
+[Z16 DECISION RULE]
+If [2+,4-,0^0] remains stable under Z16, the Z8->Z16 doubled skeleton is robust.
+If [2+,2-,2^0] grows naturally under Z16, the doubled modulus creates a true free-map center chamber.
+If mirror brackets distribute evenly, Z16 behaves as a balanced half-modulus ignorance-state extension.
+If one mirror bracket dominates, Z16 introduces directional hidden-state bias.
+If Z16 destroys the lock, the parent signature is modulus-sensitive.
+
+===============================================================================
+Z12 / Z16 PAIRWISE DOUBLING-STABILITY VERDICT
+===============================================================================
+
+Z12 SUMMARY
+  Random basin P22 hits      : 100
+  Random basin no-24 locks   : 0
+  Max P22 corridor length    : 1
+  Mirror count max deviation : 1.0960% from equal distribution
+  Mirror totals              : {(0, 6): 16684, (1, 7): 16774, (2, 8): 16484, (3, 9): 16534, (4, 10): 16837, (5, 11): 16687}
+
+Z16 SUMMARY
+  Random basin P22 hits      : 100
+  Random basin no-24 locks   : 0
+  Max P22 corridor length    : 1
+  Mirror count max deviation : 1.6320% from equal distribution
+  Mirror totals              : {(0, 8): 12497, (1, 9): 12621, (2, 10): 12315, (3, 11): 12601, (4, 12): 12316, (5, 13): 12704, (6, 14): 12454, (7, 15): 12492}
+
+INTERPRETATION
+  Z12 is the native doubled test: Z6 -> Z12.
+  Z16 is the mirror doubled test: Z8 -> Z16.
+  If both preserve [2+,4-,0^0], the skeleton survives both doubled tracks.
+  If Z12 preserves and Z16 fails, the native 6-family is stronger.
+  If Z16 preserves and Z12 fails, the power-of-two mirror family is stronger.
+  If both fail, the skeleton is modulus-sensitive under doubling.
+  If neither fails, the skeleton is a stable invariant of the ternary map family.
+
+===================================================================== 
+=====##END OF LOGS 6-GEM_MANIFOLD_Z12_Z16_SUITE.py END LOGS##======== 
+=====================================================================
+
+###########################################
+
+# LICENSE.TXT
+# Zero-Ology License  v2.6.65
+# June 05, 2026
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- 6-GEM_MANIFOLD_Z12_Z16.txt
+- 6-GEM_MANIFOLD_Z12_Z16_SUITE.py
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
+www.zero-ology.com
+
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
