@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 """
 ==========================================================================================
-THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.2 TRUE STREAMING EDITION)
+THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.4 LIVE-STREAMING EDITION)
 ==========================================================================================
 THE KAKÓS WATERLINE FUNCTION K(N) & COMPREHENSIVE SURVEYED FIELD INTERACTION POOLS
 ------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ from collections import defaultdict
 
 def interactive_menu():
     print("==================================================================")
-    print("      ACHERON FIELDS HORIZON SELECTOR (v4.2 True Stream Engine)   ")
+    print("      ACHERON FIELDS HORIZON SELECTOR (v4.4 Live-Streaming)       ")
     print("==================================================================")
     print(" 1) Run  50,000,000 Horizon Pool")
     print(" 2) Run 100,000,000 Horizon Pool")
@@ -152,9 +152,14 @@ def main():
     composite_non_pp_ruptures = 0
     sample_pool_print = []
 
+    # Setup progress variables
+    total_chunks = math.ceil((limit - 1) / CHUNK_SIZE)
+    current_chunk_idx = 0
+
     for chunk_start in range(2, limit + 1, CHUNK_SIZE):
         chunk_end = min(chunk_start + CHUNK_SIZE - 1, limit)
         chunk_len = chunk_end - chunk_start + 1
+        current_chunk_idx += 1
         
         # Local segment block allocation (tiny memory footprint)
         local_sigma = array('Q', [1] * chunk_len)
@@ -179,10 +184,13 @@ def main():
                 elif is_prime[n] == 0:
                     composite_non_pp_ruptures += 1
                     if len(sample_pool_print) < 5:
-                        # Late-bind sigma since we don't hold the full array globally
                         sample_pool_print.append((n, get_prime_factors(n), sig_val))
+        
+        # ADDED: Live Streaming Terminal Update
+        pct = (chunk_end / limit) * 100
+        print(f"    [Segment Scan] Block {current_chunk_idx}/{total_chunks} processed: [{chunk_start:,} -> {chunk_end:,}] | Progress: {pct:.2f}%", flush=True)
 
-    print(f"[+] Substrates compiled. Field Support Density: {sum(A)/(limit-1):.6f}")
+    print(f"\n[+] Substrates compiled. Field Support Density: {sum(A)/(limit-1):.6f}")
 
     # Pure Prime-Power Verification Subsector
     pp_tested = sum(is_pure_prime_power)
@@ -194,6 +202,7 @@ def main():
     print(f"    [Verification] Pure Prime-Power Nodes Checked: {pp_tested:,} | Failures: {pp_failed:,} Verification: {verdict}\n")
 
     # Scan field to collect continuous A-run boundaries sequentially
+    print("[*] Compiling A-run block indexes sequentially...")
     current_run_len = 0
     current_run_start = 0
     all_runs_log = []
@@ -219,9 +228,26 @@ def main():
 
     print("\n    [+] ===== KAKÓS WATERLINE TRACKING MATRIX (BOUND-CLIPPED) =====")
     for horizon in milestones:
-        local_runs = [(s, min(e, horizon), min(e, horizon) - s + 1) for s, e, k in all_runs_log if s <= horizon]
-        if local_runs:
-            max_run = max(local_runs, key=lambda item: item[2])
+        max_k = 0
+        max_run = None
+        depths = [10, 15, 17, 18, 20]
+        counts_at_horizon = {d: 0 for d in depths}
+
+        for s, e, k in all_runs_log:
+            if s > horizon:
+                continue
+            clipped_end = min(e, horizon)
+            clipped_len = clipped_end - s + 1
+            
+            if clipped_len > max_k:
+                max_k = clipped_len
+                max_run = (s, clipped_end, clipped_len)
+            
+            for d in depths:
+                if clipped_len >= d:
+                    counts_at_horizon[d] += 1
+
+        if max_run:
             k_n = max_run[2]
             coord_str = f"at [{max_run[0]:,} -> {max_run[1]:,}]"
         else:
@@ -229,9 +255,6 @@ def main():
             coord_str = "N/A"
 
         waterline_history[horizon] = k_n
-
-        depths = [10, 15, 17, 18, 20]
-        counts_at_horizon = {d: sum(1 for r in local_runs if r[2] >= d) for d in depths}
         horizon_run_counts[horizon] = counts_at_horizon
 
         print(f"      Survey Bound N = {horizon:<13,} | Observed Waterline K(N) = {k_n:<2}  {coord_str}")
@@ -404,7 +427,6 @@ def main():
         l_facs = get_prime_factors(left_boundary) if left_boundary >= 2 else []
         r_facs = get_prime_factors(right_boundary) if right_boundary <= limit else []
         
-        # Pull temporary localized divisor sum for the specific boundary values to avoid holding them in RAM
         def get_single_sigma(num):
             return sum(d for d in range(1, num + 1) if num % d == 0)
             
@@ -412,7 +434,7 @@ def main():
         print(f"      Left Rupture  (n={left_boundary:,}) | Factors={l_facs} | σ(n)={get_single_sigma(left_boundary) if left_boundary>=2 else 0} | gcd=1")
         print(f"      Right Rupture (n={right_boundary:,}) | Factors={r_facs} | σ(n)={get_single_sigma(right_boundary) if right_boundary<=limit else 0} | gcd=1")
 
-    print(f"\n[✓] Master Merge Integration Protocol Complete. v4.2 Engine stabilized at limit N = {limit:,}.\n")
+    print(f"\n[✓] Master Merge Integration Protocol Complete. v4.4 Engine stabilized at limit N = {limit:,}.\n")
 
 if __name__ == "__main__":
     main()
