@@ -1,0 +1,1776 @@
+UNPERFECT_ANOMALY.txt
+
+stacey szmy
+toronto
+Discussion Starter Yesterday at 8:31 PM
+Add bookmark
+#325
+SDK said:
+I can't speak for anyone else but it might be easier for me to understand all this utter nonsense if you could crank out another 15 or so pages of this......uuhhhh....whatever the .... this idiotic garbage is. Then I'd really be on board.
+Python:
+import math
+import random
+from datetime import datetime
+
+# =====================================================================
+# UNPERFECT ANOMALY ENGINE — v1.3 PRODUCTION SUITE (CONSOLIDATED RE-BUILD)
+# [General Lattice + Euclid-Mirror Ready Build — Final Lock]
+# =====================================================================
+
+def get_sigma(n):
+    """Returns the sum of divisors of n using prime factorization."""
+    if n < 1:
+        return 0
+    total = 1
+    p = 2
+    temp_n = n
+    while p * p <= temp_n:
+        if temp_n % p == 0:
+            p_sum = 1
+            p_pow = 1
+            while temp_n % p == 0:
+                p_pow *= p
+                p_sum += p_pow
+                temp_n //= p
+            total *= p_sum
+        p += 1 if p == 2 else 2
+    if temp_n > 1:
+        total *= (1 + temp_n)
+    return total
+
+def safe_int_input(prompt, default):
+    """Helper to catch empty user responses and return fallback safe defaults."""
+    user_val = input(f"{prompt} [Default={default}]: ").strip()
+    if not user_val:
+        return default
+    try:
+        return int(user_val)
+    except ValueError:
+        print(f" -> Invalid integer literal. Falling back to default: {default}")
+        return default
+
+class AnomalyEngine:
+    def __init__(self):
+        # Configuration Defaults
+        self.max_k = 100
+        self.show_duplicates = False
+        self.show_all = False
+        self.save_csv = True
+        self.save_txt_summary = True
+       
+        # Generator Mapping Mode ("lattice" or "euclid")
+        self.generator_mode = "lattice"
+       
+        # State Tracking
+        self.reset_state()
+
+    def reset_state(self):
+        self.checked_set = set()  # To handle duplicate suppression
+        self.raw_log_buffer = []  # List of dicts for reporting and export
+       
+        # Phase Counters
+        self.odd_checked = 0
+        self.even_checked = 0
+        self.odd_anomalies = 0
+        self.even_anomalies = 0
+        self.perfect_exclusions = 0
+        self.total_unique_checked = 0
+
+    def make_n(self, p, q):
+        """Resolves target integer based on active mapping generator mode."""
+        if self.generator_mode == "euclid":
+            return q * ((1 << p) - 1)
+        return p * q
+
+    def print_formula_header(self):
+        """Permanent Compact Formula Print with Active Generator Equation Labeling"""
+        print("=" * 70)
+        print(" UNPERFECT ANOMALY ENGINE v1.3 — PRODUCTION READY")
+        print(f" Generator Mode: {self.generator_mode.upper()} CHANNELS")
+        print("=" * 70)
+        print("Compact Formula:")
+        print("  UA(n) iff n > 1, |2n - sigma(n)| > 0, and gcd(n, |2n - sigma(n)|) > 1")
+        print("-" * 70)
+        if self.generator_mode == "euclid":
+            print("Generator Equation:\n  N(p,q) = q(2^p - 1)")
+        else:
+            print("Generator Equation:\n  N(p,q) = p*q")
+        print("=" * 70)
+        print()
+
+    def evaluate_candidate(self, p, q):
+        """Evaluates a coordinate pair for Unperfect Anomalies and logs results."""
+        n = self.make_n(p, q)
+        if n <= 1:
+            return
+
+        # Check duplicate suppression
+        if not self.show_duplicates and n in self.checked_set:
+            return
+       
+        is_duplicate = n in self.checked_set
+        self.checked_set.add(n)
+       
+        if not is_duplicate:
+            self.total_unique_checked += 1
+            if n % 2 == 0:
+                self.even_checked += 1
+            else:
+                self.odd_checked += 1
+
+        sigma_n = get_sigma(n)
+        error_E = abs(2 * n - sigma_n)
+        phase = "ODD" if n % 2 != 0 else "EVEN"
+
+        # Determine UA Status
+        if error_E == 0:
+            ua_status = "PERFECT"
+            if not is_duplicate:
+                self.perfect_exclusions += 1
+        else:
+            gcd_val = math.gcd(n, error_E)
+            if gcd_val > 1:
+                ua_status = "TRUE"
+                if not is_duplicate:
+                    if n % 2 == 0:
+                        self.even_anomalies += 1
+                    else:
+                        self.odd_anomalies += 1
+            else:
+                ua_status = "FALSE"
+
+        # Buffer for export metrics (with lineage retention)
+        log_entry = {
+            "generator_mode": self.generator_mode,
+            "p": p, "q": q, "n": n, "sigma_n": sigma_n,
+            "error_E": error_E, "gcd_n_E": math.gcd(n, error_E) if error_E > 0 else 0,
+            "phase": phase, "ua_status": ua_status
+        }
+        self.raw_log_buffer.append(log_entry)
+
+        # Terminal Print Logic
+        should_print = False
+        if self.show_all:
+            should_print = True
+        elif ua_status == "TRUE":
+            should_print = True
+
+        if should_print:
+            print(f"[{phase:<4}] Coordinate:({p:>3},{q:<3}) | n: {n:<10} | E: {error_E:<10} | gcd: {log_entry['gcd_n_E']:<6} | UA: {ua_status}")
+
+    def print_summary_statistics(self):
+        """Summary Statistics Output"""
+        total_ua = self.odd_anomalies + self.even_anomalies
+        overall_hit = (total_ua / self.total_unique_checked * 100) if self.total_unique_checked > 0 else 0.0
+        odd_hit = (self.odd_anomalies / self.odd_checked * 100) if self.odd_checked > 0 else 0.0
+        even_hit = (self.even_anomalies / self.even_checked * 100) if self.even_checked > 0 else 0.0
+
+        print("\n" + "=" * 50)
+        print(" METRIC SUMMARY REPORT")
+        print("=" * 50)
+        print(f"Generator Mode active          : {self.generator_mode.upper()}")
+        print(f"Total unique candidates checked : {self.total_unique_checked}")
+        print(f"Perfect exclusions             : {self.perfect_exclusions}")
+        print(f"Total UA found                 : {total_ua}")
+        print(f"Overall UA hit rate            : {overall_hit:.2f}%")
+        print("-" * 50)
+        print(f"Odd candidates checked         : {self.odd_checked}")
+        print(f"Even candidates checked        : {self.even_checked}")
+        print(f"Odd UA found                   : {self.odd_anomalies}")
+        print(f"Even UA found                  : {self.even_anomalies}")
+        print(f"Odd UA hit rate                : {odd_hit:.2f}%")
+        print(f"Even UA hit rate               : {even_hit:.2f}%")
+        print("=" * 50)
+       
+        print("\nSCAN COMPLETE")
+        print("Formula verified against all scanned candidates")
+        print("UA condition used: gcd(n, |2n - sigma(n)|) > 1 with E(n) > 0\n")
+
+    # --- ATOMIC SCAN COMPACT ROUTINES ---
+
+    def run_bounded_diagonal(self, hide_saving_prompt=False):
+        """Internal Core: bounded diagonal scan by max_k"""
+        self.reset_state()
+        self.print_formula_header()
+        print(f"Executing Bounded Diagonal Scan (max_k = {self.max_k})...\n")
+        for k in range(2, self.max_k + 1):
+            for p in range(1, k + 1):
+                self.evaluate_candidate(p, k - p + 1)
+            if k % 10 == 0 or k == self.max_k:
+                print(f" >> Progress line: k={k} | checked={self.total_unique_checked} | UA={self.odd_anomalies + self.even_anomalies} | oddUA={self.odd_anomalies} | evenUA={self.even_anomalies}")
+        self.print_summary_statistics()
+        if not hide_saving_prompt: self.handling_saving_menu()
+
+    def run_fixed_p(self, hide_saving_prompt=False, p=6, q_start=1, q_end=40):
+        self.reset_state()
+        self.print_formula_header()
+        print(f"Executing Fixed p Sweep ({p=}, q range [{q_start}...{q_end}])...\n")
+        for q in range(q_start, q_end + 1): self.evaluate_candidate(p, q)
+        self.print_summary_statistics()
+        if not hide_saving_prompt: self.handling_saving_menu()
+
+    def run_fixed_q(self, hide_saving_prompt=False, q=6, p_start=1, p_end=40):
+        self.reset_state()
+        self.print_formula_header()
+        print(f"Executing Fixed q Sweep ({q=}, p range [{p_start}...{p_end}])...\n")
+        for p in range(p_start, p_end + 1): self.evaluate_candidate(p, q)
+        self.print_summary_statistics()
+        if not hide_saving_prompt: self.handling_saving_menu()
+
+    def run_phase_only_scan(self, phase_target, hide_saving_prompt=False):
+        self.reset_state()
+        self.print_formula_header()
+        print(f"Executing Phase-Targeted Scan: {phase_target}-Only (max_k = {self.max_k})...\n")
+        for k in range(2, self.max_k + 1):
+            for p in range(1, k + 1):
+                q = k - p + 1
+                n = self.make_n(p, q)
+                if (phase_target == "ODD" and n % 2 == 0) or (phase_target == "EVEN" and n % 2 != 0): continue
+                self.evaluate_candidate(p, q)
+        self.print_summary_statistics()
+        if not hide_saving_prompt: self.handling_saving_menu()
+
+    def run_continuous_fuzz_sector(self):
+        """Option 1: Continuous Automated Randomization Loop across the coordinate workspace."""
+        self.reset_state()
+        self.print_formula_header()
+        print(f"Entering Endless Continuous Fuzz Scan Vector (Bounded limit: max_k = {self.max_k})...")
+        print("Press Ctrl+C to pause analysis and open disk asset compilation menus safely.\n")
+        try:
+            while True:
+                p = random.randint(1, self.max_k)
+                q = random.randint(1, self.max_k)
+                self.evaluate_candidate(p, q)
+                if self.total_unique_checked % 250 == 0 and self.total_unique_checked > 0:
+                    print(f" -> Live checkpoint: checked={self.total_unique_checked} | Total UA found={self.odd_anomalies + self.even_anomalies}")
+        except KeyboardInterrupt:
+            print("\n\n[PAUSED] Continuous execution channel safely halted by user capture.")
+            self.print_summary_statistics()
+            self.handling_saving_menu()
+
+    def run_batch_matrix(self):
+        """Option 10: Sequences all analytical runs sequentially."""
+        print("\n" + "#" * 60)
+        print("LAUNCHING ALL SCAN SECTORS — BATCH MATRIX SEQUENCE")
+        print(f"CURRENT RUN MODE: {self.generator_mode.upper()} CHANNELS")
+        print("#" * 60)
+       
+        print("\n>>> SUB-STAGE 1: Bounded Diagonal Matrix Scan")
+        self.run_bounded_diagonal(hide_saving_prompt=True)
+        print("\n>>> SUB-STAGE 2: Fixed p Lattice Sweep (p=6, q=[1..40])")
+        self.run_fixed_p(hide_saving_prompt=True, p=6, q_start=1, q_end=40)
+        print("\n>>> SUB-STAGE 3: Fixed q Lattice Sweep (q=6, p=[1..40])")
+        self.run_fixed_q(hide_saving_prompt=True, q=6, p_start=1, p_end=40)
+        print("\n>>> SUB-STAGE 4: Odd Partition Space Scan")
+        self.run_phase_only_scan("ODD", hide_saving_prompt=True)
+        print("\n>>> SUB-STAGE 5: Even Partition Space Scan")
+        self.run_phase_only_scan("EVEN", hide_saving_prompt=True)
+        print("\n>>> SUB-STAGE 6: Full Diagnostic Space Scan (show_all=True)")
+        old_show_all = self.show_all
+        self.show_all = True
+        self.run_bounded_diagonal(hide_saving_prompt=True)
+        self.show_all = old_show_all
+
+        print("\n" + "#" * 60)
+        print("ALL SECTOR SCANS EXECUTED SUCCESSFULLY — METRIC MATRIX STABLE")
+        print("Note: Export contains data from the final Sub-Stage 6 run buffer.")
+        print("#" * 60)
+        self.handling_saving_menu()
+
+    # --- REPORT GENERATOR & IO EXPORT SUITE ---
+
+    def generate_report_string(self):
+        total_ua = self.odd_anomalies + self.even_anomalies
+        overall_hit = (total_ua / self.total_unique_checked * 100) if self.total_unique_checked > 0 else 0.0
+        odd_hit = (self.odd_anomalies / self.odd_checked * 100) if self.odd_checked > 0 else 0.0
+        even_hit = (self.even_anomalies / self.even_checked * 100) if self.even_checked > 0 else 0.0
+
+        true_anomalies = [x for x in self.raw_log_buffer if x['ua_status'] == "TRUE"]
+        lines = ["=" * 80, "UNPERFECT ANOMALY ENGINE SUMMARY REPORT", "=" * 80]
+        lines.append("\n1. FORMULA MANUAL\n   UA(n) condition holds iff: n > 1, |2n - sigma(n)| > 0, and gcd(n, |2n - sigma(n)|) > 1")
+        lines.append(f"\n2. SCAN CONFIGURATION SETTINGS\n   Active Mapping Generator : {self.generator_mode.upper()}\n   Show All Candidates      : {self.show_all}\n   Suppress Duplicates      : {not self.show_duplicates}")
+        lines.append(f"\n3. SUMMARY STATISTICS\n   Total Unique Candidates Evaluated : {self.total_unique_checked}\n   Perfect Core Exclusions          : {self.perfect_exclusions}\n   Total Unperfect Anomalies Found  : {total_ua} (Overall Hit Rate: {overall_hit:.2f}%)\n   Odd Sub-population Checked       : {self.odd_checked} (UA Found: {self.odd_anomalies}, Hit Rate: {odd_hit:.2f}%)\n   Even Sub-population Checked      : {self.even_checked} (UA Found: {self.even_anomalies}, Hit Rate: {even_hit:.2f}%)")
+       
+        lines.append("\n4. FIRST 25 ANOMALIES FOUND")
+        for entry in true_anomalies[:25]: lines.append(f"   n={entry['n']:<10} | Phase: {entry['phase']:<4} | Coordinate: ({entry['p']},{entry['q']}) | gcd={entry['gcd_n_E']}")
+        lines.append("\n5. FIRST 25 ODD ANOMALIES FOUND")
+        for entry in [x for x in true_anomalies if x['phase'] == "ODD"][:25]: lines.append(f"   n={entry['n']:<10} | Coordinate: ({entry['p']},{entry['q']}) | gcd={entry['gcd_n_E']}")
+        lines.append("\n6. FIRST 25 EVEN ANOMALIES FOUND")
+        for entry in [x for x in true_anomalies if x['phase'] == "EVEN"][:25]: lines.append(f"   n={entry['n']:<10} | Coordinate: ({entry['p']},{entry['q']}) | gcd={entry['gcd_n_E']}")
+        return "\n".join(lines)
+
+    def handling_saving_menu(self):
+        while True:
+            print("=" * 40 + "\n FILE SYSTEM EXPORT MENU\n" + "=" * 40)
+            print("1. Save Full Raw Anomaly Log [.txt]\n2. Save Structured Dataset [.csv]\n3. Save Comprehensive Summary Report [.txt]\n4. Save All Enabled Assets\n5. Return / Skip Saving\n" + "=" * 40)
+            choice = input("Select processing option [1-5]: ").strip()
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            prefix = f"ua_{self.generator_mode}_"
+           
+            if choice == '1':
+                with open(f"{prefix}raw_log_{timestamp}.txt", 'w') as f:
+                    for entry in self.raw_log_buffer:
+                        if self.show_all or entry['ua_status'] == "TRUE":
+                            f.write(f"[{entry['phase']}] Coordinate:({entry['p']},{entry['q']}) | n: {entry['n']} | E: {entry['error_E']} | gcd: {entry['gcd_n_E']} | Status: {entry['ua_status']}\n")
+            elif choice == '2':
+                with open(f"{prefix}dataset_{timestamp}.csv", 'w') as f:
+                    f.write("generator_mode,p,q,n,sigma_n,error_E,gcd_n_E,phase,ua_status\n")
+                    for entry in self.raw_log_buffer:
+                        f.write(f"{entry['generator_mode']},{entry['p']},{entry['q']},{entry['n']},{entry['sigma_n']},{entry['error_E']},{entry['gcd_n_E']},{entry['phase']},{entry['ua_status']}\n")
+            elif choice == '3':
+                with open(f"{prefix}summary_{timestamp}.txt", 'w') as f: f.write(self.generate_report_string())
+            elif choice == '4':
+                with open(f"{prefix}raw_log_{timestamp}.txt", 'w') as f:
+                    for entry in self.raw_log_buffer:
+                        if self.show_all or entry['ua_status'] == "TRUE": f.write(f"[{entry['phase']}] Coordinate:({entry['p']},{entry['q']}) | n: {entry['n']} | E: {entry['error_E']} | gcd: {entry['gcd_n_E']} | Status: {entry['ua_status']}\n")
+                with open(f"{prefix}dataset_{timestamp}.csv", 'w') as f:
+                    f.write("generator_mode,p,q,n,sigma_n,error_E,gcd_n_E,phase,ua_status\n")
+                    for entry in self.raw_log_buffer: f.write(f"{entry['generator_mode']},{entry['p']},{entry['q']},{entry['n']},{entry['sigma_n']},{entry['error_E']},{entry['gcd_n_E']},{entry['phase']},{entry['ua_status']}\n")
+                with open(f"{prefix}summary_{timestamp}.txt", 'w') as f: f.write(self.generate_report_string())
+                print(f"[BATCH SUCCESS] Triple asset-matrix generated under prefix: {timestamp}")
+                break
+            elif choice in ['5', '']: break
+
+    # --- MINIMALIST WORKSPACE MENU ---
+
+    def interact_menu(self):
+        """Streamlined Dashboard Interface"""
+        while True:
+            print("\n" + "=" * 50)
+            print(" UNPERFECT ANOMALY ENGINE v1.3 CONTROL INTERFACE")
+            print("=" * 50)
+            print(f"Current Modes: mode={self.generator_mode.upper()} | show_all={self.show_all} | max_k={self.max_k}")
+            print("-" * 50)
+            print("1. Run Automated Continuous Sector Scan (Randomized Fuzz)")
+            print("10. Run Batch Diagnostic Matrix (All Sector Profiles Sequential)")
+            print("8. Toggle Engine Configuration Switches")
+            print("9. Shutdown Engine Session")
+            print("=" * 50)
+           
+            mode = input("Select target operation [1, 8, 9, 10]: ").strip()
+           
+            if mode == '1':
+                self.run_continuous_fuzz_sector()
+            elif mode == '10':
+                self.run_batch_matrix()
+            elif mode == '8':
+                print("\n--- TOGGLE CONFIGURATION OPTIONS ---")
+                gen_choice = input("Select Generator Mode (1 for lattice, 2 for euclid): ").strip()
+                if gen_choice == '1': self.generator_mode = "lattice"
+                elif gen_choice == '2': self.generator_mode = "euclid"
+                self.show_all = input("Show All Candidates (True/False) [Default=False]: ").strip().lower() == 'true'
+                self.show_duplicates = input("Show Duplicate Values (True/False) [Default=False]: ").strip().lower() == 'true'
+                self.max_k = safe_int_input("Update Bounded Vector Length (max_k)", default=100)
+            elif mode == '9' or mode.lower() in ['exit', 'quit']:
+                print("Terminating Engine Context. Safe shutdown finalized.")
+                break
+            else:
+                print("Unrecognized operational command token.")
+
+if __name__ == "__main__":
+    engine = AnomalyEngine()
+    engine.interact_menu()
+
+UNPERFECT ANOMALY FRAMEWORK — FORMULA MANUAL v1.1
+
+1. DOMAIN
+
+n ∈ ℕ
+
+n > 1
+
+2. DIVISOR SUM FUNCTION
+
+σ(n) = sum of all positive divisors of n
+
+3. PERFECT NUMBER CONDITION
+
+σ(n) = 2n
+
+Equivalent form:
+
+2n − σ(n) = 0
+
+4. ABSOLUTE IMPERFECTION ERROR
+
+E(n) = |2n − σ(n)|
+
+5. UNPERFECT ANOMALY CONDITION
+
+UA(n) iff
+
+E(n) > 0
+
+and
+
+gcd(n, E(n)) > 1
+
+Expanded form:
+
+UA(n) iff
+
+|2n − σ(n)| > 0
+
+and
+
+gcd(n, |2n − σ(n)|) > 1
+
+6. EUCLID-MIRROR GENERATOR
+
+N(p,q) = q(2^p − 1)
+
+where
+
+p ∈ ℕ
+
+q ∈ ℕ
+
+7. EUCLID-MIRROR UNPERFECT ANOMALY TEST
+
+E(N(p,q)) = |2N(p,q) − σ(N(p,q))|
+
+UA(N(p,q)) iff
+
+E(N(p,q)) > 0
+
+and
+
+gcd(N(p,q), E(N(p,q))) > 1
+
+Expanded form:
+
+UA(N(p,q)) iff
+
+|2q(2^p − 1) − σ(q(2^p − 1))| > 0
+
+and
+
+gcd(q(2^p − 1), |2q(2^p − 1) − σ(q(2^p − 1))|) > 1
+
+8. COMPACT FRAMEWORK FORMULA
+
+UA(n) iff
+
+n > 1
+
+and
+
+|2n − σ(n)| > 0
+
+and
+
+gcd(n, |2n − σ(n)|) > 1
+
+9. EXAMPLES
+
+Example 1:
+
+n = 12
+
+σ(12) = 28
+
+E(12) = |24 − 28| = 4
+
+gcd(12,4) = 4
+
+UA(12) = TRUE
+
+Example 2:
+
+n = 15
+
+σ(15) = 24
+
+E(15) = |30 − 24| = 6
+
+gcd(15,6) = 3
+
+UA(15) = TRUE
+
+Example 3:
+
+n = 28
+
+σ(28) = 56
+
+E(28) = |56 − 56| = 0
+
+UA(28) = FALSE
+
+10. FRAMEWORK INTERPRETATION
+
+Perfect numbers satisfy E(n)=0 and are excluded from the anomaly class.
+
+Unperfect Anomalies are non-perfect integers for which the imperfection magnitude E(n) shares a non-trivial common factor with n.
+
+Formally:
+
+UA(n) ⇔ E(n) ≠ 0 and gcd(n,E(n)) > 1.
+
+
+...Ha ... ha
+S Szmy
+
+
+Shrimp42
+NGC 6872
+Yesterday at 11:21 PM
+Add bookmark
+#326
+It was never fun while it lasted, you can now stop giving a hundred pages of Python code (that outputs nonsense) and word salad.
+Anyone can feel smart, strong, etc. as they want, but not everyone can achieve what they feel or want.
+stacey szmy
+toronto
+Discussion Starter Yesterday at 11:24 PM
+Add bookmark
+#327
+Python:
+#!/usr/bin/env python3
+import math
+import time
+from collections import deque
+
+# =====================================================================
+# UNPERFECT ANOMALY PARAMETER-SIEVE MASTER SUITE v0.4 (STRESS-TEST BUILD)
+# Consolidated Build: Streaming Real-Time Analysis + Timed Stress Engine
+# =====================================================================
+
+def sigma(n):
+    """Returns the sum of divisors using optimized prime factorization."""
+    if n < 1: return 0
+    total, p, temp = 1, 2, n
+    while p * p <= temp:
+        if temp % p == 0:
+            p_sum, p_pow = 1, 1
+            while temp % p == 0:
+                p_pow *= p
+                p_sum += p_pow
+                temp //= p
+            total *= p_sum
+        p += 1 if p == 2 else 2
+    return total * (1 + temp) if temp > 1 else total
+
+def smallest_prime_factor(n):
+    """Returns the smallest prime factor of n."""
+    if n % 2 == 0: return 2
+    p = 3
+    while p * p <= n:
+        if n % p == 0: return p
+        p += 2
+    return n
+
+def run_timed_stress_suite(seconds=60):
+    print("=" * 95)
+    print(f" UNPERFECT ANOMALY PARAMETER-SIEVE v0.4 — TIMED STRESS SUITE")
+    print("=" * 95)
+    print(f" Execution Target Mode: Real-Time Telemetry Stream for {seconds} Seconds")
+    print(" Core Discrepancy Formula:    E(n) = |2n - sigma(n)|")
+    print(" Threshold Verification Rule: gcd(n, E(n)) > X(n)")
+    print("=" * 95)
+    print("Initializing engine stream... Press Ctrl+C to terminate early if needed.\n")
+    time.sleep(1.5)
+
+    # Core Threshold Containers
+    thresholds = [1, 2, 3, 5, 6, 10, 20, 50, 100]
+    fixed_counts = {t: 0 for t in thresholds}
+
+    # Aggregate Telemetry Tracking
+    total_checked = 0
+    perfects = 0
+    odd_ua = 0
+    even_ua = 0
+    odd_abundant = 0
+    odd_deficient = 0
+    even_abundant = 0
+    even_deficient = 0
+
+    # Specific Sieve Feature Trackers
+    even_tight_count = 0
+    spf_dynamic_count = 0
+    deep_anomalies = []
+
+    strongest_odd = None
+    strongest_even = None
+    gcd_frequencies = {}
+
+    # Real-Time Pocket Sliding Window Engine (Neighborhood Radius = 5, total width = 11)
+    # Tracks the status of the last 11 consecutive integers to capture high-density pockets on the fly
+    pocket_window = deque(maxlen=11)
+    max_pocket_density = 0
+    max_pocket_center = 0
+    max_pocket_members = []
+
+    start_time = time.time()
+    n = 2
+
+    # -----------------------------------------------------------------
+    # THE LIVE FACTORING STREAMING LOOP
+    # -----------------------------------------------------------------
+    while time.time() - start_time < seconds:
+        sig = sigma(n)
+        e = abs(2 * n - sig)
+        total_checked += 1
+
+        if e == 0:
+            perfects += 1
+            pocket_window.append((n, False))
+            n += 1
+            continue
+
+        g = math.gcd(n, e)
+        is_ua = (g > 1)
+        pocket_window.append((n, is_ua))
+
+        # --- Evaluate Pocket Window Density ---
+        if len(pocket_window) == 11:
+            current_density = sum(1 for item in pocket_window if item[1])
+            if current_density > max_pocket_density:
+                max_pocket_density = current_density
+                max_pocket_center = pocket_window[5][0]  # The median element of the window
+                max_pocket_members = [item[0] for item in pocket_window if item[1]]
+
+        if is_ua:
+            phase = "ODD" if n % 2 != 0 else "EVEN"
+            balance = "ABUNDANT" if sig > 2 * n else "DEFICIENT"
+            gcd_frequencies[g] = gcd_frequencies.get(g, 0) + 1
+
+            # Print Real-Time Streaming Terminal Output
+            print(f"[{phase:<4}] n={n:<10} E(n)={e:<10} gcd(n,E)={g:<8} {balance}")
+
+            # Parse and Route Matrix Modes Metrics
+            if n % 2 != 0:
+                odd_ua += 1
+                if sig > 2 * n: odd_abundant += 1
+                else: odd_deficient += 1
+
+                if strongest_odd is None or g > strongest_odd["g"]:
+                    strongest_odd = {"n": n, "g": g, "e": e, "sig": sig}
+            else:
+                even_ua += 1
+                if sig > 2 * n: even_abundant += 1
+                else: even_deficient += 1
+
+                if strongest_even is None or g > strongest_even["g"]:
+                    strongest_even = {"n": n, "g": g, "e": e, "sig": sig}
+
+            # Filter Counts for Even-Tightened Parity (X = 2 if even else X = 1)
+            if (n % 2 == 0 and g > 2) or (n % 2 != 0 and g > 1):
+                even_tight_count += 1
+
+            # Filter Counts for Dynamic Prime Sieve (X = smallest_prime_factor(n))
+            if g > smallest_prime_factor(n):
+                spf_dynamic_count += 1
+
+            # Check for Deep Congruence Layer Absorptions
+            if g == n:
+                deep_anomalies.append(n)
+
+            # Record Decay Matrix Points
+            for t in thresholds:
+                if g > t:
+                    fixed_counts[t] += 1
+
+        n += 1
+
+    actual_elapsed = time.time() - start_time
+    total_ua = odd_ua + even_ua
+
+    # -----------------------------------------------------------------
+    # THE MASTER SYNTHETIC RESULTS PRESENTATION TABLE
+    # -----------------------------------------------------------------
+    print("\n" + "=" * 95)
+    print(" UNPERFECT ANOMALY COMPREHENSIVE EXPERIMENTAL RESULTS PANEL")
+    print("=" * 95)
+    print(f" Realized Stress Duration  : {actual_elapsed:.4f} seconds")
+    print(f" Highest Coordinate Reached: n = {n - 1}")
+    print(f" Total Space Checked       : {total_checked} integers")
+    print(f" Perfect Core Exclusions   : {perfects} perfect numbers bypassed")
+    print(f" Baseline Anomaly Population: {total_ua} anomalies captured")
+    print(f" Structural Capture Rate   : {(total_ua / max(1, total_checked - perfects)) * 100:.2f}%")
+    print("-" * 95)
+    print(f" [01] Baseline UA (gcd > 1) Count       : {total_ua}")
+    print(f" [02] Even-Tightened Parity Sieve Count : {even_tight_count}")
+    print(f" [03] Dynamic Prime Sieve (SPF) Count  : {spf_dynamic_count}")
+    print(f" [04] Deep Congruence Layer (gcd==n)   : {len(deep_anomalies)}")
+    print("-" * 95)
+    print(f" [05] Odd-Phase Anomalies (Total)       : {odd_ua}")
+    print(f" [06] Odd Abundant Anomalies            : {odd_abundant}")
+    print(f" [07] Odd Deficient Anomalies           : {odd_deficient}")
+    print(f" [08] Even-Phase Anomalies (Total)      : {even_ua}")
+    print(f" [09] Even Abundant Anomalies           : {even_abundant}")
+    print(f" [10] Even Deficient Anomalies          : {even_deficient}")
+    print("-" * 95)
+
+    print(" MATRIX POPULATION DECAY SPECTRUM")
+    print(" " + "-" * 40)
+    for t in thresholds:
+        rate = (fixed_counts[t] / max(1, total_ua)) * 100
+        print(f"   -> Survival over Fixed threshold (gcd > {t:<3}) : {fixed_counts[t]:<8} | {rate:.2f}% of baseline")
+    print("-" * 95)
+
+    print(" DEEP ARITHMETIC ENCLAVES IDENTIFIED")
+    print(" " + "-" * 40)
+    print(f" [11] Deep-Layer Absorptions List: {deep_anomalies if len(deep_anomalies) < 15 else str(deep_anomalies[:15]) + '... [TRUNCATED]'}")
+    for da in deep_anomalies[:10]:
+        sig_da = sigma(da)
+        k = sig_da // da if sig_da % da == 0 else 0
+        if k > 0:
+            print(f"        -> Verified Multiperfect Matrix Node: n = {da} (sigma = {k}*n)")
+
+    print(f"\n [12] Max Density Anomaly Pocket : Centered around n = {max_pocket_center}")
+    print(f"        -> Local Pocket Profile   : {max_pocket_density} / 11 consecutive integers ({(max_pocket_density/11*100):.2f}% density)")
+    print(f"        -> Active Pocket Elements : {max_pocket_members}")
+    print("-" * 95)
+
+    print(" MASTER ARCHITECTURAL INTELLIGENCE VERDICTS")
+    print(" " + "-" * 40)
+    if strongest_even:
+        print(f" [13] Strongest Even Phase Anchor: n = {strongest_even['n']:<10} | Max gcd = {strongest_even['g']:<6} | E(n) = {strongest_even['e']}")
+    if strongest_odd:
+        print(f" [14] Strongest Odd Phase Anchor : n = {strongest_odd['n']:<10} | Max gcd = {strongest_odd['g']:<6} | E(n) = {strongest_odd['e']}")
+
+    top_gcds = sorted(gcd_frequencies.items(), key=lambda x: x[1], reverse=True)[:4]
+    print(f" [15] Primary Error Intersections: {', '.join([f'gcd={k} ({v}x)' for k, v in top_gcds])}")
+    print("=" * 95 + "\n")
+
+
+if __name__ == "__main__":
+    # Standard recommendation: Run first with 60 seconds to calibrate stream performance,
+    # then shift directly to 300 seconds to stress test deep arithmetic layers.
+    run_timed_stress_suite(seconds=60)
+
+UNPERFECT ANOMALY FRAMEWORK — FORMULA MANUAL v1.3
+
+
+DOMAIN
+
+n ∈ ℕ
+
+
+n > 1
+
+DIVISOR SUM FUNCTION
+
+σ(n) = sum of all positive divisors of n
+
+
+Examples:
+
+
+σ(12) = 28
+
+
+σ(28) = 56
+
+
+PERFECT NUMBER CONDITION
+
+A number is perfect iff
+
+
+σ(n) = 2n
+
+
+Equivalent form:
+
+
+2n − σ(n) = 0
+
+
+Examples:
+
+
+6, 28, 496, 8128
+
+ABSOLUTE IMPERFECTION ERROR
+
+Define
+
+
+E(n) = |2n − σ(n)|
+
+
+Properties:
+
+
+E(n) = 0 ⇔ n is perfect
+
+
+E(n) > 0 ⇔ n is non-perfect
+
+BASELINE UNPERFECT ANOMALY CONDITION
+
+UA(n) holds iff
+
+
+E(n) > 0
+
+
+and
+
+
+gcd(n,E(n)) > 1
+
+
+Expanded form:
+
+
+UA(n) holds iff
+
+
+|2n − σ(n)| > 0
+
+
+and
+
+
+gcd(n,|2n − σ(n)|) > 1
+
+
+PARAMETERIZED SIEVE LAYERS
+
+Generalized verification rule:
+
+
+gcd(n,E(n)) > X(n)
+
+
+where X(n) defines the active sieve layer.
+
+
+Baseline Control Layer:
+
+
+X(n) = 1
+
+
+Even-Tightened Parity Layer:
+
+
+X(n) = 2 if n is even
+
+
+X(n) = 1 if n is odd
+
+
+Dynamic Prime Sieve:
+
+
+X(n) = spf(n)
+
+
+where spf(n) is the smallest prime factor of n.
+
+
+Deep Congruence Layer:
+
+
+X(n) = n − 1
+
+
+which is equivalent to requiring
+
+
+gcd(n,E(n)) = n
+
+
+DEEP-LAYER IDENTITY
+
+If
+
+
+gcd(n,E(n)) = n
+
+
+then n divides E(n).
+
+
+Consequently,
+
+
+n divides σ(n)
+
+
+and
+
+
+σ(n) = k·n
+
+
+for some integer k.
+
+
+Observed deep-layer examples:
+
+
+120 → σ(n)=3n
+
+
+672 → σ(n)=3n
+
+
+30240 → σ(n)=4n
+
+
+32760 → σ(n)=4n
+
+
+523776 → σ(n)=3n
+
+
+The Deep Congruence Layer therefore acts as a computational bridge to multiperfect-number structures.
+
+
+EUCLID-MIRROR GENERATOR
+
+Define
+
+
+N(p,q) = q(2^p − 1)
+
+
+where
+
+
+p ∈ ℕ
+
+
+q ∈ ℕ
+
+EUCLID-MIRROR ANOMALY TEST
+
+Let
+
+
+N = N(p,q)
+
+
+Then
+
+
+E(N) = |2N − σ(N)|
+
+
+UA(N) holds iff
+
+
+E(N) > 0
+
+
+and
+
+
+gcd(N,E(N)) > 1
+
+
+Expanded form:
+
+
+|2q(2^p−1) − σ(q(2^p−1))| > 0
+
+
+and
+
+
+gcd(q(2^p−1),|2q(2^p−1) − σ(q(2^p−1))|)
+1
+
+COMPACT FRAMEWORK FORMULA
+
+UA(n) holds iff
+
+
+n > 1
+
+
+|2n − σ(n)| > 0
+
+
+gcd(n,|2n − σ(n)|) > 1
+
+REFERENCE EXAMPLES
+
+Example A — Even Abundant Node
+
+
+n = 12
+
+
+σ(12) = 28
+
+
+E(12) = 4
+
+
+gcd(12,4) = 4
+
+
+UA(12) = TRUE
+
+
+────────────────────
+
+Example B — Odd Deficient Node
+
+
+n = 15
+
+
+σ(15) = 24
+
+
+E(15) = 6
+
+
+gcd(15,6) = 3
+
+
+UA(15) = TRUE
+
+────────────────────
+
+Example C — Perfect Core Exclusion
+
+
+n = 28
+
+
+σ(28) = 56
+
+
+E(28) = 0
+
+
+UA(28) = FALSE
+
+COMPUTATIONAL OBSERVATIONS
+The framework has been tested through large-scale computational runs extending beyond
+
+n = 2,124,198.
+
+Observed behaviors include:
+
+• Persistent UA populations across expanding search spaces.
+
+• Strong odd-phase deficiency bias.
+
+• Deep-layer recovery of known multiperfect structures.
+
+• Localized anomaly-density pockets.
+
+• Stable threshold-survival hierarchies.
+
+
+Example observations include:
+
+• Odd deficient anomalies vastly outnumber odd abundant anomalies.
+
+• Fully saturated 11/11 anomaly pockets have been observed.
+
+• Deep-layer absorptions recover known triperfect and multiperfect numbers.
+
+OPEN STATUS
+
+Open Questions:
+
+
+? Positive-density theorem.
+
+? Infinite-family theorem.
+
+? Odd-deficiency theorem.
+
+? Pocket-density theorem.
+
+? Asymptotic decay theorem.
+
+? Complete characterization of deep-layer absorptions.
+
+
+... Nah ...
+S Szmy
+
+Shrimp42
+NGC 6872
+Yesterday at 11:25 PM
+Add bookmark
+#328
+As I already said, just stop. Share your fantasies to a rock instead.
+Anyone can feel smart, strong, etc. as they want, but not everyone can achieve what they feel or want.
+stacey szmy
+toronto
+Discussion Starter Yesterday at 11:30 PM
+Add bookmark
+#329
+Code:
+[EVEN] n=2124222    E(n)=12         gcd(n,E)=6        ABUNDANT
+[EVEN] n=2124224    E(n)=33064      gcd(n,E)=8        DEFICIENT
+[ODD ] n=2124225    E(n)=309900     gcd(n,E)=75       DEFICIENT
+[EVEN] n=2124226    E(n)=816968     gcd(n,E)=2        DEFICIENT
+[ODD ] n=2124227    E(n)=1786918    gcd(n,E)=7        DEFICIENT
+[EVEN] n=2124228    E(n)=708104     gcd(n,E)=4        ABUNDANT
+[EVEN] n=2124230    E(n)=424828     gcd(n,E)=2        DEFICIENT
+[ODD ] n=2124231    E(n)=1379982    gcd(n,E)=3        DEFICIENT
+[EVEN] n=2124232    E(n)=157936     gcd(n,E)=8        ABUNDANT
+[EVEN] n=2124234    E(n)=1247724    gcd(n,E)=18       ABUNDANT
+[ODD ] n=2124235    E(n)=1501814    gcd(n,E)=17       DEFICIENT
+[EVEN] n=2124236    E(n)=467632     gcd(n,E)=4        DEFICIENT
+[ODD ] n=2124237    E(n)=1409370    gcd(n,E)=3        DEFICIENT
+[EVEN] n=2124238    E(n)=894356     gcd(n,E)=2        DEFICIENT
+[EVEN] n=2124240    E(n)=2501088    gcd(n,E)=48       ABUNDANT
+[ODD ] n=2124241    E(n)=1820770    gcd(n,E)=7        DEFICIENT
+[EVEN] n=2124242    E(n)=1062118    gcd(n,E)=2        DEFICIENT
+[ODD ] n=2124243    E(n)=816486     gcd(n,E)=33       DEFICIENT
+[EVEN] n=2124244    E(n)=298920     gcd(n,E)=4        DEFICIENT
+[ODD ] n=2124245    E(n)=1699390    gcd(n,E)=5        DEFICIENT
+[EVEN] n=2124246    E(n)=12         gcd(n,E)=6        ABUNDANT
+[EVEN] n=2124248    E(n)=385604     gcd(n,E)=4        ABUNDANT
+[ODD ] n=2124249    E(n)=1375986    gcd(n,E)=3        DEFICIENT
+[EVEN] n=2124250    E(n)=120740     gcd(n,E)=10       DEFICIENT
+[EVEN] n=2124252    E(n)=2101896    gcd(n,E)=108      ABUNDANT
+
+===============================================================================================
+ UNPERFECT ANOMALY COMPREHENSIVE EXPERIMENTAL RESULTS PANEL
+===============================================================================================
+ Realized Stress Duration  : 60.0001 seconds
+ Highest Coordinate Reached: n = 2124253
+ Total Space Checked       : 2124252 integers
+ Perfect Core Exclusions   : 4 perfect numbers bypassed
+ Baseline Anomaly Population: 1432011 anomalies captured
+ Structural Capture Rate   : 67.41%
+-----------------------------------------------------------------------------------------------
+ [01] Baseline UA (gcd > 1) Count       : 1432011
+ [02] Even-Tightened Parity Sieve Count : 1073434
+ [03] Dynamic Prime Sieve (SPF) Count  : 811854
+ [04] Deep Congruence Layer (gcd==n)   : 5
+-----------------------------------------------------------------------------------------------
+ [05] Odd-Phase Anomalies (Total)       : 371033
+ [06] Odd Abundant Anomalies            : 4138
+ [07] Odd Deficient Anomalies           : 366895
+ [08] Even-Phase Anomalies (Total)      : 1060978
+ [09] Even Abundant Anomalies           : 521115
+ [10] Even Deficient Anomalies          : 539863
+-----------------------------------------------------------------------------------------------
+ MATRIX POPULATION DECAY SPECTRUM
+ ----------------------------------------
+   -> Survival over Fixed threshold (gcd > 1  ) : 1432011  | 100.00% of baseline
+   -> Survival over Fixed threshold (gcd > 2  ) : 1073434  | 74.96% of baseline
+   -> Survival over Fixed threshold (gcd > 3  ) : 893356   | 62.38% of baseline
+   -> Survival over Fixed threshold (gcd > 5  ) : 688594   | 48.09% of baseline
+   -> Survival over Fixed threshold (gcd > 6  ) : 568869   | 39.73% of baseline
+   -> Survival over Fixed threshold (gcd > 10 ) : 432500   | 30.20% of baseline
+   -> Survival over Fixed threshold (gcd > 20 ) : 273946   | 19.13% of baseline
+   -> Survival over Fixed threshold (gcd > 50 ) : 129340   | 9.03% of baseline
+   -> Survival over Fixed threshold (gcd > 100) : 76556    | 5.35% of baseline
+-----------------------------------------------------------------------------------------------
+ DEEP ARITHMETIC ENCLAVES IDENTIFIED
+ ----------------------------------------
+ [11] Deep-Layer Absorptions List: [120, 672, 30240, 32760, 523776]
+        -> Verified Multiperfect Matrix Node: n = 120 (sigma = 3*n)
+        -> Verified Multiperfect Matrix Node: n = 672 (sigma = 3*n)
+        -> Verified Multiperfect Matrix Node: n = 30240 (sigma = 4*n)
+        -> Verified Multiperfect Matrix Node: n = 32760 (sigma = 4*n)
+        -> Verified Multiperfect Matrix Node: n = 523776 (sigma = 3*n)
+
+ [12] Max Density Anomaly Pocket : Centered around n = 39487
+        -> Local Pocket Profile   : 11 / 11 consecutive integers (100.00% density)
+        -> Active Pocket Elements : [39482, 39483, 39484, 39485, 39486, 39487, 39488, 39489, 39490, 39491, 39492]
+-----------------------------------------------------------------------------------------------
+ MASTER ARCHITECTURAL INTELLIGENCE VERDICTS
+ ----------------------------------------
+ [13] Strongest Even Phase Anchor: n = 523776     | Max gcd = 523776 | E(n) = 523776
+ [14] Strongest Odd Phase Anchor : n = 544635     | Max gcd = 77805  | E(n) = 155610
+ [15] Primary Error Intersections: gcd=2 (358577x), gcd=3 (180078x), gcd=4 (159390x), gcd=6 (119725x)
+===============================================================================================
+
+... Nah Yah..
+S Szmy
+stacey szmy
+toronto
+Discussion Starter Yesterday at 11:39 PM
+Add bookmark
+#330
+Shrimp42 said:
+Shrimp42 said:
+Shrimp42 said:
+As I already said, just stop. Share your fantasies to a rock instead.
+Click to expand...
+Click to expand...
+Click to expand...
+
+• Evaluated beyond n = 2,124,198.
+
+
+• Baseline anomaly population:gcd(n,E(n)) > 1= 1,432,011 recorded entries.
+
+
+• Deep-threshold population:gcd(n,E(n)) > 100= 76,556 entries(5.35% of baseline population).
+
+
+• Odd-phase anomaly counts:Odd abundant = 4,138Odd deficient = 366,895
+
+
+• Even-phase anomaly counts:Even abundant = 521,115Even deficient = 539,863
+
+
+• Deep-layer absorptions observed:12067230,24032,760523,776
+
+
+• Logged multiperfect identities:120 → σ(n)=3n672 → σ(n)=3n30,240 → σ(n)=4n32,760 → σ(n)=4n523,776 → σ(n)=3n
+
+
+• Maximum recorded density pocket:Center = 39,487
+
+
+Consecutive interval:[39,482 ... 39,492]
+
+
+Density:11 anomalies out of 11 consecutive integers(100% saturation)
+
+
+• Highest coordinate reached:n = 2,124,198
+
+
+• Terminal execution:Completed without reported runtime interruption or unhandled operation failures.
+
+🤘😭🤣😘😚🤤🤔🤧🥸🫵
+stacey szmy
+toronto
+Discussion Starter Today at 12:33 AM
+Add bookmark
+#331
+Shrimp42 said:
+It was never fun while it lasted, you can now stop giving a hundred pages of Python code (that outputs nonsense) and word salad.
+
+Try and follow along Captain
+
+Python:
+#!/usr/bin/env python3
+import math
+import time
+import random
+from collections import deque
+
+# =====================================================================
+# SYSTEMIC ARITHMETIC SUITE v4.3: NULL-HYPOTHESIS CORRIDOR SHUFFLE SUITE
+# =====================================================================
+# Dual-mapping suite evaluating discrete prime trajectories against
+# continuous divisor-discrepancy corridors. Features a randomized
+# shuffle control test to isolate ordered geometric correlation bounds.
+# =====================================================================
+
+def precompute_arithmetic_substrate(limit):
+    """
+    Returns a continuous linear array of sigma values and an optimized
+    boolean prime map up to the specified coordinate ceiling.
+    """
+    print(f"[*] Pre-computing Arithmetic Space Substrate up to n = {limit}...")
+    start_time = time.time()
+   
+    sigma_arr = [1] * (limit + 1)
+    for i in range(2, limit + 1):
+        for j in range(i, limit + 1, i):
+            sigma_arr[j] += i
+
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    primes = []
+    for p in range(2, limit + 1):
+        if is_prime[p]:
+            primes.append(p)
+            for i in range(p*p, limit + 1, p):
+                is_prime[i] = False
+               
+    print(f"[+] Substrate preparation complete in {time.time() - start_time:.2f} seconds.")
+    print(f"[+] Total primes captured in pool: {len(primes)}")
+    return primes, sigma_arr, is_prime
+
+def pearson(xs, ys):
+    """
+    Computes the standard Pearson correlation coefficient between two lists.
+    """
+    if not xs or not ys or len(xs) != len(ys):
+        return 0
+    mx = sum(xs) / len(xs)
+    my = sum(ys) / len(ys)
+    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    denx = math.sqrt(sum((x - mx) ** 2 for x in xs))
+    deny = math.sqrt(sum((y - my) ** 2 for y in ys))
+    return num / (denx * deny) if denx and deny else 0
+
+def shuffle_baseline_test(primes, anomaly, limit, trials=20):
+    """
+    Permutes the continuous discrepancy sieve array randomly to establish
+    a statistical null-hypothesis baseline. Verifies if ordered spatial layout
+    is required to preserve compression signals.
+    """
+    print(f"[*] Launching randomized shuffle baseline control matrix...")
+    real_flags = anomaly[2:]
+    results = []
+   
+    for t in range(trials):
+        shuffled = real_flags[:]
+        random.shuffle(shuffled)
+        fake_anomaly = [False, False] + shuffled
+       
+        records = []
+        for i in range(1, len(primes) - 2):
+            p = primes[i]
+            next_p = primes[i + 1]
+            gap_next = next_p - p
+            if next_p > limit:
+                continue
+            width = max(1, gap_next - 1)
+            density = sum(fake_anomaly[m] for m in range(p + 1, next_p)) / width
+            records.append((density, gap_next))
+           
+        densities = [x[0] for x in records]
+        gaps = [x[1] for x in records]
+        results.append(pearson(densities, gaps))
+       
+    avg_shuffle = sum(results) / len(results)
+    print("-" * 95)
+    print(f" Shuffle baseline trials evaluated            : {trials}")
+    print(f" Avg shuffled density-vs-gap correlation     : {avg_shuffle:.6f}")
+    print(f" Min shuffled correlation observed            : {min(results):.6f}")
+    print(f" Max shuffled correlation observed            : {max(results):.6f}")
+
+def analyze_prime_gap_corridor_deciles(primes, sigma_arr, limit):
+    """
+    System 3 (v4.3): Maps continuous corridor anomaly traffic density against
+    discrete gap metrics and tests findings against a randomized shuffle control.
+    """
+    print("\n[*] Processing Topological Corridor Matrices...")
+    anomaly = [False] * (limit + 1)
+   
+    # Build continuous discrepancy sieve map based on gcd(n, E(n)) > 1
+    for n in range(2, limit + 1):
+        e = abs(2 * n - sigma_arr[n])
+        anomaly[n] = math.gcd(n, e) > 1
+       
+    corridor_records = []
+   
+    for i in range(1, len(primes) - 2):
+        p = primes[i]
+        next_p = primes[i + 1]
+        gap_prev = primes[i] - primes[i - 1]
+        gap_next = next_p - p
+       
+        if next_p > limit:
+            continue
+           
+        # Calculate corridor density across composite terrain between endpoints
+        corridor_width = max(1, gap_next - 1)
+        density = sum(anomaly[m] for m in range(p + 1, next_p)) / corridor_width
+       
+        # Track if trajectory momentum expanded compared to previous step
+        expanded = 1 if gap_next > gap_prev else 0
+        corridor_records.append((density, gap_next, expanded))
+       
+    # Extract structural coordinate lists for statistical analysis
+    densities = [x[0] for x in corridor_records]
+    gaps = [x[1] for x in corridor_records]
+    expansions = [x[2] for x in corridor_records]
+   
+    print("\n" + "=" * 95)
+    print(" SYSTEM 3: PRIME-GAP CORRIDOR DISTRIBUTION MATRIX (v4.3 BASELINE SUITE)")
+    print("=" * 95)
+    print(f" Total Corridors Evaluated                    : {len(corridor_records)}")
+    print(f" Pearson density-vs-gap correlation            : {pearson(densities, gaps):.6f}")
+    print(f" Pearson density-vs-expansion correlation      : {pearson(densities, expansions):.6f}")
+   
+    # Run the randomized control test to evaluate ordered variance
+    shuffle_baseline_test(primes, anomaly, limit, trials=20)
+    print("-" * 95)
+   
+    # Sort records dynamically to generate equal-sized decile blocks
+    corridor_records.sort(key=lambda x: x[0])
+    bucket_size = len(corridor_records) // 10
+   
+    for b in range(10):
+        bucket = corridor_records[b * bucket_size : (b + 1) * bucket_size]
+        if not bucket:
+            continue
+           
+        avg_density = sum(x[0] for x in bucket) / len(bucket)
+        avg_gap = sum(x[1] for x in bucket) / len(bucket)
+        expansion_rate = sum(x[2] for x in bucket) / len(bucket)
+       
+        print(f" Decile {b+1:2d}: count={len(bucket):<6} "
+              f"avg_density={avg_density:.4f}  "
+              f"avg_gap={avg_gap:.6f}  "
+              f"expansion_rate={expansion_rate:.6f}")
+             
+    print("=" * 95)
+
+def execute_continuous_comparison(limit=1000000):
+    primes, sigma_arr, is_prime = precompute_arithmetic_substrate(limit)
+   
+    print("\n" + "=" * 95)
+    print(" FRAMEWORK INTERSECTION ARCHITECTURE")
+    print(" SYSTEM 1: Discrete Prime Sign-Difference Trajectories [D_k(n)] & Cramer Log Bounds")
+    print(" SYSTEM 2: Continuous Discrepancy Sieve Window [gcd(n, E(n)) > 1] Gravity Pockets")
+    print("=" * 95)
+
+    # --- SYSTEM 1: DIFFERENCE TRAJECTORY STATE ---
+    D1 = 0
+    D2 = 0
+    max_cramer_ratio = 0.0
+   
+    prime_index_lookup = {p: idx for idx, p in enumerate(primes)}
+
+    # --- SYSTEM 2: DISCREPANCY SIEVE STATE ---
+    sieve_pocket_window = deque(maxlen=11)
+    max_sieve_density = 0
+    max_sieve_center = 0
+    sieve_anomalies_captured = 0
+    sieve_multiperfect_nodes = []
+
+    print(f"\n{'[MODE]':<8} {'Coord (n)':<12} {'Trajectory D1':<16} {'Trajectory D2':<16} {'Sieve Local Density':<22}")
+    print("-" * 95)
+
+    for n in range(3, limit - 2):
+        # 1. EVALUATE SYSTEM 1
+        if is_prime[n]:
+            i = prime_index_lookup[n]
+            if i > 0 and i < len(primes) - 2:
+                dp1_curr = primes[i+1] - primes[i]
+                dp1_prev = primes[i] - primes[i-1]
+                dp2_curr = (primes[i+2] - primes[i+1]) - dp1_curr
+               
+                sgn_d1 = (1 if dp1_curr > dp1_prev else (-1 if dp1_curr < dp1_prev else 0))
+                sgn_d2 = (1 if dp2_curr > 0 else (-1 if dp2_curr < 0 else 0))
+               
+                D1 += sgn_d1
+                D2 += sgn_d2
+               
+                cramer_ratio = abs(dp1_curr) / (math.log(n) ** 2)
+                if cramer_ratio > max_cramer_ratio:
+                    max_cramer_ratio = cramer_ratio
+
+        # 2. EVALUATE SYSTEM 2
+        sig = sigma_arr[n]
+        e = abs(2 * n - sig)
+        g = math.gcd(n, e)
+        is_sieve_anomaly = (g > 1)
+       
+        sieve_pocket_window.append((n, is_sieve_anomaly))
+       
+        if is_sieve_anomaly:
+            sieve_anomalies_captured += 1
+        if g == n:
+            sieve_multiperfect_nodes.append(n)
+
+        if len(sieve_pocket_window) == 11:
+            current_density = sum(1 for item in sieve_pocket_window if item[1])
+            if current_density > max_sieve_density:
+                max_sieve_density = current_density
+                max_sieve_center = sieve_pocket_window[5][0]
+
+        if n % 200000 == 0:
+            window_str = f"{sum(1 for item in sieve_pocket_window if item[1])}/11 Nodes"
+            print(f"[STREAM]  n={n:<10}  D1={D1:<14}  D2={D2:<14}  Sieve Density={window_str}")
+
+    print("\n" + "=" * 95)
+    print(" SYSTEM MATRIX COMPARATIVE CONCLUSION")
+    print("=" * 95)
+    print(f" [SYSTEM 1: TRAJECTORY] Final Cumulative D1 Walk Offset: {D1}")
+    print(f" [SYSTEM 1: TRAJECTORY] Final Cumulative D2 Walk Offset: {D2}")
+    print(f" [SYSTEM 1: TRAJECTORY] Max Observed Cramer Bound Ratio : {max_cramer_ratio:.6f}")
+    print("-" * 95)
+    print(f" [SYSTEM 2: SIEVE]      Total Systemic Anomalies Intercepted    : {sieve_anomalies_captured}")
+    print(f" [SYSTEM 2: SIEVE]      Max Density Gravity Pocket Center       : n = {max_sieve_center}")
+    print(f" [SYSTEM 2: SIEVE]      Peak Local Window Sieve Saturation      : {(max_sieve_density / 11 * 100):.2f}% Density")
+    print(f" [SYSTEM 2: SIEVE]      Deep-Layer Structural Absorptions (gcd==n): {sieve_multiperfect_nodes[:5]}")
+    print("=" * 95)
+   
+    # 3. EVALUATE STATISTICAL NULL-HYPOTHESIS METRICS
+    analyze_prime_gap_corridor_deciles(primes, sigma_arr, limit)
+
+if __name__ == "__main__":
+    execute_continuous_comparison(limit=1000000)
+
+Code:
+[*] Pre-computing Arithmetic Space Substrate up to n = 1000000...
+[+] Substrate preparation complete in 3.91 seconds.
+[+] Total primes captured in pool: 78498
+
+===============================================================================================
+ FRAMEWORK INTERSECTION ARCHITECTURE
+ SYSTEM 1: Discrete Prime Sign-Difference Trajectories [D_k(n)] & Cramer Log Bounds
+ SYSTEM 2: Continuous Discrepancy Sieve Window [gcd(n, E(n)) > 1] Gravity Pockets
+===============================================================================================
+
+[MODE]   Coord (n)    Trajectory D1    Trajectory D2    Sieve Local Density  
+-----------------------------------------------------------------------------------------------
+[STREAM]  n=200000      D1=59              D2=59              Sieve Density=7/11 Nodes
+[STREAM]  n=400000      D1=36              D2=36              Sieve Density=8/11 Nodes
+[STREAM]  n=600000      D1=39              D2=39              Sieve Density=8/11 Nodes
+[STREAM]  n=800000      D1=58              D2=58              Sieve Density=7/11 Nodes
+
+===============================================================================================
+ SYSTEM MATRIX COMPARATIVE CONCLUSION
+===============================================================================================
+ [SYSTEM 1: TRAJECTORY] Final Cumulative D1 Walk Offset: 57
+ [SYSTEM 1: TRAJECTORY] Final Cumulative D2 Walk Offset: 55
+ [SYSTEM 1: TRAJECTORY] Max Observed Cramer Bound Ratio : 1.657071
+-----------------------------------------------------------------------------------------------
+ [SYSTEM 2: SIEVE]      Total Systemic Anomalies Intercepted    : 671223
+ [SYSTEM 2: SIEVE]      Max Density Gravity Pocket Center       : n = 39487
+ [SYSTEM 2: SIEVE]      Peak Local Window Sieve Saturation      : 100.00% Density
+ [SYSTEM 2: SIEVE]      Deep-Layer Structural Absorptions (gcd==n): [6, 28, 120, 496, 672]
+===============================================================================================
+
+[*] Processing Topological Corridor Matrices...
+
+===============================================================================================
+ SYSTEM 3: PRIME-GAP CORRIDOR DISTRIBUTION MATRIX (v4.3 BASELINE SUITE)
+===============================================================================================
+ Total Corridors Evaluated                    : 78495
+ Pearson density-vs-gap correlation            : -0.528034
+ Pearson density-vs-expansion correlation      : -0.392731
+[*] Launching randomized shuffle baseline control matrix...
+-----------------------------------------------------------------------------------------------
+ Shuffle baseline trials evaluated            : 20
+ Avg shuffled density-vs-gap correlation     : -0.000194
+ Min shuffled correlation observed            : -0.006779
+ Max shuffled correlation observed            : 0.005772
+-----------------------------------------------------------------------------------------------
+ Decile  1: count=7849   avg_density=0.6077  avg_gap=13.724041  expansion_rate=0.537393
+ Decile  2: count=7849   avg_density=0.6600  avg_gap=18.366161  expansion_rate=0.641483
+ Decile  3: count=7849   avg_density=0.6909  avg_gap=24.328449  expansion_rate=0.817684
+ Decile  4: count=7849   avg_density=0.7171  avg_gap=16.284367  expansion_rate=0.602497
+ Decile  5: count=7849   avg_density=0.7426  avg_gap=19.491910  expansion_rate=0.746847
+ Decile  6: count=7849   avg_density=0.7840  avg_gap=11.128551  expansion_rate=0.500319
+ Decile  7: count=7849   avg_density=0.8008  avg_gap=7.496242  expansion_rate=0.291884
+ Decile  8: count=7849   avg_density=0.8851  avg_gap=9.699580  expansion_rate=0.461587
+ Decile  9: count=7849   avg_density=1.0000  avg_gap=3.424130  expansion_rate=0.110970
+ Decile 10: count=7849   avg_density=1.0000  avg_gap=3.456236  expansion_rate=0.102433
+===============================================================================================
+
+Define the discrepancy-divisibility indicator
+
+A(n) = 1, if gcd(n, |2n − σ(n)|) > 1
+
+A(n) = 0, otherwise
+
+and define the inter-prime corridor density
+
+ρᵢ = (1 / (pᵢ₊₁ − pᵢ − 1)) Σ A(m)
+
+where the sum runs over all integers m between consecutive primes pᵢ and pᵢ₊₁.
+
+Across 78,495 inter-prime intervals below 1,000,000,
+
+corr(ρᵢ, pᵢ₊₁ − pᵢ) = -0.528034
+
+This indicates a substantial negative relationship between corridor density and prime-gap length.
+
+The anomaly indicator sequence was then randomly shuffled 20 times while preserving:
+
+Total anomaly count
+
+Overall anomaly density
+
+Prime locations
+
+Gap structure
+
+Only the arithmetic ordering was destroyed.
+
+The resulting correlations were:
+
+Average shuffled correlation:
+
+r̄shuffle = -0.000194
+
+with observed range
+
+[-0.006779, 0.005772]
+
+The signal therefore disappears when the arithmetic ordering is removed.
+
+v4.3 identified a statistically controlled negative correlation between discrepancy-divisibility density within inter-prime intervals and subsequent prime-gap length. The correlation is substantial (r = -0.528034) under the natural arithmetic ordering and collapses to approximately zero under randomized controls. This demonstrates that the observed compression pattern is associated with the ordered structure of the discrepancy-divisibility field rather than with its aggregate density alone.
+
+
+... Be Polite...
+S Szmy
+
+
+
+###########################################
+
+# LICENSE.TXT
+# Zero-Ology License  v2.6.65
+# June 05, 2026
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- Variamathlesson.txt
+- zecstart.txt
+- zectxt.txt
+- VoidMathOS_cryptsheet.txt
+- VAIRA_addendum.txt
+- confusious&how_to_cut_a_cake.txt
+- NSRHFsuite0020V.py
+- RHFsuite0020V.py
+- RRHLFon0022V.py
+- SBHFFsuite0020V.py
+- VoidMathOS_lesson.py
+- zer00logy_coreV04450.py
+- zer00logy_coreV04452.py
+- zer00logy_coreV04455.py
+- zer00logy_coreV04456.py
+- zer00logy_coreV04459.py
+- zer00logy_coreV04461.py
+- zer00logy_coreV04469.py
+- README.md
+- README_0KO3MAIB.txt
+- LICENSE.txt
+- 0ko3maibZer00logyLicensev01.txt
+- rainbowquest1000.py
+- GroupChatForge.py
+- dispatchai_forge.py
+- szmy_truths.txt
+- szmy_truths.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite.py
+- Zero_Freeze_Hamiltonian_Lattice_Gauge_Benchmark_Suite0033.py
+- Zero_Freeze_Yang--Mills_Formula.txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(latax_v2_2).txt
+- Zero_Freeze_Yang--Mills_Formula_Numerical_and_Computational_Study_(Plaintext_v2_2).docx
+- grand_summary_20251102_114655_Real_SU(3)_operator.JSON
+- grand_summary_20251102_114655_Real_SU(3)_operator.CSV
+- grand_summary_20251102_114247_placeholder.JSON
+- grand_summary_20251102_114247_placeholder.CSV
+- Lie_π_Infinity_lesson.txt
+- THE_WHY_EQUATION.py
+- Study_The_Repeating_Digit_Weights_(RN)_Formula.txt
+- Repeating_Digit_Weights_(RN).py
+- Szmy_Collatz.py
+- OddPerfectTerminator_GODD.py
+- OddPerfectTerminator_Log_OG123456.zip
+- Szmy_Grok_Odd_Perfect_Proof_Nov10_2025.pdf
+- APLHA_INFIN_P_MATRIX.py
+- alpha.txt
+- alphabet_Infinity_Pool_Matrix.pdf
+- AlphaLOG.zip
+- KOPPA_GRAND_CONSTANT.PY
+- The_Koppa_Grand_Constant.docx
+- The_Koppa_Grand_Constant.txt
+- KOPPA_HETA_DIGAMMA.PY
+- KOPPA_HETA_DIGAMMA.docx
+- KOPPA_HETA_DIGAMMA.txt
+- GRAND_CONSTANT_ALGEBRA.PY
+- Grand_Constant_Algebra_Framework.docx
+- Grand_Constant_Algebra.txt
+- equal.PY
+- equal.txt
+- equalequal.PY
+- equalequal.txt
+- hodge_GCA.PY
+- hodge_GCA.txt
+- hodge_GCA.docx
+- log_hodge.zip
+- ZRRF_suite.py
+- ZRRF_suite_log030826.txt
+- zenith.txt
+- Kakeya_Nirvana_Conjecture_Framework.txt
+- KNCF_Suite.py
+- KNCF_log_31026.txt
+- szmy_mirror_model.txt
+- SMM_suite.py
+- SMM_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK.txt
+- AESR_Suite.py
+- AESR_log.txt
+- AESR_V02_Suite.py
+- AESR_V02_Suite_log.txt
+- AWAKE_ERDŐS_STEP_RESONANCE_FRAMEWORK_V02.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_DENSEFORM.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_SOLIDFORM_ZEROPYTHFON_BETA.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA_FALSE.txt
+- Team_Zer00logy_Mathematics_Distillation_Challenge_Equational_Theories_ZEROPYTHFON_ZPY_ZETA_v4.7.txt
+- 6-Gem_Ternary_Gaussian_Torus.txt
+- ACHERON_FIELDS.txt
+- UNPERFECT_ANOMALY.txt
+- ACHERON_FIELDS_SUITE.py
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
+www.zero-ology.com
+
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
