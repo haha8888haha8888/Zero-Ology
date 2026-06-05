@@ -932,16 +932,301 @@ THE KAKÓS WATERLINE FUNCTION K(N) & COMPREHENSIVE SURVEYED FIELD INTERACTION PO
 
 
 ######################LOGS - 500,000,000######################
-**running
+py> python .\500m.py
+==================================================================
+      ACHERON FIELDS HORIZON SELECTOR (v4.4 Live-Streaming)
+==================================================================
+ 1) Run  50,000,000 Horizon Pool
+ 2) Run 100,000,000 Horizon Pool
+ 3) Run 200,000,000 Horizon Pool
+ 4) Run 500,000,000 Horizon Pool
+ 5) Run 1,000,000,000 Horizon Pool
+ 6) Custom Limit Entry
+------------------------------------------------------------------
+Select horizon target (1-6): 4
+
+==========================================================================================
+THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.4 LIVE-STREAMING EDITION)
+==========================================================================================
+THE KAKÓS WATERLINE FUNCTION K(N) & COMPREHENSIVE SURVEYED FIELD INTERACTION POOLS
+------------------------------------------------------------------------------------------
+[THE COMPREHENSIVE ACHERON FIELD MODEL]
+  A(n) = 1  if  gcd(n, σ(n)) > 1, else 0  (Saturated-Support Number / Acheron Flow Segment)
+  R(n) = 1  if  gcd(n, σ(n)) = 1, else 0  (Rupture Number Field / Anchoring Bedrock)
+  where σ(n) is the sum of divisors of n.
+
+[THE KAKÓS WATERLINE FUNCTION DEFINITION]
+  K(N) = max{ k : there exists n <= N such that A(n) = A(n+1) = ... = A(n+k-1) = 1 }
+
+  Corridor Bounding Constraints within Surveyed Bounds:
+    Every fully saturated prime corridor up to N satisfies:
+      internal width <= K(N)   |   prime gap <= K(N) + 1
+==========================================================================================
 
 [*] Initializing Optimized Target Pool Upper Horizon Limit N = 500,000,000
 
 [*] Generating master prime maps up to n = 500,000,000...
 [+] Primes compiled: 26,355,867
-[*] Processing Acheron substrate and Rupture configurations in segments of 5,000,000...
+[*] Processing Acheron substrate configurations in segments of 5,000,000...
+Traceback (most recent call last):
+  File "D:\math work here\py\500m.py", line 466, in <module>
+    main()
+  File "D:\math work here\py\500m.py", line 158, in main
+    sample_pool_print.append((n, get_prime_factors(n), sig_val))
+                                 ^^^^^^^^^^^^^^^^^
+NameError: name 'get_prime_factors' is not defined
+PS D:\math work here\py> python .\500m.py
+==================================================================
+      ACHERON FIELDS HORIZON SELECTOR (v4.4 Live-Streaming)
+==================================================================
+ 1) Run  50,000,000 Horizon Pool
+ 2) Run 100,000,000 Horizon Pool
+ 3) Run 200,000,000 Horizon Pool
+ 4) Run 500,000,000 Horizon Pool
+ 5) Run 1,000,000,000 Horizon Pool
+ 6) Custom Limit Entry
+------------------------------------------------------------------
+Select horizon target (1-6): 4
 
-**running still..
-**running still..
+==========================================================================================
+THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.4 LIVE-STREAMING EDITION - STABLE)
+==========================================================================================
+THE KAKÓS WATERLINE FUNCTION K(N) & COMPREHENSIVE SURVEYED FIELD INTERACTION POOLS
+------------------------------------------------------------------------------------------
+[THE COMPREHENSIVE ACHERON FIELD MODEL]
+  A(n) = 1  if  gcd(n, σ(n)) > 1, else 0  (Saturated-Support Number / Acheron Flow Segment)
+  R(n) = 1  if  gcd(n, σ(n)) = 1, else 0  (Rupture Number Field / Anchoring Bedrock)
+  where σ(n) is the sum of divisors of n.
+
+[THE KAKÓS WATERLINE FUNCTION DEFINITION]
+  K(N) = max{ k : there exists n <= N such that A(n) = A(n+1) = ... = A(n+k-1) = 1 }
+
+  Corridor Bounding Constraints within Surveyed Bounds:
+    Every fully saturated prime corridor up to N satisfies:
+      internal width <= K(N)   |   prime gap <= K(N) + 1
+==========================================================================================
+
+[*] Initializing Optimized Target Pool Upper Horizon Limit N = 500,000,000
+
+[*] Generating master prime maps up to n = 500,000,000...
+[+] Primes compiled: 26,355,867
+[*] Processing Acheron substrate configurations in segments of 5,000,000...
+    [Segment Scan] Block 1/100 processed: [2 -> 5,000,001] | Progress: 1.00%
+    [Segment Scan] Block 2/100 processed: [5,000,002 -> 10,000,001] | Progress: 2.00%
+    [Segment Scan] Block 3/100 processed: [10,000,002 -> 15,000,001] | Progress: 3.00%
+    [Segment Scan] Block 4/100 processed: [15,000,002 -> 20,000,001] | Progress: 4.00%
+    [Segment Scan] Block 5/100 processed: [20,000,002 -> 25,000,001] | Progress: 5.00%
+    [Segment Scan] Block 6/100 processed: [25,000,002 -> 30,000,001] | Progress: 6.00%
+    [Segment Scan] Block 7/100 processed: [30,000,002 -> 35,000,001] | Progress: 7.00%
+    [Segment Scan] Block 8/100 processed: [35,000,002 -> 40,000,001] | Progress: 8.00%
+    [Segment Scan] Block 9/100 processed: [40,000,002 -> 45,000,001] | Progress: 9.00%
+    [Segment Scan] Block 10/100 processed: [45,000,002 -> 50,000,001] | Progress: 10.00%
+    [Segment Scan] Block 11/100 processed: [50,000,002 -> 55,000,001] | Progress: 11.00%
+    [Segment Scan] Block 12/100 processed: [55,000,002 -> 60,000,001] | Progress: 12.00%
+    [Segment Scan] Block 13/100 processed: [60,000,002 -> 65,000,001] | Progress: 13.00%
+    [Segment Scan] Block 14/100 processed: [65,000,002 -> 70,000,001] | Progress: 14.00%
+    [Segment Scan] Block 15/100 processed: [70,000,002 -> 75,000,001] | Progress: 15.00%
+    [Segment Scan] Block 16/100 processed: [75,000,002 -> 80,000,001] | Progress: 16.00%
+    [Segment Scan] Block 17/100 processed: [80,000,002 -> 85,000,001] | Progress: 17.00%
+    [Segment Scan] Block 18/100 processed: [85,000,002 -> 90,000,001] | Progress: 18.00%
+    [Segment Scan] Block 19/100 processed: [90,000,002 -> 95,000,001] | Progress: 19.00%
+    [Segment Scan] Block 20/100 processed: [95,000,002 -> 100,000,001] | Progress: 20.00%
+    [Segment Scan] Block 21/100 processed: [100,000,002 -> 105,000,001] | Progress: 21.00%
+    [Segment Scan] Block 22/100 processed: [105,000,002 -> 110,000,001] | Progress: 22.00%
+    [Segment Scan] Block 23/100 processed: [110,000,002 -> 115,000,001] | Progress: 23.00%
+    [Segment Scan] Block 24/100 processed: [115,000,002 -> 120,000,001] | Progress: 24.00%
+    [Segment Scan] Block 25/100 processed: [120,000,002 -> 125,000,001] | Progress: 25.00%
+    [Segment Scan] Block 26/100 processed: [125,000,002 -> 130,000,001] | Progress: 26.00%
+    [Segment Scan] Block 27/100 processed: [130,000,002 -> 135,000,001] | Progress: 27.00%
+    [Segment Scan] Block 28/100 processed: [135,000,002 -> 140,000,001] | Progress: 28.00%
+    [Segment Scan] Block 29/100 processed: [140,000,002 -> 145,000,001] | Progress: 29.00%
+    [Segment Scan] Block 30/100 processed: [145,000,002 -> 150,000,001] | Progress: 30.00%
+    [Segment Scan] Block 31/100 processed: [150,000,002 -> 155,000,001] | Progress: 31.00%
+    [Segment Scan] Block 32/100 processed: [155,000,002 -> 160,000,001] | Progress: 32.00%
+    [Segment Scan] Block 33/100 processed: [160,000,002 -> 165,000,001] | Progress: 33.00%
+    [Segment Scan] Block 34/100 processed: [165,000,002 -> 170,000,001] | Progress: 34.00%
+    [Segment Scan] Block 35/100 processed: [170,000,002 -> 175,000,001] | Progress: 35.00%
+    [Segment Scan] Block 36/100 processed: [175,000,002 -> 180,000,001] | Progress: 36.00%
+    [Segment Scan] Block 37/100 processed: [180,000,002 -> 185,000,001] | Progress: 37.00%
+    [Segment Scan] Block 38/100 processed: [185,000,002 -> 190,000,001] | Progress: 38.00%
+    [Segment Scan] Block 39/100 processed: [190,000,002 -> 195,000,001] | Progress: 39.00%
+    [Segment Scan] Block 40/100 processed: [195,000,002 -> 200,000,001] | Progress: 40.00%
+    [Segment Scan] Block 41/100 processed: [200,000,002 -> 205,000,001] | Progress: 41.00%
+    [Segment Scan] Block 42/100 processed: [205,000,002 -> 210,000,001] | Progress: 42.00%
+    [Segment Scan] Block 43/100 processed: [210,000,002 -> 215,000,001] | Progress: 43.00%
+    [Segment Scan] Block 44/100 processed: [215,000,002 -> 220,000,001] | Progress: 44.00%
+    [Segment Scan] Block 45/100 processed: [220,000,002 -> 225,000,001] | Progress: 45.00%
+    [Segment Scan] Block 46/100 processed: [225,000,002 -> 230,000,001] | Progress: 46.00%
+    [Segment Scan] Block 47/100 processed: [230,000,002 -> 235,000,001] | Progress: 47.00%
+    [Segment Scan] Block 48/100 processed: [235,000,002 -> 240,000,001] | Progress: 48.00%
+    [Segment Scan] Block 49/100 processed: [240,000,002 -> 245,000,001] | Progress: 49.00%
+    [Segment Scan] Block 50/100 processed: [245,000,002 -> 250,000,001] | Progress: 50.00%
+    [Segment Scan] Block 51/100 processed: [250,000,002 -> 255,000,001] | Progress: 51.00%
+    [Segment Scan] Block 52/100 processed: [255,000,002 -> 260,000,001] | Progress: 52.00%
+    [Segment Scan] Block 53/100 processed: [260,000,002 -> 265,000,001] | Progress: 53.00%
+    [Segment Scan] Block 54/100 processed: [265,000,002 -> 270,000,001] | Progress: 54.00%
+    [Segment Scan] Block 55/100 processed: [270,000,002 -> 275,000,001] | Progress: 55.00%
+    [Segment Scan] Block 56/100 processed: [275,000,002 -> 280,000,001] | Progress: 56.00%
+    [Segment Scan] Block 57/100 processed: [280,000,002 -> 285,000,001] | Progress: 57.00%
+    [Segment Scan] Block 58/100 processed: [285,000,002 -> 290,000,001] | Progress: 58.00%
+    [Segment Scan] Block 59/100 processed: [290,000,002 -> 295,000,001] | Progress: 59.00%
+    [Segment Scan] Block 60/100 processed: [295,000,002 -> 300,000,001] | Progress: 60.00%
+    [Segment Scan] Block 61/100 processed: [300,000,002 -> 305,000,001] | Progress: 61.00%
+    [Segment Scan] Block 62/100 processed: [305,000,002 -> 310,000,001] | Progress: 62.00%
+    [Segment Scan] Block 63/100 processed: [310,000,002 -> 315,000,001] | Progress: 63.00%
+    [Segment Scan] Block 64/100 processed: [315,000,002 -> 320,000,001] | Progress: 64.00%
+    [Segment Scan] Block 65/100 processed: [320,000,002 -> 325,000,001] | Progress: 65.00%
+    [Segment Scan] Block 66/100 processed: [325,000,002 -> 330,000,001] | Progress: 66.00%
+    [Segment Scan] Block 67/100 processed: [330,000,002 -> 335,000,001] | Progress: 67.00%
+    [Segment Scan] Block 68/100 processed: [335,000,002 -> 340,000,001] | Progress: 68.00%
+    [Segment Scan] Block 69/100 processed: [340,000,002 -> 345,000,001] | Progress: 69.00%
+    [Segment Scan] Block 70/100 processed: [345,000,002 -> 350,000,001] | Progress: 70.00%
+    [Segment Scan] Block 71/100 processed: [350,000,002 -> 355,000,001] | Progress: 71.00%
+    [Segment Scan] Block 72/100 processed: [355,000,002 -> 360,000,001] | Progress: 72.00%
+    [Segment Scan] Block 73/100 processed: [360,000,002 -> 365,000,001] | Progress: 73.00%
+    [Segment Scan] Block 74/100 processed: [365,000,002 -> 370,000,001] | Progress: 74.00%
+    [Segment Scan] Block 75/100 processed: [370,000,002 -> 375,000,001] | Progress: 75.00%
+    [Segment Scan] Block 76/100 processed: [375,000,002 -> 380,000,001] | Progress: 76.00%
+    [Segment Scan] Block 77/100 processed: [380,000,002 -> 385,000,001] | Progress: 77.00%
+    [Segment Scan] Block 78/100 processed: [385,000,002 -> 390,000,001] | Progress: 78.00%
+    [Segment Scan] Block 79/100 processed: [390,000,002 -> 395,000,001] | Progress: 79.00%
+    [Segment Scan] Block 80/100 processed: [395,000,002 -> 400,000,001] | Progress: 80.00%
+    [Segment Scan] Block 81/100 processed: [400,000,002 -> 405,000,001] | Progress: 81.00%
+    [Segment Scan] Block 82/100 processed: [405,000,002 -> 410,000,001] | Progress: 82.00%
+    [Segment Scan] Block 83/100 processed: [410,000,002 -> 415,000,001] | Progress: 83.00%
+    [Segment Scan] Block 84/100 processed: [415,000,002 -> 420,000,001] | Progress: 84.00%
+    [Segment Scan] Block 85/100 processed: [420,000,002 -> 425,000,001] | Progress: 85.00%
+    [Segment Scan] Block 86/100 processed: [425,000,002 -> 430,000,001] | Progress: 86.00%
+    [Segment Scan] Block 87/100 processed: [430,000,002 -> 435,000,001] | Progress: 87.00%
+    [Segment Scan] Block 88/100 processed: [435,000,002 -> 440,000,001] | Progress: 88.00%
+    [Segment Scan] Block 89/100 processed: [440,000,002 -> 445,000,001] | Progress: 89.00%
+    [Segment Scan] Block 90/100 processed: [445,000,002 -> 450,000,001] | Progress: 90.00%
+    [Segment Scan] Block 91/100 processed: [450,000,002 -> 455,000,001] | Progress: 91.00%
+    [Segment Scan] Block 92/100 processed: [455,000,002 -> 460,000,001] | Progress: 92.00%
+    [Segment Scan] Block 93/100 processed: [460,000,002 -> 465,000,001] | Progress: 93.00%
+    [Segment Scan] Block 94/100 processed: [465,000,002 -> 470,000,001] | Progress: 94.00%
+    [Segment Scan] Block 95/100 processed: [470,000,002 -> 475,000,001] | Progress: 95.00%
+    [Segment Scan] Block 96/100 processed: [475,000,002 -> 480,000,001] | Progress: 96.00%
+    [Segment Scan] Block 97/100 processed: [480,000,002 -> 485,000,001] | Progress: 97.00%
+    [Segment Scan] Block 98/100 processed: [485,000,002 -> 490,000,001] | Progress: 98.00%
+    [Segment Scan] Block 99/100 processed: [490,000,002 -> 495,000,001] | Progress: 99.00%
+    [Segment Scan] Block 100/100 processed: [495,000,002 -> 500,000,000] | Progress: 100.00%
+
+[+] Substrates compiled. Field Support Density: 0.688918
+    [Verification] Pure Prime-Power Nodes Checked: 2,748 | Failures: 0 Verification: [PASS]
+
+[*] Compiling A-run block indexes sequentially...
+
+.. #sector 1# evaluating stepwise kakós waterline values K(N)
+
+    [+] ===== KAKÓS WATERLINE TRACKING MATRIX (BOUND-CLIPPED) =====
+      Survey Bound N = 1,000,000     | Observed Waterline K(N) = 15  at [718,190 -> 718,204]
+      Survey Bound N = 10,000,000    | Observed Waterline K(N) = 17  at [3,839,004 -> 3,839,020]
+      Survey Bound N = 50,000,000    | Observed Waterline K(N) = 21  at [17,236,580 -> 17,236,600]
+      Survey Bound N = 100,000,000   | Observed Waterline K(N) = 21  at [17,236,580 -> 17,236,600]
+      Survey Bound N = 150,000,000   | Observed Waterline K(N) = 21  at [17,236,580 -> 17,236,600]
+      Survey Bound N = 200,000,000   | Observed Waterline K(N) = 21  at [17,236,580 -> 17,236,600]
+      Survey Bound N = 500,000,000   | Observed Waterline K(N) = 23  at [276,497,624 -> 276,497,646]
+    ================================================
+
+.. #sector 2# running horizon corridor-density targets and metric profiles
+    Target N: 1,000,000    | Corridors: 78,496    | BaseCorr: -0.5280  | BinExclR²: 0.2910   | SatFloor: 3.4299
+    Target N: 10,000,000   | Corridors: 664,577   | BaseCorr: -0.5120  | BinExclR²: 0.2616   | SatFloor: 3.4921
+    Target N: 50,000,000   | Corridors: 3,001,132 | BaseCorr: -0.5006  | BinExclR²: 0.2471   | SatFloor: 3.5365
+    Target N: 100,000,000  | Corridors: 5,761,453 | BaseCorr: -0.4957  | BinExclR²: 0.2396   | SatFloor: 3.5535
+    Target N: 150,000,000  | Corridors: 8,444,394 | BaseCorr: -0.4929  | BinExclR²: 0.2347   | SatFloor: 3.5626
+    Target N: 200,000,000  | Corridors: 11,078,935 | BaseCorr: -0.4909  | BinExclR²: 0.2323   | SatFloor: 3.5684
+    Target N: 500,000,000  | Corridors: 26,355,865 | BaseCorr: -0.4851  | BinExclR²: 0.2306   | SatFloor: 3.5883
+
+.. #sector 3# running saturation distribution configuration audit
+    Saturated Count (N) : 4,198,164
+    Mean Saturated Gap  : 3.5883
+    Median Saturated Gap: 4.0
+    Max Saturated Gap   : 22
+    Saturated Corridor Width and Gap Constraint Audit:
+      - Max Observed Saturated Corridor Width: 21 | Surveyed Boundary K(500,000,000): 23
+      - Max Observed Saturated Corridor Gap:   22 | Surveyed Gap Ceiling K(N)+1: 24
+      - Internal Width Verification Status : [PASS] (width 21 <= K(N) 23)
+      - Structural Gap Verification Status  : [PASS] (gap 22 <= K(N)+1 24)
+
+.. #sector 4# analyzing saturation spectrum gap slices
+    Saturation Spectrum [Gap == 2  ]: 1,840,169 (43.83%)
+    Saturation Spectrum [Gap == 4  ]: 1,548,973 (36.90%)
+    Saturation Spectrum [Gap == 6  ]: 701,974 (16.72%)
+    Saturation Spectrum [Gap == 8  ]: 55,296  (1.32%)
+    Saturation Spectrum [Gap == 10 ]: 44,807  (1.07%)
+    Saturation Spectrum [Gap > 10  ]: 6,945   (0.17%)
+
+.. #sector 5# running quantile envelope resolutions & structural width audits
+    Slices: 10 | Quadratic Fit R²: 0.3909
+    Slices: 20 | Quadratic Fit R²: 0.3663
+    Slices: 40 | Quadratic Fit R²: 0.2961
+    Slices: 80 | Quadratic Fit R²: 0.2445
+
+    Executing stratified arithmetic geometry width conditioning:
+      Bracket: Micro (1-3)     | Recs: 3,681,435 | LocalCorr: -0.2936
+      Bracket: Short (4-7)     | Recs: 4,691,405 | LocalCorr: -0.2363
+      Bracket: Medium (8-15)   | Recs: 6,477,513 | LocalCorr: -0.2019
+      Bracket: Long (16-31)    | Recs: 7,356,350 | LocalCorr: -0.1324
+      Bracket: Maxi (32+)      | Recs: 4,149,162 | LocalCorr: -0.1240
+
+.. #sector 6# launching multi-shuffle permutation null control matrix (50 cycles)
+    [Permutation Progress] |█████░░░░░░░░░░░░░░░░░░░░| Cycle 10/50 (20%    [Permutation Progress] |█████░░░░░░░░░░░░░░░░░░░░| Cycle 11/50 (22%    [Permutation Progress] |██████░░░░░░░░░░░░░░░░░░░| Cycle 12/50 (24%    [Permutation Progress] |██████░░░░░░░░░░░░░░░░░░░| Cycle 13/50 (26%    [Permutation Progress] |███████░░░░░░░░░░░░░░░░░░| Cycle 14/50 (28%    [Permutation Progress] |███████░░░░░░░░░░░░░░░░░░| Cycle 15/50 (30%    [Permutation Progress] |████████░░░░░░░░░░░░░░░░░| Cycle 16/50 (32%    [Permutation Progress] |████████░░░░░░░░░░░░░░░░░| Cycle 17/50 (34%    [Permutation Progress] |█████████░░░░░░░░░░░░░░░░| Cycle 18/50 (36%    [Permutation Progress] |█████████░░░░░░░░░░░░░░░░| Cycle 19/50 (38%    [Permutation Progress] |██████████░░░░░░░░░░░░░░░| Cycle 20/50 (40%    [Permutation Progress] |██████████░░░░░░░░░░░░░░░| Cycle 21/50 (42%    [Permutation Progress] |███████████░░░░░░░░░░░░░░| Cycle 22/50 (44%    [Permutation Progress] |███████████░░░░░░░░░░░░░░| Cycle 23/50 (46%    [Permutation Progress] |████████████░░░░░░░░░░░░░| Cycle 24/50 (48%    [Permutation Progress] |████████████░░░░░░░░░░░░░| Cycle 25/50 (50%    [Permutation Progress] |█████████████░░░░░░░░░░░░| Cycle 26/50 (52%    [Permutation Progress] |█████████████░░░░░░░░░░░░| Cycle 27/50 (54%    [Permutation Progress] |██████████████░░░░░░░░░░░| Cycle 28/50 (56%    [Permutation Progress] |██████████████░░░░░░░░░░░| Cycle 29/50 (58%    [Permutation Progress] |███████████████░░░░░░░░░░| Cycle 30/50 (60%    [Permutation Progress] |███████████████░░░░░░░░░░| Cycle 31/50 (62%    [Permutation Progress] |████████████████░░░░░░░░░| Cycle 32/50 (64%    [Permutation Progress] |████████████████░░░░░░░░░| Cycle 33/50 (66%    [Permutation Progress] |█████████████████░░░░░░░░| Cycle 34/50 (68%    [Permutation Progress] |█████████████████░░░░░░░░| Cycle 35/50 (70%    [Permutation Progress] |██████████████████░░░░░░░| Cycle 36/50 (72%    [Permutation Progress] |██████████████████░░░░░░░| Cycle 37/50 (74%    [Permutation Progress] |███████████████████░░░░░░| Cycle 38/50 (76%    [Permutation Progress] |███████████████████░░░░░░| Cycle 39/50 (78%    [Permutation Progress] |████████████████████░░░░░| Cycle 40/50 (80%    [Permutation Progress] |████████████████████░░░░░| Cycle 41/50 (82%    [Permutation Progress] |█████████████████████░░░░| Cycle 42/50 (84%    [Permutation Progress] |█████████████████████░░░░| Cycle 43/50 (86%    [Permutation Progress] |██████████████████████░░░| Cycle 44/50 (88%    [Permutation Progress] |██████████████████████░░░| Cycle 45/50 (90%    [Permutation Progress] |███████████████████████░░| Cycle 46/50 (92%    [Permutation Progress] |███████████████████████░░| Cycle 47/50 (94%    [Permutation Progress] |████████████████████████░| Cycle 48/50 (96%    [Permutation Progress] |████████████████████████░| Cycle 49/50 (98%    [Permutation Progress] |█████████████████████████| Cycle 50/50 (100%)
+
+    Observed Base Correlation (Sample) : -0.485214
+    Permuted Null Expected Mean        : -0.000250 | Null Dev: 0.002107
+    Analytical Significance            : Z-Score = -230.151
+
+.. #sector 7# reporting stratified run depth metrics across milestone horizons
+    Horizon N = 1,000,000    | Runs >=10: 131   >=15: 2    >=17: 0   >=18: 0  >=20: 0
+    Horizon N = 10,000,000   | Runs >=10: 1,885 >=15: 42   >=17: 4   >=18: 0  >=20: 0
+    Horizon N = 50,000,000   | Runs >=10: 11,041 >=15: 297  >=17: 58  >=18: 3  >=20: 2
+    Horizon N = 100,000,000  | Runs >=10: 23,677 >=15: 697  >=17: 124 >=18: 7  >=20: 3
+    Horizon N = 150,000,000  | Runs >=10: 37,193 >=15: 1,085 >=17: 203 >=18: 13 >=20: 7
+    Horizon N = 200,000,000  | Runs >=10: 50,828 >=15: 1,500 >=17: 278 >=18: 15 >=20: 9
+    Horizon N = 500,000,000  | Runs >=10: 138,383 >=15: 4,199 >=17: 801 >=18: 65 >=20: 36
+
+.. #sector 8# auditing exception-class high-strain saturated pools
+    Exception Filter [Saturated gt6 ]: Count = 107,048
+    Exception Filter [Saturated gt10]: Count = 6,945
+    Exception Filter [Saturated ge14]: Count = 979
+
+    [!] Running Strain Neighborhood Audits on Top 3 Large Saturated Exceptions:
+      High-Strain Target #1 (Gap=22 | Corridor: 201031717 -> 201031739):
+        Left Rupture Shield R Vector (5 steps outwards):  [0, 0, 0, 0, 0, 1]
+        Right Rupture Shield R Vector (5 steps onwards): [1, 0, 1, 0, 0, 0]
+      High-Strain Target #2 (Gap=22 | Corridor: 257441719 -> 257441741):
+        Left Rupture Shield R Vector (5 steps outwards):  [0, 0, 0, 1, 0, 1]
+        Right Rupture Shield R Vector (5 steps onwards): [1, 0, 1, 0, 0, 0]
+      High-Strain Target #3 (Gap=22 | Corridor: 269054419 -> 269054441):
+        Left Rupture Shield R Vector (5 steps outwards):  [0, 0, 0, 1, 0, 1]
+        Right Rupture Shield R Vector (5 steps onwards): [1, 0, 0, 0, 0, 0]
+
+.. #sector 9# executing full rupture field infrastructure census report
+    Total Rupture Coordinates R(n)=1   : 155,541,035
+    Global Field Rupture Density       : 0.311082
+    Prime Boundary Rupture Nodes       : 26,355,867
+    Pure Prime-Power Rupture Nodes     : 2,748
+    Composite Non-PP Rupture Nodes     : 129,182,420
+    Composite Non-PP Sample Array Details (Top 5):
+      - Coord: 21         | Factors: [3, 7]          | σ(n): 11
+      - Coord: 35         | Factors: [5, 7]          | σ(n): 13
+      - Coord: 36         | Factors: [2, 3]          | σ(n): 55
+      - Coord: 39         | Factors: [3, 13]         | σ(n): 17
+      - Coord: 50         | Factors: [2, 5]          | σ(n): 43
+
+.. #sector 10# analyzing boundary prime factor signatures of high-waterline runs
+    Critical Run #1 (Length 23) Boundary Matrix:
+      Left Rupture  (n=276,497,623) | Factors=[8783, 31481] | σ(n)=276537888 | gcd=1
+      Right Rupture (n=276,497,647) | Factors=[73, 137, 27647] | σ(n)=282341376 | gcd=1
+    Critical Run #2 (Length 21) Boundary Matrix:
+      Left Rupture  (n=17,236,579) | Factors=[17236579] | σ(n)=17236580 | gcd=1
+      Right Rupture (n=17,236,601) | Factors=[229, 75269] | σ(n)=17312100 | gcd=1
+    Critical Run #3 (Length 21) Boundary Matrix:
+      Left Rupture  (n=34,464,379) | Factors=[107, 322097] | σ(n)=34786584 | gcd=1
+      Right Rupture (n=34,464,401) | Factors=[1693, 20357] | σ(n)=34486452 | gcd=1
+
+[✓] Master Merge Integration Protocol Complete. v4.4 Engine stabilized at limit N = 500,000,000.
 
 ######################LOGS - 1 000,000,000######################
 **running
