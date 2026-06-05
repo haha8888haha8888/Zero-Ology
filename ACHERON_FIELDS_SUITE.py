@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 """
 ==========================================================================================
-THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.4 LIVE-STREAMING EDITION)
+THE ACHERON FIELDS EXTRAPOLATION MASTER SUITE (v4.4 LIVE-STREAMING EDITION - STABLE)
 ==========================================================================================
 THE KAKÓS WATERLINE FUNCTION K(N) & COMPREHENSIVE SURVEYED FIELD INTERACTION POOLS
 ------------------------------------------------------------------------------------------
@@ -69,13 +69,24 @@ def get_prime_factors(n):
         factors.add(temp)
     return sorted(list(factors))
 
-def pearson(xs, ys):
-    if len(xs) < 2 or len(ys) < 2: return 0.0
-    mx, my = mean(xs), mean(ys)
-    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
-    denx = math.sqrt(sum((x - mx) ** 2 for x in xs))
-    deny = math.sqrt(sum((y - my) ** 2 for y in ys))
-    return num / (denx * deny) if denx and deny else 0.0
+def get_single_sigma(num):
+    if num < 1: return 0
+    total = 1
+    p = 2
+    temp_n = num
+    while p * p <= temp_n:
+        if temp_n % p == 0:
+            p_sum = 1
+            p_pow = 1
+            while temp_n % p == 0:
+                p_pow *= p
+                p_sum += p_pow
+                temp_n //= p
+            total *= p_sum
+        p += 1 if p == 2 else 2
+    if temp_n > 1:
+        total *= (1 + temp_n)
+    return total
 
 def quadratic_fit(xs, ys):
     n = len(xs)
@@ -97,27 +108,12 @@ def quadratic_fit(xs, ys):
     ss_tot = sum((y - y_m) ** 2 for y in ys)
     return a, b, c, (1 - ss_res / ss_tot if ss_tot else 0.0)
 
-def expectation_bins(records, bins=20):
-    records = sorted(records, key=lambda r: r["rho"])
-    size = len(records) // bins
-    results = []
-    for b in range(bins):
-        lo = b * size
-        hi = (b + 1) * size if b < bins - 1 else len(records)
-        bk = records[lo:hi]
-        if not bk: continue
-        results.append({
-            "rho_mean": mean([r["rho"] for r in bk]), "gap_mean": mean([r["gap"] for r in bk])
-        })
-    return results
-
 def main():
     limit = interactive_menu()
 
     print(__doc__)
     print(f"[*] Initializing Optimized Target Pool Upper Horizon Limit N = {limit:,}\n")
 
-    # Step 1: Highly efficient prime sieve using a low-memory bit-packed bytearray
     print(f"[*] Generating master prime maps up to n = {limit:,}...")
     is_prime = bytearray([1]) * (limit + 1)
     is_prime[0] = is_prime[1] = 0
@@ -129,7 +125,6 @@ def main():
     primes = array('I', [n for n in range(2, limit + 1) if is_prime[n]])
     print(f"[+] Primes compiled: {len(primes):,}")
 
-    # Pure Prime-Power Identification
     is_pure_prime_power = bytearray(limit + 1)
     for p in primes:
         val = p * p
@@ -139,20 +134,16 @@ def main():
                 break
             val *= p
 
-    # Step 2: Segmented window architecture for field calculations (Bypasses pre-allocation MemoryError)
     CHUNK_SIZE = 5000000
-    print(f"[*] Processing Acheron substrate and Rupture configurations in segments of {CHUNK_SIZE:,}...")
+    print(f"[*] Processing Acheron substrate configurations in segments of {CHUNK_SIZE:,}...")
 
     A = bytearray(limit + 1)
-    R = bytearray(limit + 1)
     
-    # Track metrics dynamically to conserve global space
     total_ruptures = 0
     pure_pp_ruptures = 0
     composite_non_pp_ruptures = 0
     sample_pool_print = []
 
-    # Setup progress variables
     total_chunks = math.ceil((limit - 1) / CHUNK_SIZE)
     current_chunk_idx = 0
 
@@ -161,23 +152,18 @@ def main():
         chunk_len = chunk_end - chunk_start + 1
         current_chunk_idx += 1
         
-        # Local segment block allocation (tiny memory footprint)
         local_sigma = array('Q', [1] * chunk_len)
-        
-        # Segmented Sieve for Divisor Sums
         for d in range(2, chunk_end + 1):
             first_multiplier = max(2, (chunk_start + d - 1) // d)
             start_m = first_multiplier * d
             for m in range(start_m, chunk_end + 1, d):
                 local_sigma[m - chunk_start] += d
                 
-        # Evaluate localized structural field components
         for n in range(chunk_start, chunk_end + 1):
             sig_val = local_sigma[n - chunk_start]
             if math.gcd(n, sig_val) > 1:
                 A[n] = 1
             else:
-                R[n] = 1
                 total_ruptures += 1
                 if is_pure_prime_power[n] == 1:
                     pure_pp_ruptures += 1
@@ -186,26 +172,25 @@ def main():
                     if len(sample_pool_print) < 5:
                         sample_pool_print.append((n, get_prime_factors(n), sig_val))
         
-        # ADDED: Live Streaming Terminal Update
         pct = (chunk_end / limit) * 100
         print(f"    [Segment Scan] Block {current_chunk_idx}/{total_chunks} processed: [{chunk_start:,} -> {chunk_end:,}] | Progress: {pct:.2f}%", flush=True)
 
     print(f"\n[+] Substrates compiled. Field Support Density: {sum(A)/(limit-1):.6f}")
 
-    # Pure Prime-Power Verification Subsector
     pp_tested = sum(is_pure_prime_power)
     pp_failed = 0
     for n in range(2, limit + 1):
-        if is_pure_prime_power[n] == 1 and R[n] != 1:
+        if is_pure_prime_power[n] == 1 and A[n] != 0:
             pp_failed += 1
     verdict = "[PASS]" if pp_failed == 0 else "[FAIL]"
     print(f"    [Verification] Pure Prime-Power Nodes Checked: {pp_tested:,} | Failures: {pp_failed:,} Verification: {verdict}\n")
 
-    # Scan field to collect continuous A-run boundaries sequentially
     print("[*] Compiling A-run block indexes sequentially...")
     current_run_len = 0
     current_run_start = 0
-    all_runs_log = []
+    run_starts = array('I')
+    run_ends = array('I')
+    run_lens = array('I')
 
     for n in range(2, limit + 1):
         if A[n] == 1:
@@ -213,13 +198,17 @@ def main():
             current_run_len += 1
         else:
             if current_run_len > 0:
-                all_runs_log.append((current_run_start, n - 1, current_run_len))
+                run_starts.append(current_run_start)
+                run_ends.append(n - 1)
+                run_lens.append(current_run_len)
                 current_run_len = 0
     if current_run_len > 0:
-        all_runs_log.append((current_run_start, limit, current_run_len))
+        run_starts.append(current_run_start)
+        run_ends.append(limit)
+        run_lens.append(current_run_len)
 
     # #sector 1# Dynamic Waterline Stepwise Extraction
-    print(".. #sector 1# evaluating stepwise kakós waterline values K(N)")
+    print("\n.. #sector 1# evaluating stepwise kakós waterline values K(N)")
     milestones = [1000000, 10000000, 50000000, 100000000, 150000000, 200000000, limit]
     milestones = sorted(list(set([m for m in milestones if m <= limit])))
 
@@ -233,9 +222,11 @@ def main():
         depths = [10, 15, 17, 18, 20]
         counts_at_horizon = {d: 0 for d in depths}
 
-        for s, e, k in all_runs_log:
+        for idx in range(len(run_starts)):
+            s = run_starts[idx]
             if s > horizon:
                 continue
+            e = run_ends[idx]
             clipped_end = min(e, horizon)
             clipped_len = clipped_end - s + 1
             
@@ -256,130 +247,250 @@ def main():
 
         waterline_history[horizon] = k_n
         horizon_run_counts[horizon] = counts_at_horizon
-
         print(f"      Survey Bound N = {horizon:<13,} | Observed Waterline K(N) = {k_n:<2}  {coord_str}")
     print("    ================================================\n")
 
-    # #sector 2# Corridor Truncation Profiles
+    # #sector 2# Corridor Truncation Profiles & Streaming Analytics
     print(".. #sector 2# running horizon corridor-density targets and metric profiles")
-    final_records = []
+    
+    # Milestone Tracking Aggregators
+    m_stats = {m: {"n": 0, "sx": 0.0, "sy": 0.0, "sx2": 0.0, "sy2": 0.0, "sxy": 0.0, 
+                   "sat_sum": 0, "sat_cnt": 0, "groups": defaultdict(lambda: [0, 0.0])} for m in milestones}
+    
+    # #sector 5# Streaming Bracket Statistics Tracking Arrays
+    # Format: [n, sx, sy, sx2, sy2, sxy]
+    bracket_accumulators = {
+        "Micro (1-3)": [0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Short (4-7)": [0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Medium (8-15)": [0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Long (16-31)": [0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Maxi (32+)": [0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    }
+    
+    # #sector 3# & #sector 4# Global Saturated Stream Collectors
+    total_sat = 0
+    sat_gap_sum = sat_gap_max = sat_width_max = 0
+    sat_gaps_list = array('I') # Small footprint tracker reserved specifically for median calculation
+    slice_counts = {2: 0, 4: 0, 6: 0, 8: 0, 10: 0, "gt10": 0}
+    ex_gt6 = ex_gt10 = ex_ge14 = 0
+    
+    # #sector 5# Resolution Quantile Envelope Matrix Accumulators
+    resolutions = [10, 20, 40, 80]
+    res_bins = {r: [{"cnt": 0, "gap_sum": 0.0, "rho_sum": 0.0} for _ in range(r)] for r in resolutions}
+    
+    # #sector 8# Bounded Dynamic Insertion Filter for Top 3 High-Strain Target Storage
+    # Stores tuples of (left_prime, right_prime, gap, width)
+    top_3_high_strain = []
 
-    for target in milestones:
-        records_t = []
-        for i in range(1, len(primes) - 1):
-            p = primes[i]
-            q = primes[i + 1]
-            if q > target:
-                break
-            prev_gap = primes[i] - primes[i - 1]
-            gap = q - p
-            width = gap - 1
-            if width <= 0: continue
-            rho = sum(A[m] for m in range(p + 1, q)) / width
-            expanded = 1 if gap > prev_gap else 0
-            records_t.append({
-                "left_prime": p, "right_prime": q, "gap": gap, "rho": rho, "expanded": expanded, "width": width
-            })
-        if target == limit:
-            final_records = records_t
+    # #sector 6# Sampling Arrays for Permutation Control
+    sample_rhos = array('d')
+    sample_gaps = array('I')
+    sample_max = 250000
+    sample_interval = max(1, (len(primes) - 2) // sample_max)
 
-        corr_t = pearson([r["rho"] for r in records_t], [r["gap"] for r in records_t]) if len(records_t) >= 2 else 0.0
+    for i in range(1, len(primes) - 1):
+        p = primes[i]
+        q = primes[i + 1]
+        gap = q - p
+        width = gap - 1
+        if width <= 0: 
+            continue
+            
+        a_count = sum(A[m] for m in range(p + 1, q))
+        rho = a_count / width
+        
+        # Populate Permutation Sample Matrix on the fly
+        if i % sample_interval == 0 and len(sample_rhos) < sample_max:
+            sample_rhos.append(rho)
+            sample_gaps.append(gap)
+            
+        # Single-pass dynamic update of cumulative milestone horizons
+        for m in milestones:
+            if q > m:
+                continue
+            st = m_stats[m]
+            st["n"] += 1
+            st["sx"] += rho
+            st["sy"] += gap
+            st["sx2"] += rho * rho
+            st["sy2"] += gap * gap
+            st["sxy"] += rho * gap
+            
+            # Map grouped structures for Quadratic Fit requirements
+            st["groups"][(a_count, width)][0] += 1
+            st["groups"][(a_count, width)][1] += gap
+            
+            if a_count == width:
+                st["sat_cnt"] += 1
+                st["sat_sum"] += gap
 
-        groups_t = defaultdict(list)
-        for r in records_t:
-            groups_t[r["rho"]].append(r["gap"])
+        # Global final terminal analysis assignments (Crossed Upper Bound Threshold)
+        if a_count == width:
+            total_sat += 1
+            sat_gap_sum += gap
+            sat_gaps_list.append(gap)
+            if gap > sat_gap_max: sat_gap_max = gap
+            if width > sat_width_max: sat_width_max = width
+            
+            # Slices updates (#sector 4#)
+            if gap in [2, 4, 6, 8, 10]:
+                slice_counts[gap] += 1
+            elif gap > 10:
+                slice_counts["gt10"] += 1
+                
+            # Streaming high-strain exception tracking counts (#sector 8#)
+            if gap > 6: ex_gt6 += 1
+            if gap > 10: ex_gt10 += 1
+            if gap >= 14: ex_ge14 += 1
+            
+            # Continuous Top-3 High Strain Exception sorting insertion filter
+            if len(top_3_high_strain) < 3:
+                top_3_high_strain.append((p, q, gap, width))
+                top_3_high_strain.sort(key=lambda x: x[2], reverse=True)
+            elif gap > top_3_high_strain[-1][2]:
+                top_3_high_strain[-1] = (p, q, gap, width)
+                top_3_high_strain.sort(key=lambda x: x[2], reverse=True)
+
+        # Quantile Matrix updates (#sector 5#)
+        for r in resolutions:
+            idx = min(r - 1, int(rho * r))
+            res_bins[r][idx]["cnt"] += 1
+            res_bins[r][idx]["gap_sum"] += gap
+            res_bins[r][idx]["rho_sum"] += rho
+
+        # Stratified Geometry Audits (#sector 5#)
+        br_name = None
+        if 1 <= width <= 3: br_name = "Micro (1-3)"
+        elif 4 <= width <= 7: br_name = "Short (4-7)"
+        elif 8 <= width <= 15: br_name = "Medium (8-15)"
+        elif 16 <= width <= 31: br_name = "Long (16-31)"
+        elif width >= 32: br_name = "Maxi (32+)"
+        
+        if br_name:
+            ba = bracket_accumulators[br_name]
+            ba[0] += 1
+            ba[1] += rho
+            ba[2] += gap
+            ba[3] += rho * rho
+            ba[4] += gap * gap
+            ba[5] += rho * gap
+
+    # Display Milestone Analytics Output Stream
+    for m in milestones:
+        st = m_stats[m]
+        nrec = st["n"]
+        if nrec >= 2:
+            denx = math.sqrt(nrec * st["sx2"] - st["sx"] * st["sx"])
+            deny = math.sqrt(nrec * st["sy2"] - st["sy"] * st["sy"])
+            corr_t = ((nrec * st["sxy"] - st["sx"] * st["sy"]) / (denx * deny)) if denx and deny else 0.0
+        else:
+            corr_t = 0.0
+
         v_rhos, m_gaps = [], []
-        for rho, gps in groups_t.items():
-            if len(gps) >= 100:
-                v_rhos.append(rho)
-                m_gaps.append(mean(gps))
+        for (a_cnt, wth), (cnt, gap_sum) in st["groups"].items():
+            if cnt >= 100:
+                v_rhos.append(a_cnt / wth)
+                m_gaps.append(gap_sum / cnt)
+                
         r2_exclusive = quadratic_fit(v_rhos, m_gaps)[3] if len(v_rhos) >= 3 else 0.0
+        sat_floor_t = st["sat_sum"] / st["sat_cnt"] if st["sat_cnt"] else 0.0
+        
+        print(f"    Target N: {m:<12,} | Corridors: {nrec:<9,} | BaseCorr: {corr_t:<8.4f} | BinExclR²: {r2_exclusive:<8.4f} | SatFloor: {sat_floor_t:.4f}")
 
-        sat_gaps_t = [r["gap"] for r in records_t if abs(r["rho"] - 1.0) < 1e-5]
-        sat_floor_t = mean(sat_gaps_t) if sat_gaps_t else 0.0
-        print(f"    Target N: {target:<12,} | Corridors: {len(records_t):<9,} | BaseCorr: {corr_t:<8.4f} | BinExclR²: {r2_exclusive:<8.4f} | SatFloor: {sat_floor_t:.4f}")
-
-    # #sector 3# Saturated Sinks Distribution Profiling (ρ = 1.0)
+    # #sector 3# Saturated Sinks Distribution Profiling
     print("\n.. #sector 3# running saturation distribution configuration audit")
-    sat_pool = [r for r in final_records if abs(r["rho"] - 1.0) < 1e-6]
-    total_sat = len(sat_pool)
-    sat_gaps = [r["gap"] for r in sat_pool]
-
     print(f"    Saturated Count (N) : {total_sat:,}")
-    print(f"    Mean Saturated Gap  : {mean(sat_gaps) if sat_gaps else 0.0:.4f}")
-    print(f"    Median Saturated Gap: {median(sat_gaps) if sat_gaps else 0.0:.1f}")
-    print(f"    Max Saturated Gap   : {max(sat_gaps) if sat_gaps else 0:,}")
+    print(f"    Mean Saturated Gap  : {sat_gap_sum / total_sat if total_sat else 0.0:.4f}")
+    print(f"    Median Saturated Gap: {median(sat_gaps_list) if total_sat else 0.0:.1f}")
+    print(f"    Max Saturated Gap   : {sat_gap_max:,}")
 
     if total_sat > 0:
-        max_sat_width = max([r["width"] for r in sat_pool])
-        max_sat_gap = max(sat_gaps)
         k_limit = waterline_history[limit]
         print(f"    Saturated Corridor Width and Gap Constraint Audit:")
-        print(f"      - Max Observed Saturated Corridor Width: {max_sat_width} | Surveyed Boundary K({limit:,}): {k_limit}")
-        print(f"      - Max Observed Saturated Corridor Gap:   {max_sat_gap} | Surveyed Gap Ceiling K(N)+1: {k_limit + 1}")
+        print(f"      - Max Observed Saturated Corridor Width: {sat_width_max} | Surveyed Boundary K({limit:,}): {k_limit}")
+        print(f"      - Max Observed Saturated Corridor Gap:   {sat_gap_max} | Surveyed Gap Ceiling K(N)+1: {k_limit + 1}")
 
-        width_pass = max_sat_width <= k_limit
-        gap_pass = max_sat_gap <= (k_limit + 1)
+        width_pass = sat_width_max <= k_limit
+        gap_pass = sat_gap_max <= (k_limit + 1)
 
-        print(f"      - Internal Width Verification Status : [{'PASS' if width_pass else 'DIVERGENT'}] (width {max_sat_width} <= K(N) {k_limit})")
-        print(f"      - Structural Gap Verification Status  : [{'PASS' if gap_pass else 'DIVERGENT'}] (gap {max_sat_gap} <= K(N)+1 {k_limit + 1})")
+        print(f"      - Internal Width Verification Status : [{'PASS' if width_pass else 'DIVERGENT'}] (width {sat_width_max} <= K(N) {k_limit})")
+        print(f"      - Structural Gap Verification Status  : [{'PASS' if gap_pass else 'DIVERGENT'}] (gap {sat_gap_max} <= K(N)+1 {k_limit + 1})")
 
     # #sector 4# Saturation Spectrum Slices
     print("\n.. #sector 4# analyzing saturation spectrum gap slices")
     if total_sat > 0:
-        slice_counts = {2: 0, 4: 0, 6: 0, 8: 0, 10: 0, "gt10": 0}
-        for g in sat_gaps:
-            if g in [2, 4, 6, 8, 10]:
-                slice_counts[g] += 1
-            elif g > 10:
-                slice_counts["gt10"] += 1
         for k, count in slice_counts.items():
             label = f"Gap == {k}" if isinstance(k, int) else "Gap > 10"
             print(f"    Saturation Spectrum [{label:<10}]: {count:<7,} ({count/total_sat*100:.2f}%)")
 
-    # #sector 5# Quantile Envelope Resolutions
+    # #sector 5# Quantile Envelope Resolutions & Structural Width Audits
     print("\n.. #sector 5# running quantile envelope resolutions & structural width audits")
-    resolutions = [10, 20, 40, 80]
-    for res in resolutions:
-        binned = expectation_bins(final_records, bins=res)
-        xs = [b["rho_mean"] for b in binned]
-        ys = [b["gap_mean"] for b in binned]
+    for r in resolutions:
+        xs, ys = [], []
+        for b in range(r):
+            if res_bins[r][b]["cnt"] > 0:
+                xs.append(res_bins[r][b]["rho_sum"] / res_bins[r][b]["cnt"])
+                ys.append(res_bins[r][b]["gap_sum"] / res_bins[r][b]["cnt"])
         r2_alt = quadratic_fit(xs, ys)[3]
-        print(f"    Slices: {res:<2} | Quadratic Fit R²: {r2_alt:.4f}")
+        print(f"    Slices: {r:<2} | Quadratic Fit R²: {r2_alt:.4f}")
 
     print("\n    Executing stratified arithmetic geometry width conditioning:")
-    brackets = [
-        ("Micro (1-3)", lambda w: 1 <= w <= 3),
-        ("Short (4-7)", lambda w: 4 <= w <= 7),
-        ("Medium (8-15)", lambda w: 8 <= w <= 15),
-        ("Long (16-31)", lambda w: 16 <= w <= 31),
-        ("Maxi (32+)", lambda w: w >= 32)
-    ]
-    for name, condition in brackets:
-        subset = [r for r in final_records if condition(r["width"])]
-        corr_sub = pearson([r["rho"] for r in subset], [r["gap"] for r in subset]) if len(subset) >= 2 else 0.0
-        print(f"      Bracket: {name:<15} | Recs: {len(subset):<9,} | LocalCorr: {corr_sub:.4f}")
+    for name in ["Micro (1-3)", "Short (4-7)", "Medium (8-15)", "Long (16-31)", "Maxi (32+)"]:
+        ba = bracket_accumulators[name]
+        nrec = ba[0]
+        if nrec >= 2:
+            denx = math.sqrt(nrec * ba[3] - ba[1] * ba[1])
+            deny = math.sqrt(nrec * ba[4] - ba[2] * ba[2])
+            corr_sub = ((nrec * ba[5] - ba[1] * ba[2]) / (denx * deny)) if denx and deny else 0.0
+        else:
+            corr_sub = 0.0
+        print(f"      Bracket: {name:<15} | Recs: {nrec:<9,} | LocalCorr: {corr_sub:.4f}")
 
-    # #sector 6# Permutation Null Shuffle
+    # #sector 6# Permutation Null Shuffle (Sub-Sampled Matrix Optimization)
     print("\n.. #sector 6# launching multi-shuffle permutation null control matrix (50 cycles)")
-    if len(final_records) > 1:
-        shuffled_rhos = [r["rho"] for r in final_records]
-        gaps_control = [r["gap"] for r in final_records]
-        null_corrs = []
-        random.seed(42)
+    if len(sample_rhos) > 1:
+        xs_sample = list(sample_rhos)
+        ys_sample = list(sample_gaps)
+        nrec = len(xs_sample)
+        
+        sum_y = sum(ys_sample)
+        sum_y2 = sum(y * y for y in ys_sample)
+        my = sum_y / nrec
+        deny = math.sqrt(sum_y2 - sum_y * sum_y / nrec)
 
-        for _ in range(50):
+        null_corrs = []
+        shuffled_rhos = list(xs_sample)
+        total_cycles = 50
+        
+        random.seed(42)
+        for cycle in range(1, total_cycles + 1):
             random.shuffle(shuffled_rhos)
-            null_corrs.append(pearson(shuffled_rhos, gaps_control))
+            
+            # Ultra-fast integrated correlation loop
+            mx = sum(shuffled_rhos) / nrec
+            num = sum((x - mx) * (y - my) for x, y in zip(shuffled_rhos, ys_sample))
+            denx = math.sqrt(sum((x - mx) ** 2 for x in shuffled_rhos))
+            
+            null_corrs.append(num / (denx * deny) if denx and deny else 0.0)
+            
+            percent = (cycle / total_cycles) * 100
+            bar = "█" * (cycle // 2) + "░" * (25 - (cycle // 2))
+            print(f"\r    [Permutation Progress] |{bar}| Cycle {cycle}/{total_cycles} ({percent:.0f}%)", end="", flush=True)
+        print("\n")
 
         m_null = mean(null_corrs)
         s_null = stdev(null_corrs) if len(null_corrs) > 1 else 1.0
-        actual_corr = pearson([r["rho"] for r in final_records], [r["gap"] for r in final_records])
+        
+        # Calculate actual baseline sample correlation
+        mx_act = sum(xs_sample) / nrec
+        num_act = sum((x - mx_act) * (y - my) for x, y in zip(xs_sample, ys_sample))
+        denx_act = math.sqrt(sum((x - mx_act) ** 2 for x in xs_sample))
+        actual_corr = (num_act / (denx_act * deny)) if denx_act and deny else 0.0
+        
         z_score = (actual_corr - m_null) / s_null if s_null > 0 else 0.0
-
-        print(f"    Observed Base Correlation   : {actual_corr:.6f}")
-        print(f"    Permuted Null Expected Mean : {m_null:.6f} | Null Dev: {s_null:.6f}")
-        print(f"    Analytical Significance     : Z-Score = {z_score:+.3f}")
+        print(f"    Observed Base Correlation (Sample) : {actual_corr:.6f}")
+        print(f"    Permuted Null Expected Mean        : {m_null:.6f} | Null Dev: {s_null:.6f}")
+        print(f"    Analytical Significance            : Z-Score = {z_score:+.3f}")
 
     # #sector 7# Run Depth Milestone Matrix
     print("\n.. #sector 7# reporting stratified run depth metrics across milestone horizons")
@@ -389,21 +500,16 @@ def main():
 
     # #sector 8# Exception Neighborhood Audits
     print("\n.. #sector 8# auditing exception-class high-strain saturated pools")
-    exception_pools = {
-        "gt6": [r for r in sat_pool if r["gap"] > 6],
-        "gt10": [r for r in sat_pool if r["gap"] > 10],
-        "ge14": [r for r in sat_pool if r["gap"] >= 14]
-    }
-    for label, pool_elements in exception_pools.items():
-        print(f"    Exception Filter [Saturated {label:<5}]: Count = {len(pool_elements):,}")
+    print(f"    Exception Filter [Saturated gt6 ]: Count = {ex_gt6:,}")
+    print(f"    Exception Filter [Saturated gt10]: Count = {ex_gt10:,}")
+    print(f"    Exception Filter [Saturated ge14]: Count = {ex_ge14:,}")
 
     print("\n    [!] Running Strain Neighborhood Audits on Top 3 Large Saturated Exceptions:")
-    sorted_high_strain = sorted(sat_pool, key=lambda x: x["gap"], reverse=True)
-    for index, ex in enumerate(sorted_high_strain[:3]):
-        lp, rp = ex["left_prime"], ex["right_prime"]
-        left_nb = [int(R[coord]) for coord in range(max(2, lp - 5), lp + 1)]
-        right_nb = [int(R[coord]) for coord in range(rp, min(limit + 1, rp + 6))]
-        print(f"      High-Strain Target #{index+1} (Gap={ex['gap']} | Corridor: {lp} -> {rp}):")
+    for index, ex in enumerate(top_3_high_strain):
+        lp, rp = ex[0], ex[1]
+        left_nb = [1 - int(A[coord]) for coord in range(max(2, lp - 5), lp + 1)]
+        right_nb = [1 - int(A[coord]) for coord in range(rp, min(limit + 1, rp + 6))]
+        print(f"      High-Strain Target #{index+1} (Gap={ex[2]} | Corridor: {lp} -> {rp}):")
         print(f"        Left Rupture Shield R Vector (5 steps outwards):  {left_nb}")
         print(f"        Right Rupture Shield R Vector (5 steps onwards): {right_nb}")
 
@@ -420,16 +526,16 @@ def main():
 
     # #sector 10# Boundary Factor Signatures
     print("\n.. #sector 10# analyzing boundary prime factor signatures of high-waterline runs")
-    critical_runs = sorted([r for r in all_runs_log if r[2] >= 15], key=lambda x: x[2], reverse=True)
-    for idx, cr in enumerate(critical_runs[:3]):
-        start, end, length = cr[0], cr[1], cr[2]
+    critical_indices = sorted(range(len(run_lens)), key=lambda k: run_lens[k], reverse=True)
+    for idx, run_idx in enumerate(critical_indices[:3]):
+        start = run_starts[run_idx]
+        end = run_ends[run_idx]
+        length = run_lens[run_idx]
+        
         left_boundary, right_boundary = start - 1, end + 1
         l_facs = get_prime_factors(left_boundary) if left_boundary >= 2 else []
         r_facs = get_prime_factors(right_boundary) if right_boundary <= limit else []
         
-        def get_single_sigma(num):
-            return sum(d for d in range(1, num + 1) if num % d == 0)
-            
         print(f"    Critical Run #{idx+1} (Length {length}) Boundary Matrix:")
         print(f"      Left Rupture  (n={left_boundary:,}) | Factors={l_facs} | σ(n)={get_single_sigma(left_boundary) if left_boundary>=2 else 0} | gcd=1")
         print(f"      Right Rupture (n={right_boundary:,}) | Factors={r_facs} | σ(n)={get_single_sigma(right_boundary) if right_boundary<=limit else 0} | gcd=1")
