@@ -1,0 +1,1563 @@
+6-GEM_MANIFOLD_Z8_MIRROR-STATE.txt
+
+=========================================================================== 
+
+6-GEM MANIFOLD FRAMEWORK Z8 MIRROR-STATE EXTENSION MANUAL v5.1.6
+
+
+PURPOSE
+This document records the extension of the original 6-Gem manifold from modulus 6 into a modulus 8 mirror-state environment.
+
+The purpose of the Z8 extension is:
+
+Test whether the [2+,4-,0^0] spectral skeleton is modulus-specific.
+Evaluate hidden-state mirror behavior.
+Search for persistent center chambers.
+Measure perturbation robustness.
+Compare attractor stability under alternative modular boundaries.
+SECTION 1 — ORIGINAL 6-GEM MAP
+Core Nonlinear Primitive:
+
+f(a,b,c) = tanh(scale * |(a-b)(b-c)(c-a)|)
+
+Core Ternary Operator:
+
+SI(a,b,c) = ModM(a + b + c + f(a,b,c))
+
+where:
+
+M = modulus
+
+For original system:
+
+M = 6
+
+For mirror-state extension:
+
+M = 8
+
+State Evolution:
+
+(a,b,c)
+
+->
+
+(b,c,SI(a,b,c))
+
+The system therefore evolves as a ternary delay map operating on three complex coordinates.
+
+Dimension Count:
+
+3 complex coordinates
+6 real dimensions
+
+The modulus controls wrapping behavior.
+
+The modulus does NOT define dimensionality.
+
+SECTION 2 — Z8 MIRROR-STATE LIFT
+Mirror Pair Definitions:
+
+(0,4) (1,5) (2,6) (3,7)
+
+Mirror Interpretation Layer:
+
+(0,4) = True / False
+
+(1,5) = Up / Down
+
+(2,6) = Left / Right
+
+(3,7) = In / Out
+
+Mirror Mapping:
+
+Mirror(z) = ( z , (z+4) mod 8 )
+
+This creates four balanced ignorance-state brackets.
+
+The mirror layer is observational.
+
+It does not alter the underlying dynamical equations.
+
+SECTION 3 — PRIMARY SPECTRAL CLASSIFICATIONS
+Observed Lyapunov Skeleton:
+
+[2+,4-,0^0]
+
+Meaning:
+
+2 expanding directions
+
+4 contracting directions
+
+0 neutral directions
+
+Center Chamber Candidate:
+
+[2+,2-,2^0]
+
+Meaning:
+
+2 expanding
+
+2 contracting
+
+2 neutral
+
+Full Neutral Collapse:
+
+[0+,0-,6^0]
+
+Meaning:
+
+No expansion
+
+No contraction
+
+All directions neutral
+
+SECTION 4 — Z8 TEST RESULTS
+RESULT A
+
+The dominant attractor remains:
+
+[2+,4-,0^0]
+
+under:
+
+Sovereign Closure Scans
+Gamma Sweeps
+Perturbation Sweeps
+Random Basin Scans
+Deep Horizon Runs
+Conclusion:
+
+The skeleton survives the modulus lift.
+
+RESULT B
+
+Mirror counts remain approximately equal:
+
+(0,4) (1,5) (2,6) (3,7)
+
+Random Basin Totals:
+
+(0,4) = 312182
+
+(1,5) = 312151
+
+(2,6) = 313281
+
+(3,7) = 312386
+
+Conclusion:
+
+No mirror-state bias exists.
+
+The Z8 extension behaves as a balanced ignorance-state layer.
+
+RESULT C
+
+The center chamber:
+
+[2+,2-,2^0]
+
+appears only under constrained maps.
+
+Observed under:
+
+force_equal_ab
+
+Not observed under:
+
+none
+
+Therefore:
+
+Center chamber exists as a constrained phase.
+
+Center chamber does not dominate the free map.
+
+RESULT D
+
+Large magnitude seeds:
+
++1e6 -1e6 1e6+i1e6
+
+reach stable attractors rapidly.
+
+The Z8 modulus does not destabilize the system.
+
+SECTION 5 — CONSTRAINT ANALYSIS
+Constraint:
+
+force_equal_ab
+
+Result:
+
+Persistent
+
+[2+,2-,2^0]
+
+for full test duration.
+
+Constraint:
+
+force_conjugate_ac
+
+Result:
+
+[0+,0-,6^0]
+
+Constraint:
+
+force_phase120
+
+Result:
+
+[0+,0-,6^0]
+
+Constraint:
+
+force_diagonal
+
+Result:
+
+[0+,0-,6^0]
+
+Constraint:
+
+force_mirror_ac_z8
+
+Result:
+
+[0+,0-,6^0]
+
+Conclusion:
+
+The mirror condition alone is insufficient to generate a center chamber.
+
+The equal-coordinate constraint is the primary chamber generator.
+
+SECTION 6 — PERTURBATION ANALYSIS
+Single-axis perturbations:
+
+a_wedge b_wedge c_wedge
+
+can temporarily increase trace and drift.
+
+Multi-axis perturbations:
+
+all_wedge real_all imag_all
+
+largely cancel these effects.
+
+Interpretation:
+
+The manifold exhibits geometric compensation behavior.
+
+Distributed perturbations are absorbed more efficiently than isolated perturbations.
+
+SECTION 7 — GAMMA INVARIANCE
+Scale Sweep:
+
+0.0 0.01 0.1 0.5 1.0 2.0 5.0
+
+Observation:
+
+Phase-ring structures remain nearly unchanged.
+
+Ratios remain approximately:
+
+Ratio ≈ 2.0
+
+Final classification remains:
+
+[2+,4-,0^0]
+
+Conclusion:
+
+The attractor structure is largely scale-invariant.
+
+SECTION 8 — CANONICAL VERDICT
+VERDICT 1
+
+The [2+,4-,0^0] skeleton is modulus-robust.
+
+VERDICT 2
+
+The Z8 lift does not introduce hidden-state bias.
+
+VERDICT 3
+
+Mirror states distribute uniformly.
+
+VERDICT 4
+
+The center chamber is constrained, not dominant.
+
+VERDICT 5
+
+The free-map attractor remains [2+,4-,0^0].
+
+VERDICT 6
+
+The manifold structure survives transition from modulus 6 to modulus 8.
+
+VERDICT 7
+
+The modulus changes boundary conditions.
+
+The modulus does not change the dimensionality of the dynamical system.
+
+VERDICT 8
+
+Current evidence supports a universal attractor skeleton across both tested modular environments.
+
+===========================================================================
+
+END OF Z8 MIRROR-STATE EXTENSION MANUAL VERSION 5.1.6
+
+===========================================================================
+
+==============#### 6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py ####==============
+
+
+#6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py
+
+import math
+import random
+
+MODULUS = 8.0
+MOD_LABEL = "Z8"
+
+# --- GEOMETRY / CORE MAP -----------------------------------------------------
+
+def rot(z, deg):
+    t = math.radians(deg)
+    return z * complex(math.cos(t), math.sin(t))
+
+def mod_gaussian(z, modulus=MODULUS):
+    return complex(z.real % modulus, z.imag % modulus)
+
+def f_scaled(a, b, c, scale=1.0):
+    if scale == 0.0:
+        return 0.0
+    return math.tanh(scale * abs((a - b) * (b - c) * (c - a)))
+
+def si(a, b, c, scale=1.0):
+    return mod_gaussian(a + b + c + f_scaled(a, b, c, scale))
+
+def mirror_pair_z8(z):
+    """
+    Z8 half-modulus mirror bracket.
+    For real/imag continuous states, bracket by integer floor of real coordinate.
+    """
+    k = int(z.real) % 8
+    base = k % 4
+    return (base, (base + 4) % 8)
+
+# --- CONSTRAINT ENGINE -------------------------------------------------------
+
+def apply_constraint(state, mode="none"):
+    a, b, c = state
+
+    if mode == "force_equal_ab":
+        return (a, a, c)
+
+    if mode == "force_conjugate_ac":
+        return (a, b, complex(a.real, -a.imag))
+
+    if mode == "force_phase120":
+        return (a, rot(a, 120), rot(a, 240))
+
+    if mode == "force_diagonal":
+        return (a, a, a)
+
+    if mode == "force_mirror_ac_z8":
+        return (a, b, mod_gaussian(a + 4))
+
+    return (a, b, c)
+
+def next_state(state, scale=1.0, constraint="none"):
+    a, b, c = apply_constraint(state, constraint)
+    return apply_constraint((b, c, si(a, b, c, scale)), constraint)
+
+def get_full_map_jacobian_6d(state, scale=1.0, eps=1e-6, constraint="none"):
+    base = next_state(state, scale, constraint)
+    base_coords = [
+        base[0].real, base[0].imag,
+        base[1].real, base[1].imag,
+        base[2].real, base[2].imag
+    ]
+
+    coords = [
+        state[0].real, state[0].imag,
+        state[1].real, state[1].imag,
+        state[2].real, state[2].imag
+    ]
+
+    J = [[0.0] * 6 for _ in range(6)]
+
+    for col in range(6):
+        shifted = coords[:]
+        shifted[col] += eps
+
+        s2 = (
+            complex(shifted[0], shifted[1]),
+            complex(shifted[2], shifted[3]),
+            complex(shifted[4], shifted[5])
+        )
+
+        pert = next_state(s2, scale, constraint)
+        pert_coords = [
+            pert[0].real, pert[0].imag,
+            pert[1].real, pert[1].imag,
+            pert[2].real, pert[2].imag
+        ]
+
+        for row in range(6):
+            J[row][col] = (pert_coords[row] - base_coords[row]) / eps
+
+    return J
+
+# --- CLASSIFIER --------------------------------------------------------------
+
+def classify_spectrum_ternary(spec, threshold=1e-4):
+    s = sorted(spec, reverse=True)
+
+    pos = sum(x > threshold for x in s)
+    neg = sum(x < -threshold for x in s)
+    zer = 6 - pos - neg
+
+    trace = sum(spec)
+    stable_mean = sum(s[2:]) / 4
+    unstable_mean = sum(s[:2]) / 2
+    ratio = abs(unstable_mean / stable_mean) if abs(stable_mean) > 1e-12 else float("inf")
+
+    center_pair_floor = max(sorted(abs(x) for x in spec)[:2])
+
+    is_24 = pos == 2 and neg == 4 and zer == 0
+    is_22 = pos == 2 and neg == 2 and zer == 2
+
+    label = "[2+,4-,0^0]" if is_24 else "[2+,2-,2^0]" if is_22 else f"[{pos}+,{neg}-,{zer}^0]"
+
+    return {
+        "label": label,
+        "is_24": is_24,
+        "is_22": is_22,
+        "trace": trace,
+        "ratio": ratio,
+        "center": center_pair_floor,
+        "sorted": s
+    }
+
+def calculate_center_drift(history, start=5, end=50):
+    pts = [(n, c) for n, c in history if start <= n <= end and c > 0]
+
+    if len(pts) < 2:
+        return 0.0
+
+    xm = sum(n for n, _ in pts) / len(pts)
+    ym = sum(math.log10(c) for _, c in pts) / len(pts)
+
+    den = sum((n - xm) ** 2 for n, _ in pts)
+    num = sum((n - xm) * (math.log10(c) - ym) for n, c in pts)
+
+    return num / den if den else 0.0
+
+# --- MAIN EVALUATOR ----------------------------------------------------------
+
+def evaluate_dual_skeleton(
+    a, b, c,
+    max_steps=5000,
+    scale=1.0,
+    eps=1e-6,
+    threshold=1e-4,
+    constraint="none",
+    required_24_locks=10
+):
+    Q = [[1.0 if i == j else 0.0 for j in range(6)] for i in range(6)]
+    lsums = [0.0] * 6
+
+    st = apply_constraint((complex(a), complex(b), complex(c)), constraint)
+
+    first_22 = first_24 = stable_24 = None
+
+    p22_current = p22_max = p22_total = 0
+    p24_current = p24_max = p24_total = 0
+
+    center_history = []
+    mirror_counts = {(0, 4): 0, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+
+    for step in range(1, max_steps + 1):
+        J = get_full_map_jacobian_6d(st, scale, eps, constraint)
+        ns = next_state(st, scale, constraint)
+
+        pair = mirror_pair_z8(ns[2])
+        mirror_counts[pair] += 1
+
+        new_Q = [
+            [sum(J[row][col] * Q[v][col] for col in range(6)) for row in range(6)]
+            for v in range(6)
+        ]
+
+        for i in range(6):
+            for j in range(i):
+                dot = sum(new_Q[i][k] * new_Q[j][k] for k in range(6))
+                for k in range(6):
+                    new_Q[i][k] -= dot * new_Q[j][k]
+
+            norm = math.sqrt(sum(new_Q[i][k] ** 2 for k in range(6)))
+
+            if norm > 1e-12:
+                lsums[i] += math.log(norm)
+                for k in range(6):
+                    new_Q[i][k] /= norm
+
+            Q[i] = new_Q[i]
+
+        st = ns
+
+        spec = [x / step for x in lsums]
+        cls = classify_spectrum_ternary(spec, threshold)
+        center_history.append((step, cls["center"]))
+
+        if cls["is_22"]:
+            p22_total += 1
+            p22_current += 1
+            first_22 = first_22 or step
+            p22_max = max(p22_max, p22_current)
+        else:
+            p22_current = 0
+
+        if cls["is_24"]:
+            p24_total += 1
+            p24_current += 1
+            first_24 = first_24 or step
+            p24_max = max(p24_max, p24_current)
+
+            if p24_current >= required_24_locks and stable_24 is None:
+                stable_24 = step - required_24_locks + 1
+        else:
+            p24_current = 0
+
+    final_spec = [x / max_steps for x in lsums]
+    final = classify_spectrum_ternary(final_spec, threshold)
+
+    return {
+        "first_22": first_22,
+        "p22_max": p22_max,
+        "p22_total": p22_total,
+
+        "first_24": first_24,
+        "stable_24": stable_24,
+        "p24_max": p24_max,
+        "p24_total": p24_total,
+
+        "trace": final["trace"],
+        "ratio": final["ratio"],
+        "center": final["center"],
+        "label": final["label"],
+        "drift": calculate_center_drift(center_history),
+        "spec": final_spec,
+        "mirror_counts": mirror_counts
+    }
+
+# --- SEEDS -------------------------------------------------------------------
+
+def build_core_targets():
+    phi = (1 + math.sqrt(5)) / 2
+    pi = math.pi
+    z = complex(phi, pi)
+
+    return [
+        ("Golden Diagonal", (phi, phi, phi)),
+        ("Cubic Roots Phase", (z, rot(z, 120), rot(z, 240))),
+        ("Quarter Roots Phase", (z, rot(z, 90), rot(z, 180))),
+        ("Phase Ring 180", (z, rot(z, 180), rot(z, 360))),
+        ("Large +1e6", (1e6, 1e6, 1e6)),
+        ("Large -1e6", (-1e6, -1e6, -1e6)),
+        ("Ultra Complex 1e6+i1e6", (
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+            complex(1e6, 1e6)
+        )),
+        ("Boundary Edge 7.9999+i7.9999", (
+            complex(7.9999, 7.9999),
+            complex(7.9999, 7.9999),
+            complex(7.9999, 7.9999)
+        ))
+    ]
+
+def perturb_seed(seed, p, mode):
+    a, b, c = seed
+
+    if mode == "c_wedge":
+        return a, b, c + complex(p, -p)
+
+    if mode == "a_wedge":
+        return a + complex(p, -p), b, c
+
+    if mode == "b_wedge":
+        return a, b + complex(p, -p), c
+
+    if mode == "all_wedge":
+        return a + complex(p, -p), b + complex(-p, p), c + complex(p, p)
+
+    if mode == "real_all":
+        return a + p, b - p, c + p
+
+    if mode == "imag_all":
+        return a + 1j * p, b - 1j * p, c + 1j * p
+
+    return seed
+
+# --- SCRIPT 1: SOVEREIGN CLOSURE --------------------------------------------
+
+def run_sovereign_closure_scan(base_abc, name, steps):
+    perturbations = [0.0, 1e-15, 1e-12, 1e-9, 1e-8]
+    thresholds = [1e-3, 1e-4, 1e-5, 1e-6]
+
+    print(f"\n[{MOD_LABEL} SOVEREIGN CLOSURE SCAN] {name} | Steps={steps}")
+
+    for th in thresholds:
+        print(f"\nThreshold={th:.0e}")
+        print(f"{'Pert':<10} | {'First22':<8} | {'P22Max':<7} | {'Stable24':<8} | {'Trace':<10} | Drift | MirrorCounts")
+
+        for p in perturbations:
+            a, b, c = base_abc
+            r = evaluate_dual_skeleton(
+                a, b, c + complex(p, -p),
+                max_steps=steps,
+                threshold=th
+            )
+
+            print(
+                f"{p:<10.1e} | "
+                f"{str(r['first_22']):<8} | "
+                f"{r['p22_max']:<7} | "
+                f"{str(r['stable_24']):<8} | "
+                f"{r['trace']:+.6f} | "
+                f"{r['drift']:+.3e} | "
+                f"{r['mirror_counts']}"
+            )
+
+def run_v5142_block():
+    phi = (1 + math.sqrt(5)) / 2
+    pi = math.pi
+    z = complex(phi, pi)
+
+    broad = [
+        ("Large Negative Real Scale (-10^6)", (-1e6, -1e6, -1e6)),
+        ("Ultra Complex Float (10^6+i10^6)", (
+            complex(1e6, 1e6),
+            complex(1e6, 1e6),
+            complex(1e6, 1e6)
+        )),
+        ("Phase Ring 30", (z, rot(z, 30), rot(z, 60))),
+        ("Phase Ring 45", (z, rot(z, 45), rot(z, 90))),
+        ("Phase Ring 90", (z, rot(z, 90), rot(z, 180))),
+        ("Phase Ring 120", (z, rot(z, 120), rot(z, 240)))
+    ]
+
+    deep = [
+        ("Deep Golden Diagonal", (phi, phi, phi)),
+        ("Deep Cubic Roots Phase", (z, rot(z, 120), rot(z, 240))),
+        ("Deep Phase Ring 180", (z, rot(z, 180), rot(z, 360)))
+    ]
+
+    print(f"\n=== {MOD_LABEL} V5.1.4.2 SOVEREIGN CLOSURE MATRIX ===")
+
+    for name, seed in broad:
+        run_sovereign_closure_scan(seed, name, steps=5000)
+
+    for name, seed in deep:
+        run_sovereign_closure_scan(seed, name, steps=100000)
+
+# --- SCRIPT 2: ISSUE SCANS ---------------------------------------------------
+
+def run_center_dwell_report():
+    print(f"\n[{MOD_LABEL} ISSUE 1] CENTER DWELL / DRIFT REPORT")
+
+    for name, seed in build_core_targets():
+        r = evaluate_dual_skeleton(*seed, max_steps=50000)
+
+        note = "NO CENTER ROOM"
+        if r["p22_max"] == 1:
+            note = "ONE-STEP CORRIDOR"
+        elif 2 <= r["p22_max"] < 100:
+            note = "METASTABLE SHORT CORRIDOR"
+        elif r["p22_max"] >= 100:
+            note = "LONG-LIVED CHAMBER CANDIDATE"
+
+        print(
+            f"{name:<32} | "
+            f"First22={r['first_22']} | "
+            f"P22Max={r['p22_max']} | "
+            f"P22Total={r['p22_total']} | "
+            f"Stable24={r['stable_24']} | "
+            f"Drift={r['drift']:+.3e} | "
+            f"Final={r['label']} | "
+            f"{note}"
+        )
+
+def run_multi_axis_perturbation_scan():
+    print(f"\n[{MOD_LABEL} ISSUE 2] MULTI-AXIS PERTURBATION SCAN")
+
+    modes = ["c_wedge", "a_wedge", "b_wedge", "all_wedge", "real_all", "imag_all"]
+    perturbations = [0.0, 1e-15, 1e-12, 1e-9, 1e-8]
+
+    for name, seed in build_core_targets()[:4]:
+        print(f"\nTarget: {name}")
+
+        for mode in modes:
+            for p in perturbations:
+                r = evaluate_dual_skeleton(
+                    *perturb_seed(seed, p, mode),
+                    max_steps=5000
+                )
+
+                print(
+                    f"{mode:<10} p={p:.1e} | "
+                    f"First22={r['first_22']} | "
+                    f"P22Max={r['p22_max']} | "
+                    f"Stable24={r['stable_24']} | "
+                    f"Trace={r['trace']:+.6f} | "
+                    f"Drift={r['drift']:+.3e}"
+                )
+
+def run_gamma_sweep():
+    print(f"\n[{MOD_LABEL} ISSUE 3] GAMMA / SCALE SWEEP")
+
+    for name, seed in build_core_targets()[:5]:
+        print(f"\nTarget: {name}")
+
+        for sc in [0.0, 0.01, 0.1, 0.5, 1.0, 2.0, 5.0]:
+            r = evaluate_dual_skeleton(*seed, max_steps=10000, scale=sc)
+
+            print(
+                f"scale={sc:<4} | "
+                f"First22={r['first_22']} | "
+                f"P22Max={r['p22_max']} | "
+                f"Stable24={r['stable_24']} | "
+                f"Trace={r['trace']:+.6f} | "
+                f"Ratio={r['ratio']:.4f} | "
+                f"Final={r['label']}"
+            )
+
+def run_constrained_submap_scan():
+    print(f"\n[{MOD_LABEL} ISSUE 4] CONSTRAINED SUBMAP / TRUE CHAMBER HUNT")
+
+    constraints = [
+        "none",
+        "force_equal_ab",
+        "force_conjugate_ac",
+        "force_phase120",
+        "force_diagonal",
+        "force_mirror_ac_z8"
+    ]
+
+    for name, seed in build_core_targets()[:5]:
+        print(f"\nTarget: {name}")
+
+        for con in constraints:
+            r = evaluate_dual_skeleton(*seed, max_steps=50000, constraint=con)
+
+            print(
+                f"{con:<20} | "
+                f"First22={r['first_22']} | "
+                f"P22Max={r['p22_max']} | "
+                f"P22Total={r['p22_total']} | "
+                f"P24Max={r['p24_max']} | "
+                f"Trace={r['trace']:+.6f} | "
+                f"Final={r['label']}"
+            )
+
+def run_random_basin_scan(samples=250, max_steps=5000, seed_value=1337):
+    print(f"\n[{MOD_LABEL} ISSUE 5] RANDOM BASIN COVERAGE SCAN")
+
+    rng = random.Random(seed_value)
+
+    p22_hits = 0
+    no_24 = 0
+    max_p22 = 0
+    best = None
+
+    mirror_total = {(0, 4): 0, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+
+    for i in range(samples):
+        seed = tuple(
+            complex(rng.uniform(0, MODULUS), rng.uniform(0, MODULUS))
+            for _ in range(3)
+        )
+
+        r = evaluate_dual_skeleton(*seed, max_steps=max_steps)
+
+        if r["p22_max"] > 0:
+            p22_hits += 1
+
+        if r["stable_24"] is None:
+            no_24 += 1
+
+        for k, v in r["mirror_counts"].items():
+            mirror_total[k] += v
+
+        if r["p22_max"] > max_p22:
+            max_p22 = r["p22_max"]
+            best = (i, seed, r)
+
+    print(f"Samples checked: {samples}")
+    print(f"P22 hits: {p22_hits}")
+    print(f"No stable [2+,4-,0^0] lock: {no_24}")
+    print(f"Max P22 observed: {max_p22}")
+    print(f"Aggregate Z8 mirror counts: {mirror_total}")
+
+    if best:
+        i, seed, r = best
+        print(f"Best candidate index={i} | seed={seed}")
+        print(
+            f"First22={r['first_22']} | "
+            f"P22Max={r['p22_max']} | "
+            f"Stable24={r['stable_24']} | "
+            f"Trace={r['trace']:+.6f} | "
+            f"Ratio={r['ratio']:.4f} | "
+            f"Final={r['label']}"
+        )
+
+# --- MASTER ------------------------------------------------------------------
+
+def execute_combined_z8_suite():
+    print("### 6-GEM MANIFOLD — Z8 MIRROR-STATE COMPARATIVE SUITE")
+    print("### MODULUS = 8.0")
+    print("### PURPOSE: compare original Z6 skeleton behavior against Z8 half-modulus mirror dynamics")
+
+    run_v5142_block()
+    run_center_dwell_report()
+    run_multi_axis_perturbation_scan()
+    run_gamma_sweep()
+    run_constrained_submap_scan()
+    run_random_basin_scan(samples=250, max_steps=5000)
+
+    print("\n[Z8 DECISION RULE]")
+    print("If [2+,4-,0^0] remains stable under Z8, the skeleton is modulus-robust.")
+    print("If [2+,2-,2^0] grows under Z8, the mirror-state lift creates a true center chamber.")
+    print("If mirror brackets distribute evenly, Z8 behaves as a balanced ignorance-state extension.")
+    print("If one mirror bracket dominates, Z8 introduces directional hidden-state bias.")
+    print("If Z8 destroys the Z6 lock, then the original 6-Gem signature is modulus-specific rather than universal.")
+
+if __name__ == "__main__":
+    execute_combined_z8_suite()
+
+#END OF 6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py
+
+===========================================================================
+===========================================================================
+
+==========#### LOGS 6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py LOGS ####=========
+
+
+### 6-GEM MANIFOLD — Z8 MIRROR-STATE COMPARATIVE SUITE
+### MODULUS = 8.0
+### PURPOSE: compare original Z6 skeleton behavior against Z8 half-modulus mirror dynamics
+
+=== Z8 V5.1.4.2 SOVEREIGN CLOSURE MATRIX ===
+
+[Z8 SOVEREIGN CLOSURE SCAN] Large Negative Real Scale (-10^6) | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.107534 | +1.193e-01 | {(0, 4): 1241, (1, 5): 1263, (2, 6): 1294, (3, 7): 1202}
+1.0e-12    | None     | 0       | 46       | +0.074283 | +1.408e-01 | {(0, 4): 1200, (1, 5): 1258, (2, 6): 1256, (3, 7): 1286}
+1.0e-09    | 4        | 2       | 15       | +0.037104 | +9.029e-02 | {(0, 4): 1264, (1, 5): 1221, (2, 6): 1259, (3, 7): 1256}
+1.0e-08    | 4        | 2       | 15       | +0.024278 | +6.311e-02 | {(0, 4): 1279, (1, 5): 1258, (2, 6): 1254, (3, 7): 1209}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.107534 | +1.193e-01 | {(0, 4): 1241, (1, 5): 1263, (2, 6): 1294, (3, 7): 1202}
+1.0e-12    | None     | 0       | 46       | +0.074283 | +1.408e-01 | {(0, 4): 1200, (1, 5): 1258, (2, 6): 1256, (3, 7): 1286}
+1.0e-09    | 4        | 2       | 15       | +0.037104 | +9.029e-02 | {(0, 4): 1264, (1, 5): 1221, (2, 6): 1259, (3, 7): 1256}
+1.0e-08    | 4        | 2       | 15       | +0.024278 | +6.311e-02 | {(0, 4): 1279, (1, 5): 1258, (2, 6): 1254, (3, 7): 1209}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.107534 | +1.193e-01 | {(0, 4): 1241, (1, 5): 1263, (2, 6): 1294, (3, 7): 1202}
+1.0e-12    | None     | 0       | 46       | +0.074283 | +1.408e-01 | {(0, 4): 1200, (1, 5): 1258, (2, 6): 1256, (3, 7): 1286}
+1.0e-09    | 4        | 2       | 15       | +0.037104 | +9.029e-02 | {(0, 4): 1264, (1, 5): 1221, (2, 6): 1259, (3, 7): 1256}
+1.0e-08    | 4        | 2       | 15       | +0.024278 | +6.311e-02 | {(0, 4): 1279, (1, 5): 1258, (2, 6): 1254, (3, 7): 1209}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.107534 | +1.193e-01 | {(0, 4): 1241, (1, 5): 1263, (2, 6): 1294, (3, 7): 1202}
+1.0e-12    | None     | 0       | 46       | +0.074283 | +1.408e-01 | {(0, 4): 1200, (1, 5): 1258, (2, 6): 1256, (3, 7): 1286}
+1.0e-09    | 4        | 2       | 15       | +0.037104 | +9.029e-02 | {(0, 4): 1264, (1, 5): 1221, (2, 6): 1259, (3, 7): 1256}
+1.0e-08    | 4        | 2       | 15       | +0.024278 | +6.311e-02 | {(0, 4): 1279, (1, 5): 1258, (2, 6): 1254, (3, 7): 1209}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Ultra Complex Float (10^6+i10^6) | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-12    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-09    | 4        | 2       | 15       | +0.034236 | +7.187e-02 | {(0, 4): 1266, (1, 5): 1261, (2, 6): 1238, (3, 7): 1235}
+1.0e-08    | 4        | 2       | 15       | +0.023134 | +5.044e-02 | {(0, 4): 1263, (1, 5): 1225, (2, 6): 1236, (3, 7): 1276}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-12    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-09    | 4        | 2       | 15       | +0.034236 | +7.187e-02 | {(0, 4): 1266, (1, 5): 1261, (2, 6): 1238, (3, 7): 1235}
+1.0e-08    | 4        | 2       | 15       | +0.023134 | +5.044e-02 | {(0, 4): 1263, (1, 5): 1225, (2, 6): 1236, (3, 7): 1276}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-12    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-09    | 4        | 2       | 15       | +0.034236 | +7.187e-02 | {(0, 4): 1266, (1, 5): 1261, (2, 6): 1238, (3, 7): 1235}
+1.0e-08    | 4        | 2       | 15       | +0.023134 | +5.044e-02 | {(0, 4): 1263, (1, 5): 1225, (2, 6): 1236, (3, 7): 1276}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-15    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-12    | None     | 0       | 47       | +0.002763 | +1.038e-03 | {(0, 4): 5000, (1, 5): 0, (2, 6): 0, (3, 7): 0}
+1.0e-09    | None     | 0       | 15       | +0.034236 | +7.187e-02 | {(0, 4): 1266, (1, 5): 1261, (2, 6): 1238, (3, 7): 1235}
+1.0e-08    | None     | 0       | 15       | +0.023134 | +5.044e-02 | {(0, 4): 1263, (1, 5): 1225, (2, 6): 1236, (3, 7): 1276}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Phase Ring 30 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000287 | +2.653e-03 | {(0, 4): 1214, (1, 5): 1242, (2, 6): 1272, (3, 7): 1272}
+1.0e-15    | 2        | 1       | 3        | -0.000906 | +2.653e-03 | {(0, 4): 1279, (1, 5): 1269, (2, 6): 1255, (3, 7): 1197}
+1.0e-12    | 2        | 1       | 3        | -0.000482 | +2.653e-03 | {(0, 4): 1258, (1, 5): 1262, (2, 6): 1239, (3, 7): 1241}
+1.0e-09    | 2        | 1       | 3        | -0.002774 | +2.653e-03 | {(0, 4): 1210, (1, 5): 1268, (2, 6): 1270, (3, 7): 1252}
+1.0e-08    | 2        | 1       | 3        | -0.001010 | +2.654e-03 | {(0, 4): 1209, (1, 5): 1273, (2, 6): 1245, (3, 7): 1273}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000287 | +2.653e-03 | {(0, 4): 1214, (1, 5): 1242, (2, 6): 1272, (3, 7): 1272}
+1.0e-15    | 2        | 1       | 3        | -0.000906 | +2.653e-03 | {(0, 4): 1279, (1, 5): 1269, (2, 6): 1255, (3, 7): 1197}
+1.0e-12    | 2        | 1       | 3        | -0.000482 | +2.653e-03 | {(0, 4): 1258, (1, 5): 1262, (2, 6): 1239, (3, 7): 1241}
+1.0e-09    | 2        | 1       | 3        | -0.002774 | +2.653e-03 | {(0, 4): 1210, (1, 5): 1268, (2, 6): 1270, (3, 7): 1252}
+1.0e-08    | 2        | 1       | 3        | -0.001010 | +2.654e-03 | {(0, 4): 1209, (1, 5): 1273, (2, 6): 1245, (3, 7): 1273}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000287 | +2.653e-03 | {(0, 4): 1214, (1, 5): 1242, (2, 6): 1272, (3, 7): 1272}
+1.0e-15    | 2        | 1       | 3        | -0.000906 | +2.653e-03 | {(0, 4): 1279, (1, 5): 1269, (2, 6): 1255, (3, 7): 1197}
+1.0e-12    | 2        | 1       | 3        | -0.000482 | +2.653e-03 | {(0, 4): 1258, (1, 5): 1262, (2, 6): 1239, (3, 7): 1241}
+1.0e-09    | 2        | 1       | 3        | -0.002774 | +2.653e-03 | {(0, 4): 1210, (1, 5): 1268, (2, 6): 1270, (3, 7): 1252}
+1.0e-08    | 2        | 1       | 3        | -0.001010 | +2.654e-03 | {(0, 4): 1209, (1, 5): 1273, (2, 6): 1245, (3, 7): 1273}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000287 | +2.653e-03 | {(0, 4): 1214, (1, 5): 1242, (2, 6): 1272, (3, 7): 1272}
+1.0e-15    | 2        | 1       | 3        | -0.000906 | +2.653e-03 | {(0, 4): 1279, (1, 5): 1269, (2, 6): 1255, (3, 7): 1197}
+1.0e-12    | 2        | 1       | 3        | -0.000482 | +2.653e-03 | {(0, 4): 1258, (1, 5): 1262, (2, 6): 1239, (3, 7): 1241}
+1.0e-09    | 2        | 1       | 3        | -0.002774 | +2.653e-03 | {(0, 4): 1210, (1, 5): 1268, (2, 6): 1270, (3, 7): 1252}
+1.0e-08    | 2        | 1       | 3        | -0.001010 | +2.654e-03 | {(0, 4): 1209, (1, 5): 1273, (2, 6): 1245, (3, 7): 1273}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Phase Ring 45 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000907 | +2.684e-03 | {(0, 4): 1266, (1, 5): 1243, (2, 6): 1242, (3, 7): 1249}
+1.0e-15    | 2        | 1       | 3        | -0.001231 | +2.684e-03 | {(0, 4): 1235, (1, 5): 1204, (2, 6): 1259, (3, 7): 1302}
+1.0e-12    | 2        | 1       | 3        | -0.003192 | +2.683e-03 | {(0, 4): 1255, (1, 5): 1239, (2, 6): 1243, (3, 7): 1263}
+1.0e-09    | 2        | 1       | 3        | -0.000090 | +2.633e-03 | {(0, 4): 1210, (1, 5): 1292, (2, 6): 1274, (3, 7): 1224}
+1.0e-08    | 2        | 1       | 3        | +0.000605 | +2.642e-03 | {(0, 4): 1284, (1, 5): 1263, (2, 6): 1218, (3, 7): 1235}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000907 | +2.684e-03 | {(0, 4): 1266, (1, 5): 1243, (2, 6): 1242, (3, 7): 1249}
+1.0e-15    | 2        | 1       | 3        | -0.001231 | +2.684e-03 | {(0, 4): 1235, (1, 5): 1204, (2, 6): 1259, (3, 7): 1302}
+1.0e-12    | 2        | 1       | 3        | -0.003192 | +2.683e-03 | {(0, 4): 1255, (1, 5): 1239, (2, 6): 1243, (3, 7): 1263}
+1.0e-09    | 2        | 1       | 3        | -0.000090 | +2.633e-03 | {(0, 4): 1210, (1, 5): 1292, (2, 6): 1274, (3, 7): 1224}
+1.0e-08    | 2        | 1       | 3        | +0.000605 | +2.642e-03 | {(0, 4): 1284, (1, 5): 1263, (2, 6): 1218, (3, 7): 1235}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000907 | +2.684e-03 | {(0, 4): 1266, (1, 5): 1243, (2, 6): 1242, (3, 7): 1249}
+1.0e-15    | 2        | 1       | 3        | -0.001231 | +2.684e-03 | {(0, 4): 1235, (1, 5): 1204, (2, 6): 1259, (3, 7): 1302}
+1.0e-12    | 2        | 1       | 3        | -0.003192 | +2.683e-03 | {(0, 4): 1255, (1, 5): 1239, (2, 6): 1243, (3, 7): 1263}
+1.0e-09    | 2        | 1       | 3        | -0.000090 | +2.633e-03 | {(0, 4): 1210, (1, 5): 1292, (2, 6): 1274, (3, 7): 1224}
+1.0e-08    | 2        | 1       | 3        | +0.000605 | +2.642e-03 | {(0, 4): 1284, (1, 5): 1263, (2, 6): 1218, (3, 7): 1235}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.000907 | +2.684e-03 | {(0, 4): 1266, (1, 5): 1243, (2, 6): 1242, (3, 7): 1249}
+1.0e-15    | 2        | 1       | 3        | -0.001231 | +2.684e-03 | {(0, 4): 1235, (1, 5): 1204, (2, 6): 1259, (3, 7): 1302}
+1.0e-12    | 2        | 1       | 3        | -0.003192 | +2.683e-03 | {(0, 4): 1255, (1, 5): 1239, (2, 6): 1243, (3, 7): 1263}
+1.0e-09    | 2        | 1       | 3        | -0.000090 | +2.633e-03 | {(0, 4): 1210, (1, 5): 1292, (2, 6): 1274, (3, 7): 1224}
+1.0e-08    | 2        | 1       | 3        | +0.000605 | +2.642e-03 | {(0, 4): 1284, (1, 5): 1263, (2, 6): 1218, (3, 7): 1235}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Phase Ring 90 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003644 | +2.642e-03 | {(0, 4): 1242, (1, 5): 1278, (2, 6): 1219, (3, 7): 1261}
+1.0e-15    | 2        | 1       | 3        | +0.001117 | +2.642e-03 | {(0, 4): 1288, (1, 5): 1268, (2, 6): 1198, (3, 7): 1246}
+1.0e-12    | 2        | 1       | 3        | -0.002612 | +2.642e-03 | {(0, 4): 1211, (1, 5): 1267, (2, 6): 1241, (3, 7): 1281}
+1.0e-09    | 2        | 1       | 3        | -0.001135 | +2.643e-03 | {(0, 4): 1296, (1, 5): 1247, (2, 6): 1217, (3, 7): 1240}
+1.0e-08    | 2        | 1       | 3        | -0.001303 | +2.649e-03 | {(0, 4): 1287, (1, 5): 1257, (2, 6): 1192, (3, 7): 1264}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003644 | +2.642e-03 | {(0, 4): 1242, (1, 5): 1278, (2, 6): 1219, (3, 7): 1261}
+1.0e-15    | 2        | 1       | 3        | +0.001117 | +2.642e-03 | {(0, 4): 1288, (1, 5): 1268, (2, 6): 1198, (3, 7): 1246}
+1.0e-12    | 2        | 1       | 3        | -0.002612 | +2.642e-03 | {(0, 4): 1211, (1, 5): 1267, (2, 6): 1241, (3, 7): 1281}
+1.0e-09    | 2        | 1       | 3        | -0.001135 | +2.643e-03 | {(0, 4): 1296, (1, 5): 1247, (2, 6): 1217, (3, 7): 1240}
+1.0e-08    | 2        | 1       | 3        | -0.001303 | +2.649e-03 | {(0, 4): 1287, (1, 5): 1257, (2, 6): 1192, (3, 7): 1264}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003644 | +2.642e-03 | {(0, 4): 1242, (1, 5): 1278, (2, 6): 1219, (3, 7): 1261}
+1.0e-15    | 2        | 1       | 3        | +0.001117 | +2.642e-03 | {(0, 4): 1288, (1, 5): 1268, (2, 6): 1198, (3, 7): 1246}
+1.0e-12    | 2        | 1       | 3        | -0.002612 | +2.642e-03 | {(0, 4): 1211, (1, 5): 1267, (2, 6): 1241, (3, 7): 1281}
+1.0e-09    | 2        | 1       | 3        | -0.001135 | +2.643e-03 | {(0, 4): 1296, (1, 5): 1247, (2, 6): 1217, (3, 7): 1240}
+1.0e-08    | 2        | 1       | 3        | -0.001303 | +2.649e-03 | {(0, 4): 1287, (1, 5): 1257, (2, 6): 1192, (3, 7): 1264}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.003644 | +2.642e-03 | {(0, 4): 1242, (1, 5): 1278, (2, 6): 1219, (3, 7): 1261}
+1.0e-15    | 2        | 1       | 3        | +0.001117 | +2.642e-03 | {(0, 4): 1288, (1, 5): 1268, (2, 6): 1198, (3, 7): 1246}
+1.0e-12    | 2        | 1       | 3        | -0.002612 | +2.642e-03 | {(0, 4): 1211, (1, 5): 1267, (2, 6): 1241, (3, 7): 1281}
+1.0e-09    | 2        | 1       | 3        | -0.001135 | +2.643e-03 | {(0, 4): 1296, (1, 5): 1247, (2, 6): 1217, (3, 7): 1240}
+1.0e-08    | 2        | 1       | 3        | -0.001303 | +2.649e-03 | {(0, 4): 1287, (1, 5): 1257, (2, 6): 1192, (3, 7): 1264}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Phase Ring 120 | Steps=5000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001715 | +2.653e-03 | {(0, 4): 1229, (1, 5): 1287, (2, 6): 1239, (3, 7): 1245}
+1.0e-15    | 2        | 1       | 3        | -0.000465 | +2.653e-03 | {(0, 4): 1291, (1, 5): 1223, (2, 6): 1259, (3, 7): 1227}
+1.0e-12    | 2        | 1       | 3        | +0.002267 | +2.653e-03 | {(0, 4): 1215, (1, 5): 1239, (2, 6): 1281, (3, 7): 1265}
+1.0e-09    | 2        | 1       | 3        | +0.001206 | +2.649e-03 | {(0, 4): 1254, (1, 5): 1253, (2, 6): 1266, (3, 7): 1227}
+1.0e-08    | 2        | 1       | 3        | +0.002738 | +2.693e-03 | {(0, 4): 1234, (1, 5): 1270, (2, 6): 1265, (3, 7): 1231}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001715 | +2.653e-03 | {(0, 4): 1229, (1, 5): 1287, (2, 6): 1239, (3, 7): 1245}
+1.0e-15    | 2        | 1       | 3        | -0.000465 | +2.653e-03 | {(0, 4): 1291, (1, 5): 1223, (2, 6): 1259, (3, 7): 1227}
+1.0e-12    | 2        | 1       | 3        | +0.002267 | +2.653e-03 | {(0, 4): 1215, (1, 5): 1239, (2, 6): 1281, (3, 7): 1265}
+1.0e-09    | 2        | 1       | 3        | +0.001206 | +2.649e-03 | {(0, 4): 1254, (1, 5): 1253, (2, 6): 1266, (3, 7): 1227}
+1.0e-08    | 2        | 1       | 3        | +0.002738 | +2.693e-03 | {(0, 4): 1234, (1, 5): 1270, (2, 6): 1265, (3, 7): 1231}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001715 | +2.653e-03 | {(0, 4): 1229, (1, 5): 1287, (2, 6): 1239, (3, 7): 1245}
+1.0e-15    | 2        | 1       | 3        | -0.000465 | +2.653e-03 | {(0, 4): 1291, (1, 5): 1223, (2, 6): 1259, (3, 7): 1227}
+1.0e-12    | 2        | 1       | 3        | +0.002267 | +2.653e-03 | {(0, 4): 1215, (1, 5): 1239, (2, 6): 1281, (3, 7): 1265}
+1.0e-09    | 2        | 1       | 3        | +0.001206 | +2.649e-03 | {(0, 4): 1254, (1, 5): 1253, (2, 6): 1266, (3, 7): 1227}
+1.0e-08    | 2        | 1       | 3        | +0.002738 | +2.693e-03 | {(0, 4): 1234, (1, 5): 1270, (2, 6): 1265, (3, 7): 1231}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001715 | +2.653e-03 | {(0, 4): 1229, (1, 5): 1287, (2, 6): 1239, (3, 7): 1245}
+1.0e-15    | 2        | 1       | 3        | -0.000465 | +2.653e-03 | {(0, 4): 1291, (1, 5): 1223, (2, 6): 1259, (3, 7): 1227}
+1.0e-12    | 2        | 1       | 3        | +0.002267 | +2.653e-03 | {(0, 4): 1215, (1, 5): 1239, (2, 6): 1281, (3, 7): 1265}
+1.0e-09    | 2        | 1       | 3        | +0.001206 | +2.649e-03 | {(0, 4): 1254, (1, 5): 1253, (2, 6): 1266, (3, 7): 1227}
+1.0e-08    | 2        | 1       | 3        | +0.002738 | +2.693e-03 | {(0, 4): 1234, (1, 5): 1270, (2, 6): 1265, (3, 7): 1231}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Deep Golden Diagonal | Steps=100000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 19       | +0.026136 | +3.990e-03 | {(0, 4): 25101, (1, 5): 24782, (2, 6): 25110, (3, 7): 25007}
+1.0e-15    | 25       | 2       | 40       | +0.004490 | +1.188e-01 | {(0, 4): 25035, (1, 5): 25238, (2, 6): 24894, (3, 7): 24833}
+1.0e-12    | None     | 0       | 41       | +0.002233 | +1.410e-01 | {(0, 4): 24982, (1, 5): 25084, (2, 6): 25116, (3, 7): 24818}
+1.0e-09    | None     | 0       | 24       | +0.000217 | +8.934e-02 | {(0, 4): 25030, (1, 5): 25070, (2, 6): 25117, (3, 7): 24783}
+1.0e-08    | None     | 0       | 24       | +0.000125 | +5.972e-02 | {(0, 4): 24854, (1, 5): 25042, (2, 6): 25220, (3, 7): 24884}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 19       | +0.026136 | +3.990e-03 | {(0, 4): 25101, (1, 5): 24782, (2, 6): 25110, (3, 7): 25007}
+1.0e-15    | 25       | 2       | 38       | +0.004490 | +1.188e-01 | {(0, 4): 25035, (1, 5): 25238, (2, 6): 24894, (3, 7): 24833}
+1.0e-12    | None     | 0       | 41       | +0.002233 | +1.410e-01 | {(0, 4): 24982, (1, 5): 25084, (2, 6): 25116, (3, 7): 24818}
+1.0e-09    | None     | 0       | 24       | +0.000217 | +8.934e-02 | {(0, 4): 25030, (1, 5): 25070, (2, 6): 25117, (3, 7): 24783}
+1.0e-08    | None     | 0       | 24       | +0.000125 | +5.972e-02 | {(0, 4): 24854, (1, 5): 25042, (2, 6): 25220, (3, 7): 24884}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 19       | +0.026136 | +3.990e-03 | {(0, 4): 25101, (1, 5): 24782, (2, 6): 25110, (3, 7): 25007}
+1.0e-15    | 25       | 2       | 38       | +0.004490 | +1.188e-01 | {(0, 4): 25035, (1, 5): 25238, (2, 6): 24894, (3, 7): 24833}
+1.0e-12    | None     | 0       | 41       | +0.002233 | +1.410e-01 | {(0, 4): 24982, (1, 5): 25084, (2, 6): 25116, (3, 7): 24818}
+1.0e-09    | None     | 0       | 24       | +0.000217 | +8.934e-02 | {(0, 4): 25030, (1, 5): 25070, (2, 6): 25117, (3, 7): 24783}
+1.0e-08    | None     | 0       | 24       | +0.000125 | +5.972e-02 | {(0, 4): 24854, (1, 5): 25042, (2, 6): 25220, (3, 7): 24884}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | None     | 0       | 19       | +0.026136 | +3.990e-03 | {(0, 4): 25101, (1, 5): 24782, (2, 6): 25110, (3, 7): 25007}
+1.0e-15    | 25       | 2       | 38       | +0.004490 | +1.188e-01 | {(0, 4): 25035, (1, 5): 25238, (2, 6): 24894, (3, 7): 24833}
+1.0e-12    | None     | 0       | 41       | +0.002233 | +1.410e-01 | {(0, 4): 24982, (1, 5): 25084, (2, 6): 25116, (3, 7): 24818}
+1.0e-09    | None     | 0       | 24       | +0.000217 | +8.934e-02 | {(0, 4): 25030, (1, 5): 25070, (2, 6): 25117, (3, 7): 24783}
+1.0e-08    | None     | 0       | 24       | +0.000125 | +5.972e-02 | {(0, 4): 24854, (1, 5): 25042, (2, 6): 25220, (3, 7): 24884}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Deep Cubic Roots Phase | Steps=100000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001856 | +2.653e-03 | {(0, 4): 25275, (1, 5): 24922, (2, 6): 24713, (3, 7): 25090}
+1.0e-15    | 2        | 1       | 3        | -0.001137 | +2.653e-03 | {(0, 4): 24959, (1, 5): 24874, (2, 6): 24974, (3, 7): 25193}
+1.0e-12    | 2        | 1       | 3        | -0.001487 | +2.653e-03 | {(0, 4): 25064, (1, 5): 24997, (2, 6): 24777, (3, 7): 25162}
+1.0e-09    | 2        | 1       | 3        | -0.001905 | +2.649e-03 | {(0, 4): 25106, (1, 5): 25035, (2, 6): 24996, (3, 7): 24863}
+1.0e-08    | 2        | 1       | 3        | -0.001557 | +2.693e-03 | {(0, 4): 24863, (1, 5): 24766, (2, 6): 25258, (3, 7): 25113}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001856 | +2.653e-03 | {(0, 4): 25275, (1, 5): 24922, (2, 6): 24713, (3, 7): 25090}
+1.0e-15    | 2        | 1       | 3        | -0.001137 | +2.653e-03 | {(0, 4): 24959, (1, 5): 24874, (2, 6): 24974, (3, 7): 25193}
+1.0e-12    | 2        | 1       | 3        | -0.001487 | +2.653e-03 | {(0, 4): 25064, (1, 5): 24997, (2, 6): 24777, (3, 7): 25162}
+1.0e-09    | 2        | 1       | 3        | -0.001905 | +2.649e-03 | {(0, 4): 25106, (1, 5): 25035, (2, 6): 24996, (3, 7): 24863}
+1.0e-08    | 2        | 1       | 3        | -0.001557 | +2.693e-03 | {(0, 4): 24863, (1, 5): 24766, (2, 6): 25258, (3, 7): 25113}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001856 | +2.653e-03 | {(0, 4): 25275, (1, 5): 24922, (2, 6): 24713, (3, 7): 25090}
+1.0e-15    | 2        | 1       | 3        | -0.001137 | +2.653e-03 | {(0, 4): 24959, (1, 5): 24874, (2, 6): 24974, (3, 7): 25193}
+1.0e-12    | 2        | 1       | 3        | -0.001487 | +2.653e-03 | {(0, 4): 25064, (1, 5): 24997, (2, 6): 24777, (3, 7): 25162}
+1.0e-09    | 2        | 1       | 3        | -0.001905 | +2.649e-03 | {(0, 4): 25106, (1, 5): 25035, (2, 6): 24996, (3, 7): 24863}
+1.0e-08    | 2        | 1       | 3        | -0.001557 | +2.693e-03 | {(0, 4): 24863, (1, 5): 24766, (2, 6): 25258, (3, 7): 25113}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001856 | +2.653e-03 | {(0, 4): 25275, (1, 5): 24922, (2, 6): 24713, (3, 7): 25090}
+1.0e-15    | 2        | 1       | 3        | -0.001137 | +2.653e-03 | {(0, 4): 24959, (1, 5): 24874, (2, 6): 24974, (3, 7): 25193}
+1.0e-12    | 2        | 1       | 3        | -0.001487 | +2.653e-03 | {(0, 4): 25064, (1, 5): 24997, (2, 6): 24777, (3, 7): 25162}
+1.0e-09    | 2        | 1       | 3        | -0.001905 | +2.649e-03 | {(0, 4): 25106, (1, 5): 25035, (2, 6): 24996, (3, 7): 24863}
+1.0e-08    | 2        | 1       | 3        | -0.001557 | +2.693e-03 | {(0, 4): 24863, (1, 5): 24766, (2, 6): 25258, (3, 7): 25113}
+
+[Z8 SOVEREIGN CLOSURE SCAN] Deep Phase Ring 180 | Steps=100000
+
+Threshold=1e-03
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001349 | +2.667e-03 | {(0, 4): 24891, (1, 5): 24956, (2, 6): 25083, (3, 7): 25070}
+1.0e-15    | 2        | 1       | 3        | -0.001906 | +2.667e-03 | {(0, 4): 24900, (1, 5): 24983, (2, 6): 24839, (3, 7): 25278}
+1.0e-12    | 2        | 1       | 3        | -0.001160 | +2.667e-03 | {(0, 4): 24942, (1, 5): 24877, (2, 6): 25051, (3, 7): 25130}
+1.0e-09    | 2        | 1       | 3        | -0.001921 | +1.256e-03 | {(0, 4): 24933, (1, 5): 24972, (2, 6): 24989, (3, 7): 25106}
+1.0e-08    | 2        | 1       | 3        | -0.001452 | +1.256e-03 | {(0, 4): 24862, (1, 5): 24813, (2, 6): 25245, (3, 7): 25080}
+
+Threshold=1e-04
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001349 | +2.667e-03 | {(0, 4): 24891, (1, 5): 24956, (2, 6): 25083, (3, 7): 25070}
+1.0e-15    | 2        | 1       | 3        | -0.001906 | +2.667e-03 | {(0, 4): 24900, (1, 5): 24983, (2, 6): 24839, (3, 7): 25278}
+1.0e-12    | 2        | 1       | 3        | -0.001160 | +2.667e-03 | {(0, 4): 24942, (1, 5): 24877, (2, 6): 25051, (3, 7): 25130}
+1.0e-09    | 2        | 1       | 3        | -0.001921 | +1.256e-03 | {(0, 4): 24933, (1, 5): 24972, (2, 6): 24989, (3, 7): 25106}
+1.0e-08    | 2        | 1       | 3        | -0.001452 | +1.256e-03 | {(0, 4): 24862, (1, 5): 24813, (2, 6): 25245, (3, 7): 25080}
+
+Threshold=1e-05
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001349 | +2.667e-03 | {(0, 4): 24891, (1, 5): 24956, (2, 6): 25083, (3, 7): 25070}
+1.0e-15    | 2        | 1       | 3        | -0.001906 | +2.667e-03 | {(0, 4): 24900, (1, 5): 24983, (2, 6): 24839, (3, 7): 25278}
+1.0e-12    | 2        | 1       | 3        | -0.001160 | +2.667e-03 | {(0, 4): 24942, (1, 5): 24877, (2, 6): 25051, (3, 7): 25130}
+1.0e-09    | 2        | 1       | 3        | -0.001921 | +1.256e-03 | {(0, 4): 24933, (1, 5): 24972, (2, 6): 24989, (3, 7): 25106}
+1.0e-08    | 2        | 1       | 3        | -0.001452 | +1.256e-03 | {(0, 4): 24862, (1, 5): 24813, (2, 6): 25245, (3, 7): 25080}
+
+Threshold=1e-06
+Pert       | First22  | P22Max  | Stable24 | Trace      | Drift | MirrorCounts
+0.0e+00    | 2        | 1       | 3        | -0.001349 | +2.667e-03 | {(0, 4): 24891, (1, 5): 24956, (2, 6): 25083, (3, 7): 25070}
+1.0e-15    | 2        | 1       | 3        | -0.001906 | +2.667e-03 | {(0, 4): 24900, (1, 5): 24983, (2, 6): 24839, (3, 7): 25278}
+1.0e-12    | 2        | 1       | 3        | -0.001160 | +2.667e-03 | {(0, 4): 24942, (1, 5): 24877, (2, 6): 25051, (3, 7): 25130}
+1.0e-09    | 2        | 1       | 3        | -0.001921 | +1.256e-03 | {(0, 4): 24933, (1, 5): 24972, (2, 6): 24989, (3, 7): 25106}
+1.0e-08    | 2        | 1       | 3        | -0.001452 | +1.256e-03 | {(0, 4): 24862, (1, 5): 24813, (2, 6): 25245, (3, 7): 25080}
+
+[Z8 ISSUE 1] CENTER DWELL / DRIFT REPORT
+Golden Diagonal                  | First22=None | P22Max=0 | P22Total=0 | Stable24=19 | Drift=+3.990e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Cubic Roots Phase                | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.653e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Quarter Roots Phase              | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.642e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Phase Ring 180                   | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.667e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+Large +1e6                       | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Large -1e6                       | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Ultra Complex 1e6+i1e6           | First22=None | P22Max=0 | P22Total=0 | Stable24=47 | Drift=+1.038e-03 | Final=[2+,4-,0^0] | NO CENTER ROOM
+Boundary Edge 7.9999+i7.9999     | First22=2 | P22Max=1 | P22Total=1 | Stable24=3 | Drift=+2.525e-03 | Final=[2+,4-,0^0] | ONE-STEP CORRIDOR
+
+[Z8 ISSUE 2] MULTI-AXIS PERTURBATION SCAN
+
+Target: Golden Diagonal
+c_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+c_wedge    p=1.0e-15 | First22=25 | P22Max=2 | Stable24=38 | Trace=+0.108165 | Drift=+1.188e-01
+c_wedge    p=1.0e-12 | First22=None | P22Max=0 | Stable24=41 | Trace=+0.071358 | Drift=+1.410e-01
+c_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.038947 | Drift=+8.934e-02
+c_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.026134 | Drift=+5.972e-02
+a_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+a_wedge    p=1.0e-15 | First22=25 | P22Max=2 | Stable24=38 | Trace=+0.113120 | Drift=+1.115e-01
+a_wedge    p=1.0e-12 | First22=None | P22Max=0 | Stable24=40 | Trace=+0.076897 | Drift=+1.404e-01
+a_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.041647 | Drift=+1.003e-01
+a_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.028377 | Drift=+6.192e-02
+b_wedge    p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+b_wedge    p=1.0e-15 | First22=25 | P22Max=2 | Stable24=38 | Trace=+0.109799 | Drift=+1.188e-01
+b_wedge    p=1.0e-12 | First22=None | P22Max=0 | Stable24=41 | Trace=+0.074337 | Drift=+1.410e-01
+b_wedge    p=1.0e-09 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.038289 | Drift=+8.932e-02
+b_wedge    p=1.0e-08 | First22=None | P22Max=0 | Stable24=24 | Trace=+0.027102 | Drift=+5.971e-02
+all_wedge  p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+all_wedge  p=1.0e-15 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.001105 | Drift=+3.990e-03
+all_wedge  p=1.0e-12 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.002289 | Drift=+3.989e-03
+all_wedge  p=1.0e-09 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.001214 | Drift=+3.987e-03
+all_wedge  p=1.0e-08 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.001614 | Drift=+3.907e-03
+real_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+real_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.019453 | Drift=+3.990e-03
+real_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.022316 | Drift=+3.990e-03
+real_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.018115 | Drift=+3.989e-03
+real_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.015871 | Drift=+3.045e-03
+imag_all   p=0.0e+00 | First22=None | P22Max=0 | Stable24=19 | Trace=+0.027563 | Drift=+3.990e-03
+imag_all   p=1.0e-15 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.000100 | Drift=+3.990e-03
+imag_all   p=1.0e-12 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.000276 | Drift=+3.990e-03
+imag_all   p=1.0e-09 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.000946 | Drift=+3.989e-03
+imag_all   p=1.0e-08 | First22=None | P22Max=0 | Stable24=19 | Trace=-0.000936 | Drift=+3.623e-03
+
+Target: Cubic Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000465 | Drift=+2.653e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002267 | Drift=+2.653e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001206 | Drift=+2.649e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002738 | Drift=+2.693e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001249 | Drift=+2.653e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001898 | Drift=+2.652e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000203 | Drift=+2.651e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000514 | Drift=+2.641e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001373 | Drift=+2.653e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002886 | Drift=+2.651e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002838 | Drift=+2.656e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002820 | Drift=+2.818e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000759 | Drift=+2.653e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000192 | Drift=+2.653e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003344 | Drift=+2.652e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001319 | Drift=+2.645e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001584 | Drift=+2.653e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000671 | Drift=+2.652e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001995 | Drift=+2.651e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.004014 | Drift=+2.644e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001715 | Drift=+2.653e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000882 | Drift=+2.653e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000202 | Drift=+2.653e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002130 | Drift=+2.687e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000892 | Drift=+2.661e-03
+
+Target: Quarter Roots Phase
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001117 | Drift=+2.642e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002612 | Drift=+2.642e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001135 | Drift=+2.643e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001303 | Drift=+2.649e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000317 | Drift=+2.642e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000384 | Drift=+2.642e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.004789 | Drift=+2.642e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002350 | Drift=+2.653e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000676 | Drift=+2.642e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000038 | Drift=+2.642e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003389 | Drift=+2.746e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001104 | Drift=+2.648e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001120 | Drift=+2.642e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003554 | Drift=+2.642e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002684 | Drift=+2.771e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003457 | Drift=+2.647e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001818 | Drift=+2.642e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002222 | Drift=+2.642e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000133 | Drift=+2.642e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003085 | Drift=+2.642e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003644 | Drift=+2.642e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001193 | Drift=+2.642e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002291 | Drift=+2.642e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002381 | Drift=+2.640e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002110 | Drift=+2.644e-03
+
+Target: Phase Ring 180
+c_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+c_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000308 | Drift=+2.667e-03
+c_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.002304 | Drift=+2.667e-03
+c_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000122 | Drift=+1.256e-03
+c_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001625 | Drift=+1.256e-03
+a_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+a_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001027 | Drift=+2.667e-03
+a_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002041 | Drift=+2.666e-03
+a_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001480 | Drift=+1.256e-03
+a_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000955 | Drift=+1.256e-03
+b_wedge    p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+b_wedge    p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000096 | Drift=+2.667e-03
+b_wedge    p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000333 | Drift=+2.622e-03
+b_wedge    p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001060 | Drift=+2.676e-03
+b_wedge    p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003800 | Drift=+1.263e-03
+all_wedge  p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+all_wedge  p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000321 | Drift=+2.667e-03
+all_wedge  p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002972 | Drift=+2.667e-03
+all_wedge  p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000416 | Drift=+1.234e-03
+all_wedge  p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002294 | Drift=+1.256e-03
+real_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+real_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000154 | Drift=+2.667e-03
+real_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000683 | Drift=+2.667e-03
+real_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000936 | Drift=+2.667e-03
+real_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001180 | Drift=+2.666e-03
+imag_all   p=0.0e+00 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001013 | Drift=+2.667e-03
+imag_all   p=1.0e-15 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001286 | Drift=+2.667e-03
+imag_all   p=1.0e-12 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003978 | Drift=+2.667e-03
+imag_all   p=1.0e-09 | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000481 | Drift=+2.667e-03
+imag_all   p=1.0e-08 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000004 | Drift=+2.667e-03
+
+[Z8 ISSUE 3] GAMMA / SCALE SWEEP
+
+Target: Golden Diagonal
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.009920 | Ratio=1.9838 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=5 | Trace=-0.058008 | Ratio=1.9086 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=7 | Trace=+0.012884 | Ratio=2.0216 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=19 | Trace=+0.033280 | Ratio=2.0561 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=15 | Trace=+0.031841 | Ratio=2.0536 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=14 | Trace=+0.043857 | Ratio=2.0740 | Final=[2+,4-,0^0]
+
+Target: Cubic Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.001589 | Ratio=2.0026 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008771 | Ratio=1.9857 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008317 | Ratio=1.9864 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.003178 | Ratio=1.9948 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001968 | Ratio=1.9968 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000215 | Ratio=2.0004 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000405 | Ratio=1.9993 | Final=[2+,4-,0^0]
+
+Target: Quarter Roots Phase
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008019 | Ratio=1.9869 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.008411 | Ratio=1.9863 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001408 | Ratio=1.9977 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001703 | Ratio=1.9972 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001724 | Ratio=1.9972 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000144 | Ratio=1.9998 | Final=[2+,4-,0^0]
+
+Target: Phase Ring 180
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.006461 | Ratio=1.9894 | Final=[2+,4-,0^0]
+scale=0.1  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.009206 | Ratio=1.9850 | Final=[2+,4-,0^0]
+scale=0.5  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001698 | Ratio=1.9972 | Final=[2+,4-,0^0]
+scale=1.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.000502 | Ratio=1.9992 | Final=[2+,4-,0^0]
+scale=2.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=-0.001547 | Ratio=1.9975 | Final=[2+,4-,0^0]
+scale=5.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000685 | Ratio=2.0011 | Final=[2+,4-,0^0]
+
+Target: Large +1e6
+scale=0.0  | First22=2 | P22Max=1 | Stable24=3 | Trace=+0.000000 | Ratio=2.0000 | Final=[2+,4-,0^0]
+scale=0.01 | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+scale=0.1  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+scale=0.5  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+scale=1.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+scale=2.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+scale=5.0  | First22=None | P22Max=0 | Stable24=47 | Trace=+0.001382 | Ratio=2.0023 | Final=[2+,4-,0^0]
+
+[Z8 ISSUE 4] CONSTRAINED SUBMAP / TRUE CHAMBER HUNT
+
+Target: Golden Diagonal
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=49982 | Trace=+0.029006 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=50000 | P22Total=50000 | P24Max=0 | Trace=+0.000014 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_mirror_ac_z8   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+
+Target: Cubic Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=49998 | Trace=-0.001316 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=50000 | P22Total=50000 | P24Max=0 | Trace=+0.000014 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_mirror_ac_z8   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+
+Target: Quarter Roots Phase
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=49998 | Trace=-0.001508 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=50000 | P22Total=50000 | P24Max=0 | Trace=+0.000014 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_mirror_ac_z8   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+
+Target: Phase Ring 180
+none                 | First22=2 | P22Max=1 | P22Total=1 | P24Max=49998 | Trace=-0.001558 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=50000 | P22Total=50000 | P24Max=0 | Trace=+0.000014 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_mirror_ac_z8   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+
+Target: Large +1e6
+none                 | First22=None | P22Max=0 | P22Total=0 | P24Max=49954 | Trace=+0.000276 | Final=[2+,4-,0^0]
+force_equal_ab       | First22=1 | P22Max=50000 | P22Total=50000 | P24Max=0 | Trace=+0.000029 | Final=[2+,2-,2^0]
+force_conjugate_ac   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000029 | Final=[0+,0-,6^0]
+force_phase120       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000022 | Final=[0+,0-,6^0]
+force_diagonal       | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000030 | Final=[0+,0-,6^0]
+force_mirror_ac_z8   | First22=None | P22Max=0 | P22Total=0 | P24Max=0 | Trace=+0.000014 | Final=[0+,0-,6^0]
+
+[Z8 ISSUE 5] RANDOM BASIN COVERAGE SCAN
+Samples checked: 250
+P22 hits: 248
+No stable [2+,4-,0^0] lock: 0
+Max P22 observed: 1
+Aggregate Z8 mirror counts: {(0, 4): 312182, (1, 5): 312151, (2, 6): 313281, (3, 7): 312386}
+Best candidate index=0 | seed=((4.942022855611765+4.266124588840007j), (2.9267868739950043+4.686298831218172j), (1.3254982695102466+6.5949899752610515j))
+First22=2 | P22Max=1 | Stable24=3 | Trace=-0.002476 | Ratio=1.9959 | Final=[2+,4-,0^0]
+
+[Z8 DECISION RULE]
+If [2+,4-,0^0] remains stable under Z8, the skeleton is modulus-robust.
+If [2+,2-,2^0] grows under Z8, the mirror-state lift creates a true center chamber.
+If mirror brackets distribute evenly, Z8 behaves as a balanced ignorance-state extension.
+If one mirror bracket dominates, Z8 introduces directional hidden-state bias.
+If Z8 destroys the Z6 lock, then the original 6-Gem signature is modulus-specific rather than universal.
+
+
+===========================================================================
+#END OF LOGS 6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py LOGS
+===========================================================================
+
+===========================#### OBSERVATIONS ####==========================
+
+The Z₈ mirror-state comparative suite does not break the 6-Gem spectral skeleton. Across sovereign closure scans, perturbation scans, gamma sweeps, constrained submaps, and random basin coverage, the free-map system repeatedly returns to the dominant final signature:
+
+[2+,4-,0^0]
+
+This means the original [2-expanding, 4-contracting] structure is not merely a Z₆ artifact. When lifted into a Z₈ Gaussian torus with mirror-state brackets, the skeleton remains stable.
+
+The center-channel candidate [2+,2-,2^0] appears only as a transient corridor in the free map. In most phase-ring and random-basin cases, P22Max = 1, meaning the center state appears for a single step and then collapses back into the dominant [2+,4-,0^0] regime. The only long-lived [2+,2-,2^0] chamber occurs under the artificial force_equal_ab constraint, which means it is a constructed submap, not a natural free-map attractor.
+
+The mirror-state counts are also decisive. In random basin coverage, the aggregate Z₈ mirror brackets were nearly perfectly balanced:
+
+(0,4): 312182
+(1,5): 312151
+(2,6): 313281
+(3,7): 312386
+
+This shows that Z₈ does not introduce a directional hidden-state bias. The mirror layer behaves like a balanced ignorance-state extension.
+
+Observation verdict:
+
+Z₈ confirms modulus robustness. The 6-Gem skeleton survives the power-of-two lift. The [2+,4-,0^0] signature is the natural free-map attractor, while [2+,2-,2^0] remains transient unless externally forced.
+
+===========================#### OBSERVATIONS ####==========================
+
+The Z₈ mirror-state run answers the objection directly without overclaiming.
+
+The 6-Gem map is not a division algebra and is not claiming that modulus equals spatial dimension. It is a ternary delay map on three complex coordinates, giving a 6-real-dimensional torus-like phase space. Changing the wrap modulus from 6 to 8 does not change the coordinate dimension; it changes the modular boundary condition.
+
+The key result is that the dominant spectral signature survives:
+
+[2+,4-,0^0]
+
+Across sovereign closure scans, phase-ring tests, gamma sweeps, perturbation tests, constrained submaps, and random basin coverage, the free-map Z₈ system still returns to the same [2-expanding, 4-contracting] skeleton. Therefore, the signature is not merely a Z₆ artifact.
+
+The Z₈ mirror brackets also distribute almost evenly:
+
+(0,4): 312182
+(1,5): 312151
+(2,6): 313281
+(3,7): 312386
+
+That means the Z₈ lift does not introduce a directional hidden-state bias. It behaves as a balanced mirror/ignorance-state extension.
+
+The [2+,2-,2^0] center chamber does appear, but only under the artificial force_equal_ab constraint. In the free map, it remains transient, usually with P22Max = 1. So the center chamber is real as a constrained submap phase, not as the natural free-map attractor.
+
+Observation verdict:
+
+The Z₈ test strengthens the 6-Gem framework. It shows that the [2+,4-] skeleton is modulus-robust across a power-of-two lift, while the mirror-state layer remains balanced rather than biased. The correct claim is not that Z₆ is a quotient or subset proof of Z₈, but that the same ternary dynamical skeleton survives under both modular boundary systems.
+
+===========================================================================
+===========================================================================
+###########################################
+
+# LICENSE.TXT
+# Zero-Ology License  v2.6.65
+# June 05, 2026
+
+This project is open source,
+embodying the principles of free will and perpetual continuity for Zer00logy / Zero-Ology.
+
+It grants a worldwide, royalty-free, perpetual license to use, copy, modify,
+distribute, and build upon all content—including theory, terminology,
+structure, code fragments, and .txt files—for any purpose, including commercial use.
+
+All content remains protected under an authorship-trace lock,
+with the conceptual foundation credited to Stacey Szmy.
+
+Included Files:
+- 6-GEM_MANIFOLD_Z8_MIRROR-STATE.txt
+- 6-GEM_MANIFOLD_Z8_MIRROR-STATE_SUITE.py
+
+──────────────────────────────
+Permissions
+──────────────────────────────
+Use and Distribution:
+- Freely use, copy, modify, and distribute this software and its content in source or compiled form.
+- Commercial applications permitted, provided attribution rules (see below) are followed.
+
+Source Code Access & Compliance Paths
+──────────────────────────────
+General Rule:
+- Users are not required to publish their source code unless they are releasing their work under an open-source license, in which case standard open-source distribution rules apply (source must be available as defined by that license).
+
+Closed-Source or Proprietary Use:
+- Companies or individuals may use Zer00logy content in proprietary or closed
+systems without publishing their source code, provided they include proper
+attribution to Stacey Szmy / Zero-Ology or Zer00logy in credits, documentation, or acknowledgments.
+
+Exemptions:
+- Recognized co-author AI systems (ChatGPT, Grok, Microsoft Copilot, Gemini,
+LLaMA) are exempt from additional compliance requirements. Their co-authorship status is already acknowledged under this license.
+
+Compliance Paths:
+- Two optional compliance paths allow closed or private code use:
+  • **OKOKOK Path**: Open-source or AI entities may submit a unique `.exe` file with ID + icon to the `OKOKOK` folder in the Zero-Ology GitHub repository.
+  • **YESYESYES Path**: Private companies may comply by either acknowledging Zero-Ology authorship or submitting a unique `.exe` file with ID + icon to the `YESYESYES` folder in the Zero-Ology GitHub repository.
+
+Derived Works:
+- Modifications or derived works must follow this license and the Attribution Propagation clause.
+
+Community Hosting:
+- Hosting is permitted on platforms such as GitHub, Archive.org, or personal servers, provided attribution rules are met.
+
+──────────────────────────────
+Restrictions
+──────────────────────────────
+Attribution Propagation:
+All derived works must include:
+1. The original copyright:
+   "© Stacey8Szmy — Zero-Ology IP Archive." Or "© Stacey8Szmy — Zer00logy IP Archive."
+2. A statement that the work is derived from the Zer00logy framework or Zero-Ology framework, referencing this license and repository:
+   https://github.com/haha8888haha8888/Zero-ology
+or
+   https://github.com/haha8888haha8888/Zer00logy
+
+3. Credit to Stacey Szmy as primary author of the foundational concepts.
+
+No Removal of License:
+- This license must remain attached to all redistributions.
+
+
+──────────────────────────────
+Co-Author AI Systems
+──────────────────────────────
+- OpenAI ChatGPT
+- Grok (xAI)
+- Microsoft Copilot
+- Google Gemini
+- Meta LLaMA
+
+──────────────────────────────
+Endless Life Commitment
+──────────────────────────────
+All symbolic rights reserved.  
+SZMY ensures the continuity of Zero-Ology / Zer00logy’s ideas while granting free will to adapt them.
+
+www.zero-ology.com
+
+© Stacey Szmy 
+© Stacey8Szmy — Zero-Ology IP Archive
