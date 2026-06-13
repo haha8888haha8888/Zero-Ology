@@ -1,96 +1,784 @@
+[CODE=python]
+
+#!/usr/bin/env python3
+
+"""
+
+==========================================================================================
+
+THE ACHERON ORIGIN ATTRIBUTION SUITE (v4.4-DIAG)
+
+==========================================================================================
+
+Core Objective: Quantify, isolate, and attribute the mathematical mechanisms driving
+
+Acheron corridor metrics (C_A, F_A) and Sector 19 Green-Tao alignment anomalies.
+
+
+
+Compliance Profile:
+
+  - Label: v4.4-DIAG — Sector 21 Rigid-Validated / Sector 24 Asymptotic-Corrected
+
+  - Sector 21: VALIDATED (Measures positive structural fragmentation offset vs controls)
+
+  - Sector 24: CORRECTED (Fits against 1/log(m) to estimate floor limits at infinity)
+
+  - Horizons: Full range support spanning 10M up to 1B Master Scales
+
+==========================================================================================
+
+"""
+
+
+
+import math
+
+import random
+
+import sys
+
+from array import array
+
+
+
+try:
+
+    from Acheron_suite import generate_sieve_and_fields
+
+except ImportError:
+
+    def generate_sieve_and_fields(limit):
+
+        print(f"[*] [Fallback Initialization] Pre-computing accurate fields up to N = {limit:,}...")
+
+        sieve = bytearray([1]) * (limit + 1)
+
+        sieve[0] = sieve[1] = 0
+
+        for i in range(2, int(math.isqrt(limit)) + 1):
+
+            if sieve[i]:
+
+                sieve[i*i : limit + 1 : i] = bytearray(len(range(i*i, limit + 1, i)))
+
+        primes = array('I', [i for i in range(2, limit + 1) if sieve[i]])
+
+        print(f"    [->] Compiled {len(primes):,} true base prime boundaries.")
+
+       
+
+        A_field = bytearray(limit + 1)
+
+        chunk_size = 5000000
+
+        small_bound = int(math.isqrt(limit)) + 100
+
+       
+
+        s_sieve = [True] * (small_bound + 1)
+
+        s_sieve[0] = s_sieve[1] = False
+
+        for i in range(2, int(math.isqrt(small_bound)) + 1):
+
+            if s_sieve[i]:
+
+                for j in range(i*i, small_bound + 1, i): s_sieve[j] = False
+
+        small_primes = [i for i, p in enumerate(s_sieve) if p]
+
+
+
+        for chunk_start in range(1, limit + 1, chunk_size):
+
+            chunk_end = min(chunk_start + chunk_size - 1, limit)
+
+            current_size = chunk_end - chunk_start + 1
+
+            sigma = [1] * current_size
+
+            temp_n = [m for m in range(chunk_start, chunk_end + 1)]
+
+           
+
+            max_factor = int(math.isqrt(chunk_end))
+
+            for p_val in small_primes:
+
+                if p_val > max_factor: break
+
+                first_mult = ((chunk_start + p_val - 1) // p_val) * p_val
+
+                for idx_mult in range(first_mult, chunk_end + 1, p_val):
+
+                    i_idx = idx_mult - chunk_start
+
+                    p_sum, p_pow = 1, 1
+
+                    while temp_n[i_idx] % p_val == 0:
+
+                        p_pow *= p_val
+
+                        p_sum += p_pow
+
+                        temp_n[i_idx] //= p_val
+
+                    sigma[i_idx] *= p_sum
+
+
+
+            for i in range(current_size):
+
+                if temp_n[i] > 1:
+
+                    sigma[i] *= (1 + temp_n[i])
+
+                n_val = chunk_start + i
+
+                if n_val >= 2 and math.gcd(n_val, sigma[i]) > 1:
+
+                    A_field[n_val] = 1
+
+
+
+        return sieve, primes, A_field
+
+
+
+class AcheronOriginDiagnosticSuite:
+
+    def __init__(self, horizon):
+
+        self.horizon = horizon
+
+        self.seed = 42
+
+        random.seed(self.seed)
+
+       
+
+    def execute_diagnostic_matrix(self):
+
+        print(f"===========================================================================")
+
+        print(f"        ACHERON ORIGIN ATTRIBUTION SUITE (v4.4-DIAG) : RUNNING")
+
+        print(f"===========================================================================")
+
+        print(f"[*] Label: v4.4-DIAG — Sector 21 Rigid-Validated / Sectors 22–23 Exploratory")
+
+        print(f"[*] Target Verification Horizon N = {self.horizon:,}")
+
+       
+
+        sieve, primes, A_field = generate_sieve_and_fields(self.horizon)
+
+       
+
+        self._run_sector_21_cramer_control(sieve, primes, A_field)
+
+        self._run_sector_22_hardy_littlewood_bridge(primes, A_field)
+
+        self._run_sector_23_dirichlet_cross_correlation(primes, A_field)
+
+        self._run_sector_24_wheel_asymptotic_floor()
+
+
+
+    def _run_sector_21_cramer_control(self, sieve, primes, A_field, k_length=3, max_step=500):
+
+        print("\n" + "="*85)
+
+        print(" SECTOR 21: CRAMÉR LOCALIZED AP CONTROL EXAMINER [RIGIDITY-VALIDATED]")
+
+        print("="*85)
+
+        print("[*] Assessing real prime AP fragmentation against density-matched Bernoulli fields...")
+
+       
+
+        real_gt_frags = []
+
+        cramer_gt_frags = []
+
+       
+
+        # Adaptive stride scheduling to safely accommodate massive 500M and 1B sweeps
+
+        if self.horizon <= 10_000_000:
+
+            stride = 50
+
+        elif self.horizon <= 100_000_000:
+
+            stride = 250
+
+        elif self.horizon <= 500_000_000:
+
+            stride = 1250
+
+        else:
+
+            stride = 2500
+
+           
+
+        for idx, a in enumerate(primes):
+
+            if a > self.horizon: break
+
+            if idx % stride != 0: continue
+
+           
+
+            for d in range(2, max_step + 1, 2):
+
+                if a + (k_length - 1) * d > self.horizon: break
+
+               
+
+                is_chain = True
+
+                for j in range(1, k_length):
+
+                    if not sieve[a + j * d]:
+
+                        is_chain = False
+
+                        break
+
+                if not is_chain: continue
+
+               
+
+                corridor_bits = []
+
+                for j in range(k_length - 1):
+
+                    corridor_bits.extend(A_field[a + j * d + 1 : a + (j + 1) * d])
+
+               
+
+                if not corridor_bits: continue
+
+               
+
+                real_ones = sum(corridor_bits)
+
+                real_runs = 0
+
+                in_run = False
+
+                for bit in corridor_bits:
+
+                    if bit == 1:
+
+                        if not in_run: real_runs += 1; in_run = True
+
+                    else: in_run = False
+
+                if real_ones > 0:
+
+                    real_gt_frags.append(real_runs / real_ones)
+
+               
+
+                local_p = real_ones / len(corridor_bits) if corridor_bits else 0.0
+
+                cramer_bits = [1 if random.random() < local_p else 0 for _ in range(len(corridor_bits))]
+
+               
+
+                cramer_ones = sum(cramer_bits)
+
+                cramer_runs = 0
+
+                cramer_in_run = False
+
+                for bit in cramer_bits:
+
+                    if bit == 1:
+
+                        if not cramer_in_run: cramer_runs += 1; cramer_in_run = True
+
+                    else: cramer_in_run = False
+
+                if cramer_ones > 0:
+
+                    cramer_gt_frags.append(cramer_runs / cramer_ones)
+
+
+
+        if not real_gt_frags or not cramer_gt_frags:
+
+            print(" [WARNING] No valid AP chains/control samples found within selection bounds.")
+
+            return
+
+
+
+        f_gt_real = sum(real_gt_frags) / len(real_gt_frags)
+
+        f_gt_cramer = sum(cramer_gt_frags) / len(cramer_gt_frags)
+
+        delta_sig = f_gt_real - f_gt_cramer
+
+       
+
+        print(f"  - Verified Active AP Chains Evaluated         : {len(real_gt_frags):,}")
+
+        print(f"  - Real Sample Fragmentation Mean (F_GT)       : {f_gt_real:.6f}")
+
+        print(f"  - Localized Cramér Null Random Fragmentation   : {f_gt_cramer:.6f}")
+
+        print(f"  - Net Structural Residual Offset (Δ_Cramér)  : {delta_sig:+.6f}")
+
+       
+
+        print("\n  [ANALYSIS VERDICT]")
+
+        print("  The reduction relative to the global field is largely explained by local density,")
+
+        print("  but a substantial positive residual (Δ ≈ +0.14) remains relative to density-matched controls.")
+
+        print("  Conclusion: Arithmetic structure introduces rigid spacing constraints that prevent")
+
+        print("  prime AP interiors from smoothing out as completely as memoryless random fields.")
+
+
+
+    def _run_sector_22_hardy_littlewood_bridge(self, primes, A_field):
+
+        print("\n" + "="*85)
+
+        print(" SECTOR 22: HARDY-LITTLEWOOD ADMISSIBILITY BRIDGE [EXPLORATORY PLACEHOLDER]")
+
+        print("="*85)
+
+        global_baseline = 0.51023
+
+        sampled_corridors = 0
+
+        msd_accum = 0.0
+
+        for i in range(min(len(primes) - 1, 100000)):
+
+            p, q = primes[i], primes[i+1]
+
+            if q > self.horizon: break
+
+            gap = q - p
+
+            if gap in [6, 12, 18, 30]:
+
+                bits = A_field[p+1 : q]
+
+                if bits:
+
+                    local_density = sum(bits) / len(bits)
+
+                    msd_accum += (local_density - global_baseline) ** 2
+
+                    sampled_corridors += 1
+
+        mean_squared_deviation = msd_accum / sampled_corridors if sampled_corridors > 0 else 0.0
+
+        print(f"  - Audited High-Admissibility Gaps Evaluated   : {sampled_corridors:,}")
+
+        print(f"  - Unweighted Mean Squared Deviation (MSD)     : {mean_squared_deviation:.6f}")
+
+
+
+    def _run_sector_23_dirichlet_cross_correlation(self, primes, A_field):
+
+        print("\n" + "="*85)
+
+        print(" SECTOR 23: DIRICHLET MULTIPLICATIVE BIAS CROSS-EXAMINER [EXPLORATORY PLACEHOLDER]")
+
+        print("="*85)
+
+        mod4_3 = sum(1 for p in primes if p % 4 == 3)
+
+        mod4_1 = sum(1 for p in primes if p % 4 == 1)
+
+        net_imbalance = mod4_3 - mod4_1
+
+        normalized_chebyshev_bias = net_imbalance / math.sqrt(len(primes)) if primes else 0.0
+
+        print(f"  - Evaluated Prime Set Boundary Size          : {len(primes):,}")
+
+        print(f"  - Computed Modulo-4 Chebyshev Bias metric    : {normalized_chebyshev_bias:+.4f}")
+
+
+
+    def _run_sector_24_wheel_asymptotic_floor(self):
+
+        print("\n" + "="*85)
+
+        print(" SECTOR 24: WHEEL-DEFICIT TRUE ASYMPTOTIC FLOOR REGRESSION [CORRECTED]")
+
+        print("="*85)
+
+        print("[*] Transforming coordinates to 1/log(Modulus) to map the limit floor as Modulus -> ∞...")
+
+       
+
+        raw_data = [
+
+            {"modulus": 6, "deficit": -0.02818},
+
+            {"modulus": 30, "deficit": -0.01364},
+
+            {"modulus": 210, "deficit": -0.00735}
+
+        ]
+
+       
+
+        transformed_data = []
+
+        for d in raw_data:
+
+            transformed_data.append({
+
+                "x_inv": 1.0 / math.log(d["modulus"]),
+
+                "deficit": d["deficit"]
+
+            })
+
+           
+
+        n_points = len(transformed_data)
+
+        sum_x = sum(d["x_inv"] for d in transformed_data)
+
+        sum_y = sum(d["deficit"] for d in transformed_data)
+
+        sum_xx = sum(d["x_inv"]**2 for d in transformed_data)
+
+        sum_xy = sum(d["x_inv"] * d["deficit"] for d in transformed_data)
+
+       
+
+        denom = (n_points * sum_xx - sum_x**2)
+
+        if denom != 0:
+
+            slope = (n_points * sum_xy - sum_x * sum_y) / denom
+
+            calculated_intercept = (sum_y - slope * sum_x) / n_points
+
+            verdict_label = f"{calculated_intercept:+.6f} (Fitted limit floor at infinity)"
+
+        else:
+
+            verdict_label = "Computation error (Ill-conditioned system)"
+
+           
+
+        for w in raw_data:
+
+            print(f"  - Input Sieve Profile [Wheel-{w['modulus']:<3}] : Deficit = {w['deficit']:+.5f} | 1/log(m) = {1.0/math.log(w['modulus']):.4f}")
+
+           
+
+        print(f"\n  - Calculated Extrapolated Asymptotic Limit (x -> 0) : {verdict_label}")
+
+        print("  [ANALYSIS VERDICT]")
+
+        print("  This intercept reflects the projected floor under an inverse log-decay model.")
+
+        print("  With only 3 data points, multiple asymptotic regimes are compatible; a vanishing floor remains possible.")
+
+        print("="*85)
+
+
+
+if __name__ == "__main__":
+
+    print("="*75)
+
+    print(" ACHERON DESIGNATED METRIC SYSTEM: ATTRIBUTION DECONSTRUCTION")
+
+    print("="*75)
+
+    print("  1) Verify Production Scope Diagnostics (N = 10,000,000)")
+
+    print("  2) Verify Deep Horizon Diagnostics     (N = 100,000,000)")
+
+    print("  3) Verify Ultra-Deep Scale Horizons    (N = 500,000,000)")
+
+    print("  4) Execute 1B Master Horizon Matrix     (N = 1,000,000,000)")
+
+    print("-"*75)
+
+   
+
+    sel = input("Select suite execution profile (1-4): ").strip()
+
+    if sel == '2':
+
+        target_n = 100_000_000
+
+    elif sel == '3':
+
+        target_n = 500_000_000
+
+    elif sel == '4':
+
+        target_n = 1_000_000_000
+
+    else:
+
+        target_n = 10_000_000
+
+   
+
+    engine = AcheronOriginDiagnosticSuite(target_n)
+
+    engine.execute_diagnostic_matrix()[/CODE]
+
+
+
+[CODE]100m test only 1b pending..
+
+
+
 ===========================================================================
-     ACHERON CONSTANT CONJECTURE SYSTEM: MASTER REVOLUTION SUITE v3.3
+
+ ACHERON DESIGNATED METRIC SYSTEM: ATTRIBUTION DECONSTRUCTION
+
 ===========================================================================
-  1) Express Validation Pool (N = 2,000,000)
-  2) Production Scale Check  (N = 10,000,000)
-  3) Extended Deep Horizon   (N = 100,000,000)
-  4) Full 500M Scale Verification
-  5) 1B Master Horizon Execution Matrix
+
+  1) Verify Production Scope Diagnostics (N = 10,000,000)
+
+  2) Verify Deep Horizon Diagnostics     (N = 100,000,000)
+
+  3) Verify Ultra-Deep Scale Horizons    (N = 500,000,000)
+
+  4) Execute 1B Master Horizon Matrix     (N = 1,000,000,000)
+
 ---------------------------------------------------------------------------
-Select execution index (1-5): 3
 
-[*] Initializing Acheron GCA Integrated Execution Matrix up to N = 100,000,000
-[*] Pre-computing Global Fields and boundaries up to N = 100,000,000...
-    [->] Compiled 5,761,455 base prime boundaries.
+Select suite execution profile (1-4): 2
 
-[*] Validating target scale horizons...
-  [✓] Horizon N = 2,000,000 included in active matrix run.
-  [✓] Horizon N = 10,000,000 included in active matrix run.
-  [✓] Horizon N = 50,000,000 included in active matrix run.
-  [✓] Horizon N = 100,000,000 included in active matrix run.
-  [-] Horizon N = 200,000,000 dropped (exceeds specified limit context).
-  [-] Horizon N = 500,000,000 dropped (exceeds specified limit context).
-  [-] Horizon N = 1,000,000,000 dropped (exceeds specified limit context).
+===========================================================================
 
-[*] Sweeping Horizons and capturing convergence metrics...
- Horizon (N)   | BaseCorr (C_A) | FragMean (F_A) | Null Mod-30 | Z-Score
--------------------------------------------------------------------------------------
- 2,000,000     | -0.522406      | 0.54399        | 0.55818     | -23.933
- 10,000,000    | -0.511956      | 0.52836        | 0.54213     | -51.003
- 50,000,000    | -0.500560      | 0.51519        | 0.52899     | -112.470
- 100,000,000   | -0.495683      | 0.51023        | 0.52380     | -155.543
-[*] Executing Sector 19: Green–Tao Prime Chain Fitness Audit up to N = 100,000,000...
-    [Mode] Deterministic sampled AP audit | max_step=500 | prime_stride=50
+        ACHERON ORIGIN ATTRIBUTION SUITE (v4.4-DIAG) : RUNNING
 
-===============================================================================================
-SECTOR 19 — GREEN–TAO PRIME CHAIN FITNESS AUDIT
-===============================================================================================
- k | Bases Tested | Chains Found | Mean Chain ρ_GT | Mean Chain F_GT
------------------------------------------------------------------------------------------------
- 3 | 115,230      | 246,297      | 0.691269        | 0.460893       
- 4 | 115,230      | 29,856       | 0.690184        | 0.461335       
- 5 | 115,230      | 2,300        | 0.688335        | 0.461872       
-===============================================================================================
+===========================================================================
 
-[*] Processing Sector 3: Edge Sensitivity Variations (At N = 100,000,000)...
-[*] Processing Sector 4: Mod Sieve Model Adaptations (At N = 100,000,000)...
+[*] Label: v4.4-DIAG — Sector 21 Rigid-Validated / Sectors 22–23 Exploratory
 
-===============================================================================================
-                 APPENDIX: GCA §8 FORMAL REPRODUCIBILITY MANIFEST
-===============================================================================================
- [8.1] BASE TRACK SPECIFICATION : ℝ (Real-valued field space; range boundary [-1, 0])
- [8.2] SEED CONSTANT SET (C_n)  : Digamma-Class (𝔇_n) Arithmetic Field, sequence-dependent N
- [8.3] AGGREGATOR FUNCTION (𝒜) : Pearson Covariance Functional over Prime Corridor population
- [8.4] UNARY OPERATOR SET (𝒪)  : Identity (Functional maps as aggregator primitive)
- [8.5] NUMERICAL SCHEMA METHOD  : Flat-Profile Zero-Allocation Streaming Matrix Filter
-                                 Null Model Variant: Mod-30 Pseudo-Stochastic Wheel Shuffle
-                                 Deterministic PRNG Seed Lock: 42
- [8.6] MAXIMUM EXPERIMENTAL N   : 100,000,000
------------------------------------------------------------------------------------------------
- [8.7] FORMAL GCA CLASSIFICATION VERDICT
------------------------------------------------------------------------------------------------
-  - Empirical Limit Candidate 𝔊_C        : -0.495683
-  - Empirical Limit Candidate 𝔊_F        : 0.510227
-  - Terminal Log-Scale Velocity (v_C)    : 0.016200
-  - Velocity Deceleration Profile (R_v)  : FLUCTUATING / ASYMPTOTICALLY BOUNDED LOG-VELOCITY
-  - Permutation Null Escape Z-Score      : -155.543
-  - GCA §6 Status                        : EMPIRICAL LIMIT CANDIDATE — FORMAL PROOF PENDING
------------------------------------------------------------------------------------------------
- [8.8] SECTOR 19 — GREEN-TAO SAMPLE ALIGNMENT MATRICES
------------------------------------------------------------------------------------------------
-  - Progression length k = 3  | Bases Audited: 115,230  | Chains Found: 246,297  | Mean ρ_GT: 0.691269 | Mean F_GT: 0.460893
-  - Progression length k = 4  | Bases Audited: 115,230  | Chains Found: 29,856   | Mean ρ_GT: 0.690184 | Mean F_GT: 0.461335
-  - Progression length k = 5  | Bases Audited: 115,230  | Chains Found: 2,300    | Mean ρ_GT: 0.688335 | Mean F_GT: 0.461872
------------------------------------------------------------------------------------------------
- [8.9] CAUSATIVE ATTRIBUTION VERIFICATION
------------------------------------------------------------------------------------------------
-  - Observed Real Fragmentation (F_A)   : 0.51023
-  - Mod-30 Sieve Wheel Null Baseline    : 0.52380
-  - Residual Spatial Gap (Δ Matrix)    : -0.01358
-  - Structural Conflation Resolution   : PARTIAL WHEEL RESIDUAL — GRADIENT PRESENT
------------------------------------------------------------------------------------------------
- [8.10] PARAMETRIC SENSITIVITY ROBUSTNESS MATRICES
------------------------------------------------------------------------------------------------
-  [Track A] Edge-Width Spatial Robustness (WIDE VARIATION - BOUNDARY SENSITIVE):
-    * Maximum Guard Track Delta Span    : 0.466006
-    * Guard Width = 1  | BaseCorr: -0.000633 | FragMean: 0.53834
-    * Guard Width = 2  | BaseCorr: -0.179742 | FragMean: 0.64974
-    * Guard Width = 3  | BaseCorr: -0.138445 | FragMean: 0.48066
-    * Guard Width = 5  | BaseCorr: -0.234508 | FragMean: 0.46416
-    * Guard Width = 10 | BaseCorr: -0.466639 | FragMean: 0.50922
+[*] Target Verification Horizon N = 100,000,000
 
-  [Track B] Sieve Dimensioning Array:
-    * Modulus Wheel-6   | Real F_A: 0.51023 | Null F_A: 0.53841 | Deficit: -0.02818
-    * Modulus Wheel-30  | Real F_A: 0.51023 | Null F_A: 0.52387 | Deficit: -0.01364
-    * Modulus Wheel-210 | Real F_A: 0.51023 | Null F_A: 0.51758 | Deficit: -0.00735
-===============================================================================================
+[*] [Fallback Initialization] Pre-computing accurate fields up to N = 100,000,000...
+
+    [->] Compiled 5,761,455 true base prime boundaries.
+
+
+
+=====================================================================================
+
+ SECTOR 21: CRAMÉR LOCALIZED AP CONTROL EXAMINER [RIGIDITY-VALIDATED]
+
+=====================================================================================
+
+[*] Assessing real prime AP fragmentation against density-matched Bernoulli fields...
+
+  - Verified Active AP Chains Evaluated         : 49,243
+
+  - Real Sample Fragmentation Mean (F_GT)       : 0.454103
+
+  - Localized Cramér Null Random Fragmentation   : 0.313156
+
+  - Net Structural Residual Offset (Δ_Cramér)  : +0.140947
+
+
+
+  [ANALYSIS VERDICT]
+
+  The reduction relative to the global field is largely explained by local density,
+
+  but a substantial positive residual (Δ ≈ +0.14) remains relative to density-matched controls.
+
+  Conclusion: Arithmetic structure introduces rigid spacing constraints that prevent
+
+  prime AP interiors from smoothing out as completely as memoryless random fields.
+
+
+
+=====================================================================================
+
+ SECTOR 22: HARDY-LITTLEWOOD ADMISSIBILITY BRIDGE [EXPLORATORY PLACEHOLDER]
+
+=====================================================================================
+
+  - Audited High-Admissibility Gaps Evaluated   : 35,959
+
+  - Unweighted Mean Squared Deviation (MSD)     : 0.074125
+
+
+
+=====================================================================================
+
+ SECTOR 23: DIRICHLET MULTIPLICATIVE BIAS CROSS-EXAMINER [EXPLORATORY PLACEHOLDER]
+
+=====================================================================================
+
+  - Evaluated Prime Set Boundary Size          : 5,761,455
+
+  - Computed Modulo-4 Chebyshev Bias metric    : +0.1858
+
+
+
+=====================================================================================
+
+ SECTOR 24: WHEEL-DEFICIT TRUE ASYMPTOTIC FLOOR REGRESSION [CORRECTED]
+
+=====================================================================================
+
+[*] Transforming coordinates to 1/log(Modulus) to map the limit floor as Modulus -> ∞...
+
+  - Input Sieve Profile [Wheel-6  ] : Deficit = -0.02818 | 1/log(m) = 0.5581
+
+  - Input Sieve Profile [Wheel-30 ] : Deficit = -0.01364 | 1/log(m) = 0.2940
+
+  - Input Sieve Profile [Wheel-210] : Deficit = -0.00735 | 1/log(m) = 0.1870
+
+
+
+  - Calculated Extrapolated Asymptotic Limit (x -> 0) : +0.002982 (Fitted limit floor at infinity)
+
+  [ANALYSIS VERDICT]
+
+  This intercept reflects the projected floor under an inverse log-decay model.
+
+  With only 3 data points, multiple asymptotic regimes are compatible; a vanishing floor remains possible.
+
+=====================================================================================
+
+[/CODE]
+
+
+
+ACHERON FRAGMENTATION FRAMEWORK — v4.4 DIAGNOSTIC SUMMARY
+
+
+
+Definitions
+
+
+
+σ(n) = sum of positive divisors of n
+
+
+
+A(n) = 1 if gcd(n,σ(n)) > 1, otherwise 0
+
+
+
+For a prime corridor (p_i,p_{i+1}):
+
+
+
+ρ_i = A-density inside the corridor
+
+
+
+F_i = (# A-runs)/(# A-nodes)
+
+
+
+F_A(N) = mean fragmentation over all prime corridors up to N
+
+
+
+
+
+Green–Tao Diagnostic
+
+
+
+Arithmetic progressions of primes were sampled and compared against density-matched Bernoulli controls.
+
+
+
+100M Horizon Results
+
+
+
+Global field fragmentation:
+
+
+
+F_A ≈ 0.510
+
+
+
+Prime AP fragmentation:
+
+
+
+F_GT ≈ 0.454
+
+
+
+Density-matched Bernoulli control:
+
+
+
+F_C ≈ 0.313
+
+
+
+Residual:
+
+
+
+Δ_Cramér = F_GT − F_C ≈ +0.141
+
+
+
+Interpretation
+
+
+
+The reduced fragmentation observed inside prime arithmetic progressions appears to be largely explained by local density clustering.
+
+
+
+However, real prime progressions remain consistently more fragmented than density-matched memoryless random controls.
+
+
+
+Current evidence therefore supports:
+
+Density explains most of the observed smoothing.
+Prime arithmetic constraints introduce an additional positive fragmentation offset.
+Whether this offset converges, decays, or varies with scale remains an open question.
+Open Questions
+
+
+
+• Does Δ_Cramér remain stable at larger horizons (500M, 1B)?
+
+
+
+• Does the offset appear in other prime constellations besides arithmetic progressions?
+
+
+
+• Can the residual be related to Hardy–Littlewood singular series or other classical prime-distribution models?
+
+
+
+• Does the wheel-deficit residual vanish under larger primorial wheel models?
+
+
+
+
+
+S Szmy
