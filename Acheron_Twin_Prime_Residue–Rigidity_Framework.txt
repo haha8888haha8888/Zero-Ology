@@ -222,7 +222,7 @@ and
 Only admissible classes can host valid twin-prime candidates.
 SECTION 3 — STEP LOGIC MATRIX
 3.1 Residue Decomposition
-For every divisor p_i,
+For every divisor  p_i ,
 [ n=q_i p_i+\delta_i(n) ]
 with
 [ 0\le \delta_i(n)<p_i. ]
@@ -245,7 +245,7 @@ The RN digital scaling operator is
 \frac{10n}{9}. ]
 The operator generates repeating-decimal balance profiles.
 4.2 Modular RN Gate
-For modulus M,
+For modulus  M ,
 [ RN_M(n)
 \left( \frac{10(n\bmod M)}{9} \right) \bmod 1. ]
 The modular RN gate projects anchor states onto a normalized digital interval.
@@ -303,7 +303,7 @@ For admissible classes
 [ c_1,c_2,\ldots,c_m ]
 let
 [ T(c_i) ]
-denote the observed twin-anchor population of class c_i.
+denote the observed twin-anchor population of class  c_i .
 8.1 Mean Corridor Population
 [ \mu
 \frac{1}{m} \sum_{i=1}^{m} T(c_i). ]
@@ -317,7 +317,7 @@ These statistics quantify the degree of corridor homogeneity.
 SECTION 9 — EXECUTION ORDER
 The framework executes in the following sequence:
 Phase I — Sieve Construction
-Construct primality space up to horizon N.
+Construct primality space up to horizon  N .
 Phase II — Twin Detection
 Locate all pairs
 [ (p,p+2). ]
