@@ -262,16 +262,27 @@ The complete Acheron telemetry packet is
 [ V(n)
 [ A(n), W_{30}(n), W_{210}(n), W_{2310}(n), S_k(n), RN_M(n) ]. ]
 This vector provides the full local arithmetic description of the anchor node.
+Each component of V(n) represents an independent telemetry layer; no component alone determines twin-prime membership.
+
 SECTION 6 — ACHERON FIELD COMPONENT
-Define
+Let
 [ \sigma(n) ]
-as the sum-of-divisors function.
-The Acheron field indicator is
+denote the sum-of-divisors function,
+[ \sigma(n)=\sum_{d\mid n} d. ]
+The Acheron field indicator is defined as
 [ A(n)
-\begin{cases} 1 & \gcd(n,\sigma(n))>1\ 0 & \text{otherwise} \end{cases} ]
-with complementary field
+\begin{cases} 1,& \gcd(n,\sigma(n))>1\ 0,& \gcd(n,\sigma(n))=1 \end{cases} ]
+and the complementary Rupture field is
 [ R(n)=1-A(n). ]
-This layer supplies arithmetic-environment metadata to the state vector.
+Interpretation:
+A(n)=1 indicates that n shares a non-trivial common factor with its divisor-sum structure.
+R(n)=1 indicates arithmetic separation between n and \sigma(n).
+The pair (A(n),R(n)) forms a binary arithmetic field decomposition over the positive integers.
+Within the Acheron Twin Prime Residue–Rigidity Framework, the field value is incorporated into the anchor telemetry packet
+[ V(n)
+[ A(n), W_{30}(n), W_{210}(n), W_{2310}(n), S_k(n), RN_M(n) ]. ]
+The Acheron field does not determine primality and does not alter wheel admissibility. It functions as an auxiliary arithmetic-state descriptor attached to each anchor node for structural analysis and comparative diagnostics.
+
 SECTION 7 — CLASSIFICATION ENGINE
 7.1 STABLE
 A node is classified STABLE when:
