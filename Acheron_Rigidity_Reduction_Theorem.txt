@@ -211,18 +211,41 @@ To establish the validity of the underlying data generation rule, representative
 
  * **Boundary State (r = 0 \in N_0):**
    
+0 - 1 = -1
+0 + 1 = 1
+
+gcd(-1, 2310) = 1
+gcd(1, 2310) = 1
    
    Both conditions are satisfied; r = 0 is a valid admissible anchor.
+
  * **State 0 Check (r = 72 \in N_0):**
    
+72 - 1 = 71
+72 + 1 = 73
+
+gcd(71, 2310) = 1
+gcd(73, 2310) = 1
    
    Both conditions are satisfied; r = 72 is a valid admissible anchor.
- * **State 3 Check (r = 30 \in N_3):**
+ 
+* **State 3 Check (r = 30 \in N_3):**
    
+30 - 1 = 29
+30 + 1 = 31
+
+gcd(29, 2310) = 1
+gcd(31, 2310) = 1
    
    Both conditions are satisfied; r = 30 is a valid admissible anchor.
+
  * **State 6 Check (r = 42 \in N_6):**
    
+42 - 1 = 41
+42 + 1 = 43
+
+gcd(41, 2310) = 1
+gcd(43, 2310) = 1
    
    Both conditions are satisfied; r = 42 is a valid admissible anchor.
 
@@ -247,9 +270,21 @@ Partitioned directly by the discrete operator r \pmod 9, the complete array of c
 
 Since the structural **STABLE** intercept channels correspond uniquely to the criteria r \pmod 9 \in \{3, 6\}, the total stable cardinality is:
 
+STABLE = N3 + N6
+        = 44 + 45
+        = 89.
+
 Since the structural **DRIFT** intercept channel corresponds to the criteria r \pmod 9 = 0, the total drift cardinality is:
 
-Therefore, the exact geometric control baseline evaluates to:
+DRIFT = N0
+       = 46.
+
+Therefore,
+
+STABLE density = 89/135 = 65.925925...
+
+DRIFT density = 46/135 = 34.074074...
+
 
 *Conclusion:* This exhaustive ledger constitutes a complete finite enumeration artifact supporting the computational propositions outlined in Addendum I. It serves as an independent, reproducible verification dataset eliminating ambiguity in the computational enumeration step and confirming the structural profile of the W_{2310} wheel environment.
 
