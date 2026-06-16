@@ -124,12 +124,76 @@ The correct W2310 RN-gate baseline is exactly
 
 89/135 = 65.925925...%.
 
+
+
+ADDENDUM I — CARDINALITY DERIVATION AND PARTITION STATUS
+Project: Zer00logy / Acheron Twin Prime Residue–Rigidity Framework
+Date: 2026.06.16
+
+
+Exact Cardinality of A2310
+Let
+M = 2310 = 2·3·5·7·11.
+The admissible residue set is
+A2310 = {r mod 2310 : gcd(r−1,M)=1 and gcd(r+1,M)=1}.
+For each prime divisor p of M, the admissibility conditions exclude the two residues ±1 mod p.
+Therefore the number of admissible local states is:
+mod 2 : 1 state
+mod 3 : 1 state
+mod 5 : 3 states
+mod 7 : 5 states
+mod 11 : 9 states
+By the Chinese Remainder Theorem, these local constraints are independent. Hence
+|A2310| = 1·1·3·5·9 = 135.
+This establishes the exact cardinality of the admissible residue system.
+
+Modulo-9 State Restriction
+For every admissible residue r ∈ A2310,
+r ≡ 0 (mod 2)
+and
+r ≡ 0 (mod 3),
+therefore
+r ≡ 0 (mod 6).
+Consequently,
+r mod 9 ∈ {0,3,6}.
+No other modulo-9 states can occur.
+Since
+RN2310(r) = (r mod 9)/9,
+the gate condition
+0.15 ≤ RN2310(r) ≤ 0.85
+is equivalent to
+r mod 9 ∈ {3,6}.
+Thus
+STABLE ⇔ r mod 9 ∈ {3,6}
+and
+DRIFT ⇔ r mod 9 = 0.
+
+Computational Enumeration Proposition
+Exhaustive enumeration of the complete admissible residue system A2310 yields the exact partition:
+N0 = 46
+N3 = 44
+N6 = 45
+where Nk denotes the number of admissible classes satisfying
+r mod 9 = k.
+The enumeration is independently reproducible through the accompanying reference implementation:
+Acheron_Rigidity_Reduction_Theorem_Suite.py
+which verifies:
+46 + 44 + 45 = 135.
+Therefore
+STABLE = N3 + N6 = 44 + 45 = 89
+and
+DRIFT = N0 = 46.
+Hence
+STABLE density = 89/135 = 65.925925...
+DRIFT density = 46/135 = 34.074074...
+
+Remark
+The theorem itself establishes analytically that only the channels {0,3,6} are accessible and that STABLE corresponds exactly to the channels {3,6}. The specific partition counts {46,44,45} are presently established by complete finite enumeration of the admissible residue system and verified by the accompanying reference implementation.
+
 Important Limitation
 This theorem proves the geometric RN/W2310 baseline.
 
 It does not prove that actual twin primes are asymptotically equidistributed across the 135 admissible classes. The empirical runs suggest strong locking near the 89/135 baseline, but the asymptotic distribution of true twin primes across those classes remains a separate number-theoretic question.
-
-
 
 
 ###############Acheron_Rigidity_Reduction_Theorem_Suite.py###############
