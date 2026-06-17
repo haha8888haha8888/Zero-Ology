@@ -98,7 +98,7 @@ def _generate_base_primes(limit):
 def stream_to_staged_horizons(target_horizon, staging_checkpoints):
     """
     Vector 2: Optimized cache-friendly streaming engine.
-    Segments numbers via a 4MB bit-array window to scale up to 1 Billion flawlessly.
+    Segments numbers via a 4MB bit-array window and terminates blocks at staged checkpoints so reported telemetry is exact at each horizon.
     """
     print("\n" + "="*80)
     print(f"[V2] INITIALIZING STAGED SIEVE RUNNER -> TARGET: {target_horizon:,}")
@@ -119,13 +119,24 @@ def stream_to_staged_horizons(target_horizon, staging_checkpoints):
     
     start_time = time.time()
     
-    for low in range(3, target_horizon + 1, block_size):
-        high = min(low + block_size - 1, target_horizon)
+    low = 3
+    while low <= target_horizon:
+        # End each segment at the next checkpoint if it falls inside the
+        # natural cache block. This makes checkpoint telemetry exact for
+        # the stated horizon rather than merely block-crossing telemetry.
+        natural_high = min(low + block_size - 1, target_horizon)
+        if current_target_idx < len(checkpoints_queue):
+            next_checkpoint = checkpoints_queue[current_target_idx]
+            high = min(natural_high, next_checkpoint)
+        else:
+            high = natural_high
+
         range_len = high - low + 1
         block = bytearray(range_len)
         
         for p in primes:
-            if p == 2: continue
+            if p == 2:
+                continue
             start = max(p * p, ((low + p - 1) // p) * p)
             if start % 2 == 0: 
                 start += p
@@ -143,9 +154,9 @@ def stream_to_staged_horizons(target_horizon, staging_checkpoints):
                             total_twins += 1
                 prev_prime = idx
                 
-        # Capture discrete telemetry data as the sieve passes staged targets
-        while (current_target_idx < len(checkpoints_queue) and 
-               high >= checkpoints_queue[current_target_idx]):
+        # Capture exact telemetry when the processed horizon equals a staged target.
+        while (current_target_idx < len(checkpoints_queue) and
+               high == checkpoints_queue[current_target_idx]):
             current_checkpoint = checkpoints_queue[current_target_idx]
             if total_twins > 0:
                 stable_ratio = (counts[3] + counts[6]) / total_twins
@@ -153,9 +164,11 @@ def stream_to_staged_horizons(target_horizon, staging_checkpoints):
                 
                 # Live heartbeat feedback line for deep verification runs
                 elapsed = time.time() - start_time
-                print(f"  [Checkpoint Hit] N = {current_checkpoint:<13,} | Pairs: {total_twins:<10,} | S(N): {stable_ratio:.8f} | Time: {elapsed:.1f}s")
+                print(f"  [Checkpoint Exact] N = {current_checkpoint:<13,} | Pairs: {total_twins:<10,} | S(N): {stable_ratio:.8f} | Time: {elapsed:.1f}s")
                 
             current_target_idx += 1
+
+        low = high + 1
 
     return counts, total_twins, regression_intervals
 
