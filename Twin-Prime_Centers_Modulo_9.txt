@@ -434,85 +434,151 @@ Horizon (N)    Twin Pairs     Stable Density S(N)      Absolute Bias Delta
 
 #############################REVIEW#############################
 
+
 Review: 1-Billion Horizon Verification Suite for Twin-Prime Centers Modulo 9
+
 This document computationally supports the Separation Principle described in the note: Finite Residue Geometry and Conditional Equidistribution of Twin-Prime Centers Modulo 9. It demonstrates that finite primorial-wheel residue geometry can exhibit exact local bias, while the actual large-scale twin-prime center population flattens toward a uniform three-state prediction.
 
-For a twin-prime pair (p, p+2), define the center:
+For a twin-prime pair (p,p+2), define the center:
 
-r = p + 1
-Except for the exceptional pair (3, 5), whose center is r = 4, every twin-prime center satisfies:
+[ r = p + 1. ]
 
-r \equiv 0 \pmod 6
-Therefore, its modular coordinate collapses to:
+Except for the exceptional pair (3,5), whose center is r=4, every twin-prime center satisfies
 
-r \pmod 9 \in \{0, 3, 6\}
-The stable-state partition used here is defined as:
+[ r \equiv 0 \pmod 6. ]
 
-\text{STABLE} = \{3, 6\}, \qquad \text{DRIFT} = \{0\}
-with the empirical stable density tracking function:
+Therefore,
 
-S(N) = \frac{\pi_2(N; 3) + \pi_2(N; 6)}{\pi_2(N; 0) + \pi_2(N; 3) + \pi_2(N; 6)}
-If the three admissible residue states equidistribute asymptotically, then:
+[ r \pmod 9 \in {0,3,6}. ]
 
-S(N) \to \frac{2}{3}
+The stable-state partition used here is defined as
+
+[ \text{STABLE}={3,6}, \qquad \text{DRIFT}={0}, ]
+
+with the empirical stable-density tracking function
+
+[ S(N)= \frac{\pi_2(N;3)+\pi_2(N;6)} {\pi_2(N;0)+\pi_2(N;3)+\pi_2(N;6)}. ]
+
+If the three admissible residue states equidistribute asymptotically, then
+
+[ S(N)\to \frac{2}{3}. ]
+
+
 Summary of Verification Suite Components
-The execution suite unifies five distinct analytic layers to model this behavior:
+
+The execution suite unifies five distinct analytic layers to model this behavior.
 
 1. Finite Wheel Audit
-It directly computes the admissible center distribution inside the finite primorial wheel:
+It directly computes the admissible center distribution inside the finite primorial wheel
 
-W_{2310} = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11
-The recovered modulo-9 distribution is exactly (46, 44, 45) across states (0, 3, 6). Thus, the finite-wheel stable density fraction resolves to:
+[ W_{2310}=2\cdot3\cdot5\cdot7\cdot11. ]
 
-\frac{44 + 45}{46 + 44 + 45} = \frac{89}{135} \approx 0.659259259259\ldots
+The recovered modulo-9 distribution is exactly
+
+[ (46,44,45) ]
+
+across states (0,3,6).
+
+Thus, the finite-wheel stable-density fraction resolves to
+
+[ \frac{44+45}{46+44+45}
+
+\frac{89}{135} \approx 0.659259259259\ldots ]
+
 This establishes the exact finite residue-geometry baseline.
 
-2. Local Obstruction Symmetry at p = 3
-For each admissible center state a \in \{0, 3, 6\}, we note that a \equiv 0 \pmod 3. Therefore, the twin-prime components satisfy:
+2. Local Obstruction Symmetry at p=3
+For each admissible center state a\in{0,3,6}, we note that
 
-r - 1 \equiv -1 \pmod 3, \qquad r + 1 \equiv 1 \pmod 3
-Because neither component is divisible by 3, the local prime obstruction at p = 3 is perfectly symmetric across all three admissible center classes. This structural property underpins the conditional hypothesis that the corresponding singular series constants match:
+[ a\equiv0\pmod3. ]
 
-K_0 = K_3 = K_6
+Therefore, the twin-prime components satisfy
+
+[ r-1\equiv-1\pmod3, \qquad r+1\equiv1\pmod3. ]
+
+Because neither component is divisible by 3, the local prime obstruction at p=3 is perfectly symmetric across all three admissible center classes.
+
+This structural property underpins the conditional hypothesis that the corresponding singular-series constants match:
+
+[ K_0=K_3=K_6. ]
+
 This is maintained as a structured Hardy–Littlewood hypothesis rather than an unconditional proof.
 
 3. Segmented Sieve through 10^9
-The suite deploys a cache-conscious segmented streaming sieve to count true twin-prime centers by residue class modulo 9, systematically excluding the exceptional boundary center r = 4.
 
-The final non-exceptional count through N = 10^9 yields 3,424,505 pairs distributed as follows:
+The suite deploys a cache-conscious segmented streaming sieve to count true twin-prime centers by residue class modulo 9, systematically excluding the exceptional boundary center r=4.
 
-\begin{array}{c|c|c} \text{State mod } 9 & \text{Count} & \text{Share} \\ \hline 0 & 1,141,250 & 33.3260\% \\ 3 & 1,140,981 & 33.3181\% \\ 6 & 1,142,274 & 33.3559\% \end{array}
-Aggregating the stable states yields:
+The final non-exceptional count through N=10^9 yields 3,424,505 pairs distributed as follows:
 
-S(10^9) = \frac{1,140,981 + 1,142,274}{3,424,505} \approx 0.66674016
-This observed value lands within an absolute deviation of approximately 7.35 \times 10^{-5} from the predicted asymptotic limit of \frac{2}{3} = 0.666666\ldots.
+[ \begin{array}{c|c|c} \text{State mod }9 & \text{Count} & \text{Share} \ \hline 0 & 1,141,250 & 33.3260% \ 3 & 1,140,981 & 33.3181% \ 6 & 1,142,274 & 33.3559% \end{array} ]
+
+Aggregating the stable states yields
+
+[ S(10^9)
+
+\frac{1,140,981+1,142,274} {3,424,505} \approx 0.66674016. ]
+
+This observed value lands within an absolute deviation of approximately
+
+[ 7.35\times10^{-5} ]
+
+from the predicted asymptotic limit
+
+[ \frac23 = 0.666666\ldots. ]
 
 4. Staged Horizon Telemetry
-To track macro-scale convergence patterns across the linear domain, the suite samples intermediate telemetry checkpoints up to 1\text{B}:
+To track macro-scale convergence patterns across the linear domain, the suite samples exact intermediate telemetry checkpoints up to 10^9:
 
-\begin{array}{c|c|c} N & \text{Twin Centers} & S(N) \\ \hline 10,000,000 & 71,870 & 0.66707945 \\ 50,000,000 & 240,420 & 0.66667499 \\ 100,000,000 & 442,912 & 0.66742152 \\ 250,000,000 & 997,304 & 0.66680270 \\ 500,000,000 & 1,850,959 & 0.66685594 \\ 750,000,000 & 2,648,160 & 0.66679657 \\ 1,000,000,000 & 3,424,505 & 0.66674016 \end{array}
+[ \begin{array}{c|c|c} N & \text{Twin Centers} & S(N) \ \hline 10,000,000 & 58,979 & 0.66740704 \ 50,000,000 & 239,100 & 0.66663739 \ 100,000,000 & 440,311 & 0.66741008 \ 250,000,000 & 991,445 & 0.66680855 \ 500,000,000 & 1,840,169 & 0.66684636 \ 750,000,000 & 2,645,643 & 0.66679631 \ 1,000,000,000 & 3,424,505 & 0.66674016 \end{array} ]
+
+The elemetry now reflects exact checkpoint horizons rather than segment-crossing estimates.
+
 5. Log-Log Bias Regression
-The suite measures the dampening rate of local host-wheel biases over time by fitting the empirical delta against N using a log-log regression model:
+The suite measures the dampening rate of local host-wheel biases over time by fitting the empirical deviation against N using a log-log regression model:
 
-|S(N) - 2/3| \approx \exp(C)N^{-\alpha}
-For this staged run, the measured exponent was computed at:
+[ |S(N)-2/3| \approx e^C N^{-\alpha}. ]
 
-\alpha \approx 0.087003
-Because finite numbers oscillate locally, this is utilized as a tracking metric showing that the observed bias decay is consistent with power-law dampening toward the target limit.
+For this staged run, the measured exponent was computed as
+
+[ \alpha \approx 0.285325. ]
+
+The fitted empirical model is
+
+[ |S(N)-2/3| \approx e^{-3.2737}N^{-0.285325}. ]
+
+Because finite horizons exhibit natural oscillatory fluctuations, this exponent is interpreted as an empirical tracking metric indicating that the observed bias decay remains consistent with power-law dampening toward the target asymptotic limit.
 
 Theoretical Interpretation
-The computational evidence clarifies a clean structural separation between arithmetic layers:
+The computational evidence clarifies a clean structural separation between arithmetic layers.
 
-Finite Layer: The primorial wheel W_{2310} enforces an exact geometric residue bias of (46, 44, 45), locking the stable density at \frac{89}{135} \approx 65.9259\%.
-Large-Scale Prime Layer: The live prime population through 10^9 washes out local constraints, flattening toward perfect numerical balance across \{0, 3, 6\} \pmod 9 with an empirical stable density of 66.674016\%.
+Finite Layer: The primorial wheel W_{2310} enforces an exact geometric residue bias of
+
+[ (46,44,45), ]
+
+locking the stable density at
+
+[ \frac{89}{135} \approx 65.9259%. ]
+
+Large-Scale Prime Layer: The live prime population through 10^9 washes out local constraints, flattening toward numerical balance across
+
+[ {0,3,6}\pmod9, ]
+
+with an empirical stable density of
+
+[ 66.674016%. ]
+
 This is the Separation Principle in computational form: finite wheel configurations impose local arithmetic constraints, while the infinite prime population systematically erases local bias under a uniform asymptotic equidistribution framework.
 
 Important Limitations
-This suite does not establish an unconditional proof of the twin-prime conjecture, nor does it independently prove modulo-9 equidistribution. The underlying theorem remains strictly conditional on:
+This suite does not establish an unconditional proof of the twin-prime conjecture, nor does it independently prove modulo-9 equidistribution.
+
+The underlying theorem remains strictly conditional on:
 
 Uniform Hardy–Littlewood asymptotics for twin primes in arithmetic progressions modulo 9.
-The rigorous algebraic equality of the corresponding singular series constants (K_0 = K_3 = K_6).
-The execution framework validates the finite wheel baseline, checks local p=3 algebraic symmetry, and tracks empirical convergence to 10^9. It provides robust empirical support for the theorem's narrative arc, leaving the absolute verification of infinite singular-series constants as an open conditional hypothesis.
+The rigorous algebraic equality of the corresponding singular-series constants K_0=K_3=K_6.
+The execution framework validates the finite-wheel baseline, checks local p=3 algebraic symmetry, and tracks empirical convergence to 10^9.
+
+It provides robust empirical support for the theorem's narrative arc while leaving the absolute verification of the infinite singular-series constants as an open conditional hypothesis.
 
 ==========================================================================================
 Compliance Profile & Licensing:
