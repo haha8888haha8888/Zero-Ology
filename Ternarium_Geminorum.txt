@@ -31,8 +31,141 @@ n \bmod M,\;
 
 [/ITEX]
 
+*******************************************************************
+
+**********************************************************************
+
+Ternarium Geminorum Framework
+A Ternary Divisor-Sum State Model for Twin-Prime Center Analysis
+1. Fundamental Object
+For each integer n \ge 2, define the divisor-sum function
+
+[ \sigma(n)=\sum_{d\mid n} d ]
+
+and the coupling coordinate
+
+[ g(n)=\gcd(n,\sigma(n)). ]
+
+The central object of the framework is the Ternarium Geminorum state
+
+[ \boxed{ \mathrm{TG}_M(n)
+\left( n \bmod M,; \sigma(n)\bmod M,; g(n)\bmod M \right) } ]
+
+where
+
+[ g(n)=\gcd(n,\sigma(n)). ]
+
+Thus every integer is represented as a point in the finite ternary manifold
+
+[ \mathbb Z_M^3. ]
+
+2. Arithmetic Populations
+The framework studies four arithmetic populations:
+
+[ \mathcal N={n:2\le n\le N}, ]
+
+[ \mathcal P={p\le N:p\text{ prime}}, ]
+
+[ \mathcal C={c:c-1,c+1\text{ prime}}, ]
+
+[ \mathcal A={n:\gcd(n,\sigma(n))>1}. ]
+
+The set \mathcal C is the twin-prime center population.
+
+The set \mathcal A is the Acheron population.
+
+3. Ternarium Distributions
+For any population X\subseteq\mathcal N,
+
+[ \mu_{M,X}(a,b,c)
+\frac{1}{|X|} # \left{ n\in X: \mathrm{TG}_M(n)=(a,b,c) \right}. ]
+
+The framework compares
+
+[ \mu_{M,\mathcal N}, \quad \mu_{M,\mathcal P}, \quad \mu_{M,\mathcal C}, \quad \mu_{M,\mathcal A}. ]
+
+4. Exact-Residue Controls
+For each twin-prime center c\in\mathcal C, select a control integer m satisfying
+
+[ m\bmod M=c\bmod M. ]
+
+The comparison
+
+[ \mathrm{TG}_M(c) \quad\text{vs}\quad \mathrm{TG}_M(m) ]
+
+removes ordinary wheel-residue effects and isolates any surviving ternary structure.
+
+5. Separation Metric
+The principal statistic is total variation distance
+
+[ TV(\mu,\nu)
+\frac12 \sum_x |\mu(x)-\nu(x)|. ]
+
+The principal experimental quantity is
+
+[ TV!\Bigl( \mathrm{TG}_M(\mathcal C), \mathrm{TG}_M(\text{exact-residue control}) \Bigr). ]
+
+6. Ternarium Projections
+The state is decomposed into five projections:
+
+[ (n,\sigma,g), ]
+
+[ (n,\sigma), ]
+
+[ (n,g), ]
+
+[ \sigma\text{-only}, ]
+
+[ g\text{-only}. ]
+
+These determine which coordinate channels carry any surviving separation signal.
+
+7. Entropy Compression
+For any distribution \mu,
+
+[ H(\mu)
+-\sum_x \mu(x)\log_2\mu(x). ]
+
+Define
+
+[ \Delta H_M
+H(\mu_{M,\mathcal N})
+H(\mu_{M,\mathcal C}). ]
+
+Positive values indicate that twin-prime centers occupy a lower-entropy region of the ternary manifold.
+
+8. Ternarium Consistency Audits
+The framework verifies:
+
+[ E1: \quad p\text{ prime} \Rightarrow \sigma(p)=p+1, ]
+
+[ E2: \quad c-1,c+1\text{ prime} \Rightarrow \sigma(c-1)=c, \quad \sigma(c+1)=c+2, ]
+
+[ E3: \quad \gcd(c-1,M)= \gcd(c+1,M)=1, ]
+
+[ E4: \quad n\in\mathcal A \iff \gcd(n,\sigma(n))>1, ]
+
+[ E5: \quad TV(\mathrm{TG}_M(\mathcal C),\mathrm{TG}_M(\mathcal N))
+TV(c\bmod M,n\bmod M), ]
+
+[ E6: \quad H(\mathcal N)-H(\mathcal C). ]
+
+9. Scaling Problem
+The central question is whether
+
+[ TV!\Bigl( \mathrm{TG}{2310}(\mathcal C), \mathrm{TG}{2310}(\text{exact-residue control}) \Bigr) ]
+
+remains positive at large horizons.
+
+The production checkpoints are
+
+[ 200\text{M}, \quad 400\text{M}, \quad 600\text{M}, \quad 800\text{M}, \quad 1\text{B}. ]
+
+The billion-scale experiment tests whether any ternary divisor-sum structure survives after exact residue matching, or whether the signal decays toward the residue baseline.
 
 
+**********************************************************************
+**********************************************************************
 ======================================================================
         ZERO-OLOGY INTEGRATED SYSTEM v3.6.4 - TERMINAL MAIN MENU
 ======================================================================
