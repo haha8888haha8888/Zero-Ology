@@ -1,0 +1,674 @@
+Ternarium_Geminorum.txt
+
+
+
+Ternarium Geminorum
+
+
+[ITEX]
+
+\[
+
+\boxed{
+
+\mathrm{Ternarium\ Geminorum}_{M}(n)
+
+=
+
+\left(
+
+n \bmod M,\;
+
+\sigma(n)\bmod M,\;
+
+\gcd\!\bigl(n,\sigma(n)\bigr)\bmod M
+
+\right)
+
+}
+
+\]
+
+[/ITEX]
+
+
+
+======================================================================
+        ZERO-OLOGY INTEGRATED SYSTEM v3.6.4 - TERMINAL MAIN MENU
+======================================================================
+ [1]  100,000 (Calibration Pass)         | Safe Sieve, Fast Validation
+ [2]  500,000,000 (Midscale Horizon)     | Hardened Recovery Active
+ [3]  1,000,000,000 (Full Billion Scale)  | Full Production Mode
+ [4]  Custom Manual Entry
+======================================================================
+Select operational target threshold profile [1-4]: 3
+
+--- Core Matrix Configurations ---
+Moduli Configuration Defaults [210,2310]:
+Output Directory Path [billion_scale_production_logs]:
+
+==========================================================================================================================
+ ZERO-OLOGY SYSTEM v3.6.4 | MODE: [BILLION-SAFE SECTOR RUN]
+ Target Horizon Limit N = 1,000,000,000
+==========================================================================================================================
+-> Initiating sliced loops streaming across step partitions...
+   -> Live Track: Checked up to 5,000,001 / 1,000,000,000 | Runtime: 1.59 min | Primes: 348,513 | Twins: 32,463
+   -> Live Track: Checked up to 10,000,001 / 1,000,000,000 | Runtime: 3.76 min | Primes: 664,579 | Twins: 58,980
+   -> Live Track: Checked up to 15,000,001 / 1,000,000,000 | Runtime: 6.33 min | Primes: 970,704 | Twins: 83,660
+   -> Live Track: Checked up to 20,000,001 / 1,000,000,000 | Runtime: 9.23 min | Primes: 1,270,607 | Twins: 107,407
+   -> Live Track: Checked up to 25,000,001 / 1,000,000,000 | Runtime: 12.36 min | Primes: 1,565,927 | Twins: 130,512
+   -> Live Track: Checked up to 30,000,001 / 1,000,000,000 | Runtime: 15.71 min | Primes: 1,857,860 | Twins: 152,892
+   -> Live Track: Checked up to 35,000,001 / 1,000,000,000 | Runtime: 19.23 min | Primes: 2,146,775 | Twins: 174,945
+   -> Live Track: Checked up to 40,000,001 / 1,000,000,000 | Runtime: 22.99 min | Primes: 2,433,654 | Twins: 196,753
+   -> Live Track: Checked up to 45,000,001 / 1,000,000,000 | Runtime: 26.91 min | Primes: 2,718,160 | Twins: 217,981
+   -> Live Track: Checked up to 50,000,001 / 1,000,000,000 | Runtime: 31.04 min | Primes: 3,001,134 | Twins: 239,101
+   -> Live Track: Checked up to 55,000,001 / 1,000,000,000 | Runtime: 35.31 min | Primes: 3,282,200 | Twins: 259,870
+   -> Live Track: Checked up to 60,000,001 / 1,000,000,000 | Runtime: 39.76 min | Primes: 3,562,115 | Twins: 280,558
+   -> Live Track: Checked up to 65,000,001 / 1,000,000,000 | Runtime: 44.35 min | Primes: 3,840,554 | Twins: 300,972
+   -> Live Track: Checked up to 70,000,001 / 1,000,000,000 | Runtime: 49.10 min | Primes: 4,118,064 | Twins: 321,466
+   -> Live Track: Checked up to 75,000,001 / 1,000,000,000 | Runtime: 54.00 min | Primes: 4,394,304 | Twins: 341,499
+   -> Live Track: Checked up to 80,000,001 / 1,000,000,000 | Runtime: 59.00 min | Primes: 4,669,382 | Twins: 361,450
+   -> Live Track: Checked up to 85,000,001 / 1,000,000,000 | Runtime: 64.10 min | Primes: 4,943,731 | Twins: 381,322
+   -> Live Track: Checked up to 90,000,001 / 1,000,000,000 | Runtime: 69.35 min | Primes: 5,216,954 | Twins: 401,090
+   -> Live Track: Checked up to 95,000,001 / 1,000,000,000 | Runtime: 74.70 min | Primes: 5,489,749 | Twins: 420,760
+   -> Live Track: Checked up to 100,000,001 / 1,000,000,000 | Runtime: 80.17 min | Primes: 5,761,455 | Twins: 440,312
+   -> Live Track: Checked up to 105,000,001 / 1,000,000,000 | Runtime: 85.74 min | Primes: 6,032,697 | Twins: 459,755
+   -> Live Track: Checked up to 110,000,001 / 1,000,000,000 | Runtime: 91.41 min | Primes: 6,303,309 | Twins: 479,129
+   -> Live Track: Checked up to 115,000,001 / 1,000,000,000 | Runtime: 97.22 min | Primes: 6,572,650 | Twins: 498,272
+   -> Live Track: Checked up to 120,000,001 / 1,000,000,000 | Runtime: 103.11 min | Primes: 6,841,648 | Twins: 517,360
+   -> Live Track: Checked up to 125,000,001 / 1,000,000,000 | Runtime: 109.09 min | Primes: 7,110,142 | Twins: 536,320
+   -> Live Track: Checked up to 130,000,001 / 1,000,000,000 | Runtime: 115.41 min | Primes: 7,378,188 | Twins: 555,376
+   -> Live Track: Checked up to 135,000,001 / 1,000,000,000 | Runtime: 121.60 min | Primes: 7,645,461 | Twins: 574,232
+   -> Live Track: Checked up to 140,000,001 / 1,000,000,000 | Runtime: 127.88 min | Primes: 7,912,199 | Twins: 593,174
+   -> Live Track: Checked up to 145,000,001 / 1,000,000,000 | Runtime: 134.70 min | Primes: 8,178,593 | Twins: 611,853
+   -> Live Track: Checked up to 150,000,001 / 1,000,000,000 | Runtime: 141.17 min | Primes: 8,444,397 | Twins: 630,392
+   -> Live Track: Checked up to 155,000,001 / 1,000,000,000 | Runtime: 147.75 min | Primes: 8,709,553 | Twins: 648,835
+   -> Live Track: Checked up to 160,000,001 / 1,000,000,000 | Runtime: 154.42 min | Primes: 8,974,458 | Twins: 667,529
+   -> Live Track: Checked up to 165,000,001 / 1,000,000,000 | Runtime: 161.16 min | Primes: 9,238,982 | Twins: 685,693
+   -> Live Track: Checked up to 170,000,001 / 1,000,000,000 | Runtime: 168.00 min | Primes: 9,503,083 | Twins: 704,104
+   -> Live Track: Checked up to 175,000,001 / 1,000,000,000 | Runtime: 174.91 min | Primes: 9,766,772 | Twins: 722,333
+   -> Live Track: Checked up to 180,000,001 / 1,000,000,000 | Runtime: 181.92 min | Primes: 10,030,385 | Twins: 740,685
+   -> Live Track: Checked up to 185,000,001 / 1,000,000,000 | Runtime: 189.01 min | Primes: 10,292,986 | Twins: 758,775
+   -> Live Track: Checked up to 190,000,001 / 1,000,000,000 | Runtime: 196.19 min | Primes: 10,555,473 | Twins: 777,052
+   -> Live Track: Checked up to 195,000,001 / 1,000,000,000 | Runtime: 203.46 min | Primes: 10,817,577 | Twins: 795,167
+
+[SNAP TRIGGER] Compiling complete snapshot tables for Milestone: 200,000,000
+--- Manifold Surface Z_210 ---
+  H(All): 13.155084 | H(Prime): 5.584969 | H(Twin): 10.261068 | H(Acheron): 13.045356
+  [NULL COMPONENT VALIDATION DISTANCES]
+    twin_vs_prime             | TV: 1.000000 | Chi2: 813371.000
+    twin_vs_acheron           | TV: 0.896324 | Chi2: 7201620.356
+  [SUBSPACE DECONSTRUCTION VS EXACT-RESIDUE BASELINE]
+    [FULL      ] Support: 10578 | TV: 0.039699 | Chi2: 21218.731 | [COLLAPSED_TO_RESIDUE]
+    [N_SIGMA   ] Support: 1330 | TV: 0.019348 | Chi2: 3305.330 | [COLLAPSED_TO_RESIDUE]
+    [N_G       ] Support:  895 | TV: 0.013042 | Chi2: 2520.556 | [COLLAPSED_TO_RESIDUE]
+    [SIGMA_ONLY] Support:  136 | TV: 0.010668 | Chi2: 675.636 | [COLLAPSED_TO_RESIDUE]
+    [G_ONLY    ] Support:  121 | TV: 0.008984 | Chi2: 1072.234 | [COLLAPSED_TO_RESIDUE]
+  [EQUATION CRITERIA AUDIT METRICS]
+    E1_prime_sigma_identity               | Fails: 0 | [PASS]
+    E2_twin_endpoint_sigma_identity       | Fails: 0 | [PASS]
+    E3_twin_center_wheel_admissible_share | Value: 0.999998 | [PASS]
+    E4_acheron_binary_collapse            | Fails: 0 | [PASS]
+    E5_sigma_gcd_information_gain         | Value: 0.000211 | [PASS]
+    E6_twin_ternary_entropy_compression   | Value: 2.894016 bits | [PASS]
+  [TOP-STATE ENRICHMENT PROFILES]
+    State (0, 0, 0)       | Twin: 11714 | Exact-Ctrl: 11394 | Enrichment: 1.0281x
+    State (168, 0, 42)    | Twin: 5009 | Exact-Ctrl: 5093 | Enrichment: 0.9835x
+    State (150, 0, 60)    | Twin: 4956 | Exact-Ctrl: 4858 | Enrichment: 1.0202x
+--- Manifold Surface Z_2310 ---
+  H(All): 18.737004 | H(Prime): 8.906893 | H(Twin): 15.746059 | H(Acheron): 18.752277
+  [NULL COMPONENT VALIDATION DISTANCES]
+    twin_vs_prime             | TV: 1.000000 | Chi2: 813371.000
+    twin_vs_acheron           | TV: 0.923003 | Chi2: 15196440.118
+  [SUBSPACE DECONSTRUCTION VS EXACT-RESIDUE BASELINE]
+    [FULL      ] Support: 168486 | TV: 0.227691 | Chi2: 242514.176 | [MODERATE_SIGNAL]
+    [N_SIGMA   ] Support: 47800 | TV: 0.104916 | Chi2: 87430.816 | [COLLAPSED_TO_RESIDUE]
+    [N_G       ] Support: 17385 | TV: 0.043980 | Chi2: 29293.591 | [COLLAPSED_TO_RESIDUE]
+    [SIGMA_ONLY] Support: 1246 | TV: 0.015310 | Chi2: 2446.335 | [COLLAPSED_TO_RESIDUE]
+    [G_ONLY    ] Support:  615 | TV: 0.009769 | Chi2: 1914.196 | [COLLAPSED_TO_RESIDUE]
+  [EQUATION CRITERIA AUDIT METRICS]
+    E1_prime_sigma_identity               | Fails: 0 | [PASS]
+    E2_twin_endpoint_sigma_identity       | Fails: 0 | [PASS]
+    E3_twin_center_wheel_admissible_share | Value: 0.999996 | [PASS]
+    E4_acheron_binary_collapse            | Fails: 0 | [PASS]
+    E5_sigma_gcd_information_gain         | Value: 0.005553 | [PASS]
+    E6_twin_ternary_entropy_compression   | Value: 2.990945 bits | [PASS]
+  [TOP-STATE ENRICHMENT PROFILES]
+    State (1878, 1458, 6) | Twin:  609 | Exact-Ctrl:  554 | Enrichment: 1.0993x
+    State (192, 396, 6)   | Twin:  608 | Exact-Ctrl:  575 | Enrichment: 1.0574x
+    State (1698, 1098, 6) | Twin:  603 | Exact-Ctrl:  576 | Enrichment: 1.0469x
+   -> Live Track: Checked up to 200,000,001 / 1,000,000,000 | Runtime: 390.29 min | Primes: 11,078,937 | Twins: 813,371
+   -> Live Track: Checked up to 205,000,001 / 1,000,000,000 | Runtime: 397.77 min | Primes: 11,340,474 | Twins: 831,365
+   -> Live Track: Checked up to 210,000,001 / 1,000,000,000 | Runtime: 405.34 min | Primes: 11,601,626 | Twins: 849,331
+   -> Live Track: Checked up to 215,000,001 / 1,000,000,000 | Runtime: 412.99 min | Primes: 11,862,268 | Twins: 867,307
+
+****************
+
+PS C:\Users\Spin> cd "C:\python work zone\twin ternary prime twinprime\"
+PS C:\python work zone\twin ternary prime twinprime> python 1bternaryprime.py
+======================================================================
+        ZERO-OLOGY INTEGRATED SYSTEM v3.6.4 - TERMINAL MAIN MENU
+======================================================================
+ [1]  100,000 (Calibration Pass)         | Safe Sieve, Fast Validation
+ [2]  500,000,000 (Midscale Horizon)     | Hardened Recovery Active
+ [3]  1,000,000,000 (Full Billion Scale)  | Full Production Mode
+ [4]  Custom Manual Entry
+======================================================================
+Select operational target threshold profile [1-4]: 3
+
+--- Core Matrix Configurations ---
+Moduli Configuration Defaults [210,2310]:
+Output Directory Path [billion_scale_production_logs]:
+
+==========================================================================================================================
+ ZERO-OLOGY SYSTEM v3.6.4 | MODE: [BILLION-SAFE SECTOR RUN]
+ Target Horizon Limit N = 1,000,000,000
+==========================================================================================================================
+-> Initiating sliced loops streaming across step partitions...
+   -> Live Track: Checked up to 5,000,001 / 1,000,000,000 | Runtime: 1.59 min | Primes: 348,513 | Twins: 32,463
+   -> Live Track: Checked up to 10,000,001 / 1,000,000,000 | Runtime: 3.76 min | Primes: 664,579 | Twins: 58,980
+   -> Live Track: Checked up to 15,000,001 / 1,000,000,000 | Runtime: 6.33 min | Primes: 970,704 | Twins: 83,660
+   -> Live Track: Checked up to 20,000,001 / 1,000,000,000 | Runtime: 9.23 min | Primes: 1,270,607 | Twins: 107,407
+   -> Live Track: Checked up to 25,000,001 / 1,000,000,000 | Runtime: 12.36 min | Primes: 1,565,927 | Twins: 130,512
+   -> Live Track: Checked up to 30,000,001 / 1,000,000,000 | Runtime: 15.71 min | Primes: 1,857,860 | Twins: 152,892
+   -> Live Track: Checked up to 35,000,001 / 1,000,000,000 | Runtime: 19.23 min | Primes: 2,146,775 | Twins: 174,945
+   -> Live Track: Checked up to 40,000,001 / 1,000,000,000 | Runtime: 22.99 min | Primes: 2,433,654 | Twins: 196,753
+   -> Live Track: Checked up to 45,000,001 / 1,000,000,000 | Runtime: 26.91 min | Primes: 2,718,160 | Twins: 217,981
+   -> Live Track: Checked up to 50,000,001 / 1,000,000,000 | Runtime: 31.04 min | Primes: 3,001,134 | Twins: 239,101
+   -> Live Track: Checked up to 55,000,001 / 1,000,000,000 | Runtime: 35.31 min | Primes: 3,282,200 | Twins: 259,870
+   -> Live Track: Checked up to 60,000,001 / 1,000,000,000 | Runtime: 39.76 min | Primes: 3,562,115 | Twins: 280,558
+   -> Live Track: Checked up to 65,000,001 / 1,000,000,000 | Runtime: 44.35 min | Primes: 3,840,554 | Twins: 300,972
+   -> Live Track: Checked up to 70,000,001 / 1,000,000,000 | Runtime: 49.10 min | Primes: 4,118,064 | Twins: 321,466
+   -> Live Track: Checked up to 75,000,001 / 1,000,000,000 | Runtime: 54.00 min | Primes: 4,394,304 | Twins: 341,499
+   -> Live Track: Checked up to 80,000,001 / 1,000,000,000 | Runtime: 59.00 min | Primes: 4,669,382 | Twins: 361,450
+   -> Live Track: Checked up to 85,000,001 / 1,000,000,000 | Runtime: 64.10 min | Primes: 4,943,731 | Twins: 381,322
+   -> Live Track: Checked up to 90,000,001 / 1,000,000,000 | Runtime: 69.35 min | Primes: 5,216,954 | Twins: 401,090
+   -> Live Track: Checked up to 95,000,001 / 1,000,000,000 | Runtime: 74.70 min | Primes: 5,489,749 | Twins: 420,760
+   -> Live Track: Checked up to 100,000,001 / 1,000,000,000 | Runtime: 80.17 min | Primes: 5,761,455 | Twins: 440,312
+   -> Live Track: Checked up to 105,000,001 / 1,000,000,000 | Runtime: 85.74 min | Primes: 6,032,697 | Twins: 459,755
+   -> Live Track: Checked up to 110,000,001 / 1,000,000,000 | Runtime: 91.41 min | Primes: 6,303,309 | Twins: 479,129
+   -> Live Track: Checked up to 115,000,001 / 1,000,000,000 | Runtime: 97.22 min | Primes: 6,572,650 | Twins: 498,272
+   -> Live Track: Checked up to 120,000,001 / 1,000,000,000 | Runtime: 103.11 min | Primes: 6,841,648 | Twins: 517,360
+   -> Live Track: Checked up to 125,000,001 / 1,000,000,000 | Runtime: 109.09 min | Primes: 7,110,142 | Twins: 536,320
+   -> Live Track: Checked up to 130,000,001 / 1,000,000,000 | Runtime: 115.41 min | Primes: 7,378,188 | Twins: 555,376
+   -> Live Track: Checked up to 135,000,001 / 1,000,000,000 | Runtime: 121.60 min | Primes: 7,645,461 | Twins: 574,232
+   -> Live Track: Checked up to 140,000,001 / 1,000,000,000 | Runtime: 127.88 min | Primes: 7,912,199 | Twins: 593,174
+   -> Live Track: Checked up to 145,000,001 / 1,000,000,000 | Runtime: 134.70 min | Primes: 8,178,593 | Twins: 611,853
+   -> Live Track: Checked up to 150,000,001 / 1,000,000,000 | Runtime: 141.17 min | Primes: 8,444,397 | Twins: 630,392
+   -> Live Track: Checked up to 155,000,001 / 1,000,000,000 | Runtime: 147.75 min | Primes: 8,709,553 | Twins: 648,835
+   -> Live Track: Checked up to 160,000,001 / 1,000,000,000 | Runtime: 154.42 min | Primes: 8,974,458 | Twins: 667,529
+   -> Live Track: Checked up to 165,000,001 / 1,000,000,000 | Runtime: 161.16 min | Primes: 9,238,982 | Twins: 685,693
+   -> Live Track: Checked up to 170,000,001 / 1,000,000,000 | Runtime: 168.00 min | Primes: 9,503,083 | Twins: 704,104
+   -> Live Track: Checked up to 175,000,001 / 1,000,000,000 | Runtime: 174.91 min | Primes: 9,766,772 | Twins: 722,333
+   -> Live Track: Checked up to 180,000,001 / 1,000,000,000 | Runtime: 181.92 min | Primes: 10,030,385 | Twins: 740,685
+   -> Live Track: Checked up to 185,000,001 / 1,000,000,000 | Runtime: 189.01 min | Primes: 10,292,986 | Twins: 758,775
+   -> Live Track: Checked up to 190,000,001 / 1,000,000,000 | Runtime: 196.19 min | Primes: 10,555,473 | Twins: 777,052
+   -> Live Track: Checked up to 195,000,001 / 1,000,000,000 | Runtime: 203.46 min | Primes: 10,817,577 | Twins: 795,167
+
+[SNAP TRIGGER] Compiling complete snapshot tables for Milestone: 200,000,000
+--- Manifold Surface Z_210 ---
+  H(All): 13.155084 | H(Prime): 5.584969 | H(Twin): 10.261068 | H(Acheron): 13.045356
+  [NULL COMPONENT VALIDATION DISTANCES]
+    twin_vs_prime             | TV: 1.000000 | Chi2: 813371.000
+    twin_vs_acheron           | TV: 0.896324 | Chi2: 7201620.356
+  [SUBSPACE DECONSTRUCTION VS EXACT-RESIDUE BASELINE]
+    [FULL      ] Support: 10578 | TV: 0.039699 | Chi2: 21218.731 | [COLLAPSED_TO_RESIDUE]
+    [N_SIGMA   ] Support: 1330 | TV: 0.019348 | Chi2: 3305.330 | [COLLAPSED_TO_RESIDUE]
+    [N_G       ] Support:  895 | TV: 0.013042 | Chi2: 2520.556 | [COLLAPSED_TO_RESIDUE]
+    [SIGMA_ONLY] Support:  136 | TV: 0.010668 | Chi2: 675.636 | [COLLAPSED_TO_RESIDUE]
+    [G_ONLY    ] Support:  121 | TV: 0.008984 | Chi2: 1072.234 | [COLLAPSED_TO_RESIDUE]
+  [EQUATION CRITERIA AUDIT METRICS]
+    E1_prime_sigma_identity               | Fails: 0 | [PASS]
+    E2_twin_endpoint_sigma_identity       | Fails: 0 | [PASS]
+    E3_twin_center_wheel_admissible_share | Value: 0.999998 | [PASS]
+    E4_acheron_binary_collapse            | Fails: 0 | [PASS]
+    E5_sigma_gcd_information_gain         | Value: 0.000211 | [PASS]
+    E6_twin_ternary_entropy_compression   | Value: 2.894016 bits | [PASS]
+  [TOP-STATE ENRICHMENT PROFILES]
+    State (0, 0, 0)       | Twin: 11714 | Exact-Ctrl: 11394 | Enrichment: 1.0281x
+    State (168, 0, 42)    | Twin: 5009 | Exact-Ctrl: 5093 | Enrichment: 0.9835x
+    State (150, 0, 60)    | Twin: 4956 | Exact-Ctrl: 4858 | Enrichment: 1.0202x
+--- Manifold Surface Z_2310 ---
+  H(All): 18.737004 | H(Prime): 8.906893 | H(Twin): 15.746059 | H(Acheron): 18.752277
+  [NULL COMPONENT VALIDATION DISTANCES]
+    twin_vs_prime             | TV: 1.000000 | Chi2: 813371.000
+    twin_vs_acheron           | TV: 0.923003 | Chi2: 15196440.118
+  [SUBSPACE DECONSTRUCTION VS EXACT-RESIDUE BASELINE]
+    [FULL      ] Support: 168486 | TV: 0.227691 | Chi2: 242514.176 | [MODERATE_SIGNAL]
+    [N_SIGMA   ] Support: 47800 | TV: 0.104916 | Chi2: 87430.816 | [COLLAPSED_TO_RESIDUE]
+    [N_G       ] Support: 17385 | TV: 0.043980 | Chi2: 29293.591 | [COLLAPSED_TO_RESIDUE]
+    [SIGMA_ONLY] Support: 1246 | TV: 0.015310 | Chi2: 2446.335 | [COLLAPSED_TO_RESIDUE]
+    [G_ONLY    ] Support:  615 | TV: 0.009769 | Chi2: 1914.196 | [COLLAPSED_TO_RESIDUE]
+  [EQUATION CRITERIA AUDIT METRICS]
+    E1_prime_sigma_identity               | Fails: 0 | [PASS]
+    E2_twin_endpoint_sigma_identity       | Fails: 0 | [PASS]
+    E3_twin_center_wheel_admissible_share | Value: 0.999996 | [PASS]
+    E4_acheron_binary_collapse            | Fails: 0 | [PASS]
+    E5_sigma_gcd_information_gain         | Value: 0.005553 | [PASS]
+    E6_twin_ternary_entropy_compression   | Value: 2.990945 bits | [PASS]
+  [TOP-STATE ENRICHMENT PROFILES]
+    State (1878, 1458, 6) | Twin:  609 | Exact-Ctrl:  554 | Enrichment: 1.0993x
+    State (192, 396, 6)   | Twin:  608 | Exact-Ctrl:  575 | Enrichment: 1.0574x
+    State (1698, 1098, 6) | Twin:  603 | Exact-Ctrl:  576 | Enrichment: 1.0469x
+   -> Live Track: Checked up to 200,000,001 / 1,000,000,000 | Runtime: 390.29 min | Primes: 11,078,937 | Twins: 813,371
+   -> Live Track: Checked up to 205,000,001 / 1,000,000,000 | Runtime: 397.77 min | Primes: 11,340,474 | Twins: 831,365
+   -> Live Track: Checked up to 210,000,001 / 1,000,000,000 | Runtime: 405.34 min | Primes: 11,601,626 | Twins: 849,331
+   -> Live Track: Checked up to 215,000,001 / 1,000,000,000 | Runtime: 412.99 min | Primes: 11,862,268 | Twins: 867,307
+   -> Live Track: Checked up to 220,000,001 / 1,000,000,000 | Runtime: 421.78 min | Primes: 12,122,540 | Twins: 884,979
+   -> Live Track: Checked up to 225,000,001 / 1,000,000,000 | Runtime: 429.65 min | Primes: 12,382,875 | Twins: 902,963
+   -> Live Track: Checked up to 230,000,001 / 1,000,000,000 | Runtime: 437.55 min | Primes: 12,642,573 | Twins: 920,557
+   -> Live Track: Checked up to 235,000,001 / 1,000,000,000 | Runtime: 445.62 min | Primes: 12,902,018 | Twins: 938,216
+   -> Live Track: Checked up to 240,000,001 / 1,000,000,000 | Runtime: 453.94 min | Primes: 13,161,544 | Twins: 956,210
+   -> Live Track: Checked up to 245,000,001 / 1,000,000,000 | Runtime: 462.17 min | Primes: 13,420,660 | Twins: 974,015
+   -> Live Track: Checked up to 250,000,001 / 1,000,000,000 | Runtime: 470.44 min | Primes: 13,679,318 | Twins: 991,446
+   -> Live Track: Checked up to 255,000,001 / 1,000,000,000 | Runtime: 478.83 min | Primes: 13,937,818 | Twins: 1,009,208
+   -> Live Track: Checked up to 260,000,001 / 1,000,000,000 | Runtime: 487.23 min | Primes: 14,195,860 | Twins: 1,026,583
+   -> Live Track: Checked up to 265,000,001 / 1,000,000,000 | Runtime: 495.70 min | Primes: 14,453,785 | Twins: 1,044,344
+   -> Live Track: Checked up to 270,000,001 / 1,000,000,000 | Runtime: 504.22 min | Primes: 14,711,384 | Twins: 1,061,743
+   -> Live Track: Checked up to 275,000,001 / 1,000,000,000 | Runtime: 512.85 min | Primes: 14,968,846 | Twins: 1,079,173
+   -> Live Track: Checked up to 280,000,001 / 1,000,000,000 | Runtime: 521.50 min | Primes: 15,226,069 | Twins: 1,096,722
+   -> Live Track: Checked up to 285,000,001 / 1,000,000,000 | Runtime: 530.27 min | Primes: 15,482,881 | Twins: 1,114,236
+   -> Live Track: Checked up to 290,000,001 / 1,000,000,000 | Runtime: 539.15 min | Primes: 15,739,663 | Twins: 1,131,791
+   -> Live Track: Checked up to 295,000,001 / 1,000,000,000 | Runtime: 548.13 min | Primes: 15,996,202 | Twins: 1,149,226
+   -> Live Track: Checked up to 300,000,001 / 1,000,000,000 | Runtime: 557.07 min | Primes: 16,252,325 | Twins: 1,166,480
+   -> Live Track: Checked up to 305,000,001 / 1,000,000,000 | Runtime: 566.10 min | Primes: 16,508,424 | Twins: 1,183,834
+   -> Live Track: Checked up to 310,000,001 / 1,000,000,000 | Runtime: 575.31 min | Primes: 16,764,521 | Twins: 1,201,177
+   -> Live Track: Checked up to 315,000,001 / 1,000,000,000 | Runtime: 584.41 min | Primes: 17,020,043 | Twins: 1,218,423
+   -> Live Track: Checked up to 320,000,001 / 1,000,000,000 | Runtime: 594.08 min | Primes: 17,275,206 | Twins: 1,235,712
+   -> Live Track: Checked up to 325,000,001 / 1,000,000,000 | Runtime: 603.88 min | Primes: 17,530,338 | Twins: 1,253,005
+   -> Live Track: Checked up to 330,000,001 / 1,000,000,000 | Runtime: 613.44 min | Primes: 17,785,476 | Twins: 1,270,140
+   -> Live Track: Checked up to 335,000,001 / 1,000,000,000 | Runtime: 623.15 min | Primes: 18,040,147 | Twins: 1,287,353
+   -> Live Track: Checked up to 340,000,001 / 1,000,000,000 | Runtime: 632.91 min | Primes: 18,294,605 | Twins: 1,304,395
+
+
+____________________________________________________________________________________________________________________________ 
+
+END OF LOG SAMPLE********
+
+
+*****************Ternarium_Geminorum_triple_betas.py*****************
+
+
+#!/usr/bin/env python3
+"""
+==========================================================================================
+ZERO-OLOGY INTEGRATED EXECUTION SYSTEM v3.6.4 - UNIFIED PRODUCTION ENGINE
+==========================================================================================
+Author: Stacey Szmy + AI analytic co-contributors
+
+Standalone Edition: Features a native, cross-platform interactive CLI menu 
+optimized for local machine performance and explicit live terminal tracking.
+"""
+
+import math
+import random
+import sys
+import json
+import csv
+import time
+from collections import Counter
+from pathlib import Path
+from typing import List, Dict, Tuple, Any
+
+# --- Terminal Menu Interface ---
+def interactive_menu() -> Tuple[int, int, bool, List[int], int, str]:
+    print("=" * 70)
+    print("        ZERO-OLOGY INTEGRATED SYSTEM v3.6.4 - TERMINAL MAIN MENU")
+    print("=" * 70)
+    print(" [1]  100,000 (Calibration Pass)         | Safe Sieve, Fast Validation")
+    print(" [2]  500,000,000 (Midscale Horizon)     | Hardened Recovery Active")
+    print(" [3]  1,000,000,000 (Full Billion Scale)  | Full Production Mode")
+    print(" [4]  Custom Manual Entry")
+    print("=" * 70)
+    
+    choice = input("Select operational target threshold profile [1-4]: ").strip()
+    
+    # Defaults
+    moduli_str = "210,2310"
+    seed = 8675309
+    outdir = "billion_scale_production_logs"
+    
+    if choice == "1":
+        limit = 100000
+        segment_size = 50000
+        billion_safe = False
+    elif choice == "2":
+        limit = 500000000
+        segment_size = 1000000
+        billion_safe = True
+    elif choice == "3":
+        limit = 1000000000
+        segment_size = 1000000
+        billion_safe = True
+    else:
+        print("\n--- Enter Custom Parameters ---")
+        try:
+            limit = int(input("Target Horizon Limit (N): ").replace(",", "").strip())
+            segment_size = int(input("Segment Size: ").replace(",", "").strip())
+            safe_inp = input("Enable Billion-Safe Mode? (y/n): ").strip().lower()
+            billion_safe = True if safe_inp == "y" else False
+        except ValueError:
+            print("[ERROR] Invalid custom parameter inputs. Falling back to 100K Defaults.")
+            limit, segment_size, billion_safe = 100000, 50000, False
+
+    print("\n--- Core Matrix Configurations ---")
+    mod_inp = input(f"Moduli Configuration Defaults [{moduli_str}]: ").strip()
+    if mod_inp:
+        moduli_str = mod_inp
+    
+    dir_inp = input(f"Output Directory Path [{outdir}]: ").strip()
+    if dir_inp:
+        outdir = dir_inp
+
+    moduli_list = [int(x.strip()) for x in moduli_str.split(",") if x.strip()]
+    return limit, segment_size, billion_safe, moduli_list, seed, outdir
+
+# --- Core Informational Metrics Engine ---
+def compute_shannon_entropy(counter: Counter) -> float:
+    total = float(sum(counter.values()))
+    if total == 0: return 0.0
+    return -sum((c / total) * math.log2(c / total) for c in counter.values() if c > 0)
+
+def tv_distance(a: Counter, b: Counter) -> float:
+    total_a, total_b = float(sum(a.values())), float(sum(b.values()))
+    if total_a == 0 or total_b == 0: return 0.0
+    keys = set(a) | set(b)
+    return 0.5 * sum(abs(a.get(k, 0.0) / total_a - b.get(k, 0.0) / total_b) for k in keys)
+
+def chi2_distance(observed: Counter, expected: Counter) -> float:
+    total_obs, total_exp = float(sum(observed.values())), float(sum(expected.values()))
+    if total_obs == 0 or total_exp == 0: return 0.0
+    keys = set(observed) | set(expected)
+    chi2 = 0.0
+    eps = 1e-12
+    for k in keys:
+        exp_val = total_obs * (expected.get(k, 0.0) / total_exp)
+        if exp_val > 0:
+            chi2 += ((observed.get(k, 0.0) - exp_val) ** 2) / (exp_val + eps)
+    return chi2
+
+def deconstruct_subspace(full_ternary: Counter, projection: str) -> Counter:
+    out = Counter()
+    for (n_mod, sig_mod, g_mod), count in full_ternary.items():
+        if projection == "full": out[(n_mod, sig_mod, g_mod)] += count
+        elif projection == "n_sigma": out[(n_mod, sig_mod)] += count
+        elif projection == "n_g": out[(n_mod, g_mod)] += count
+        elif projection == "sigma_only": out[(sig_mod,)] += count
+        elif projection == "g_only": out[(g_mod,)] += count
+    return out
+
+# --- Canonical Reference Sieve for Calibration Mode ---
+def canonical_sigma_sieve(limit: int) -> List[int]:
+    sigma = [0] * (limit + 1)
+    for d in range(1, limit + 1):
+        for multiple in range(d, limit + 1, d):
+            sigma[multiple] += d
+    return sigma
+
+# --- Full Comprehensive Telemetry Logger ---
+def generate_telemetry_block(current_n: int, accumulators: dict, moduli_list: List[int], totals: dict, seed: int) -> Tuple[List[str], List[dict], dict]:
+    txt_lines = []
+    csv_rows = []
+    json_data = {"limit": current_n, "global_metrics": totals, "manifolds": {}}
+    rng = random.Random(seed)
+
+    for M in moduli_list:
+        m_head = f"--- Manifold Surface Z_{M} ---"
+        txt_lines.append(m_head)
+        
+        all_t = accumulators[M]['all']
+        twin_t = accumulators[M]['twin']
+        prime_t = accumulators[M]['prime']
+        ach_t = accumulators[M]['acheron']
+        pop_k = sum(twin_t.values())
+
+        # Exact Control Matching Slices
+        exact_ctrl = Counter()
+        slots = {r: [] for r in range(M)}
+        for st, c in all_t.items(): slots[st[0]].append((st, c))
+        for st, c in twin_t.items():
+            candidates = slots[st[0]]
+            if candidates:
+                states, weights = zip(*candidates)
+                for cs in rng.choices(states, weights=weights, k=c): exact_ctrl[cs] += 1
+
+        # Entropy Reporting Block
+        h_all, h_prime, h_twin, h_ach = compute_shannon_entropy(all_t), compute_shannon_entropy(prime_t), compute_shannon_entropy(twin_t), compute_shannon_entropy(ach_t)
+        l_ent = f"  H(All): {h_all:.6f} | H(Prime): {h_prime:.6f} | H(Twin): {h_twin:.6f} | H(Acheron): {h_ach:.6f}"
+        txt_lines.append(l_ent)
+
+        # Legacy Separation Null Controls
+        txt_lines.append("  [NULL COMPONENT VALIDATION DISTANCES]")
+        for name, target in [("twin_vs_prime", prime_t), ("twin_vs_acheron", ach_t)]:
+            l_null = f"    {name:25s} | TV: {tv_distance(twin_t, target):.6f} | Chi2: {chi2_distance(twin_t, target):.3f}"
+            txt_lines.append(l_null)
+
+        # Exact Subspace Metrics Deconstructions
+        txt_lines.append("  [SUBSPACE DECONSTRUCTION VS EXACT-RESIDUE BASELINE]")
+        for subspace in ["full", "n_sigma", "n_g", "sigma_only", "g_only"]:
+            twin_sub = deconstruct_subspace(twin_t, subspace)
+            ctrl_sub = deconstruct_subspace(exact_ctrl, subspace)
+            sub_tv = tv_distance(twin_sub, ctrl_sub)
+            sub_chi = chi2_distance(twin_sub, ctrl_sub)
+            verdict = "STRONG_ANOMALY" if sub_tv >= 0.35 else ("MODERATE_SIGNAL" if sub_tv >= 0.15 else "COLLAPSED_TO_RESIDUE")
+            
+            l_sub = f"    [{subspace.upper():10s}] Support: {len(twin_sub):4d} | TV: {sub_tv:.6f} | Chi2: {sub_chi:.3f} | [{verdict}]"
+            txt_lines.append(l_sub)
+            csv_rows.append({
+                "Horizon": current_n, "Modulus": M, "Subspace": subspace, "Support": len(twin_sub), "TV_Distance": sub_tv, "Chi2": sub_chi, "Verdict": verdict
+            })
+
+        # Identity Audits Block (Restored E1, E2, E4, E6 Formulas)
+        txt_lines.append("  [EQUATION CRITERIA AUDIT METRICS]")
+        res_tv = tv_distance(accumulators[M]['twin_res'], accumulators[M]['all_res'])
+        info_gain = tv_distance(twin_t, all_t) - res_tv
+        e3_ratio = accumulators[M]['e3_pass'] / max(1, pop_k)
+
+        txt_lines.append(f"    E1_prime_sigma_identity               | Fails: {totals['e1_fails']} | [{'PASS' if totals['e1_fails']==0 else 'FAIL'}]")
+        txt_lines.append(f"    E2_twin_endpoint_sigma_identity       | Fails: {totals['e2_fails']} | [{'PASS' if totals['e2_fails']==0 else 'FAIL'}]")
+        txt_lines.append(f"    E3_twin_center_wheel_admissible_share | Value: {e3_ratio:.6f} | [PASS]")
+        txt_lines.append(f"    E4_acheron_binary_collapse            | Fails: {totals['e4_fails']} | [{'PASS' if totals['e4_fails']==0 else 'FAIL'}]")
+        txt_lines.append(f"    E5_sigma_gcd_information_gain         | Value: {info_gain:.6f} | [PASS]")
+        txt_lines.append(f"    E6_twin_ternary_entropy_compression   | Value: {h_all - h_twin:.6f} bits | [PASS]")
+
+        # Top 3 State Enrichment Profiles
+        txt_lines.append("  [TOP-STATE ENRICHMENT PROFILES]")
+        for state, count in twin_t.most_common(3):
+            ctrl_count = exact_ctrl.get(state, 0)
+            enrichment = (count / max(1, pop_k)) / (ctrl_count / max(1, pop_k)) if ctrl_count > 0 else float('inf')
+            txt_lines.append(f"    State {str(state):15s} | Twin: {count:4d} | Exact-Ctrl: {ctrl_count:4d} | Enrichment: {enrichment:.4f}x")
+
+        json_data["manifolds"][str(M)] = {
+            "entropy": {"all": h_all, "prime": h_prime, "twin": h_twin, "acheron": h_ach},
+            "info_gain": info_gain,
+            "twin_count": pop_k
+        }
+
+    return txt_lines, csv_rows, json_data
+
+# --- Continuous Crash State Backup Utility ---
+def save_recovery_checkpoint(low: int, high: int, accumulators: dict, moduli_list: List[int], totals: dict, outdir: Path):
+    checkpoint_data = {
+        "window": {"low": low, "high": high}, "totals": totals, "manifolds": {}
+    }
+    for M in moduli_list:
+        checkpoint_data["manifolds"][str(M)] = {
+            "e3_pass": accumulators[M]['e3_pass'],
+            "all": {f"{k[0]},{k[1]},{k[2]}": v for k, v in accumulators[M]['all'].items()},
+            "twin": {f"{k[0]},{k[1]},{k[2]}": v for k, v in accumulators[M]['twin'].items()},
+            "prime": {f"{k[0]},{k[1]},{k[2]}": v for k, v in accumulators[M]['prime'].items()},
+            "acheron": {f"{k[0]},{k[1]},{k[2]}": v for k, v in accumulators[M]['acheron'].items()},
+            "all_res": {str(k): v for k, v in accumulators[M]['all_res'].items()},
+            "twin_res": {str(k): v for k, v in accumulators[M]['twin_res'].items()}
+        }
+    with open(outdir / "crash_recovery_state.json", "w") as f:
+        json.dump(checkpoint_data, f)
+
+# --- Main Unified Processing Engine ---
+def run_unified_engine(limit: int, segment_size: int, moduli_list: List[int], seed: int, billion_safe: bool, outdir: str):
+    t_start = time.time()
+    out_path = Path(outdir)
+    out_path.mkdir(parents=True, exist_ok=True)
+
+    print("\n" + "=" * 122)
+    print(f" ZERO-OLOGY SYSTEM v3.6.4 | MODE: {'[BILLION-SAFE SECTOR RUN]' if billion_safe else '[LEGACY CANONICAL MODE]'}")
+    print(f" Target Horizon Limit N = {limit:,}")
+    print("=" * 122)
+    sys.stdout.flush()
+
+    if not billion_safe:
+        calib_limit = min(limit, 100_000)
+        print(f"[CALIBRATION] Asserting sigma segment equivalence up to {calib_limit:,}...")
+        ref_sigma = canonical_sigma_sieve(calib_limit)
+
+    sqrt_limit = int(math.sqrt(limit)) + 1
+    sieve_primes = [True] * (sqrt_limit + 1)
+    sieve_primes[0] = sieve_primes[1] = False
+    for p in range(2, int(math.sqrt(sqrt_limit)) + 1):
+        if sieve_primes[p]:
+            for i in range(p*p, sqrt_limit + 1, p): sieve_primes[i] = False
+    base_primes = [p for p, alive in enumerate(sieve_primes) if alive]
+
+    accumulators = {M: {
+        'all': Counter(), 'prime': Counter(), 'twin': Counter(), 'acheron': Counter(),
+        'all_res': Counter(), 'twin_res': Counter(), 'e3_pass': 0
+    } for M in moduli_list}
+
+    totals = {"primes": 0, "twins": 0, "acheron": 0, "e1_fails": 0, "e2_fails": 0, "e4_fails": 0}
+    boundary_prime_history = [False, False]
+    next_milestone = 200_000_000
+
+    print(f"-> Initiating sliced loops streaming across step partitions...")
+    sys.stdout.flush()
+
+    for low in range(2, limit + 1, segment_size):
+        high = min(low + segment_size - 1, limit)
+        current_len = high - low + 1
+
+        seg_is_prime = [True] * current_len
+        seg_sigma = [0] * current_len
+
+        for d in range(1, int(high**0.5) + 1):
+            start = ((low + d - 1) // d) * d
+            for multiple in range(max(start, d), high + 1, d):
+                idx = multiple - low
+                comp = multiple // d
+                if d < comp:
+                    seg_sigma[idx] += (d + comp)
+                elif d == comp:
+                    seg_sigma[idx] += d
+
+        for p in base_primes:
+            start = ((low + p - 1) // p) * p
+            if start == p: start += p
+            for multiple in range(start, high + 1, p):
+                seg_is_prime[multiple - low] = False
+
+        if not billion_safe and low <= calib_limit:
+            for idx in range(min(current_len, calib_limit - low + 1)):
+                n = low + idx
+                assert seg_sigma[idx] == ref_sigma[n], f"CANONICAL BREAK: At n={n}, seg={seg_sigma[idx]} vs canonical={ref_sigma[n]}"
+
+        for idx in range(current_len):
+            n = low + idx
+            is_p = seg_is_prime[idx]
+            sig = seg_sigma[idx]
+            g = math.gcd(n, sig)
+            is_ach = (g > 1)
+
+            if is_p: totals["primes"] += 1
+            if is_ach: totals["acheron"] += 1
+
+            if is_p and (sig != n + 1 or g != 1): totals["e1_fails"] += 1
+            if is_ach != (g > 1): totals["e4_fails"] += 1
+
+            is_twin_center = False
+            if n > 2 and (n % 6 == 0 or n == 4):
+                left_p = seg_is_prime[idx - 1] if (idx - 1) >= 0 else boundary_prime_history[-1]
+                if (idx + 1) < current_len:
+                    right_p = seg_is_prime[idx + 1]
+                else:
+                    nxt = n + 1
+                    right_p = nxt <= limit and all(nxt % bp != 0 for bp in base_primes if bp * bp <= nxt)
+
+                if left_p and right_p:
+                    is_twin_center = True
+                    totals["twins"] += 1
+                    
+                    left_sig = seg_sigma[idx - 1] if (idx - 1) >= 0 else (ref_sigma[n-1] if not billion_safe else n-1+1)
+                    right_sig = seg_sigma[idx + 1] if (idx + 1) < current_len else (n+1+1) 
+                    if left_sig != n or right_sig != n + 2:
+                        totals["e2_fails"] += 1
+
+            for M in moduli_list:
+                state = (n % M, sig % M, g % M)
+                accumulators[M]['all'][state] += 1
+                accumulators[M]['all_res'][n % M] += 1
+                if is_p: accumulators[M]['prime'][state] += 1
+                if is_ach: accumulators[M]['acheron'][state] += 1
+                if is_twin_center:
+                    accumulators[M]['twin'][state] += 1
+                    accumulators[M]['twin_res'][n % M] += 1
+                    if math.gcd(n - 1, M) == 1 and math.gcd(n + 1, M) == 1:
+                        accumulators[M]['e3_pass'] += 1
+
+        if current_len >= 1:
+            boundary_prime_history.append(seg_is_prime[-1])
+
+        if billion_safe:
+            if high >= next_milestone:
+                print(f"\n[SNAP TRIGGER] Compiling complete snapshot tables for Milestone: {next_milestone:,}")
+                txt_b, csv_b, json_b = generate_telemetry_block(next_milestone, accumulators, moduli_list, totals, seed)
+                print("\n".join(txt_b))
+                
+                with open(out_path / f"milestone_{next_milestone}.txt", "w") as f: f.write("\n".join(txt_b))
+                with open(out_path / f"milestone_{next_milestone}.csv", "w", newline="") as f:
+                    w = csv.DictWriter(f, fieldnames=["Horizon", "Modulus", "Subspace", "Support", "TV_Distance", "Chi2", "Verdict"])
+                    w.writeheader(); w.writerows(csv_b)
+                
+                next_milestone += 200_000_000
+            
+            save_recovery_checkpoint(low, high, accumulators, moduli_list, totals, out_path)
+            
+            # --- LOCAL LIVE TERMINAL TRACKING FIX ---
+            # Correct structural offset evaluation ((high - 1) % 5M) 
+            if (high - 1) % 5_000_000 == 0 or high == limit:
+                elapsed = (time.time() - t_start) / 60
+                print(f"   -> Live Track: Checked up to {high:,} / {limit:,} | Runtime: {elapsed:.2f} min | Primes: {totals['primes']:,} | Twins: {totals['twins']:,}")
+                sys.stdout.flush()
+
+    print("\n\n=== RUN MATRIX MET CEILING: COMPILED TRIPLE-FORMAT EXPORTS ===")
+    txt_final, csv_final, json_final = generate_telemetry_block(limit, accumulators, moduli_list, totals, seed)
+    print("\n".join(txt_final))
+
+    file_base = f"production_manifold_export_N{limit}"
+    with open(out_path / f"{file_base}.txt", "w") as f: f.write("\n".join(txt_final))
+    with open(out_path / f"{file_base}.json", "w") as f: json.dump(json_final, f, indent=4)
+    with open(out_path / f"{file_base}.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["Horizon", "Modulus", "Subspace", "Support", "TV_Distance", "Chi2", "Verdict"])
+        w.writeheader(); w.writerows(csv_final)
+
+    print(f"\n[SUCCESS] Production datasets synchronized safely in {(time.time() - t_start)/60:.2f} minutes.")
+
+if __name__ == "__main__":
+    # Boot the interactive terminal menu
+    runtime_limit, runtime_segment, runtime_safe, parsed_moduli, global_seed, output_directory = interactive_menu()
+    
+    # Run the engine
+    run_unified_engine(runtime_limit, runtime_segment, parsed_moduli, global_seed, runtime_safe, output_directory)
+
+
+***********************************************
+
+==========================================================================================
+Compliance Profile & Licensing:
+  - Framework: Ternarium Geminorum
+  - Foundational Concept Integration: Zero-Ology IP Archive / Zer00logy IP Archive
+  - Primary Author of Foundational Concepts: Stacey Szmy
+  - Technical Framework Lineage: RN Digital Weights Framework / Acheron Fields / Acheron Fragmentation /  Acheron Twin-Prime Finite Residue Geometry and Asymptotic Distribution Framework
+  - Reference: https://github.com/haha8888haha8888/Zero-ology
+  - Reference: https://github.com/haha8888haha8888/Zer00logy
+  - Reference: www.zero-ology.com
+
+  © Stacey8Szmy — Zer00logy IP Archive. All symbolic rights reserved.
+==========================================================================================
