@@ -1,0 +1,908 @@
+TG_DETROIT_MATRIX_CORE_EQUATION.txt
+
+*********************************************************
+
+TERNARIUM GEMINORUM — DETROIT MATRIX CORE EQUATION LEDGER
+
+σ(n) = ∑d|n d
+
+g(n) = gcd(n,σ(n))
+
+A(n) = { 1, if g(n) > 1 0, if g(n) = 1 }
+
+T_M(n) = ( n mod M, σ(n) mod M, g(n) mod M )
+
+Ω_M = { T_M(n) : n ∈ C }
+
+P_C(s) = |{n ∈ C : T_M(n)=s}| / |C|
+
+U_M(C) = |Ω_M|
+
+H_M(C) = −∑ P_C(s) log₂(P_C(s))
+
+Ĥ_M(C) = H_M(C) / log₂(U_M(C))
+
+A_C(N) = |{n ∈ C : g(n)>1}| / |C|
+
+C₂ = { n : n−1 and n+1 are prime }
+
+C₄ = { n : n−2 and n+2 are prime }
+
+C₆ = { n : n−3 and n+3 are prime }
+
+S = { p : p and 2p+1 are prime }
+
+Q = { n : n=k² }
+
+B = { n : σ(n) > 2n }
+
+D = { n : σ(n) < 2n }
+
+Detroit_Matrix(C) = ( |C|, A_C, U_M, H_M, Ĥ_M )
+
+Detroit_Matrix = { Detroit_Matrix(C₁), Detroit_Matrix(C₂), ... Detroit_Matrix(C_k) }
+
+
+
+****************************************************************
+
+TERNARIUM GEMINORUM — DETROIT MATRIX
+
+Core Arithmetic Objects
+For each integer ,
+
+
+\sigma(n)=\sum_{d\mid n} d
+Define the Acheron coupling value
+
+
+g(n)=\gcd(n,\sigma(n))
+Ternary State Mapping
+For a chosen modulus ,
+
+
+T_M(n)
+=
+\big(
+n \bmod M,
+\sigma(n)\bmod M,
+g(n)\bmod M
+\big)
+Thus every integer is mapped into a finite ternary torus
+
+
+\mathbb Z_M^3.
+Target Population
+Let
+
+
+\mathcal C
+=
+\{n : P(n)\}
+where is any arithmetic predicate.
+
+Examples:
+
+
+\mathcal C_{\text{Twin}}
+Twin-prime centers
+
+
+\mathcal C_{\text{Cousin}}
+Cousin-prime centers
+
+
+\mathcal C_{\text{Sexy}}
+Sexy-prime centers
+
+
+\mathcal C_{\text{SG}}
+Sophie Germain primes
+
+
+\mathcal C_{\text{Semi}}
+Semiprimes
+
+
+\mathcal C_{\text{Square}}
+Perfect squares
+
+and so forth.
+
+State Occupancy
+For each torus state
+
+
+s\in\mathbb Z_M^3
+define
+
+
+N(s)
+=
+\#\{n\in\mathcal C:T_M(n)=s\}
+and total population
+
+
+N_C
+=
+\sum_s N(s).
+State Probability
+
+p(s)
+=
+\frac{N(s)}{N_C}.
+Shannon State Entropy
+
+H
+=
+-\sum_s p(s)\log_2 p(s).
+Normalized Entropy
+
+\widehat H
+=
+\frac{H}{\log_2(K)}
+where
+
+
+K
+=
+\#\{s:N(s)>0\}.
+Thus
+
+
+0\le\widehat H\le1.
+Detroit Concentration Index
+Define
+
+
+DCI
+=
+1-\widehat H.
+Interpretation:
+
+
+DCI\approx0
+uniform occupation.
+
+
+DCI\approx1
+strong state concentration.
+
+Acheron Field
+Define
+
+
+A(n)
+=
+\begin{cases}
+1,&g(n)>1\\
+0,&g(n)=1
+\end{cases}
+and
+
+
+\mathcal A
+=
+\{n:A(n)=1\}.
+Acheron Overlap Ratio
+For a target population
+
+
+\mathcal C
+define
+
+
+\Omega_A(\mathcal C)
+=
+\frac{
+|\mathcal C\cap\mathcal A|
+}{
+|\mathcal C|
+}.
+This measures how strongly the target population occupies the Acheron field.
+
+Detroit Matrix
+For every target population
+
+
+\mathcal C_i
+construct the row vector
+
+
+D_i
+=
+\big(
+|\mathcal C_i|,
+\Omega_A,
+K,
+H,
+\widehat H,
+DCI
+\big).
+Stacking all rows produces the Detroit Matrix:
+
+
+\mathbf D
+=
+\begin{bmatrix}
+D_1\\
+D_2\\
+\vdots\\
+D_n
+\end{bmatrix}.
+Central Question
+The Detroit Matrix asks:
+
+When different arithmetic populations are projected into the ternary manifold , which populations exhibit unusually strong concentration, unusually strong Acheron overlap, or unusually low entropy relative to other arithmetic populations?
+
+
+*****************************************************************
+**********TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py*************
+
+
+#TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py
+
+import os
+import sys
+import math
+import time
+import json
+import random
+import glob
+from collections import Counter
+
+# =====================================================================
+# SECTOR 1: HIGH-PERFORMANCE PRIME SIEVE LAYER
+# =====================================================================
+def compute_prime_sieve(limit):
+    print(f"[-] Initializing Production Sieve up to {limit:,}...")
+    start = time.time()
+    sieve = bytearray([1]) * (limit + 1)
+    sieve[0] = sieve[1] = 0
+    for i in range(2, int(math.isqrt(limit)) + 1):
+        if sieve[i]:
+            for j in range(i*i, limit + 1, i):
+                sieve[j] = 0
+    print(f"[+] Sieve complete in {time.time() - start:.2f}s.")
+    return sieve
+
+# =====================================================================
+# SECTOR 2: POPULATION REGISTRY (WITH BOUNDARY MATCHING)
+# =====================================================================
+def is_twin_center(n, sieve, limit):
+    return n > 1 and (n-1) <= limit and (n+1) <= limit and sieve[n-1] and sieve[n+1]
+
+def is_cousin_center(n, sieve, limit):
+    return n > 2 and (n-2) <= limit and (n+2) <= limit and sieve[n-2] and sieve[n+2]
+
+def is_sexy_center(n, sieve, limit):
+    return n > 3 and (n-3) <= limit and (n+3) <= limit and sieve[n-3] and sieve[n+3]
+
+def is_sophie_germain(n, sieve, limit):
+    # Dynamic horizon constraint: ensure the sieve array can absorb the upper pairing edge
+    return n <= limit and sieve[n] and (2 * n + 1) < len(sieve) and sieve[2 * n + 1]
+
+def is_perfect_square(n, sieve, limit):
+    root = int(math.isqrt(n))
+    return root * root == n
+
+def is_semiprime(n, sieve, limit):
+    if n < 4 or sieve[n]: return False
+    temp = n
+    factors = 0
+    for p in range(2, int(math.isqrt(n)) + 1):
+        if sieve[p] and temp % p == 0:
+            while temp % p == 0:
+                factors += 1
+                temp //= p
+                if factors > 2: return False
+    if temp > 1:
+        if sieve[temp]: factors += 1
+        else: return False
+    return factors == 2
+
+def is_prime_power(n, sieve, limit):
+    if n < 4 or sieve[n]: return False
+    for p in range(2, int(math.isqrt(n)) + 1):
+        if sieve[p] and n % p == 0:
+            temp = n
+            while temp % p == 0:
+                temp //= p
+            return temp == 1
+    return False
+
+def is_abundant(n, sigma, limit): return sigma > 2 * n
+def is_deficient(n, sigma, limit): return sigma < 2 * n
+
+POPULATION_REGISTRY = {
+    '1': ('Twin Centers', is_twin_center, False, False),
+    '2': ('Cousin Centers', is_cousin_center, False, False),
+    '3': ('Sexy Centers', is_sexy_center, False, False),
+    '4': ('Sophie Germain Primes', is_sophie_germain, False, False),
+    '5': ('Semiprimes [HEAVY]', is_semiprime, False, True), 
+    '6': ('Prime Powers [HEAVY]', is_prime_power, False, True), 
+    '7': ('Perfect Squares', is_perfect_square, False, False),
+    '8': ('Abundant Numbers', None, True, False), 
+    '9': ('Deficient Numbers', None, True, False)
+}
+
+# =====================================================================
+# SECTOR 3: TELEMETRY ENGINE WITH CONDITIONAL STATE RUNS
+# =====================================================================
+def run_segmented_spectrometer(limit, target_id, sieve, M, block_size=5000000, use_checkpoints=False, control_mode=False):
+    name, condition_func, sigma_dependent, is_heavy = POPULATION_REGISTRY[target_id]
+    checkpoint_file = f"tg_checkpoint_T{target_id}_M{M}_L{limit}.jsonl"
+    
+    projections = {
+        'full': Counter(), 'n_sigma': Counter(), 'n_g': Counter(),
+        'sigma_g': Counter(), 'n_only': Counter(), 'sigma_only': Counter(), 'g_only': Counter()
+    }
+    total_target_count = 0
+    acheron_overlap = 0
+    start_block = 0
+
+    if use_checkpoints and os.path.exists(checkpoint_file) and not control_mode:
+        with open(checkpoint_file, 'r') as f:
+            for line in f:
+                last_data = json.loads(line)
+                start_block = last_data.get('block_end', 0)
+                total_target_count = last_data.get('total_target_count', 0)
+                acheron_overlap = last_data.get('acheron_overlap', 0)
+                if 'projections_snapshot' in last_data:
+                    for p_space, mapping in last_data['projections_snapshot'].items():
+                        for k_str, val in mapping.items():
+                            k_tuple = tuple(int(x) for x in k_str.split(','))
+                            projections[p_space][k_tuple] = val
+
+    last_report_time = time.time()
+    report_interval = 10.0 
+
+    for low in range(start_block, limit, block_size):
+        high = min(low + block_size, limit + 1)
+        sigma_buf = [1] * (high - low)
+        temp_buf = [i for i in range(low, high)]
+        
+        for i in range(2, int(math.isqrt(high)) + 1):
+            p_start = max(i * i, ((low + i - 1) // i) * i)
+            for j in range(p_start, high, i):
+                idx = j - low
+                if temp_buf[idx] % i == 0:
+                    p_pow = 1
+                    p_sum = 1
+                    while temp_buf[idx] % i == 0:
+                        p_pow *= i
+                        p_sum += p_pow
+                        temp_buf[idx] //= i
+                    sigma_buf[idx] *= p_sum
+                    
+        for j in range(max(1, low), high):
+            idx = j - low
+            if temp_buf[idx] > 1:
+                sigma_buf[idx] *= (1 + temp_buf[idx])
+        
+        # TARGET-FIRST ANALYSIS PASS
+        for n in range(max(1, low), high):
+            idx = n - low
+            sig = sigma_buf[idx]
+            is_target = False
+            
+            if control_mode:
+                is_target = (random.random() < 0.05)
+            else:
+                if sigma_dependent:
+                    if target_id == '8': is_target = is_abundant(n, sig, limit)
+                    elif target_id == '9': is_target = is_deficient(n, sig, limit)
+                else:
+                    is_target = condition_func(n, sieve, limit)
+                    
+            if is_target:
+                total_target_count += 1
+                g = math.gcd(n, sig)
+                if g > 1: acheron_overlap += 1
+                
+                rn, rs, rg = n % M, sig % M, g % M
+                projections['full'][(rn, rs, rg)] += 1
+                projections['sigma_only'][rs] += 1
+
+        # TELEMETRY HEARTBEAT
+        current_time = time.time()
+        if current_time - last_report_time >= report_interval:
+            pct_complete = (high / limit) * 100
+            shannon, norm_e = calculate_metrics(projections['full'])
+            u_states = len(projections['full'])
+            print(
+                f"  [TELEMETRY] {pct_complete:6.2f}% | "
+                f"Targets: {total_target_count:9,} | "
+                f"Acheron: {acheron_overlap:9,} | "
+                f"States: {u_states:5,} | "
+                f"NormEntropy: {norm_e:.4f}"
+            )
+            last_report_time = current_time
+
+        if use_checkpoints and not control_mode:
+            with open(checkpoint_file, 'a') as f:
+                proj_snapshot = {
+                    p_name: {",".join(map(str, k)): v for k, v in c.items()} 
+                    for p_name, c in projections.items()
+                }
+                f.write(json.dumps({
+                    "block_end": high, "total_target_count": total_target_count, 
+                    "acheron_overlap": acheron_overlap, "projections_snapshot": proj_snapshot
+                }) + "\n")
+                
+    return total_target_count, acheron_overlap, projections
+
+def calculate_metrics(counter_obj):
+    if not counter_obj: return 0.0, 0.0
+    total = sum(counter_obj.values())
+    probs = [count / total for count in counter_obj.values()]
+    shannon = -sum(p * math.log2(p) for p in probs if p > 0)
+    norm_e = shannon / math.log2(len(counter_obj)) if len(counter_obj) > 1 else 0.0
+    return shannon, norm_e
+
+# =====================================================================
+# DYNAMIC CONSOLE SYSTEM
+# =====================================================================
+def run_plan_console():
+    print("=" * 75)
+    print("      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER      ")
+    print("=" * 75)
+    
+    lim_map = {'1': 1000000, '2': 100000000, '3': 200000000, '4': 500000000}
+    
+    # Initialize baseline configurations at startup
+    limit = 1000000
+    sieve_limit = limit + 1
+    sieve = compute_prime_sieve(sieve_limit)
+    M = 210
+    
+    while True:
+        print(f"\nOptions Framework [Active Horizon: {limit:,} | Sieve Limit: {len(sieve)-1:,}]:")
+        print("1) Reconfigure Upper Target Scale Horizon Limit")
+        print("2) Run Phase 1: Mode 3 Ground-Truth Validation Counts")
+        print("3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)")
+        print("4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)")
+        print("5) Terminate Suite")
+        choice = input("Select Option (1-5): ").strip()
+        
+        if choice == '1':
+            print("\nSelect Boundary Limit Environment Configuration:")
+            print("1) 1,000,000 (1M Validation Run)")
+            print("2) 100,000,000 (100M Scale Protection Bound)")
+            print("3) 200,000,000 (200M Mid-Scale Bound)")
+            print("4) 500,000,000 (500M Maximum Boundary)")
+            lim_choice = input("Select limit option (1-4): ").strip()
+            limit = lim_map.get(lim_choice, 1000000)
+            
+            # CRITICAL OPTIMIZATION: Default matrix allocations stay tight unless executing isolated targets
+            sieve_limit = limit + 1
+            sieve = compute_prime_sieve(sieve_limit)
+            
+        elif choice == '2':
+            # Sophie Germain requires verification expansion check
+            if len(sieve) < (2 * limit + 1):
+                print("[-] Re-allocating prime sieve to 2*limit+1 for Sophie Germain validation...")
+                sieve = compute_prime_sieve(2 * limit + 1)
+            print("\nExecuting Phase 1 Benchmarking...")
+            for tid in ['1', '4']:
+                cnt, _, _ = run_segmented_spectrometer(limit, tid, sieve, M, use_checkpoints=False)
+                print(f" -> [Ground Truth] ID {tid} ({POPULATION_REGISTRY[tid][0]}): Extracted Count = {cnt:,}")
+                
+        elif choice == '3':
+            print("\nChoose Target Sequence Spectrometry Profile:")
+            for k, v in POPULATION_REGISTRY.items():
+                print(f"  {k}) {v[0]}")
+            t_choice = input("Select number (1-9): ").strip()
+            
+            if t_choice in POPULATION_REGISTRY:
+                # OPTIMIZATION: Dynamically expand the array horizon strictly on-demand for Sophie
+                if t_choice == '4' and len(sieve) < (2 * limit + 1):
+                    print("[-] Sophie Germain selection identified. Scaling sieve window out to 2*limit+1...")
+                    sieve = compute_prime_sieve(2 * limit + 1)
+                elif t_choice != '4' and len(sieve) > (limit + 1) and limit >= 100000000:
+                    print("[-] Constraining prime sieve memory bound to normal upper limit...")
+                    sieve = compute_prime_sieve(limit + 1)
+                    
+                if POPULATION_REGISTRY[t_choice][3] and limit >= 100000000:
+                    warn = input("[!] WARNING: Target is marked HEAVY and will bottleneck at this scale. Continue? (y/n): ").strip().lower()
+                    if warn != 'y': continue
+                    
+                chk_dec = input("Enable disk checkpoint states? (y/n): ").strip().lower()
+                use_chk = True if chk_dec == 'y' else False
+                
+                print(f"\n[-] Starting streaming spectrometry for {POPULATION_REGISTRY[t_choice][0]}...")
+                t_count, a_overlap, proj = run_segmented_spectrometer(limit, t_choice, sieve, M, use_checkpoints=use_chk)
+                shannon, norm_e = calculate_metrics(proj['full'])
+                print(f"\n[+] Final Spectrometry Summary Profile:")
+                print(f"    Total Counts:        {t_count:,}")
+                print(f"    Acheron Convergence: {a_overlap:,} ({(a_overlap/t_count*100) if t_count > 0 else 0:.2f}%)")
+                print(f"    Manifold Entropy:    {shannon:.4f} (Normalized: {norm_e:.4f})")
+            
+        elif choice == '4':
+            # Matrix mode doesn't include Sophie's lookahead requirement, keep it tightly constrained to limit + 1
+            if len(sieve) > (limit + 1):
+                print("[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...")
+                sieve = compute_prime_sieve(limit + 1)
+                
+            print("\nExecuting Detroit Matrix Side-by-Side Generation...")
+            print("-" * 92)
+            print(f"| {'Target System':<26} | {'Total Count':<12} | {'Acheron %':<12} | {'Norm Entropy':<12} |")
+            print("-" * 92)
+            for tid in sorted(POPULATION_REGISTRY.keys()):
+                if POPULATION_REGISTRY[tid][3] and limit >= 100000000:
+                    print(f"| {POPULATION_REGISTRY[tid][0] + ' (SKIPPED)':<26} | {'N/A':>12} | {'N/A':>12} | Navigating... |")
+                    continue
+                    
+                cnt, ach, proj = run_segmented_spectrometer(limit, tid, sieve, M, use_checkpoints=False)
+                _, norm_e = calculate_metrics(proj['full'])
+                pct = (ach / cnt * 100) if cnt > 0 else 0.0
+                print(f"| {POPULATION_REGISTRY[tid][0]:<26} | {cnt:>12,} | {pct:>11.2f}% | {norm_e:>12.4f} |")
+            print("-" * 92)
+            
+        elif choice == '5':
+            break
+
+if __name__ == "__main__":
+    run_plan_console()
+
+*******************************************************************************
+**********LOGS*** TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py ***LOGS*************
+*******************************************************************************
+
+===========================================================================
+      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER      
+===========================================================================
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.18s.
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+
+Select Boundary Limit Environment Configuration:
+1) 1,000,000 (1M Validation Run)
+2) 100,000,000 (100M Scale Protection Bound)
+3) 200,000,000 (200M Mid-Scale Bound)
+4) 500,000,000 (500M Maximum Boundary)
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.10s.
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+[-] Re-allocating prime sieve to 2*limit+1 for Sophie Germain validation...
+[-] Initializing Production Sieve up to 2,000,001...
+[+] Sieve complete in 0.20s.
+
+Executing Phase 1 Benchmarking...
+ -> [Ground Truth] ID 1 (Twin Centers): Extracted Count = 8,169
+ -> [Ground Truth] ID 4 (Sophie Germain Primes): Extracted Count = 7,746
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 2,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+
+Choose Target Sequence Spectrometry Profile:
+  1) Twin Centers
+  2) Cousin Centers
+  3) Sexy Centers
+  4) Sophie Germain Primes
+  5) Semiprimes [HEAVY]
+  6) Prime Powers [HEAVY]
+  7) Perfect Squares
+  8) Abundant Numbers
+  9) Deficient Numbers
+
+[-] Starting streaming spectrometry for Twin Centers...
+
+[+] Final Spectrometry Summary Profile:
+    Total Counts:        8,169
+    Acheron Convergence: 8,168 (99.99%)
+    Manifold Entropy:    9.7227 (Normalized: 0.8967)
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 2,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.10s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+| Twin Centers               |        8,169 |       99.99% |       0.8967 |
+| Cousin Centers             |        8,144 |       79.99% |       0.8837 |
+| Sexy Centers               |       16,386 |       99.74% |       0.8823 |
+| Sophie Germain Primes      |        4,324 |        0.00% |       0.9382 |
+  [TELEMETRY] 100.00% | Targets:   210,035 | Acheron:    65,886 | States: 1,724 | NormEntropy: 0.8700
+| Semiprimes [HEAVY]         |      210,035 |       31.37% |       0.8700 |
+| Prime Powers [HEAVY]       |          236 |        0.00% |       0.9622 |
+| Perfect Squares            |        1,000 |       21.90% |       0.9675 |
+| Abundant Numbers           |      247,545 |       99.85% |       0.8371 |
+| Deficient Numbers          |      752,451 |       56.36% |       0.8230 |
+--------------------------------------------------------------------------------------------
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+
+Select Boundary Limit Environment Configuration:
+1) 1,000,000 (1M Validation Run)
+2) 100,000,000 (100M Scale Protection Bound)
+3) 200,000,000 (200M Mid-Scale Bound)
+4) 500,000,000 (500M Maximum Boundary)
+[-] Initializing Production Sieve up to 100,000,001...
+[+] Sieve complete in 16.31s.
+
+Options Framework [Active Horizon: 100,000,000 | Sieve Limit: 100,000,001]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+3) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+4) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+5) Terminate Suite
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 100,000,001...
+[+] Sieve complete in 16.58s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+  [TELEMETRY]   5.00% | Targets:    32,463 | Acheron:    32,462 | States: 3,453 | NormEntropy: 0.8516
+  [TELEMETRY]  10.00% | Targets:    58,980 | Acheron:    58,979 | States: 4,366 | NormEntropy: 0.8338
+  [TELEMETRY]  15.00% | Targets:    83,660 | Acheron:    83,659 | States: 4,997 | NormEntropy: 0.8236
+  [TELEMETRY]  20.00% | Targets:   107,407 | Acheron:   107,406 | States: 5,477 | NormEntropy: 0.8167
+  [TELEMETRY]  25.00% | Targets:   130,512 | Acheron:   130,511 | States: 5,875 | NormEntropy: 0.8113
+  [TELEMETRY]  30.00% | Targets:   152,891 | Acheron:   152,890 | States: 6,261 | NormEntropy: 0.8063
+  [TELEMETRY]  35.00% | Targets:   174,945 | Acheron:   174,944 | States: 6,564 | NormEntropy: 0.8028
+  [TELEMETRY]  40.00% | Targets:   196,753 | Acheron:   196,752 | States: 6,827 | NormEntropy: 0.7999
+  [TELEMETRY]  45.00% | Targets:   217,981 | Acheron:   217,980 | States: 7,101 | NormEntropy: 0.7971
+  [TELEMETRY]  50.00% | Targets:   239,101 | Acheron:   239,100 | States: 7,326 | NormEntropy: 0.7949
+  [TELEMETRY]  55.00% | Targets:   259,870 | Acheron:   259,869 | States: 7,525 | NormEntropy: 0.7930
+  [TELEMETRY]  60.00% | Targets:   280,558 | Acheron:   280,557 | States: 7,719 | NormEntropy: 0.7911
+  [TELEMETRY]  65.00% | Targets:   300,972 | Acheron:   300,971 | States: 7,892 | NormEntropy: 0.7895
+  [TELEMETRY]  70.00% | Targets:   321,466 | Acheron:   321,465 | States: 8,047 | NormEntropy: 0.7880
+  [TELEMETRY]  75.00% | Targets:   341,499 | Acheron:   341,498 | States: 8,213 | NormEntropy: 0.7864
+  [TELEMETRY]  80.00% | Targets:   361,450 | Acheron:   361,449 | States: 8,376 | NormEntropy: 0.7849
+  [TELEMETRY]  85.00% | Targets:   381,322 | Acheron:   381,321 | States: 8,522 | NormEntropy: 0.7837
+  [TELEMETRY]  90.00% | Targets:   401,090 | Acheron:   401,089 | States: 8,643 | NormEntropy: 0.7826
+  [TELEMETRY]  95.00% | Targets:   420,760 | Acheron:   420,759 | States: 8,778 | NormEntropy: 0.7814
+  [TELEMETRY] 100.00% | Targets:   440,312 | Acheron:   440,311 | States: 8,908 | NormEntropy: 0.7803
+| Twin Centers               |      440,312 |      100.00% |       0.7803 |
+  [TELEMETRY]   5.00% | Targets:    32,308 | Acheron:    26,334 | States: 2,545 | NormEntropy: 0.8439
+  [TELEMETRY]  10.00% | Targets:    58,622 | Acheron:    48,059 | States: 3,220 | NormEntropy: 0.8258
+  [TELEMETRY]  15.00% | Targets:    83,472 | Acheron:    68,689 | States: 3,721 | NormEntropy: 0.8146
+  [TELEMETRY]  20.00% | Targets:   107,082 | Acheron:    88,248 | States: 4,114 | NormEntropy: 0.8067
+  [TELEMETRY]  25.00% | Targets:   130,176 | Acheron:   107,411 | States: 4,446 | NormEntropy: 0.8010
+  [TELEMETRY]  30.00% | Targets:   152,577 | Acheron:   126,032 | States: 4,738 | NormEntropy: 0.7961
+  [TELEMETRY]  35.00% | Targets:   174,591 | Acheron:   144,376 | States: 5,004 | NormEntropy: 0.7919
+  [TELEMETRY]  40.00% | Targets:   196,234 | Acheron:   162,486 | States: 5,234 | NormEntropy: 0.7887
+  [TELEMETRY]  45.00% | Targets:   217,486 | Acheron:   180,205 | States: 5,428 | NormEntropy: 0.7859
+  [TELEMETRY]  50.00% | Targets:   238,611 | Acheron:   197,918 | States: 5,603 | NormEntropy: 0.7835
+  [TELEMETRY]  55.00% | Targets:   259,566 | Acheron:   215,448 | States: 5,778 | NormEntropy: 0.7812
+  [TELEMETRY]  60.00% | Targets:   280,206 | Acheron:   232,811 | States: 5,921 | NormEntropy: 0.7794
+  [TELEMETRY]  65.00% | Targets:   300,675 | Acheron:   249,974 | States: 6,067 | NormEntropy: 0.7776
+  [TELEMETRY]  70.00% | Targets:   321,200 | Acheron:   267,236 | States: 6,198 | NormEntropy: 0.7760
+  [TELEMETRY]  75.00% | Targets:   341,271 | Acheron:   283,983 | States: 6,346 | NormEntropy: 0.7743
+  [TELEMETRY]  80.00% | Targets:   361,347 | Acheron:   300,804 | States: 6,466 | NormEntropy: 0.7730
+  [TELEMETRY]  85.00% | Targets:   381,164 | Acheron:   317,439 | States: 6,603 | NormEntropy: 0.7714
+  [TELEMETRY]  90.00% | Targets:   401,025 | Acheron:   334,032 | States: 6,728 | NormEntropy: 0.7701
+  [TELEMETRY]  95.00% | Targets:   420,669 | Acheron:   350,480 | States: 6,838 | NormEntropy: 0.7689
+  [TELEMETRY] 100.00% | Targets:   440,258 | Acheron:   366,955 | States: 6,946 | NormEntropy: 0.7677
+| Cousin Centers             |      440,258 |       83.35% |       0.7677 |
+  [TELEMETRY]   5.00% | Targets:    64,481 | Acheron:    64,406 | States: 5,062 | NormEntropy: 0.8363
+  [TELEMETRY]  10.00% | Targets:   117,207 | Acheron:   117,111 | States: 6,669 | NormEntropy: 0.8170
+  [TELEMETRY]  15.00% | Targets:   166,304 | Acheron:   166,201 | States: 7,770 | NormEntropy: 0.8063
+  [TELEMETRY]  20.00% | Targets:   213,818 | Acheron:   213,703 | States: 8,660 | NormEntropy: 0.7985
+  [TELEMETRY]  25.00% | Targets:   259,830 | Acheron:   259,705 | States: 9,417 | NormEntropy: 0.7924
+  [TELEMETRY]  30.00% | Targets:   304,867 | Acheron:   304,734 | States: 10,019 | NormEntropy: 0.7878
+  [TELEMETRY]  35.00% | Targets:   348,781 | Acheron:   348,642 | States: 10,611 | NormEntropy: 0.7837
+  [TELEMETRY]  40.00% | Targets:   392,081 | Acheron:   391,934 | States: 11,097 | NormEntropy: 0.7807
+  [TELEMETRY]  45.00% | Targets:   434,671 | Acheron:   434,518 | States: 11,553 | NormEntropy: 0.7780
+  [TELEMETRY]  50.00% | Targets:   477,012 | Acheron:   476,858 | States: 11,994 | NormEntropy: 0.7755
+  [TELEMETRY]  55.00% | Targets:   518,650 | Acheron:   518,489 | States: 12,415 | NormEntropy: 0.7731
+  [TELEMETRY]  60.00% | Targets:   560,170 | Acheron:   560,006 | States: 12,790 | NormEntropy: 0.7711
+  [TELEMETRY]  65.00% | Targets:   601,104 | Acheron:   600,934 | States: 13,140 | NormEntropy: 0.7693
+  [TELEMETRY]  70.00% | Targets:   641,654 | Acheron:   641,480 | States: 13,495 | NormEntropy: 0.7675
+  [TELEMETRY]  75.00% | Targets:   682,242 | Acheron:   682,064 | States: 13,785 | NormEntropy: 0.7660
+  [TELEMETRY]  80.00% | Targets:   722,174 | Acheron:   721,990 | States: 14,081 | NormEntropy: 0.7646
+  [TELEMETRY]  85.00% | Targets:   761,975 | Acheron:   761,786 | States: 14,389 | NormEntropy: 0.7631
+  [TELEMETRY]  90.00% | Targets:   801,602 | Acheron:   801,411 | States: 14,637 | NormEntropy: 0.7620
+  [TELEMETRY]  95.00% | Targets:   841,152 | Acheron:   840,955 | States: 14,908 | NormEntropy: 0.7608
+  [TELEMETRY] 100.00% | Targets:   879,908 | Acheron:   879,709 | States: 15,164 | NormEntropy: 0.7596
+| Sexy Centers               |      879,908 |       99.98% |       0.7596 |
+  [TELEMETRY]   5.00% | Targets:    30,657 | Acheron:         0 | States:    18 | NormEntropy: 0.9372
+  [TELEMETRY]  10.00% | Targets:    56,032 | Acheron:         0 | States:    18 | NormEntropy: 0.9371
+  [TELEMETRY]  15.00% | Targets:    79,927 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  20.00% | Targets:   102,773 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  25.00% | Targets:   124,850 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  30.00% | Targets:   146,501 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  35.00% | Targets:   167,912 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  40.00% | Targets:   188,803 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  45.00% | Targets:   209,319 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  50.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  55.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  60.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  65.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  70.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  75.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  80.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  85.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  90.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  95.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY] 100.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+| Sophie Germain Primes      |      229,568 |        0.00% |       0.9370 |
+| Semiprimes [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+| Prime Powers [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+  [TELEMETRY]   5.00% | Targets:     2,236 | Acheron:       537 | States:   967 | NormEntropy: 0.9449
+  [TELEMETRY]  10.00% | Targets:     3,162 | Acheron:       779 | States: 1,167 | NormEntropy: 0.9347
+  [TELEMETRY]  15.00% | Targets:     3,872 | Acheron:       971 | States: 1,316 | NormEntropy: 0.9274
+  [TELEMETRY]  20.00% | Targets:     4,472 | Acheron:     1,128 | States: 1,416 | NormEntropy: 0.9225
+  [TELEMETRY]  25.00% | Targets:     4,999 | Acheron:     1,279 | States: 1,498 | NormEntropy: 0.9192
+  [TELEMETRY]  30.00% | Targets:     5,477 | Acheron:     1,414 | States: 1,582 | NormEntropy: 0.9154
+  [TELEMETRY]  35.00% | Targets:     5,916 | Acheron:     1,528 | States: 1,646 | NormEntropy: 0.9126
+  [TELEMETRY]  40.00% | Targets:     6,324 | Acheron:     1,638 | States: 1,705 | NormEntropy: 0.9105
+  [TELEMETRY]  45.00% | Targets:     6,708 | Acheron:     1,752 | States: 1,755 | NormEntropy: 0.9084
+  [TELEMETRY]  50.00% | Targets:     7,071 | Acheron:     1,850 | States: 1,810 | NormEntropy: 0.9067
+  [TELEMETRY]  55.00% | Targets:     7,416 | Acheron:     1,948 | States: 1,853 | NormEntropy: 0.9047
+  [TELEMETRY]  60.00% | Targets:     7,745 | Acheron:     2,037 | States: 1,894 | NormEntropy: 0.9031
+  [TELEMETRY]  65.00% | Targets:     8,062 | Acheron:     2,129 | States: 1,939 | NormEntropy: 0.9015
+  [TELEMETRY]  70.00% | Targets:     8,366 | Acheron:     2,211 | States: 1,978 | NormEntropy: 0.9000
+  [TELEMETRY]  75.00% | Targets:     8,660 | Acheron:     2,286 | States: 2,016 | NormEntropy: 0.8988
+  [TELEMETRY]  80.00% | Targets:     8,944 | Acheron:     2,364 | States: 2,051 | NormEntropy: 0.8974
+  [TELEMETRY]  85.00% | Targets:     9,219 | Acheron:     2,446 | States: 2,088 | NormEntropy: 0.8964
+  [TELEMETRY]  90.00% | Targets:     9,486 | Acheron:     2,522 | States: 2,114 | NormEntropy: 0.8955
+  [TELEMETRY]  95.00% | Targets:     9,746 | Acheron:     2,594 | States: 2,139 | NormEntropy: 0.8945
+  [TELEMETRY] 100.00% | Targets:     9,999 | Acheron:     2,674 | States: 2,169 | NormEntropy: 0.8937
+| Perfect Squares            |        9,999 |       26.74% |       0.8937 |
+  [TELEMETRY]   5.00% | Targets: 1,238,014 | Acheron: 1,237,121 | States: 39,732 | NormEntropy: 0.7964
+  [TELEMETRY]  10.00% | Targets: 2,476,736 | Acheron: 2,475,374 | States: 50,877 | NormEntropy: 0.7812
+  [TELEMETRY]  15.00% | Targets: 3,715,499 | Acheron: 3,713,781 | States: 58,258 | NormEntropy: 0.7731
+  [TELEMETRY]  20.00% | Targets: 4,953,983 | Acheron: 4,951,930 | States: 63,956 | NormEntropy: 0.7675
+  [TELEMETRY]  25.00% | Targets: 6,192,397 | Acheron: 6,190,032 | States: 68,624 | NormEntropy: 0.7632
+  [TELEMETRY]  30.00% | Targets: 7,430,806 | Acheron: 7,428,162 | States: 72,565 | NormEntropy: 0.7599
+  [TELEMETRY]  35.00% | Targets: 8,669,176 | Acheron: 8,666,245 | States: 75,960 | NormEntropy: 0.7572
+  [TELEMETRY]  40.00% | Targets: 9,907,168 | Acheron: 9,903,968 | States: 78,988 | NormEntropy: 0.7549
+  [TELEMETRY]  45.00% | Targets: 11,145,114 | Acheron: 11,141,662 | States: 81,651 | NormEntropy: 0.7530
+  [TELEMETRY]  50.00% | Targets: 12,382,840 | Acheron: 12,379,134 | States: 84,155 | NormEntropy: 0.7512
+  [TELEMETRY]  55.00% | Targets: 13,620,601 | Acheron: 13,616,652 | States: 86,425 | NormEntropy: 0.7496
+  [TELEMETRY]  60.00% | Targets: 14,858,307 | Acheron: 14,854,109 | States: 88,519 | NormEntropy: 0.7483
+  [TELEMETRY]  65.00% | Targets: 16,095,984 | Acheron: 16,091,549 | States: 90,505 | NormEntropy: 0.7470
+  [TELEMETRY]  70.00% | Targets: 17,333,710 | Acheron: 17,329,042 | States: 92,321 | NormEntropy: 0.7458
+  [TELEMETRY]  75.00% | Targets: 18,571,492 | Acheron: 18,566,594 | States: 94,072 | NormEntropy: 0.7447
+  [TELEMETRY]  80.00% | Targets: 19,809,249 | Acheron: 19,804,127 | States: 95,631 | NormEntropy: 0.7438
+  [TELEMETRY]  85.00% | Targets: 21,047,053 | Acheron: 21,041,717 | States: 97,162 | NormEntropy: 0.7429
+  [TELEMETRY]  90.00% | Targets: 22,284,920 | Acheron: 22,279,364 | States: 98,636 | NormEntropy: 0.7420
+  [TELEMETRY]  95.00% | Targets: 23,522,857 | Acheron: 23,517,092 | States: 100,031 | NormEntropy: 0.7412
+  [TELEMETRY] 100.00% | Targets: 24,760,667 | Acheron: 24,754,691 | States: 101,383 | NormEntropy: 0.7404
+| Abundant Numbers           |   24,760,667 |       99.98% |       0.7404 |
+  [TELEMETRY]   5.00% | Targets: 3,761,981 | Acheron: 2,148,074 | States: 46,168 | NormEntropy: 0.7859
+  [TELEMETRY]  10.00% | Targets: 7,523,259 | Acheron: 4,316,762 | States: 60,963 | NormEntropy: 0.7702
+  [TELEMETRY]  15.00% | Targets: 11,284,496 | Acheron: 6,492,100 | States: 71,322 | NormEntropy: 0.7615
+  [TELEMETRY]  20.00% | Targets: 15,046,012 | Acheron: 8,672,234 | States: 79,294 | NormEntropy: 0.7558
+  [TELEMETRY]  25.00% | Targets: 18,807,598 | Acheron: 10,855,356 | States: 85,875 | NormEntropy: 0.7515
+  [TELEMETRY]  30.00% | Targets: 22,569,189 | Acheron: 13,041,166 | States: 91,602 | NormEntropy: 0.7481
+  [TELEMETRY]  35.00% | Targets: 26,330,818 | Acheron: 15,228,673 | States: 96,504 | NormEntropy: 0.7453
+  [TELEMETRY]  40.00% | Targets: 30,092,826 | Acheron: 17,418,463 | States: 100,936 | NormEntropy: 0.7430
+  [TELEMETRY]  45.00% | Targets: 33,854,880 | Acheron: 19,609,858 | States: 104,963 | NormEntropy: 0.7410
+  [TELEMETRY]  50.00% | Targets: 37,617,154 | Acheron: 21,802,662 | States: 108,707 | NormEntropy: 0.7392
+  [TELEMETRY]  55.00% | Targets: 41,379,393 | Acheron: 23,996,521 | States: 111,990 | NormEntropy: 0.7377
+  [TELEMETRY]  60.00% | Targets: 45,141,687 | Acheron: 26,191,531 | States: 115,081 | NormEntropy: 0.7363
+  [TELEMETRY]  65.00% | Targets: 48,904,010 | Acheron: 28,387,303 | States: 117,897 | NormEntropy: 0.7351
+  [TELEMETRY]  70.00% | Targets: 52,666,284 | Acheron: 30,583,867 | States: 120,580 | NormEntropy: 0.7339
+  [TELEMETRY]  75.00% | Targets: 56,428,502 | Acheron: 32,781,459 | States: 123,122 | NormEntropy: 0.7329
+  [TELEMETRY]  80.00% | Targets: 60,190,745 | Acheron: 34,979,705 | States: 125,506 | NormEntropy: 0.7319
+  [TELEMETRY]  85.00% | Targets: 63,952,941 | Acheron: 37,178,588 | States: 127,772 | NormEntropy: 0.7310
+  [TELEMETRY]  90.00% | Targets: 67,715,074 | Acheron: 39,378,023 | States: 129,921 | NormEntropy: 0.7302
+  [TELEMETRY]  95.00% | Targets: 71,477,137 | Acheron: 41,578,055 | States: 131,971 | NormEntropy: 0.7294
+  [TELEMETRY] 100.00% | Targets: 75,239,327 | Acheron: 43,778,596 | States: 133,930 | NormEntropy: 0.7287
+| Deficient Numbers          |   75,239,327 |       58.19% |       0.7287 |
+--------------------------------------------------------------------------------------------
+
+
+
+
+*******************************************************************************
+**********REVIEW LOGS*** TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py *** REVIEW LOGS*************
+*******************************************************************************
+REVIEW APPENDIX DELTA — 100M DETROIT MATRIX FIELD SPECTROMETRY REPORT
+
+Limit: N = 100,000,000
+Modulus: M = 210
+State Map: T_M(n) = (n mod M, sigma(n) mod M, gcd(n,sigma(n)) mod M)
+
+Production Observation
+The 100M Detroit Matrix pass compares several arithmetic populations inside the same ternary divisor-sum manifold. Each target population was mapped into Z_210^3 and measured by total count, Acheron overlap, occupied state count, and normalized entropy.
+
+This pass should be read as empirical field spectrometry, not as a theorem. It records how the tested populations behaved under the stated horizon, modulus, and implementation.
+
+Primary Structural Observation
+Twin centers, cousin centers, and sexy centers have comparable prime-gap origins, but they occupy the Acheron field differently.
+
+Twin centers reached 440,312 total targets, with 440,311 Acheron hits. Sexy centers reached 879,908 total targets, with 879,709 Acheron hits. Both therefore displayed near-total Acheron occupancy.
+
+Cousin centers reached 440,258 total targets, with 366,955 Acheron hits, giving a lower Acheron occupancy of 83.35 percent.
+
+Thus, within this 100M pass, gap-2 and gap-6 center populations were almost entirely absorbed into the Acheron field, while gap-4 centers retained a visible rupture component.
+
+Entropy and State Concentration
+Across the prime-gap center populations, normalized entropy decreased at the 100M horizon:
+
+Twin Centers: 0.7803
+Cousin Centers: 0.7677
+Sexy Centers: 0.7596
+
+This indicates that the occupied state space grows, but the distribution is not becoming uniformly spread across that space. Instead, the populations concentrate into stronger modular lanes as the horizon increases.
+
+This motivates the Detroit Concentration Index:
+
+DCI(C) = 1 - H_hat(C)
+
+where H_hat(C) is normalized entropy. Higher DCI indicates stronger state concentration.
+
+Sophie Germain Boundary Behavior
+The Sophie Germain row was evaluated under the Phase 3 hard-clamped matrix condition, where the available prime sieve only extends to N. Therefore the row counts Sophie Germain primes p for which 2p + 1 is also within the same N-bound.
+
+The telemetry flatlined after 50 percent of the horizon because once p > N/2, the expression 2p + 1 exceeds the Phase 3 sieve boundary. The final row was:
+
+Sophie Germain Primes: 229,568 total targets, 0 Acheron hits, 18 occupied states, normalized entropy 0.9370.
+
+This row should be labeled as:
+
+Sophie Germain primes with safe-prime endpoint <= N.
+
+It should not be confused with the larger lookahead definition p <= N and 2p + 1 prime, which requires a sieve up to 2N + 1.
+
+Dense Population Behavior
+The abundant and deficient populations occupy much larger portions of the integer line and therefore provide dense-field comparison rows.
+
+Abundant numbers reached 24,760,667 targets, with 24,754,691 Acheron hits and normalized entropy 0.7404.
+
+Deficient numbers reached 75,239,327 targets, with 43,778,596 Acheron hits and normalized entropy 0.7287.
+
+These dense rows show lower normalized entropy than the sparse rows, suggesting stronger concentration into recurrent modular lanes under the Z_210^3 state map.
+
+Consolidated Production Matrix
+Target System	Total Count	Acheron Hits	Acheron %	Unique States	Norm Entropy	DCI
+Twin Centers	440,312	440,311	100.00%	8,908	0.7803	0.2197
+Cousin Centers	440,258	366,955	83.35%	6,946	0.7677	0.2323
+Sexy Centers	879,908	879,709	99.98%	15,164	0.7596	0.2404
+Sophie Germain Primes, endpoint <= N	229,568	0	0.00%	18	0.9370	0.0630
+Perfect Squares	9,999	2,674	26.74%	2,169	0.8937	0.1063
+Abundant Numbers	24,760,667	24,754,691	99.98%	101,383	0.7404	0.2596
+Deficient Numbers	75,239,327	43,778,596	58.19%	133,930	0.7287	0.2713
+Interpretation Boundary
+These observations are horizon-dependent and modulus-dependent. The matrix does not prove asymptotic convergence by itself. It establishes a reproducible finite-horizon profile at N = 100,000,000 and M = 210.
+
+Further work should repeat the same matrix at larger horizons and additional moduli, especially M = 2310 and M = 30030, to determine which observed behaviors persist under increased modular resolution.
+
+*******************************************************************************
+*******************************************************************************
+==========================================================================================
+Compliance Profile & Licensing:
+  - Framework: TERNARIUM GEMINORUM — DETROIT MATRIX CORE EQUATION
+  - Foundational Concept Integration: Zero-Ology IP Archive / Zer00logy IP Archive
+  - Primary Author of Foundational Concepts: Stacey Szmy
+  - Technical Framework Lineage: RN Digital Weights Framework / Acheron Fields / Acheron Fragmentation /  Acheron Twin-Prime Finite Residue Geometry and Asymptotic Distribution Framework / Ternarium Geminorum
+  - Reference: https://github.com/haha8888haha8888/Zero-ology
+  - Reference: https://github.com/haha8888haha8888/Zer00logy
+  - Reference: www.zero-ology.com
+
+  © Stacey8Szmy — Zer00logy IP Archive. All symbolic rights reserved.
+==========================================================================================
