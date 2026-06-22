@@ -844,10 +844,1790 @@ Executing Detroit Matrix Side-by-Side Generation...
 --------------------------------------------------------------------------------------------
 
 
+**********TG_DETROIT_MATRIX_CORE_EQUATION_SUITE_v2.py*************
+
+#TG_DETROIT_MATRIX_CORE_EQUATION_SUITE_v2.py
+
+import os
+import sys
+import math
+import time
+import json
+import random
+import glob
+import gc
+from collections import Counter
+
+# =====================================================================
+# SECTOR 1: HIGH-PERFORMANCE PRIME SIEVE & MODULAR GRID TUNER
+# =====================================================================
+def compute_prime_sieve(limit):
+    print(f"[-] Initializing Production Sieve up to {limit:,}...")
+    start = time.time()
+    sieve = bytearray([1]) * (limit + 1)
+    sieve[0] = sieve[1] = 0
+    for i in range(2, int(math.isqrt(limit)) + 1):
+        if sieve[i]:
+            for j in range(i*i, limit + 1, i):
+                sieve[j] = 0
+    print(f"[+] Sieve complete in {time.time() - start:.2f}s.")
+    return sieve
+
+def select_primorial_space():
+    """Dynamically sets the matrix base arithmetic mod-space."""
+    print("\nSelect Detroit Matrix Modulus Configuration (M):")
+    print("1) M = 30    (2 * 3 * 5)")
+    print("2) M = 210   (2 * 3 * 5 * 7) [Default]")
+    print("3) M = 2310  (2 * 3 * 5 * 7 * 11) [High-Resolution Torus]")
+    print("4) M = 30030 (2 * 3 * 5 * 7 * 11 * 13) [Ultra-Deep State Space]")
+    print("5) Custom Explicit Modulus Value")
+    choice = input("Select choice (1-5): ").strip()
+    
+    m_map = {'1': 30, '2': 210, '3': 2310, '4': 30030}
+    if choice in m_map:
+        return m_map[choice]
+    elif choice == '5':
+        try:
+            custom_m = int(input("Enter custom integer modulus: "))
+            return max(2, custom_m)
+        except ValueError:
+            print("[!] Invalid integer. Defaulting to 210.")
+            return 210
+    return 210
+
+# =====================================================================
+# SECTOR 2: POPULATION REGISTRY (WITH BOUNDARY MATCHING)
+# =====================================================================
+def is_twin_center(n, sieve, limit):
+    return n > 1 and (n-1) <= limit and (n+1) <= limit and sieve[n-1] and sieve[n+1]
+
+def is_cousin_center(n, sieve, limit):
+    return n > 2 and (n-2) <= limit and (n+2) <= limit and sieve[n-2] and sieve[n+2]
+
+def is_sexy_center(n, sieve, limit):
+    return n > 3 and (n-3) <= limit and (n+3) <= limit and sieve[n-3] and sieve[n+3]
+
+def is_sophie_germain(n, sieve, limit):
+    return n <= limit and sieve[n] and (2 * n + 1) < len(sieve) and sieve[2 * n + 1]
+
+def is_perfect_square(n, sieve, limit):
+    root = int(math.isqrt(n))
+    return root * root == n
+
+def is_semiprime(n, sieve, limit):
+    if n < 4 or sieve[n]: return False
+    temp = n
+    factors = 0
+    for p in range(2, int(math.isqrt(n)) + 1):
+        if sieve[p] and temp % p == 0:
+            while temp % p == 0:
+                factors += 1
+                temp //= p
+                if factors > 2: return False
+    if temp > 1:
+        if sieve[temp]: factors += 1
+        else: return False
+    return factors == 2
+
+def is_prime_power(n, sieve, limit):
+    if n < 4 or sieve[n]: return False
+    for p in range(2, int(math.isqrt(n)) + 1):
+        if sieve[p] and n % p == 0:
+            temp = n
+            while temp % p == 0:
+                temp //= p
+            return temp == 1
+    return False
+
+def is_abundant(n, sigma, limit): return sigma > 2 * n
+def is_deficient(n, sigma, limit): return sigma < 2 * n
+
+POPULATION_REGISTRY = {
+    '1': ('Twin Centers', is_twin_center, False, False),
+    '2': ('Cousin Centers', is_cousin_center, False, False),
+    '3': ('Sexy Centers', is_sexy_center, False, False),
+    '4': ('Sophie Germain Primes', is_sophie_germain, False, False),
+    '5': ('Semiprimes [HEAVY]', is_semiprime, False, True), 
+    '6': ('Prime Powers [HEAVY]', is_prime_power, False, True), 
+    '7': ('Perfect Squares', is_perfect_square, False, False),
+    '8': ('Abundant Numbers', None, True, False), 
+    '9': ('Deficient Numbers', None, True, False)
+}
+
+# =====================================================================
+# SECTOR 3: TELEMETRY ENGINE WITH FULL SUB-MANIFOLD MAPPING
+# =====================================================================
+def run_segmented_spectrometer(limit, target_id, sieve, M, block_size=5000000, use_checkpoints=False, control_mode=False, target_offset=None):
+    name, condition_func, sigma_dependent, is_heavy = POPULATION_REGISTRY[target_id]
+    
+    # Checkpoint isolated using offset_tag to preserve back-compat and prevent naming crashes
+    offset_tag = "ALL" if target_offset is None else f"R{target_offset}"
+    checkpoint_file = f"tg_checkpoint_T{target_id}_M{M}_{offset_tag}_L{limit}.jsonl"
+    
+    projections = {
+        'full': Counter(), 'n_sigma': Counter(), 'n_g': Counter(),
+        'sigma_g': Counter(), 'n_only': Counter(), 'sigma_only': Counter(), 'g_only': Counter()
+    }
+    total_target_count = 0
+    acheron_overlap = 0
+    start_block = 0
+
+    if use_checkpoints and os.path.exists(checkpoint_file) and not control_mode:
+        with open(checkpoint_file, 'r') as f:
+            for line in f:
+                last_data = json.loads(line)
+                start_block = last_data.get('block_end', 0)
+                total_target_count = last_data.get('total_target_count', 0)
+                acheron_overlap = last_data.get('acheron_overlap', 0)
+                if 'projections_snapshot' in last_data:
+                    for p_space, mapping in last_data['projections_snapshot'].items():
+                        for k_str, val in mapping.items():
+                            if ',' in k_str:
+                                k_tuple = tuple(int(x) for x in k_str.split(','))
+                            else:
+                                k_tuple = int(k_str) if k_str.isdigit() else k_str
+                            projections[p_space][k_tuple] = val
+
+    last_report_time = time.time()
+    report_interval = 10.0 
+
+    for low in range(start_block, limit, block_size):
+        high = min(low + block_size, limit + 1)
+        sigma_buf = [1] * (high - low)
+        temp_buf = [i for i in range(low, high)]
+        
+        for i in range(2, int(math.isqrt(high)) + 1):
+            p_start = max(i * i, ((low + i - 1) // i) * i)
+            for j in range(p_start, high, i):
+                idx = j - low
+                if temp_buf[idx] % i == 0:
+                    p_pow = 1
+                    p_sum = 1
+                    while temp_buf[idx] % i == 0:
+                        p_pow *= i
+                        p_sum += p_pow
+                        temp_buf[idx] //= i
+                    sigma_buf[idx] *= p_sum
+                    
+        for j in range(max(1, low), high):
+            idx = j - low
+            if temp_buf[idx] > 1:
+                sigma_buf[idx] *= (1 + temp_buf[idx])
+        
+        # TARGET-FIRST ANALYSIS PASS
+        for n in range(max(1, low), high):
+            if target_offset is not None and (n % M) != target_offset:
+                continue
+                
+            idx = n - low
+            sig = sigma_buf[idx]
+            is_target = False
+            
+            if control_mode:
+                is_target = (random.random() < 0.05)
+            else:
+                if sigma_dependent:
+                    if target_id == '8': is_target = is_abundant(n, sig, limit)
+                    elif target_id == '9': is_target = is_deficient(n, sig, limit)
+                else:
+                    is_target = condition_func(n, sieve, limit)
+                    
+            if is_target:
+                total_target_count += 1
+                g = math.gcd(n, sig)
+                if g > 1: acheron_overlap += 1
+                
+                rn, rs, rg = n % M, sig % M, g % M
+                
+                # Actively populating all structural sub-manifolds
+                projections['full'][(rn, rs, rg)] += 1
+                projections['n_sigma'][(rn, rs)] += 1
+                projections['n_g'][(rn, rg)] += 1
+                projections['sigma_g'][(rs, rg)] += 1
+                projections['n_only'][rn] += 1
+                projections['sigma_only'][rs] += 1
+                projections['g_only'][rg] += 1
+
+        # TELEMETRY HEARTBEAT
+        current_time = time.time()
+        if current_time - last_report_time >= report_interval:
+            pct_complete = (high / limit) * 100
+            shannon, norm_e = calculate_metrics(projections['full'])
+            u_states = len(projections['full'])
+            
+            if norm_e == 0.0 and u_states > 5000000:
+                entropy_str = "MAX_SPARSE"
+            else:
+                entropy_str = f"{norm_e:.4f}"
+                
+            print(
+                f"  [TELEMETRY] {pct_complete:6.2f}% | "
+                f"Targets: {total_target_count:9,} | "
+                f"Acheron: {acheron_overlap:9,} | "
+                f"States: {u_states:5,} | "
+                f"NormEntropy: {entropy_str}"
+            )
+            last_report_time = current_time
+
+        if use_checkpoints and not control_mode:
+            with open(checkpoint_file, 'a') as f:
+                proj_snapshot = {}
+                for p_name, c in projections.items():
+                    proj_snapshot[p_name] = {}
+                    for k, v in c.items():
+                        if isinstance(k, tuple):
+                            key_string = ",".join(map(str, k))
+                        else:
+                            key_string = str(k)
+                        proj_snapshot[p_name][key_string] = v
+
+                f.write(json.dumps({
+                    "block_end": high, "total_target_count": total_target_count, 
+                    "acheron_overlap": acheron_overlap, "projections_snapshot": proj_snapshot
+                }) + "\n")
+                
+    return total_target_count, acheron_overlap, projections
+
+def calculate_metrics(counter_obj):
+    if not counter_obj: return 0.0, 0.0
+    u_states = len(counter_obj)
+    # Protection boundary limits arithmetic stress for extreme M state-spaces
+    if u_states > 5000000:
+         return 0.0, 0.0
+    total = sum(counter_obj.values())
+    probs = [count / total for count in counter_obj.values()]
+    shannon = -sum(p * math.log2(p) for p in probs if p > 0)
+    norm_e = shannon / math.log2(u_states) if u_states > 1 else 0.0
+    return shannon, norm_e
+
+# =====================================================================
+# DYNAMIC CONSOLE SYSTEM
+# =====================================================================
+def run_plan_console():
+    print("=" * 75)
+    print("      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER      ")
+    print("=" * 75)
+    
+    lim_map = {'1': 1000000, '2': 100000000, '3': 200000000, '4': 500000000}
+    
+    limit = 1000000
+    sieve_limit = limit + 1
+    sieve = compute_prime_sieve(sieve_limit)
+    M = 210  
+    
+    while True:
+        print(f"\nOptions Framework [Active Horizon: {limit:,} | Sieve Limit: {len(sieve)-1:,} | Matrix Modulus (M): {M}]:")
+        print("1) Reconfigure Upper Target Scale Horizon Limit")
+        print("2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]")
+        print("3) Run Phase 1: Mode 3 Ground-Truth Validation Counts")
+        print("4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)")
+        print("5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)")
+        print("6) Terminate Suite")
+        choice = input("Select Option (1-6): ").strip()
+        
+        if choice == '1':
+            print("\nSelect Boundary Limit Environment Configuration:")
+            print("1) 1,000,000 (1M Validation Run)")
+            print("2) 100,000,000 (100M Scale Protection Bound)")
+            print("3) 200,000,000 (200M Mid-Scale Bound)")
+            print("4) 500,000,000 (500M Maximum Boundary)")
+            lim_choice = input("Select limit option (1-4): ").strip()
+            limit = lim_map.get(lim_choice, 1000000)
+            
+            sieve_limit = limit + 1
+            sieve = compute_prime_sieve(sieve_limit)
+            
+        elif choice == '2':
+            M = select_primorial_space()
+            print(f"[+] Matrix Base Modulus updated to M = {M}")
+            
+        elif choice == '3':
+            if len(sieve) < (2 * limit + 1):
+                print("[-] Re-allocating prime sieve to 2*limit+1 for Sophie Germain validation...")
+                sieve = compute_prime_sieve(2 * limit + 1)
+            print("\nExecuting Phase 1 Benchmarking...")
+            for tid in ['1', '4']:
+                cnt, _, _ = run_segmented_spectrometer(limit, tid, sieve, M, use_checkpoints=False)
+                print(f" -> [Ground Truth] ID {tid} ({POPULATION_REGISTRY[tid][0]}): Extracted Count = {cnt:,}")
+                
+        elif choice == '4':
+            print("\nChoose Target Sequence Spectrometry Profile:")
+            for k, v in POPULATION_REGISTRY.items():
+                print(f"  {k}) {v[0]}")
+            t_choice = input("Select number (1-9): ").strip()
+            
+            if t_choice in POPULATION_REGISTRY:
+                if t_choice == '4' and len(sieve) < (2 * limit + 1):
+                    print("[-] Sophie Germain selection identified. Scaling sieve window out to 2*limit+1...")
+                    sieve = compute_prime_sieve(2 * limit + 1)
+                elif t_choice != '4' and len(sieve) > (limit + 1) and limit >= 100000000:
+                    print("[-] Constraining prime sieve memory bound to normal upper limit...")
+                    sieve = compute_prime_sieve(limit + 1)
+                    
+                if POPULATION_REGISTRY[t_choice][3] and limit >= 100000000:
+                    warn = input("[!] WARNING: Target is marked HEAVY and will bottleneck at this scale. Continue? (y/n): ").strip().lower()
+                    if warn != 'y': continue
+                
+                offset_filter = None
+                use_filter = input(f"Apply a Sector-1 specific residue anchor filter (n % {M} == offset)? (y/n): ").strip().lower()
+                if use_filter == 'y':
+                    try:
+                        offset_filter = int(input(f"Enter target residue offset (0 to {M-1}): "))
+                        offset_filter = max(0, min(offset_filter, M - 1))
+                        print(f"[+] Sieve evaluation localized strictly to n ≡ {offset_filter} (mod {M})")
+                    except ValueError:
+                        print("[!] Invalid offset. Running full un-anchored spectrum.")
+                        offset_filter = None
+
+                chk_dec = input("Enable disk checkpoint states? (y/n): ").strip().lower()
+                use_chk = True if chk_dec == 'y' else False
+                
+                print(f"\n[-] Starting streaming spectrometry for {POPULATION_REGISTRY[t_choice][0]}...")
+                t_count, a_overlap, proj = run_segmented_spectrometer(limit, t_choice, sieve, M, use_checkpoints=use_chk, target_offset=offset_filter)
+                shannon, norm_e = calculate_metrics(proj['full'])
+                
+                if norm_e == 0.0 and len(proj['full']) > 5000000:
+                    entropy_str = "MAX_SPARSE"
+                else:
+                    entropy_str = f"{norm_e:.4f}"
+                    
+                print(f"\n[+] Final Spectrometry Summary Profile:")
+                print(f"    Total Counts:        {t_count:,}")
+                print(f"    Acheron Convergence: {a_overlap:,} ({(a_overlap/t_count*100) if t_count > 0 else 0:.2f}%)")
+                print(f"    Manifold Entropy:    {shannon:.4f} (Normalized: {entropy_str})")
+            
+        elif choice == '5':
+            if len(sieve) > (limit + 1):
+                print("[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...")
+                sieve = compute_prime_sieve(limit + 1)
+                
+            print("\nExecuting Detroit Matrix Side-by-Side Generation...")
+            print("-" * 92)
+            print(f"| {'Target System':<26} | {'Total Count':<12} | {'Acheron %':<12} | {'Norm Entropy':<12} |")
+            print("-" * 92)
+            for tid in sorted(POPULATION_REGISTRY.keys()):
+                if POPULATION_REGISTRY[tid][3] and limit >= 100000000:
+                    print(f"| {POPULATION_REGISTRY[tid][0] + ' (SKIPPED)':<26} | {'N/A':>12} | {'N/A':>12} | Navigating... |")
+                    continue
+                    
+                cnt, ach, proj = run_segmented_spectrometer(limit, tid, sieve, M, use_checkpoints=False)
+                _, norm_e = calculate_metrics(proj['full'])
+                pct = (ach / cnt * 100) if cnt > 0 else 0.0
+                
+                if norm_e == 0.0 and len(proj['full']) > 5000000:
+                    entropy_str = "MAX_SPARSE"
+                else:
+                    entropy_str = f"{norm_e:>12.4f}"
+                    
+                print(f"| {POPULATION_REGISTRY[tid][0]:<26} | {cnt:>12,} | {pct:>11.2f}% | {entropy_str:<12} |")
+                
+                # RUN PHASE-3 INTENSIVE HEAP RECOVERY CLEANUPS
+                for p_space in list(proj.keys()):
+                    proj[p_space].clear()
+                del proj
+                gc.collect()
+                
+            print("-" * 92)
+            
+        elif choice == '6':
+            break
+
+if __name__ == "__main__":
+    run_plan_console()
+
+#==========================================================================================
+#Compliance Profile & Licensing:
+#  - Framework: TERNARIUM GEMINORUM — DETROIT MATRIX CORE EQUATION
+#  - Foundational Concept Integration: Zero-Ology IP Archive / Zer00logy IP Archive
+#  - Primary Author of Foundational Concepts: Stacey Szmy
+#  - Technical Framework Lineage: RN Digital Weights Framework / Acheron Fields / Acheron Fragmentation /  Acheron Twin-Prime Finite Residue Geometry and Asymptotic Distribution Framework / Ternarium Geminorum
+#  - Reference: https://github.com/haha8888haha8888/Zero-ology
+#  - Reference: https://github.com/haha8888haha8888/Zer00logy
+#  - Reference: www.zero-ology.com
+#
+#  © Stacey8Szmy — Zer00logy IP Archive. All symbolic rights reserved.
+#==========================================================================================
+
+*******************************************************************************
+**********LOGS*** TG_DETROIT_MATRIX_CORE_EQUATION_SUITE_v2.py ***LOGS*************
+*******************************************************************************
+
+
+===========================================================================
+      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER
+===========================================================================
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.16s.
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 1
+
+Select Boundary Limit Environment Configuration:
+1) 1,000,000 (1M Validation Run)
+2) 100,000,000 (100M Scale Protection Bound)
+3) 200,000,000 (200M Mid-Scale Bound)
+4) 500,000,000 (500M Maximum Boundary)
+Select limit option (1-4): 3
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.43s.
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 2
+
+Select Detroit Matrix Modulus Configuration (M):
+1) M = 30    (2 * 3 * 5)
+2) M = 210   (2 * 3 * 5 * 7) [Default]
+3) M = 2310  (2 * 3 * 5 * 7 * 11) [High-Resolution Torus]
+4) M = 30030 (2 * 3 * 5 * 7 * 11 * 13) [Ultra-Deep State Space]
+5) Custom Explicit Modulus Value
+Select choice (1-5): 3
+[+] Matrix Base Modulus updated to M = 2310
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 2310]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 5
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.35s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+  [TELEMETRY]   2.50% | Targets:    32,463 | Acheron:    32,462 | States: 20,074 | NormEntropy: 0.9651
+  [TELEMETRY]   5.00% | Targets:    58,980 | Acheron:    58,979 | States: 31,733 | NormEntropy: 0.9564
+  [TELEMETRY]   7.50% | Targets:    83,660 | Acheron:    83,659 | States: 40,952 | NormEntropy: 0.9507
+  [TELEMETRY]  10.00% | Targets:   107,407 | Acheron:   107,406 | States: 48,723 | NormEntropy: 0.9465
+  [TELEMETRY]  12.50% | Targets:   130,512 | Acheron:   130,511 | States: 55,600 | NormEntropy: 0.9432
+  [TELEMETRY]  15.00% | Targets:   152,891 | Acheron:   152,890 | States: 61,727 | NormEntropy: 0.9404
+  [TELEMETRY]  17.50% | Targets:   174,945 | Acheron:   174,944 | States: 67,465 | NormEntropy: 0.9379
+  [TELEMETRY]  20.00% | Targets:   196,753 | Acheron:   196,752 | States: 72,713 | NormEntropy: 0.9358
+  [TELEMETRY]  22.50% | Targets:   217,981 | Acheron:   217,980 | States: 77,612 | NormEntropy: 0.9340
+  [TELEMETRY]  25.00% | Targets:   239,101 | Acheron:   239,100 | States: 82,299 | NormEntropy: 0.9322
+  [TELEMETRY]  27.50% | Targets:   259,870 | Acheron:   259,869 | States: 86,733 | NormEntropy: 0.9305
+  [TELEMETRY]  30.00% | Targets:   280,558 | Acheron:   280,557 | States: 90,936 | NormEntropy: 0.9290
+  [TELEMETRY]  32.50% | Targets:   300,972 | Acheron:   300,971 | States: 94,942 | NormEntropy: 0.9277
+  [TELEMETRY]  35.00% | Targets:   321,466 | Acheron:   321,465 | States: 98,793 | NormEntropy: 0.9264
+  [TELEMETRY]  37.50% | Targets:   341,499 | Acheron:   341,498 | States: 102,419 | NormEntropy: 0.9252
+  [TELEMETRY]  40.00% | Targets:   361,450 | Acheron:   361,449 | States: 105,975 | NormEntropy: 0.9240
+  [TELEMETRY]  42.50% | Targets:   381,322 | Acheron:   381,321 | States: 109,435 | NormEntropy: 0.9230
+  [TELEMETRY]  45.00% | Targets:   401,090 | Acheron:   401,089 | States: 112,791 | NormEntropy: 0.9219
+  [TELEMETRY]  47.50% | Targets:   420,760 | Acheron:   420,759 | States: 115,991 | NormEntropy: 0.9208
+  [TELEMETRY]  50.00% | Targets:   440,312 | Acheron:   440,311 | States: 119,087 | NormEntropy: 0.9199
+  [TELEMETRY]  52.50% | Targets:   459,755 | Acheron:   459,754 | States: 122,052 | NormEntropy: 0.9190
+  [TELEMETRY]  55.00% | Targets:   479,129 | Acheron:   479,128 | States: 125,021 | NormEntropy: 0.9182
+  [TELEMETRY]  57.50% | Targets:   498,272 | Acheron:   498,271 | States: 127,829 | NormEntropy: 0.9173
+  [TELEMETRY]  60.00% | Targets:   517,360 | Acheron:   517,359 | States: 130,701 | NormEntropy: 0.9166
+  [TELEMETRY]  62.50% | Targets:   536,320 | Acheron:   536,319 | States: 133,330 | NormEntropy: 0.9158
+  [TELEMETRY]  65.00% | Targets:   555,376 | Acheron:   555,375 | States: 136,079 | NormEntropy: 0.9151
+  [TELEMETRY]  67.50% | Targets:   574,232 | Acheron:   574,231 | States: 138,728 | NormEntropy: 0.9144
+  [TELEMETRY]  70.00% | Targets:   593,174 | Acheron:   593,173 | States: 141,205 | NormEntropy: 0.9137
+  [TELEMETRY]  72.50% | Targets:   611,853 | Acheron:   611,852 | States: 143,710 | NormEntropy: 0.9130
+  [TELEMETRY]  75.00% | Targets:   630,392 | Acheron:   630,391 | States: 146,170 | NormEntropy: 0.9124
+  [TELEMETRY]  77.50% | Targets:   648,835 | Acheron:   648,834 | States: 148,610 | NormEntropy: 0.9118
+  [TELEMETRY]  80.00% | Targets:   667,529 | Acheron:   667,528 | States: 150,958 | NormEntropy: 0.9112
+  [TELEMETRY]  82.50% | Targets:   685,693 | Acheron:   685,692 | States: 153,259 | NormEntropy: 0.9106
+  [TELEMETRY]  85.00% | Targets:   704,104 | Acheron:   704,103 | States: 155,542 | NormEntropy: 0.9100
+  [TELEMETRY]  87.50% | Targets:   722,333 | Acheron:   722,332 | States: 157,821 | NormEntropy: 0.9095
+  [TELEMETRY]  90.00% | Targets:   740,685 | Acheron:   740,684 | States: 159,892 | NormEntropy: 0.9089
+  [TELEMETRY]  92.50% | Targets:   758,775 | Acheron:   758,774 | States: 162,062 | NormEntropy: 0.9084
+  [TELEMETRY]  95.00% | Targets:   777,052 | Acheron:   777,051 | States: 164,185 | NormEntropy: 0.9079
+  [TELEMETRY]  97.50% | Targets:   795,167 | Acheron:   795,166 | States: 166,368 | NormEntropy: 0.9074
+  [TELEMETRY] 100.00% | Targets:   813,371 | Acheron:   813,370 | States: 168,486 | NormEntropy: 0.9069
+| Twin Centers               |      813,371 |      100.00% |       0.9069 |
+  [TELEMETRY]   2.50% | Targets:    32,308 | Acheron:    26,334 | States: 16,896 | NormEntropy: 0.9529
+  [TELEMETRY]   5.00% | Targets:    58,622 | Acheron:    48,059 | States: 25,801 | NormEntropy: 0.9427
+  [TELEMETRY]   7.50% | Targets:    83,472 | Acheron:    68,689 | States: 32,575 | NormEntropy: 0.9361
+  [TELEMETRY]  10.00% | Targets:   107,082 | Acheron:    88,248 | States: 38,206 | NormEntropy: 0.9312
+  [TELEMETRY]  12.50% | Targets:   130,176 | Acheron:   107,411 | States: 42,984 | NormEntropy: 0.9272
+  [TELEMETRY]  15.00% | Targets:   152,577 | Acheron:   126,032 | States: 47,187 | NormEntropy: 0.9242
+  [TELEMETRY]  17.50% | Targets:   174,591 | Acheron:   144,376 | States: 51,058 | NormEntropy: 0.9215
+  [TELEMETRY]  20.00% | Targets:   196,234 | Acheron:   162,486 | States: 54,684 | NormEntropy: 0.9193
+  [TELEMETRY]  22.50% | Targets:   217,486 | Acheron:   180,205 | States: 57,966 | NormEntropy: 0.9173
+  [TELEMETRY]  25.00% | Targets:   238,611 | Acheron:   197,918 | States: 61,069 | NormEntropy: 0.9154
+  [TELEMETRY]  27.50% | Targets:   259,566 | Acheron:   215,448 | States: 64,049 | NormEntropy: 0.9137
+  [TELEMETRY]  30.00% | Targets:   280,206 | Acheron:   232,811 | States: 66,759 | NormEntropy: 0.9123
+  [TELEMETRY]  32.50% | Targets:   300,675 | Acheron:   249,974 | States: 69,467 | NormEntropy: 0.9109
+  [TELEMETRY]  35.00% | Targets:   321,200 | Acheron:   267,236 | States: 71,953 | NormEntropy: 0.9097
+  [TELEMETRY]  37.50% | Targets:   341,271 | Acheron:   283,983 | States: 74,284 | NormEntropy: 0.9085
+  [TELEMETRY]  40.00% | Targets:   361,347 | Acheron:   300,804 | States: 76,544 | NormEntropy: 0.9074
+  [TELEMETRY]  42.50% | Targets:   381,164 | Acheron:   317,439 | States: 78,703 | NormEntropy: 0.9063
+  [TELEMETRY]  45.00% | Targets:   401,025 | Acheron:   334,032 | States: 80,783 | NormEntropy: 0.9054
+  [TELEMETRY]  47.50% | Targets:   420,669 | Acheron:   350,480 | States: 82,736 | NormEntropy: 0.9044
+  [TELEMETRY]  50.00% | Targets:   440,258 | Acheron:   366,955 | States: 84,691 | NormEntropy: 0.9035
+  [TELEMETRY]  52.50% | Targets:   459,821 | Acheron:   383,331 | States: 86,600 | NormEntropy: 0.9027
+  [TELEMETRY]  55.00% | Targets:   479,235 | Acheron:   399,638 | States: 88,423 | NormEntropy: 0.9018
+  [TELEMETRY]  57.50% | Targets:   498,395 | Acheron:   415,751 | States: 90,165 | NormEntropy: 0.9011
+  [TELEMETRY]  60.00% | Targets:   517,474 | Acheron:   431,870 | States: 91,893 | NormEntropy: 0.9003
+  [TELEMETRY]  62.50% | Targets:   536,535 | Acheron:   447,892 | States: 93,573 | NormEntropy: 0.8996
+  [TELEMETRY]  65.00% | Targets:   555,610 | Acheron:   463,897 | States: 95,200 | NormEntropy: 0.8989
+  [TELEMETRY]  67.50% | Targets:   574,475 | Acheron:   479,749 | States: 96,840 | NormEntropy: 0.8982
+  [TELEMETRY]  70.00% | Targets:   593,198 | Acheron:   495,524 | States: 98,294 | NormEntropy: 0.8976
+  [TELEMETRY]  72.50% | Targets:   611,754 | Acheron:   511,092 | States: 99,766 | NormEntropy: 0.8970
+  [TELEMETRY]  75.00% | Targets:   630,331 | Acheron:   526,773 | States: 101,241 | NormEntropy: 0.8964
+  [TELEMETRY]  77.50% | Targets:   648,821 | Acheron:   542,324 | States: 102,628 | NormEntropy: 0.8958
+  [TELEMETRY]  80.00% | Targets:   667,182 | Acheron:   557,786 | States: 104,064 | NormEntropy: 0.8953
+  [TELEMETRY]  82.50% | Targets:   685,716 | Acheron:   573,324 | States: 105,366 | NormEntropy: 0.8947
+  [TELEMETRY]  85.00% | Targets:   704,198 | Acheron:   588,919 | States: 106,676 | NormEntropy: 0.8942
+  [TELEMETRY]  87.50% | Targets:   722,415 | Acheron:   604,235 | States: 108,037 | NormEntropy: 0.8937
+  [TELEMETRY]  90.00% | Targets:   740,834 | Acheron:   619,741 | States: 109,404 | NormEntropy: 0.8932
+  [TELEMETRY]  92.50% | Targets:   759,209 | Acheron:   635,167 | States: 110,713 | NormEntropy: 0.8927
+  [TELEMETRY]  95.00% | Targets:   777,392 | Acheron:   650,455 | States: 111,942 | NormEntropy: 0.8922
+  [TELEMETRY]  97.50% | Targets:   795,574 | Acheron:   665,809 | States: 113,125 | NormEntropy: 0.8918
+  [TELEMETRY] 100.00% | Targets:   813,715 | Acheron:   681,065 | States: 114,379 | NormEntropy: 0.8913
+| Cousin Centers             |      813,715 |       83.70% |       0.8913 |
+  [TELEMETRY]   2.50% | Targets:    64,481 | Acheron:    64,406 | States: 33,150 | NormEntropy: 0.9559
+  [TELEMETRY]   5.00% | Targets:   117,207 | Acheron:   117,111 | States: 49,855 | NormEntropy: 0.9461
+  [TELEMETRY]   7.50% | Targets:   166,304 | Acheron:   166,201 | States: 62,308 | NormEntropy: 0.9399
+  [TELEMETRY]  10.00% | Targets:   213,818 | Acheron:   213,703 | States: 72,679 | NormEntropy: 0.9352
+  [TELEMETRY]  12.50% | Targets:   259,830 | Acheron:   259,705 | States: 81,630 | NormEntropy: 0.9315
+  [TELEMETRY]  15.00% | Targets:   304,867 | Acheron:   304,734 | States: 89,669 | NormEntropy: 0.9283
+  [TELEMETRY]  17.50% | Targets:   348,781 | Acheron:   348,642 | States: 96,918 | NormEntropy: 0.9257
+  [TELEMETRY]  20.00% | Targets:   392,081 | Acheron:   391,934 | States: 103,710 | NormEntropy: 0.9233
+  [TELEMETRY]  22.50% | Targets:   434,671 | Acheron:   434,518 | States: 110,006 | NormEntropy: 0.9212
+  [TELEMETRY]  25.00% | Targets:   477,012 | Acheron:   476,858 | States: 116,002 | NormEntropy: 0.9192
+  [TELEMETRY]  27.50% | Targets:   518,650 | Acheron:   518,489 | States: 121,707 | NormEntropy: 0.9174
+  [TELEMETRY]  30.00% | Targets:   560,170 | Acheron:   560,006 | States: 127,200 | NormEntropy: 0.9157
+  [TELEMETRY]  32.50% | Targets:   601,104 | Acheron:   600,934 | States: 132,287 | NormEntropy: 0.9142
+  [TELEMETRY]  35.00% | Targets:   641,654 | Acheron:   641,480 | States: 137,111 | NormEntropy: 0.9128
+  [TELEMETRY]  37.50% | Targets:   682,242 | Acheron:   682,064 | States: 141,947 | NormEntropy: 0.9114
+  [TELEMETRY]  40.00% | Targets:   722,174 | Acheron:   721,990 | States: 146,322 | NormEntropy: 0.9102
+  [TELEMETRY]  42.50% | Targets:   761,975 | Acheron:   761,786 | States: 150,743 | NormEntropy: 0.9090
+  [TELEMETRY]  45.00% | Targets:   801,602 | Acheron:   801,411 | States: 154,978 | NormEntropy: 0.9079
+  [TELEMETRY]  47.50% | Targets:   841,152 | Acheron:   840,955 | States: 159,110 | NormEntropy: 0.9068
+  [TELEMETRY]  50.00% | Targets:   879,908 | Acheron:   879,709 | States: 163,089 | NormEntropy: 0.9058
+  [TELEMETRY]  52.50% | Targets:   918,888 | Acheron:   918,688 | States: 167,005 | NormEntropy: 0.9048
+  [TELEMETRY]  55.00% | Targets:   957,505 | Acheron:   957,303 | States: 170,776 | NormEntropy: 0.9039
+  [TELEMETRY]  57.50% | Targets:   995,883 | Acheron:   995,678 | States: 174,346 | NormEntropy: 0.9030
+  [TELEMETRY]  60.00% | Targets: 1,034,192 | Acheron: 1,033,984 | States: 177,888 | NormEntropy: 0.9022
+  [TELEMETRY]  62.50% | Targets: 1,072,233 | Acheron: 1,072,021 | States: 181,448 | NormEntropy: 0.9013
+  [TELEMETRY]  65.00% | Targets: 1,110,252 | Acheron: 1,110,034 | States: 184,763 | NormEntropy: 0.9005
+  [TELEMETRY]  67.50% | Targets: 1,147,884 | Acheron: 1,147,665 | States: 188,163 | NormEntropy: 0.8997
+  [TELEMETRY]  70.00% | Targets: 1,185,406 | Acheron: 1,185,183 | States: 191,522 | NormEntropy: 0.8990
+  [TELEMETRY]  72.50% | Targets: 1,222,913 | Acheron: 1,222,688 | States: 194,662 | NormEntropy: 0.8982
+  [TELEMETRY]  75.00% | Targets: 1,260,215 | Acheron: 1,259,988 | States: 197,792 | NormEntropy: 0.8976
+  [TELEMETRY]  77.50% | Targets: 1,297,225 | Acheron: 1,296,995 | States: 200,866 | NormEntropy: 0.8969
+  [TELEMETRY]  80.00% | Targets: 1,333,980 | Acheron: 1,333,746 | States: 203,859 | NormEntropy: 0.8963
+  [TELEMETRY]  82.50% | Targets: 1,370,856 | Acheron: 1,370,618 | States: 206,900 | NormEntropy: 0.8956
+  [TELEMETRY]  85.00% | Targets: 1,407,991 | Acheron: 1,407,749 | States: 209,853 | NormEntropy: 0.8950
+  [TELEMETRY]  87.50% | Targets: 1,444,712 | Acheron: 1,444,468 | States: 212,728 | NormEntropy: 0.8944
+  [TELEMETRY]  90.00% | Targets: 1,481,547 | Acheron: 1,481,303 | States: 215,620 | NormEntropy: 0.8938
+  [TELEMETRY]  92.50% | Targets: 1,517,832 | Acheron: 1,517,584 | States: 218,404 | NormEntropy: 0.8932
+  [TELEMETRY]  95.00% | Targets: 1,554,301 | Acheron: 1,554,051 | States: 221,104 | NormEntropy: 0.8926
+  [TELEMETRY]  97.50% | Targets: 1,590,284 | Acheron: 1,590,033 | States: 223,850 | NormEntropy: 0.8921
+  [TELEMETRY] 100.00% | Targets: 1,626,374 | Acheron: 1,626,119 | States: 226,433 | NormEntropy: 0.8916
+| Sexy Centers               |    1,626,374 |       99.98% |       0.8916 |
+  [TELEMETRY]   2.50% | Targets:    30,657 | Acheron:         0 | States:   139 | NormEntropy: 0.9939
+  [TELEMETRY]   5.00% | Targets:    56,032 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]   7.50% | Targets:    79,927 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  10.00% | Targets:   102,773 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  12.50% | Targets:   124,850 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  15.00% | Targets:   146,501 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  17.50% | Targets:   167,912 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  20.00% | Targets:   188,803 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  22.50% | Targets:   209,319 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  25.00% | Targets:   229,568 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  27.50% | Targets:   249,580 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  30.00% | Targets:   269,437 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  32.50% | Targets:   289,279 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  35.00% | Targets:   308,853 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  37.50% | Targets:   328,162 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  40.00% | Targets:   347,336 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  42.50% | Targets:   366,687 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  45.00% | Targets:   385,535 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  47.50% | Targets:   404,284 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  50.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  52.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  55.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  57.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  60.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  62.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  65.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  67.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  70.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  72.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  75.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  77.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  80.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  82.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  85.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  87.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  90.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  92.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  95.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY]  97.50% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+  [TELEMETRY] 100.00% | Targets:   423,140 | Acheron:         0 | States:   139 | NormEntropy: 0.9941
+| Sophie Germain Primes      |      423,140 |        0.00% |       0.9941 |
+| Semiprimes [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+| Prime Powers [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+  [TELEMETRY]   2.50% | Targets:     2,236 | Acheron:       537 | States: 2,169 | NormEntropy: 0.9985
+  [TELEMETRY]   5.00% | Targets:     3,162 | Acheron:       779 | States: 2,922 | NormEntropy: 0.9965
+  [TELEMETRY]   7.50% | Targets:     3,872 | Acheron:       971 | States: 3,504 | NormEntropy: 0.9957
+  [TELEMETRY]  10.00% | Targets:     4,472 | Acheron:     1,128 | States: 3,980 | NormEntropy: 0.9951
+  [TELEMETRY]  12.50% | Targets:     4,999 | Acheron:     1,279 | States: 4,371 | NormEntropy: 0.9941
+  [TELEMETRY]  15.00% | Targets:     5,477 | Acheron:     1,414 | States: 4,721 | NormEntropy: 0.9932
+  [TELEMETRY]  17.50% | Targets:     5,916 | Acheron:     1,528 | States: 5,035 | NormEntropy: 0.9925
+  [TELEMETRY]  20.00% | Targets:     6,324 | Acheron:     1,638 | States: 5,330 | NormEntropy: 0.9921
+  [TELEMETRY]  22.50% | Targets:     6,708 | Acheron:     1,752 | States: 5,609 | NormEntropy: 0.9917
+  [TELEMETRY]  25.00% | Targets:     7,071 | Acheron:     1,850 | States: 5,858 | NormEntropy: 0.9911
+  [TELEMETRY]  27.50% | Targets:     7,416 | Acheron:     1,948 | States: 6,081 | NormEntropy: 0.9906
+  [TELEMETRY]  30.00% | Targets:     7,745 | Acheron:     2,037 | States: 6,296 | NormEntropy: 0.9901
+  [TELEMETRY]  32.50% | Targets:     8,062 | Acheron:     2,129 | States: 6,502 | NormEntropy: 0.9897
+  [TELEMETRY]  35.00% | Targets:     8,366 | Acheron:     2,211 | States: 6,698 | NormEntropy: 0.9893
+  [TELEMETRY]  37.50% | Targets:     8,660 | Acheron:     2,286 | States: 6,887 | NormEntropy: 0.9890
+  [TELEMETRY]  40.00% | Targets:     8,944 | Acheron:     2,364 | States: 7,059 | NormEntropy: 0.9886
+  [TELEMETRY]  42.50% | Targets:     9,219 | Acheron:     2,446 | States: 7,239 | NormEntropy: 0.9883
+  [TELEMETRY]  45.00% | Targets:     9,486 | Acheron:     2,522 | States: 7,409 | NormEntropy: 0.9880
+  [TELEMETRY]  47.50% | Targets:     9,746 | Acheron:     2,594 | States: 7,565 | NormEntropy: 0.9876
+  [TELEMETRY]  50.00% | Targets:     9,999 | Acheron:     2,674 | States: 7,719 | NormEntropy: 0.9873
+  [TELEMETRY]  52.50% | Targets:    10,246 | Acheron:     2,743 | States: 7,863 | NormEntropy: 0.9870
+  [TELEMETRY]  55.00% | Targets:    10,488 | Acheron:     2,815 | States: 8,003 | NormEntropy: 0.9867
+  [TELEMETRY]  57.50% | Targets:    10,723 | Acheron:     2,883 | States: 8,145 | NormEntropy: 0.9865
+  [TELEMETRY]  60.00% | Targets:    10,954 | Acheron:     2,949 | States: 8,282 | NormEntropy: 0.9862
+  [TELEMETRY]  62.50% | Targets:    11,180 | Acheron:     3,019 | States: 8,402 | NormEntropy: 0.9859
+  [TELEMETRY]  65.00% | Targets:    11,401 | Acheron:     3,085 | States: 8,526 | NormEntropy: 0.9858
+  [TELEMETRY]  67.50% | Targets:    11,618 | Acheron:     3,137 | States: 8,658 | NormEntropy: 0.9856
+  [TELEMETRY]  70.00% | Targets:    11,832 | Acheron:     3,198 | States: 8,780 | NormEntropy: 0.9853
+  [TELEMETRY]  72.50% | Targets:    12,041 | Acheron:     3,252 | States: 8,894 | NormEntropy: 0.9851
+  [TELEMETRY]  75.00% | Targets:    12,247 | Acheron:     3,312 | States: 9,010 | NormEntropy: 0.9848
+  [TELEMETRY]  77.50% | Targets:    12,449 | Acheron:     3,366 | States: 9,123 | NormEntropy: 0.9846
+  [TELEMETRY]  80.00% | Targets:    12,649 | Acheron:     3,423 | States: 9,239 | NormEntropy: 0.9844
+  [TELEMETRY]  82.50% | Targets:    12,845 | Acheron:     3,481 | States: 9,343 | NormEntropy: 0.9842
+  [TELEMETRY]  85.00% | Targets:    13,038 | Acheron:     3,538 | States: 9,451 | NormEntropy: 0.9841
+  [TELEMETRY]  87.50% | Targets:    13,228 | Acheron:     3,596 | States: 9,558 | NormEntropy: 0.9839
+  [TELEMETRY]  90.00% | Targets:    13,416 | Acheron:     3,649 | States: 9,660 | NormEntropy: 0.9837
+  [TELEMETRY]  92.50% | Targets:    13,601 | Acheron:     3,704 | States: 9,776 | NormEntropy: 0.9837
+  [TELEMETRY]  95.00% | Targets:    13,784 | Acheron:     3,762 | States: 9,879 | NormEntropy: 0.9835
+  [TELEMETRY]  97.50% | Targets:    13,964 | Acheron:     3,817 | States: 9,973 | NormEntropy: 0.9833
+  [TELEMETRY] 100.00% | Targets:    14,142 | Acheron:     3,865 | States: 10,068 | NormEntropy: 0.9831
+| Perfect Squares            |       14,142 |       27.33% |       0.9831 |
+  [TELEMETRY]   2.50% | Targets: 1,238,014 | Acheron: 1,237,121 | States: 383,542 | NormEntropy: 0.9252
+  [TELEMETRY]   5.00% | Targets: 2,476,736 | Acheron: 2,475,374 | States: 582,705 | NormEntropy: 0.9114
+  [TELEMETRY]   7.50% | Targets: 3,715,499 | Acheron: 3,713,781 | States: 736,143 | NormEntropy: 0.9031
+  [TELEMETRY]  10.00% | Targets: 4,953,983 | Acheron: 4,951,930 | States: 864,833 | NormEntropy: 0.8972
+  [TELEMETRY]  12.50% | Targets: 6,192,397 | Acheron: 6,190,032 | States: 978,141 | NormEntropy: 0.8925
+  [TELEMETRY]  15.00% | Targets: 7,430,806 | Acheron: 7,428,162 | States: 1,080,135 | NormEntropy: 0.8887
+  [TELEMETRY]  17.50% | Targets: 8,669,176 | Acheron: 8,666,245 | States: 1,173,586 | NormEntropy: 0.8855
+  [TELEMETRY]  20.00% | Targets: 9,907,168 | Acheron: 9,903,968 | States: 1,260,039 | NormEntropy: 0.8827
+  [TELEMETRY]  22.50% | Targets: 11,145,114 | Acheron: 11,141,662 | States: 1,340,987 | NormEntropy: 0.8802
+  [TELEMETRY]  25.00% | Targets: 12,382,840 | Acheron: 12,379,134 | States: 1,417,080 | NormEntropy: 0.8780
+  [TELEMETRY]  27.50% | Targets: 13,620,601 | Acheron: 13,616,652 | States: 1,489,023 | NormEntropy: 0.8760
+  [TELEMETRY]  30.00% | Targets: 14,858,307 | Acheron: 14,854,109 | States: 1,557,862 | NormEntropy: 0.8742
+  [TELEMETRY]  32.50% | Targets: 16,095,984 | Acheron: 16,091,549 | States: 1,623,392 | NormEntropy: 0.8725
+  [TELEMETRY]  35.00% | Targets: 17,333,710 | Acheron: 17,329,042 | States: 1,686,408 | NormEntropy: 0.8709
+  [TELEMETRY]  37.50% | Targets: 18,571,492 | Acheron: 18,566,594 | States: 1,747,347 | NormEntropy: 0.8695
+  [TELEMETRY]  40.00% | Targets: 19,809,249 | Acheron: 19,804,127 | States: 1,805,960 | NormEntropy: 0.8682
+  [TELEMETRY]  42.50% | Targets: 21,047,053 | Acheron: 21,041,717 | States: 1,862,583 | NormEntropy: 0.8669
+  [TELEMETRY]  45.00% | Targets: 22,284,920 | Acheron: 22,279,364 | States: 1,917,289 | NormEntropy: 0.8657
+  [TELEMETRY]  47.50% | Targets: 23,522,857 | Acheron: 23,517,092 | States: 1,970,692 | NormEntropy: 0.8646
+  [TELEMETRY]  50.00% | Targets: 24,760,667 | Acheron: 24,754,691 | States: 2,022,695 | NormEntropy: 0.8635
+  [TELEMETRY]  52.50% | Targets: 25,998,587 | Acheron: 25,992,404 | States: 2,072,849 | NormEntropy: 0.8625
+  [TELEMETRY]  55.00% | Targets: 27,236,423 | Acheron: 27,230,043 | States: 2,122,077 | NormEntropy: 0.8615
+  [TELEMETRY]  57.50% | Targets: 28,474,357 | Acheron: 28,467,772 | States: 2,169,801 | NormEntropy: 0.8606
+  [TELEMETRY]  60.00% | Targets: 29,712,326 | Acheron: 29,705,547 | States: 2,216,660 | NormEntropy: 0.8597
+  [TELEMETRY]  62.50% | Targets: 30,950,218 | Acheron: 30,943,241 | States: 2,262,166 | NormEntropy: 0.8589
+  [TELEMETRY]  65.00% | Targets: 32,188,184 | Acheron: 32,181,003 | States: 2,306,700 | NormEntropy: 0.8581
+  [TELEMETRY]  67.50% | Targets: 33,426,163 | Acheron: 33,418,782 | States: 2,350,254 | NormEntropy: 0.8573
+  [TELEMETRY]  70.00% | Targets: 34,664,057 | Acheron: 34,656,477 | States: 2,393,170 | NormEntropy: 0.8565
+  [TELEMETRY]  72.50% | Targets: 35,902,026 | Acheron: 35,894,261 | States: 2,435,025 | NormEntropy: 0.8558
+  [TELEMETRY]  75.00% | Targets: 37,139,945 | Acheron: 37,131,964 | States: 2,476,160 | NormEntropy: 0.8551
+  [TELEMETRY]  77.50% | Targets: 38,377,921 | Acheron: 38,369,738 | States: 2,516,676 | NormEntropy: 0.8545
+  [TELEMETRY]  80.00% | Targets: 39,615,843 | Acheron: 39,607,455 | States: 2,556,455 | NormEntropy: 0.8538
+  [TELEMETRY]  82.50% | Targets: 40,853,876 | Acheron: 40,845,302 | States: 2,595,569 | NormEntropy: 0.8532
+  [TELEMETRY]  85.00% | Targets: 42,091,917 | Acheron: 42,083,152 | States: 2,634,119 | NormEntropy: 0.8526
+  [TELEMETRY]  87.50% | Targets: 43,329,961 | Acheron: 43,321,012 | States: 2,672,015 | NormEntropy: 0.8520
+  [TELEMETRY]  90.00% | Targets: 44,567,974 | Acheron: 44,558,848 | States: 2,709,348 | NormEntropy: 0.8514
+  [TELEMETRY]  92.50% | Targets: 45,805,984 | Acheron: 45,796,677 | States: 2,745,775 | NormEntropy: 0.8508
+  [TELEMETRY]  95.00% | Targets: 47,044,052 | Acheron: 47,034,563 | States: 2,781,878 | NormEntropy: 0.8503
+  [TELEMETRY]  97.50% | Targets: 48,282,180 | Acheron: 48,272,499 | States: 2,817,536 | NormEntropy: 0.8497
+  [TELEMETRY] 100.00% | Targets: 49,520,311 | Acheron: 49,510,450 | States: 2,852,715 | NormEntropy: 0.8492
+| Abundant Numbers           |   49,520,311 |       99.98% |       0.8492 |
+  [TELEMETRY]   2.50% | Targets: 3,761,981 | Acheron: 2,148,074 | States: 553,764 | NormEntropy: 0.8956
+  [TELEMETRY]   5.00% | Targets: 7,523,259 | Acheron: 4,316,762 | States: 776,980 | NormEntropy: 0.8838
+  [TELEMETRY]   7.50% | Targets: 11,284,496 | Acheron: 6,492,100 | States: 940,263 | NormEntropy: 0.8769
+  [TELEMETRY]  10.00% | Targets: 15,046,012 | Acheron: 8,672,234 | States: 1,074,332 | NormEntropy: 0.8719
+  [TELEMETRY]  12.50% | Targets: 18,807,598 | Acheron: 10,855,356 | States: 1,190,011 | NormEntropy: 0.8680
+  [TELEMETRY]  15.00% | Targets: 22,569,189 | Acheron: 13,041,166 | States: 1,292,840 | NormEntropy: 0.8648
+  [TELEMETRY]  17.50% | Targets: 26,330,818 | Acheron: 15,228,673 | States: 1,386,450 | NormEntropy: 0.8621
+  [TELEMETRY]  20.00% | Targets: 30,092,826 | Acheron: 17,418,463 | States: 1,473,078 | NormEntropy: 0.8597
+  [TELEMETRY]  22.50% | Targets: 33,854,880 | Acheron: 19,609,858 | States: 1,553,947 | NormEntropy: 0.8576
+  [TELEMETRY]  25.00% | Targets: 37,617,154 | Acheron: 21,802,662 | States: 1,630,389 | NormEntropy: 0.8557
+  [TELEMETRY]  27.50% | Targets: 41,379,393 | Acheron: 23,996,521 | States: 1,702,488 | NormEntropy: 0.8540
+  [TELEMETRY]  30.00% | Targets: 45,141,687 | Acheron: 26,191,531 | States: 1,771,329 | NormEntropy: 0.8524
+  [TELEMETRY]  32.50% | Targets: 48,904,010 | Acheron: 28,387,303 | States: 1,837,271 | NormEntropy: 0.8509
+  [TELEMETRY]  35.00% | Targets: 52,666,284 | Acheron: 30,583,867 | States: 1,900,572 | NormEntropy: 0.8495
+  [TELEMETRY]  37.50% | Targets: 56,428,502 | Acheron: 32,781,459 | States: 1,961,552 | NormEntropy: 0.8483
+  [TELEMETRY]  40.00% | Targets: 60,190,745 | Acheron: 34,979,705 | States: 2,020,650 | NormEntropy: 0.8471
+  [TELEMETRY]  42.50% | Targets: 63,952,941 | Acheron: 37,178,588 | States: 2,077,701 | NormEntropy: 0.8459
+  [TELEMETRY]  45.00% | Targets: 67,715,074 | Acheron: 39,378,023 | States: 2,132,975 | NormEntropy: 0.8449
+  [TELEMETRY]  47.50% | Targets: 71,477,137 | Acheron: 41,578,055 | States: 2,186,555 | NormEntropy: 0.8439
+  [TELEMETRY]  50.00% | Targets: 75,239,327 | Acheron: 43,778,596 | States: 2,238,917 | NormEntropy: 0.8429
+  [TELEMETRY]  52.50% | Targets: 79,001,407 | Acheron: 45,979,745 | States: 2,290,078 | NormEntropy: 0.8420
+  [TELEMETRY]  55.00% | Targets: 82,763,571 | Acheron: 48,181,446 | States: 2,339,536 | NormEntropy: 0.8411
+  [TELEMETRY]  57.50% | Targets: 86,525,637 | Acheron: 50,383,373 | States: 2,388,308 | NormEntropy: 0.8403
+  [TELEMETRY]  60.00% | Targets: 90,287,668 | Acheron: 52,585,751 | States: 2,435,529 | NormEntropy: 0.8395
+  [TELEMETRY]  62.50% | Targets: 94,049,776 | Acheron: 54,788,979 | States: 2,481,792 | NormEntropy: 0.8387
+  [TELEMETRY]  65.00% | Targets: 97,811,810 | Acheron: 56,992,837 | States: 2,527,229 | NormEntropy: 0.8380
+  [TELEMETRY]  67.50% | Targets: 101,573,831 | Acheron: 59,196,722 | States: 2,571,997 | NormEntropy: 0.8372
+  [TELEMETRY]  70.00% | Targets: 105,335,937 | Acheron: 61,400,806 | States: 2,615,662 | NormEntropy: 0.8366
+  [TELEMETRY]  72.50% | Targets: 109,097,968 | Acheron: 63,605,327 | States: 2,658,540 | NormEntropy: 0.8359
+  [TELEMETRY]  75.00% | Targets: 112,860,049 | Acheron: 65,810,677 | States: 2,700,788 | NormEntropy: 0.8352
+  [TELEMETRY]  77.50% | Targets: 116,622,073 | Acheron: 68,015,801 | States: 2,742,204 | NormEntropy: 0.8346
+  [TELEMETRY]  80.00% | Targets: 120,384,151 | Acheron: 70,221,502 | States: 2,783,084 | NormEntropy: 0.8340
+  [TELEMETRY]  82.50% | Targets: 124,146,118 | Acheron: 72,427,453 | States: 2,823,087 | NormEntropy: 0.8334
+  [TELEMETRY]  85.00% | Targets: 127,908,077 | Acheron: 74,633,641 | States: 2,862,479 | NormEntropy: 0.8329
+  [TELEMETRY]  87.50% | Targets: 131,670,033 | Acheron: 76,840,138 | States: 2,901,204 | NormEntropy: 0.8323
+  [TELEMETRY]  90.00% | Targets: 135,432,020 | Acheron: 79,046,818 | States: 2,939,415 | NormEntropy: 0.8318
+  [TELEMETRY]  92.50% | Targets: 139,194,010 | Acheron: 81,253,923 | States: 2,977,214 | NormEntropy: 0.8312
+  [TELEMETRY]  95.00% | Targets: 142,955,942 | Acheron: 83,461,454 | States: 3,014,419 | NormEntropy: 0.8307
+  [TELEMETRY]  97.50% | Targets: 146,717,814 | Acheron: 85,668,989 | States: 3,051,191 | NormEntropy: 0.8302
+  [TELEMETRY] 100.00% | Targets: 150,479,683 | Acheron: 87,877,117 | States: 3,087,338 | NormEntropy: 0.8298
+| Deficient Numbers          |  150,479,683 |       58.40% |       0.8298 |
+--------------------------------------------------------------------------------------------
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 2310]:
+
+********************************
+===========================================================================
+      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER
+===========================================================================
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.17s.
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 1
+
+Select Boundary Limit Environment Configuration:
+1) 1,000,000 (1M Validation Run)
+2) 100,000,000 (100M Scale Protection Bound)
+3) 200,000,000 (200M Mid-Scale Bound)
+4) 500,000,000 (500M Maximum Boundary)
+Select limit option (1-4): 3
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.28s.
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 2
+
+Select Detroit Matrix Modulus Configuration (M):
+1) M = 30    (2 * 3 * 5)
+2) M = 210   (2 * 3 * 5 * 7) [Default]
+3) M = 2310  (2 * 3 * 5 * 7 * 11) [High-Resolution Torus]
+4) M = 30030 (2 * 3 * 5 * 7 * 11 * 13) [Ultra-Deep State Space]
+5) Custom Explicit Modulus Value
+Select choice (1-5): 4
+[+] Matrix Base Modulus updated to M = 30030
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 30030]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 5
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.15s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+  [TELEMETRY]   2.50% | Targets:    32,463 | Acheron:    32,462 | States: 29,665 | NormEntropy: 0.9949
+  [TELEMETRY]   5.00% | Targets:    58,980 | Acheron:    58,979 | States: 51,889 | NormEntropy: 0.9923
+  [TELEMETRY]   7.50% | Targets:    83,660 | Acheron:    83,659 | States: 71,749 | NormEntropy: 0.9904
+  [TELEMETRY]  10.00% | Targets:   107,407 | Acheron:   107,406 | States: 90,346 | NormEntropy: 0.9889
+  [TELEMETRY]  12.50% | Targets:   130,512 | Acheron:   130,511 | States: 107,992 | NormEntropy: 0.9877
+  [TELEMETRY]  15.00% | Targets:   152,891 | Acheron:   152,890 | States: 124,929 | NormEntropy: 0.9866
+  [TELEMETRY]  17.50% | Targets:   174,945 | Acheron:   174,944 | States: 141,336 | NormEntropy: 0.9856
+  [TELEMETRY]  20.00% | Targets:   196,753 | Acheron:   196,752 | States: 157,243 | NormEntropy: 0.9848
+  [TELEMETRY]  22.50% | Targets:   217,981 | Acheron:   217,980 | States: 172,548 | NormEntropy: 0.9841
+  [TELEMETRY]  25.00% | Targets:   239,101 | Acheron:   239,100 | States: 187,513 | NormEntropy: 0.9833
+  [TELEMETRY]  27.50% | Targets:   259,870 | Acheron:   259,869 | States: 202,094 | NormEntropy: 0.9826
+  [TELEMETRY]  30.00% | Targets:   280,558 | Acheron:   280,557 | States: 216,472 | NormEntropy: 0.9820
+  [TELEMETRY]  32.50% | Targets:   300,972 | Acheron:   300,971 | States: 230,581 | NormEntropy: 0.9814
+  [TELEMETRY]  35.00% | Targets:   321,466 | Acheron:   321,465 | States: 244,536 | NormEntropy: 0.9809
+  [TELEMETRY]  37.50% | Targets:   341,499 | Acheron:   341,498 | States: 258,018 | NormEntropy: 0.9804
+  [TELEMETRY]  40.00% | Targets:   361,450 | Acheron:   361,449 | States: 271,483 | NormEntropy: 0.9799
+  [TELEMETRY]  42.50% | Targets:   381,322 | Acheron:   381,321 | States: 284,605 | NormEntropy: 0.9794
+  [TELEMETRY]  45.00% | Targets:   401,090 | Acheron:   401,089 | States: 297,558 | NormEntropy: 0.9789
+  [TELEMETRY]  47.50% | Targets:   420,760 | Acheron:   420,759 | States: 310,293 | NormEntropy: 0.9784
+  [TELEMETRY]  50.00% | Targets:   440,312 | Acheron:   440,311 | States: 322,975 | NormEntropy: 0.9780
+  [TELEMETRY]  52.50% | Targets:   459,755 | Acheron:   459,754 | States: 335,415 | NormEntropy: 0.9776
+  [TELEMETRY]  55.00% | Targets:   479,129 | Acheron:   479,128 | States: 347,805 | NormEntropy: 0.9772
+  [TELEMETRY]  57.50% | Targets:   498,272 | Acheron:   498,271 | States: 359,973 | NormEntropy: 0.9768
+  [TELEMETRY]  60.00% | Targets:   517,360 | Acheron:   517,359 | States: 371,951 | NormEntropy: 0.9765
+  [TELEMETRY]  62.50% | Targets:   536,320 | Acheron:   536,319 | States: 383,806 | NormEntropy: 0.9761
+  [TELEMETRY]  65.00% | Targets:   555,376 | Acheron:   555,375 | States: 395,691 | NormEntropy: 0.9758
+  [TELEMETRY]  67.50% | Targets:   574,232 | Acheron:   574,231 | States: 407,343 | NormEntropy: 0.9754
+  [TELEMETRY]  70.00% | Targets:   593,174 | Acheron:   593,173 | States: 418,920 | NormEntropy: 0.9751
+  [TELEMETRY]  72.50% | Targets:   611,853 | Acheron:   611,852 | States: 430,391 | NormEntropy: 0.9748
+  [TELEMETRY]  75.00% | Targets:   630,392 | Acheron:   630,391 | States: 441,639 | NormEntropy: 0.9745
+  [TELEMETRY]  77.50% | Targets:   648,835 | Acheron:   648,834 | States: 452,809 | NormEntropy: 0.9742
+  [TELEMETRY]  80.00% | Targets:   667,529 | Acheron:   667,528 | States: 464,110 | NormEntropy: 0.9739
+  [TELEMETRY]  82.50% | Targets:   685,693 | Acheron:   685,692 | States: 474,893 | NormEntropy: 0.9737
+  [TELEMETRY]  85.00% | Targets:   704,104 | Acheron:   704,103 | States: 485,918 | NormEntropy: 0.9734
+  [TELEMETRY]  87.50% | Targets:   722,333 | Acheron:   722,332 | States: 496,669 | NormEntropy: 0.9731
+  [TELEMETRY]  90.00% | Targets:   740,685 | Acheron:   740,684 | States: 507,442 | NormEntropy: 0.9729
+  [TELEMETRY]  92.50% | Targets:   758,775 | Acheron:   758,774 | States: 517,950 | NormEntropy: 0.9726
+  [TELEMETRY]  95.00% | Targets:   777,052 | Acheron:   777,051 | States: 528,710 | NormEntropy: 0.9724
+  [TELEMETRY]  97.50% | Targets:   795,167 | Acheron:   795,166 | States: 539,302 | NormEntropy: 0.9722
+  [TELEMETRY] 100.00% | Targets:   813,371 | Acheron:   813,370 | States: 549,750 | NormEntropy: 0.9719
+| Twin Centers               |      813,371 |      100.00% |       0.9719 |
+  [TELEMETRY]   2.50% | Targets:    32,308 | Acheron:    26,334 | States: 28,020 | NormEntropy: 0.9924
+  [TELEMETRY]   5.00% | Targets:    58,622 | Acheron:    48,059 | States: 48,356 | NormEntropy: 0.9885
+  [TELEMETRY]   7.50% | Targets:    83,472 | Acheron:    68,689 | States: 66,521 | NormEntropy: 0.9855
+  [TELEMETRY]  10.00% | Targets:   107,082 | Acheron:    88,248 | States: 83,155 | NormEntropy: 0.9831
+  [TELEMETRY]  12.50% | Targets:   130,176 | Acheron:   107,411 | States: 98,987 | NormEntropy: 0.9812
+  [TELEMETRY]  15.00% | Targets:   152,577 | Acheron:   126,032 | States: 114,055 | NormEntropy: 0.9796
+  [TELEMETRY]  17.50% | Targets:   174,591 | Acheron:   144,376 | States: 128,567 | NormEntropy: 0.9782
+  [TELEMETRY]  20.00% | Targets:   196,234 | Acheron:   162,486 | States: 142,630 | NormEntropy: 0.9771
+  [TELEMETRY]  22.50% | Targets:   217,486 | Acheron:   180,205 | States: 156,177 | NormEntropy: 0.9760
+  [TELEMETRY]  25.00% | Targets:   238,611 | Acheron:   197,918 | States: 169,498 | NormEntropy: 0.9750
+  [TELEMETRY]  27.50% | Targets:   259,566 | Acheron:   215,448 | States: 182,472 | NormEntropy: 0.9740
+  [TELEMETRY]  30.00% | Targets:   280,206 | Acheron:   232,811 | States: 195,061 | NormEntropy: 0.9732
+  [TELEMETRY]  32.50% | Targets:   300,675 | Acheron:   249,974 | States: 207,470 | NormEntropy: 0.9724
+  [TELEMETRY]  35.00% | Targets:   321,200 | Acheron:   267,236 | States: 219,706 | NormEntropy: 0.9717
+  [TELEMETRY]  37.50% | Targets:   341,271 | Acheron:   283,983 | States: 231,470 | NormEntropy: 0.9710
+  [TELEMETRY]  40.00% | Targets:   361,347 | Acheron:   300,804 | States: 243,328 | NormEntropy: 0.9704
+  [TELEMETRY]  42.50% | Targets:   381,164 | Acheron:   317,439 | States: 254,749 | NormEntropy: 0.9697
+  [TELEMETRY]  45.00% | Targets:   401,025 | Acheron:   334,032 | States: 266,136 | NormEntropy: 0.9692
+  [TELEMETRY]  47.50% | Targets:   420,669 | Acheron:   350,480 | States: 277,237 | NormEntropy: 0.9686
+  [TELEMETRY]  50.00% | Targets:   440,258 | Acheron:   366,955 | States: 288,146 | NormEntropy: 0.9681
+  [TELEMETRY]  52.50% | Targets:   459,821 | Acheron:   383,331 | States: 299,013 | NormEntropy: 0.9675
+  [TELEMETRY]  55.00% | Targets:   479,235 | Acheron:   399,638 | States: 309,660 | NormEntropy: 0.9670
+  [TELEMETRY]  57.50% | Targets:   498,395 | Acheron:   415,751 | States: 320,123 | NormEntropy: 0.9666
+  [TELEMETRY]  60.00% | Targets:   517,474 | Acheron:   431,870 | States: 330,490 | NormEntropy: 0.9661
+  [TELEMETRY]  62.50% | Targets:   536,535 | Acheron:   447,892 | States: 340,781 | NormEntropy: 0.9657
+  [TELEMETRY]  65.00% | Targets:   555,610 | Acheron:   463,897 | States: 350,913 | NormEntropy: 0.9653
+  [TELEMETRY]  67.50% | Targets:   574,475 | Acheron:   479,749 | States: 360,846 | NormEntropy: 0.9649
+  [TELEMETRY]  70.00% | Targets:   593,198 | Acheron:   495,524 | States: 370,607 | NormEntropy: 0.9645
+  [TELEMETRY]  72.50% | Targets:   611,754 | Acheron:   511,092 | States: 380,397 | NormEntropy: 0.9641
+  [TELEMETRY]  75.00% | Targets:   630,331 | Acheron:   526,773 | States: 390,028 | NormEntropy: 0.9637
+  [TELEMETRY]  77.50% | Targets:   648,821 | Acheron:   542,324 | States: 399,560 | NormEntropy: 0.9634
+  [TELEMETRY]  80.00% | Targets:   667,182 | Acheron:   557,786 | States: 408,976 | NormEntropy: 0.9630
+  [TELEMETRY]  82.50% | Targets:   685,716 | Acheron:   573,324 | States: 418,256 | NormEntropy: 0.9627
+  [TELEMETRY]  85.00% | Targets:   704,198 | Acheron:   588,919 | States: 427,675 | NormEntropy: 0.9623
+  [TELEMETRY]  87.50% | Targets:   722,415 | Acheron:   604,235 | States: 436,825 | NormEntropy: 0.9620
+  [TELEMETRY]  90.00% | Targets:   740,834 | Acheron:   619,741 | States: 445,916 | NormEntropy: 0.9617
+  [TELEMETRY]  92.50% | Targets:   759,209 | Acheron:   635,167 | States: 454,957 | NormEntropy: 0.9614
+  [TELEMETRY]  95.00% | Targets:   777,392 | Acheron:   650,455 | States: 463,929 | NormEntropy: 0.9611
+  [TELEMETRY]  97.50% | Targets:   795,574 | Acheron:   665,809 | States: 472,780 | NormEntropy: 0.9608
+  [TELEMETRY] 100.00% | Targets:   813,715 | Acheron:   681,065 | States: 481,542 | NormEntropy: 0.9605
+| Cousin Centers             |      813,715 |       83.70% |       0.9605 |
+  [TELEMETRY]   2.50% | Targets:    64,481 | Acheron:    64,406 | States: 56,491 | NormEntropy: 0.9923
+  [TELEMETRY]   5.00% | Targets:   117,207 | Acheron:   117,111 | States: 98,148 | NormEntropy: 0.9887
+  [TELEMETRY]   7.50% | Targets:   166,304 | Acheron:   166,201 | States: 135,127 | NormEntropy: 0.9862
+  [TELEMETRY]  10.00% | Targets:   213,818 | Acheron:   213,703 | States: 169,755 | NormEntropy: 0.9842
+  [TELEMETRY]  12.50% | Targets:   259,830 | Acheron:   259,705 | States: 202,563 | NormEntropy: 0.9826
+  [TELEMETRY]  15.00% | Targets:   304,867 | Acheron:   304,734 | States: 233,891 | NormEntropy: 0.9812
+  [TELEMETRY]  17.50% | Targets:   348,781 | Acheron:   348,642 | States: 264,055 | NormEntropy: 0.9801
+  [TELEMETRY]  20.00% | Targets:   392,081 | Acheron:   391,934 | States: 293,402 | NormEntropy: 0.9790
+  [TELEMETRY]  22.50% | Targets:   434,671 | Acheron:   434,518 | States: 321,708 | NormEntropy: 0.9781
+  [TELEMETRY]  25.00% | Targets:   477,012 | Acheron:   476,858 | States: 349,547 | NormEntropy: 0.9772
+  [TELEMETRY]  27.50% | Targets:   518,650 | Acheron:   518,489 | States: 376,540 | NormEntropy: 0.9764
+  [TELEMETRY]  30.00% | Targets:   560,170 | Acheron:   560,006 | States: 403,171 | NormEntropy: 0.9756
+  [TELEMETRY]  32.50% | Targets:   601,104 | Acheron:   600,934 | States: 429,150 | NormEntropy: 0.9749
+  [TELEMETRY]  35.00% | Targets:   641,654 | Acheron:   641,480 | States: 454,702 | NormEntropy: 0.9742
+  [TELEMETRY]  37.50% | Targets:   682,242 | Acheron:   682,064 | States: 480,009 | NormEntropy: 0.9736
+  [TELEMETRY]  40.00% | Targets:   722,174 | Acheron:   721,990 | States: 504,511 | NormEntropy: 0.9730
+  [TELEMETRY]  42.50% | Targets:   761,975 | Acheron:   761,786 | States: 528,898 | NormEntropy: 0.9725
+  [TELEMETRY]  45.00% | Targets:   801,602 | Acheron:   801,411 | States: 552,807 | NormEntropy: 0.9719
+  [TELEMETRY]  47.50% | Targets:   841,152 | Acheron:   840,955 | States: 576,619 | NormEntropy: 0.9714
+  [TELEMETRY]  50.00% | Targets:   879,908 | Acheron:   879,709 | States: 599,797 | NormEntropy: 0.9709
+  [TELEMETRY]  52.50% | Targets:   918,888 | Acheron:   918,688 | States: 622,829 | NormEntropy: 0.9705
+  [TELEMETRY]  55.00% | Targets:   957,505 | Acheron:   957,303 | States: 645,396 | NormEntropy: 0.9700
+  [TELEMETRY]  57.50% | Targets:   995,883 | Acheron:   995,678 | States: 667,720 | NormEntropy: 0.9696
+  [TELEMETRY]  60.00% | Targets: 1,034,192 | Acheron: 1,033,984 | States: 689,936 | NormEntropy: 0.9692
+  [TELEMETRY]  62.50% | Targets: 1,072,233 | Acheron: 1,072,021 | States: 711,758 | NormEntropy: 0.9688
+  [TELEMETRY]  65.00% | Targets: 1,110,252 | Acheron: 1,110,034 | States: 733,161 | NormEntropy: 0.9683
+  [TELEMETRY]  67.50% | Targets: 1,147,884 | Acheron: 1,147,665 | States: 754,442 | NormEntropy: 0.9680
+  [TELEMETRY]  70.00% | Targets: 1,185,406 | Acheron: 1,185,183 | States: 775,558 | NormEntropy: 0.9676
+  [TELEMETRY]  72.50% | Targets: 1,222,913 | Acheron: 1,222,688 | States: 796,525 | NormEntropy: 0.9673
+  [TELEMETRY]  75.00% | Targets: 1,260,215 | Acheron: 1,259,988 | States: 817,315 | NormEntropy: 0.9669
+  [TELEMETRY]  77.50% | Targets: 1,297,225 | Acheron: 1,296,995 | States: 837,708 | NormEntropy: 0.9666
+  [TELEMETRY]  80.00% | Targets: 1,333,980 | Acheron: 1,333,746 | States: 857,962 | NormEntropy: 0.9663
+  [TELEMETRY]  82.50% | Targets: 1,370,856 | Acheron: 1,370,618 | States: 878,219 | NormEntropy: 0.9660
+  [TELEMETRY]  85.00% | Targets: 1,407,991 | Acheron: 1,407,749 | States: 898,262 | NormEntropy: 0.9657
+  [TELEMETRY]  87.50% | Targets: 1,444,712 | Acheron: 1,444,468 | States: 918,123 | NormEntropy: 0.9653
+  [TELEMETRY]  90.00% | Targets: 1,481,547 | Acheron: 1,481,303 | States: 937,990 | NormEntropy: 0.9650
+  [TELEMETRY]  92.50% | Targets: 1,517,832 | Acheron: 1,517,584 | States: 957,340 | NormEntropy: 0.9648
+  [TELEMETRY]  95.00% | Targets: 1,554,301 | Acheron: 1,554,051 | States: 976,820 | NormEntropy: 0.9645
+  [TELEMETRY]  97.50% | Targets: 1,590,284 | Acheron: 1,590,033 | States: 996,006 | NormEntropy: 0.9642
+  [TELEMETRY] 100.00% | Targets: 1,626,374 | Acheron: 1,626,119 | States: 1,014,880 | NormEntropy: 0.9639
+| Sexy Centers               |    1,626,374 |       99.98% |       0.9639 |
+  [TELEMETRY]   2.50% | Targets:    30,657 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9973
+  [TELEMETRY]   5.00% | Targets:    56,032 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9984
+  [TELEMETRY]   7.50% | Targets:    79,927 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9988
+  [TELEMETRY]  10.00% | Targets:   102,773 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9990
+  [TELEMETRY]  12.50% | Targets:   124,850 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9991
+  [TELEMETRY]  15.00% | Targets:   146,501 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9992
+  [TELEMETRY]  17.50% | Targets:   167,912 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9993
+  [TELEMETRY]  20.00% | Targets:   188,803 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9993
+  [TELEMETRY]  22.50% | Targets:   209,319 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9993
+  [TELEMETRY]  25.00% | Targets:   229,568 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  27.50% | Targets:   249,580 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  30.00% | Targets:   269,437 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  32.50% | Targets:   289,279 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  35.00% | Targets:   308,853 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  37.50% | Targets:   328,162 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9994
+  [TELEMETRY]  40.00% | Targets:   347,336 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  42.50% | Targets:   366,687 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  45.00% | Targets:   385,535 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  47.50% | Targets:   404,284 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  50.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  52.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  55.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  57.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  60.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  62.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  65.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  67.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  70.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  72.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  75.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  77.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  80.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  82.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  85.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  87.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  90.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  92.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  95.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY]  97.50% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+  [TELEMETRY] 100.00% | Targets:   423,140 | Acheron:         0 | States: 1,489 | NormEntropy: 0.9995
+| Sophie Germain Primes      |      423,140 |        0.00% |       0.9995 |
+| Semiprimes [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+| Prime Powers [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+  [TELEMETRY]   2.50% | Targets:     2,236 | Acheron:       537 | States: 2,235 | NormEntropy: 1.0000
+  [TELEMETRY]   5.00% | Targets:     3,162 | Acheron:       779 | States: 3,161 | NormEntropy: 1.0000
+  [TELEMETRY]   7.50% | Targets:     3,872 | Acheron:       971 | States: 3,868 | NormEntropy: 1.0000
+  [TELEMETRY]  10.00% | Targets:     4,472 | Acheron:     1,128 | States: 4,467 | NormEntropy: 0.9999
+  [TELEMETRY]  12.50% | Targets:     4,999 | Acheron:     1,279 | States: 4,994 | NormEntropy: 1.0000
+  [TELEMETRY]  15.00% | Targets:     5,477 | Acheron:     1,414 | States: 5,469 | NormEntropy: 0.9999
+  [TELEMETRY]  17.50% | Targets:     5,916 | Acheron:     1,528 | States: 5,907 | NormEntropy: 0.9999
+  [TELEMETRY]  20.00% | Targets:     6,324 | Acheron:     1,638 | States: 6,315 | NormEntropy: 0.9999
+  [TELEMETRY]  22.50% | Targets:     6,708 | Acheron:     1,752 | States: 6,699 | NormEntropy: 0.9999
+  [TELEMETRY]  25.00% | Targets:     7,071 | Acheron:     1,850 | States: 7,058 | NormEntropy: 0.9999
+  [TELEMETRY]  27.50% | Targets:     7,416 | Acheron:     1,948 | States: 7,400 | NormEntropy: 0.9999
+  [TELEMETRY]  30.00% | Targets:     7,745 | Acheron:     2,037 | States: 7,727 | NormEntropy: 0.9999
+  [TELEMETRY]  32.50% | Targets:     8,062 | Acheron:     2,129 | States: 8,042 | NormEntropy: 0.9999
+  [TELEMETRY]  35.00% | Targets:     8,366 | Acheron:     2,211 | States: 8,343 | NormEntropy: 0.9999
+  [TELEMETRY]  37.50% | Targets:     8,660 | Acheron:     2,286 | States: 8,634 | NormEntropy: 0.9999
+  [TELEMETRY]  40.00% | Targets:     8,944 | Acheron:     2,364 | States: 8,915 | NormEntropy: 0.9999
+  [TELEMETRY]  42.50% | Targets:     9,219 | Acheron:     2,446 | States: 9,186 | NormEntropy: 0.9998
+  [TELEMETRY]  45.00% | Targets:     9,486 | Acheron:     2,522 | States: 9,449 | NormEntropy: 0.9998
+  [TELEMETRY]  47.50% | Targets:     9,746 | Acheron:     2,594 | States: 9,707 | NormEntropy: 0.9998
+  [TELEMETRY]  50.00% | Targets:     9,999 | Acheron:     2,674 | States: 9,955 | NormEntropy: 0.9998
+  [TELEMETRY]  52.50% | Targets:    10,246 | Acheron:     2,743 | States: 10,197 | NormEntropy: 0.9998
+  [TELEMETRY]  55.00% | Targets:    10,488 | Acheron:     2,815 | States: 10,435 | NormEntropy: 0.9998
+  [TELEMETRY]  57.50% | Targets:    10,723 | Acheron:     2,883 | States: 10,662 | NormEntropy: 0.9998
+  [TELEMETRY]  60.00% | Targets:    10,954 | Acheron:     2,949 | States: 10,886 | NormEntropy: 0.9997
+  [TELEMETRY]  62.50% | Targets:    11,180 | Acheron:     3,019 | States: 11,107 | NormEntropy: 0.9997
+  [TELEMETRY]  65.00% | Targets:    11,401 | Acheron:     3,085 | States: 11,324 | NormEntropy: 0.9997
+  [TELEMETRY]  67.50% | Targets:    11,618 | Acheron:     3,137 | States: 11,537 | NormEntropy: 0.9997
+  [TELEMETRY]  70.00% | Targets:    11,832 | Acheron:     3,198 | States: 11,745 | NormEntropy: 0.9997
+  [TELEMETRY]  72.50% | Targets:    12,041 | Acheron:     3,252 | States: 11,952 | NormEntropy: 0.9997
+  [TELEMETRY]  75.00% | Targets:    12,247 | Acheron:     3,312 | States: 12,153 | NormEntropy: 0.9997
+  [TELEMETRY]  77.50% | Targets:    12,449 | Acheron:     3,366 | States: 12,351 | NormEntropy: 0.9997
+  [TELEMETRY]  80.00% | Targets:    12,649 | Acheron:     3,423 | States: 12,548 | NormEntropy: 0.9997
+  [TELEMETRY]  82.50% | Targets:    12,845 | Acheron:     3,481 | States: 12,736 | NormEntropy: 0.9997
+  [TELEMETRY]  85.00% | Targets:    13,038 | Acheron:     3,538 | States: 12,926 | NormEntropy: 0.9997
+  [TELEMETRY]  87.50% | Targets:    13,228 | Acheron:     3,596 | States: 13,114 | NormEntropy: 0.9997
+  [TELEMETRY]  90.00% | Targets:    13,416 | Acheron:     3,649 | States: 13,300 | NormEntropy: 0.9996
+  [TELEMETRY]  92.50% | Targets:    13,601 | Acheron:     3,704 | States: 13,483 | NormEntropy: 0.9996
+  [TELEMETRY]  95.00% | Targets:    13,784 | Acheron:     3,762 | States: 13,664 | NormEntropy: 0.9996
+  [TELEMETRY]  97.50% | Targets:    13,964 | Acheron:     3,817 | States: 13,840 | NormEntropy: 0.9996
+  [TELEMETRY] 100.00% | Targets:    14,142 | Acheron:     3,865 | States: 14,015 | NormEntropy: 0.9996
+| Perfect Squares            |       14,142 |       27.33% |       0.9996 |
+  [TELEMETRY]   2.50% | Targets: 1,238,014 | Acheron: 1,237,121 | States: 953,048 | NormEntropy: 0.9816
+  [TELEMETRY]   5.00% | Targets: 2,476,736 | Acheron: 2,475,374 | States: 1,752,906 | NormEntropy: 0.9749
+  [TELEMETRY]   7.50% | Targets: 3,715,499 | Acheron: 3,713,781 | States: 2,478,336 | NormEntropy: 0.9705
+  [TELEMETRY]  10.00% | Targets: 4,953,983 | Acheron: 4,951,930 | States: 3,153,876 | NormEntropy: 0.9673
+  [TELEMETRY]  12.50% | Targets: 6,192,397 | Acheron: 6,190,032 | States: 3,788,636 | NormEntropy: 0.9647
+  [TELEMETRY]  15.00% | Targets: 7,430,806 | Acheron: 7,428,162 | States: 4,393,243 | NormEntropy: 0.9625
+  [TELEMETRY]  17.50% | Targets: 8,669,176 | Acheron: 8,666,245 | States: 4,971,140 | NormEntropy: 0.9606
+  [TELEMETRY]  20.00% | Targets: 9,907,168 | Acheron: 9,903,968 | States: 5,525,750 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  22.50% | Targets: 11,145,114 | Acheron: 11,141,662 | States: 6,060,532 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  25.00% | Targets: 12,382,840 | Acheron: 12,379,134 | States: 6,576,544 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  27.50% | Targets: 13,620,601 | Acheron: 13,616,652 | States: 7,076,028 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  30.00% | Targets: 14,858,307 | Acheron: 14,854,109 | States: 7,561,339 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  32.50% | Targets: 16,095,984 | Acheron: 16,091,549 | States: 8,034,727 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  35.00% | Targets: 17,333,710 | Acheron: 17,329,042 | States: 8,496,793 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  37.50% | Targets: 18,571,492 | Acheron: 18,566,594 | States: 8,948,152 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  40.00% | Targets: 19,809,249 | Acheron: 19,804,127 | States: 9,389,716 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  42.50% | Targets: 21,047,053 | Acheron: 21,041,717 | States: 9,821,362 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  45.00% | Targets: 22,284,920 | Acheron: 22,279,364 | States: 10,244,357 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  47.50% | Targets: 23,522,857 | Acheron: 23,517,092 | States: 10,660,302 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  50.00% | Targets: 24,760,667 | Acheron: 24,754,691 | States: 11,067,533 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  52.50% | Targets: 25,998,587 | Acheron: 25,992,404 | States: 11,467,316 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  55.00% | Targets: 27,236,423 | Acheron: 27,230,043 | States: 11,860,692 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  57.50% | Targets: 28,474,357 | Acheron: 28,467,772 | States: 12,247,684 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  60.00% | Targets: 29,712,326 | Acheron: 29,705,547 | States: 12,628,684 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  62.50% | Targets: 30,950,218 | Acheron: 30,943,241 | States: 13,004,487 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  65.00% | Targets: 32,188,184 | Acheron: 32,181,003 | States: 13,374,825 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  67.50% | Targets: 33,426,163 | Acheron: 33,418,782 | States: 13,739,619 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  70.00% | Targets: 34,664,057 | Acheron: 34,656,477 | States: 14,099,832 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  72.50% | Targets: 35,902,026 | Acheron: 35,894,261 | States: 14,455,811 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  75.00% | Targets: 37,139,945 | Acheron: 37,131,964 | States: 14,806,777 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  77.50% | Targets: 38,377,921 | Acheron: 38,369,738 | States: 15,153,602 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  80.00% | Targets: 39,615,843 | Acheron: 39,607,455 | States: 15,496,061 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  82.50% | Targets: 40,853,876 | Acheron: 40,845,302 | States: 15,834,192 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  85.00% | Targets: 42,091,917 | Acheron: 42,083,152 | States: 16,168,493 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  87.50% | Targets: 43,329,961 | Acheron: 43,321,012 | States: 16,498,590 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  90.00% | Targets: 44,567,974 | Acheron: 44,558,848 | States: 16,825,601 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  92.50% | Targets: 45,805,984 | Acheron: 45,796,677 | States: 17,149,547 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  95.00% | Targets: 47,044,052 | Acheron: 47,034,563 | States: 17,469,916 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  97.50% | Targets: 48,282,180 | Acheron: 48,272,499 | States: 17,787,660 | NormEntropy: MAX_SPARSE
+  [TELEMETRY] 100.00% | Targets: 49,520,311 | Acheron: 49,510,450 | States: 18,101,853 | NormEntropy: MAX_SPARSE
+| Abundant Numbers           |   49,520,311 |       99.98% | MAX_SPARSE   |
+  [TELEMETRY]   2.50% | Targets: 3,761,981 | Acheron: 2,148,074 | States: 2,238,983 | NormEntropy: 0.9585
+  [TELEMETRY]   5.00% | Targets: 7,523,259 | Acheron: 4,316,762 | States: 3,999,050 | NormEntropy: 0.9490
+  [TELEMETRY]   7.50% | Targets: 11,284,496 | Acheron: 6,492,100 | States: 5,557,774 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  10.00% | Targets: 15,046,012 | Acheron: 8,672,234 | States: 6,980,007 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  12.50% | Targets: 18,807,598 | Acheron: 10,855,356 | States: 8,299,690 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  15.00% | Targets: 22,569,189 | Acheron: 13,041,166 | States: 9,535,352 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  17.50% | Targets: 26,330,818 | Acheron: 15,228,673 | States: 10,701,717 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  20.00% | Targets: 30,092,826 | Acheron: 17,418,463 | States: 11,810,010 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  22.50% | Targets: 33,854,880 | Acheron: 19,609,858 | States: 12,867,151 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  25.00% | Targets: 37,617,154 | Acheron: 21,802,662 | States: 13,880,536 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  27.50% | Targets: 41,379,393 | Acheron: 23,996,521 | States: 14,852,421 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  30.00% | Targets: 45,141,687 | Acheron: 26,191,531 | States: 15,789,482 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  32.50% | Targets: 48,904,010 | Acheron: 28,387,303 | States: 16,694,452 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  35.00% | Targets: 52,666,284 | Acheron: 30,583,867 | States: 17,569,568 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  37.50% | Targets: 56,428,502 | Acheron: 32,781,459 | States: 18,417,972 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  40.00% | Targets: 60,190,745 | Acheron: 34,979,705 | States: 19,242,020 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  42.50% | Targets: 63,952,941 | Acheron: 37,178,588 | States: 20,042,282 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  45.00% | Targets: 67,715,074 | Acheron: 39,378,023 | States: 20,821,781 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  47.50% | Targets: 71,477,137 | Acheron: 41,578,055 | States: 21,582,223 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  50.00% | Targets: 75,239,327 | Acheron: 43,778,596 | States: 22,324,046 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  52.50% | Targets: 79,001,407 | Acheron: 45,979,745 | States: 23,048,507 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  55.00% | Targets: 82,763,571 | Acheron: 48,181,446 | States: 23,756,827 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  57.50% | Targets: 86,525,637 | Acheron: 50,383,373 | States: 24,450,104 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  60.00% | Targets: 90,287,668 | Acheron: 52,585,751 | States: 25,127,884 | NormEntropy: MAX_SPARSE
+  [TELEMETRY]  62.50% | Targets: 94,049,776 | Acheron: 54,788,979 | States: 25,792,647 | NormEntropy: MAX_SPARSE
+Traceback (most recent call last):
+** crashed tiny laptop couldnt handle it haha
+
+
+===========================================================================
+      TERNARIUM GEMINORUM — DETROIT MATRIX PRODUCTION SPECTROMETER
+===========================================================================
+[-] Initializing Production Sieve up to 1,000,001...
+[+] Sieve complete in 0.17s.
+
+Options Framework [Active Horizon: 1,000,000 | Sieve Limit: 1,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 1
+
+Select Boundary Limit Environment Configuration:
+1) 1,000,000 (1M Validation Run)
+2) 100,000,000 (100M Scale Protection Bound)
+3) 200,000,000 (200M Mid-Scale Bound)
+4) 500,000,000 (500M Maximum Boundary)
+Select limit option (1-4): 3
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.30s.
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 2
+
+Select Detroit Matrix Modulus Configuration (M):
+1) M = 30    (2 * 3 * 5)
+2) M = 210   (2 * 3 * 5 * 7) [Default]
+3) M = 2310  (2 * 3 * 5 * 7 * 11) [High-Resolution Torus]
+4) M = 30030 (2 * 3 * 5 * 7 * 11 * 13) [Ultra-Deep State Space]
+5) Custom Explicit Modulus Value
+Select choice (1-5): 2
+[+] Matrix Base Modulus updated to M = 210
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 5
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.14s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+  [TELEMETRY]   2.50% | Targets:    32,463 | Acheron:    32,462 | States: 3,453 | NormEntropy: 0.8516
+  [TELEMETRY]   5.00% | Targets:    58,980 | Acheron:    58,979 | States: 4,366 | NormEntropy: 0.8338
+  [TELEMETRY]   7.50% | Targets:    83,660 | Acheron:    83,659 | States: 4,997 | NormEntropy: 0.8236
+  [TELEMETRY]  10.00% | Targets:   107,407 | Acheron:   107,406 | States: 5,477 | NormEntropy: 0.8167
+  [TELEMETRY]  12.50% | Targets:   130,512 | Acheron:   130,511 | States: 5,875 | NormEntropy: 0.8113
+  [TELEMETRY]  15.00% | Targets:   152,891 | Acheron:   152,890 | States: 6,261 | NormEntropy: 0.8063
+  [TELEMETRY]  17.50% | Targets:   174,945 | Acheron:   174,944 | States: 6,564 | NormEntropy: 0.8028
+  [TELEMETRY]  20.00% | Targets:   196,753 | Acheron:   196,752 | States: 6,827 | NormEntropy: 0.7999
+  [TELEMETRY]  22.50% | Targets:   217,981 | Acheron:   217,980 | States: 7,101 | NormEntropy: 0.7971
+  [TELEMETRY]  25.00% | Targets:   239,101 | Acheron:   239,100 | States: 7,326 | NormEntropy: 0.7949
+  [TELEMETRY]  27.50% | Targets:   259,870 | Acheron:   259,869 | States: 7,525 | NormEntropy: 0.7930
+  [TELEMETRY]  30.00% | Targets:   280,558 | Acheron:   280,557 | States: 7,719 | NormEntropy: 0.7911
+  [TELEMETRY]  32.50% | Targets:   300,972 | Acheron:   300,971 | States: 7,892 | NormEntropy: 0.7895
+  [TELEMETRY]  35.00% | Targets:   321,466 | Acheron:   321,465 | States: 8,047 | NormEntropy: 0.7880
+  [TELEMETRY]  37.50% | Targets:   341,499 | Acheron:   341,498 | States: 8,213 | NormEntropy: 0.7864
+  [TELEMETRY]  40.00% | Targets:   361,450 | Acheron:   361,449 | States: 8,376 | NormEntropy: 0.7849
+  [TELEMETRY]  42.50% | Targets:   381,322 | Acheron:   381,321 | States: 8,522 | NormEntropy: 0.7837
+  [TELEMETRY]  45.00% | Targets:   401,090 | Acheron:   401,089 | States: 8,643 | NormEntropy: 0.7826
+  [TELEMETRY]  47.50% | Targets:   420,760 | Acheron:   420,759 | States: 8,778 | NormEntropy: 0.7814
+  [TELEMETRY]  50.00% | Targets:   440,312 | Acheron:   440,311 | States: 8,908 | NormEntropy: 0.7803
+  [TELEMETRY]  52.50% | Targets:   459,755 | Acheron:   459,754 | States: 9,013 | NormEntropy: 0.7794
+  [TELEMETRY]  55.00% | Targets:   479,129 | Acheron:   479,128 | States: 9,106 | NormEntropy: 0.7787
+  [TELEMETRY]  57.50% | Targets:   498,272 | Acheron:   498,271 | States: 9,201 | NormEntropy: 0.7778
+  [TELEMETRY]  60.00% | Targets:   517,360 | Acheron:   517,359 | States: 9,293 | NormEntropy: 0.7771
+  [TELEMETRY]  62.50% | Targets:   536,320 | Acheron:   536,319 | States: 9,386 | NormEntropy: 0.7764
+  [TELEMETRY]  65.00% | Targets:   555,376 | Acheron:   555,375 | States: 9,486 | NormEntropy: 0.7756
+  [TELEMETRY]  67.50% | Targets:   574,232 | Acheron:   574,231 | States: 9,574 | NormEntropy: 0.7749
+  [TELEMETRY]  70.00% | Targets:   593,174 | Acheron:   593,173 | States: 9,665 | NormEntropy: 0.7741
+  [TELEMETRY]  72.50% | Targets:   611,853 | Acheron:   611,852 | States: 9,746 | NormEntropy: 0.7736
+  [TELEMETRY]  75.00% | Targets:   630,392 | Acheron:   630,391 | States: 9,840 | NormEntropy: 0.7728
+  [TELEMETRY]  77.50% | Targets:   648,835 | Acheron:   648,834 | States: 9,917 | NormEntropy: 0.7723
+  [TELEMETRY]  80.00% | Targets:   667,529 | Acheron:   667,528 | States: 9,998 | NormEntropy: 0.7717
+  [TELEMETRY]  82.50% | Targets:   685,693 | Acheron:   685,692 | States: 10,073 | NormEntropy: 0.7712
+  [TELEMETRY]  85.00% | Targets:   704,104 | Acheron:   704,103 | States: 10,140 | NormEntropy: 0.7707
+  [TELEMETRY]  87.50% | Targets:   722,333 | Acheron:   722,332 | States: 10,223 | NormEntropy: 0.7701
+  [TELEMETRY]  90.00% | Targets:   740,685 | Acheron:   740,684 | States: 10,285 | NormEntropy: 0.7696
+  [TELEMETRY]  92.50% | Targets:   758,775 | Acheron:   758,774 | States: 10,364 | NormEntropy: 0.7691
+  [TELEMETRY]  95.00% | Targets:   777,052 | Acheron:   777,051 | States: 10,437 | NormEntropy: 0.7685
+  [TELEMETRY]  97.50% | Targets:   795,167 | Acheron:   795,166 | States: 10,497 | NormEntropy: 0.7681
+  [TELEMETRY] 100.00% | Targets:   813,371 | Acheron:   813,370 | States: 10,578 | NormEntropy: 0.7675
+| Twin Centers               |      813,371 |      100.00% |       0.7675 |
+  [TELEMETRY]   2.50% | Targets:    32,308 | Acheron:    26,334 | States: 2,545 | NormEntropy: 0.8439
+  [TELEMETRY]   5.00% | Targets:    58,622 | Acheron:    48,059 | States: 3,220 | NormEntropy: 0.8258
+  [TELEMETRY]   7.50% | Targets:    83,472 | Acheron:    68,689 | States: 3,721 | NormEntropy: 0.8146
+  [TELEMETRY]  10.00% | Targets:   107,082 | Acheron:    88,248 | States: 4,114 | NormEntropy: 0.8067
+  [TELEMETRY]  12.50% | Targets:   130,176 | Acheron:   107,411 | States: 4,446 | NormEntropy: 0.8010
+  [TELEMETRY]  15.00% | Targets:   152,577 | Acheron:   126,032 | States: 4,738 | NormEntropy: 0.7961
+  [TELEMETRY]  17.50% | Targets:   174,591 | Acheron:   144,376 | States: 5,004 | NormEntropy: 0.7919
+  [TELEMETRY]  20.00% | Targets:   196,234 | Acheron:   162,486 | States: 5,234 | NormEntropy: 0.7887
+  [TELEMETRY]  22.50% | Targets:   217,486 | Acheron:   180,205 | States: 5,428 | NormEntropy: 0.7859
+  [TELEMETRY]  25.00% | Targets:   238,611 | Acheron:   197,918 | States: 5,603 | NormEntropy: 0.7835
+  [TELEMETRY]  27.50% | Targets:   259,566 | Acheron:   215,448 | States: 5,778 | NormEntropy: 0.7812
+  [TELEMETRY]  30.00% | Targets:   280,206 | Acheron:   232,811 | States: 5,921 | NormEntropy: 0.7794
+  [TELEMETRY]  32.50% | Targets:   300,675 | Acheron:   249,974 | States: 6,067 | NormEntropy: 0.7776
+  [TELEMETRY]  35.00% | Targets:   321,200 | Acheron:   267,236 | States: 6,198 | NormEntropy: 0.7760
+  [TELEMETRY]  37.50% | Targets:   341,271 | Acheron:   283,983 | States: 6,346 | NormEntropy: 0.7743
+  [TELEMETRY]  40.00% | Targets:   361,347 | Acheron:   300,804 | States: 6,466 | NormEntropy: 0.7730
+  [TELEMETRY]  42.50% | Targets:   381,164 | Acheron:   317,439 | States: 6,603 | NormEntropy: 0.7714
+  [TELEMETRY]  45.00% | Targets:   401,025 | Acheron:   334,032 | States: 6,728 | NormEntropy: 0.7701
+  [TELEMETRY]  47.50% | Targets:   420,669 | Acheron:   350,480 | States: 6,838 | NormEntropy: 0.7689
+  [TELEMETRY]  50.00% | Targets:   440,258 | Acheron:   366,955 | States: 6,946 | NormEntropy: 0.7677
+  [TELEMETRY]  52.50% | Targets:   459,821 | Acheron:   383,331 | States: 7,050 | NormEntropy: 0.7667
+  [TELEMETRY]  55.00% | Targets:   479,235 | Acheron:   399,638 | States: 7,140 | NormEntropy: 0.7658
+  [TELEMETRY]  57.50% | Targets:   498,395 | Acheron:   415,751 | States: 7,227 | NormEntropy: 0.7649
+  [TELEMETRY]  60.00% | Targets:   517,474 | Acheron:   431,870 | States: 7,308 | NormEntropy: 0.7641
+  [TELEMETRY]  62.50% | Targets:   536,535 | Acheron:   447,892 | States: 7,410 | NormEntropy: 0.7631
+  [TELEMETRY]  65.00% | Targets:   555,610 | Acheron:   463,897 | States: 7,486 | NormEntropy: 0.7624
+  [TELEMETRY]  67.50% | Targets:   574,475 | Acheron:   479,749 | States: 7,579 | NormEntropy: 0.7615
+  [TELEMETRY]  70.00% | Targets:   593,198 | Acheron:   495,524 | States: 7,653 | NormEntropy: 0.7607
+  [TELEMETRY]  72.50% | Targets:   611,754 | Acheron:   511,092 | States: 7,708 | NormEntropy: 0.7602
+  [TELEMETRY]  75.00% | Targets:   630,331 | Acheron:   526,773 | States: 7,788 | NormEntropy: 0.7595
+  [TELEMETRY]  77.50% | Targets:   648,821 | Acheron:   542,324 | States: 7,848 | NormEntropy: 0.7589
+  [TELEMETRY]  80.00% | Targets:   667,182 | Acheron:   557,786 | States: 7,934 | NormEntropy: 0.7582
+  [TELEMETRY]  82.50% | Targets:   685,716 | Acheron:   573,324 | States: 7,996 | NormEntropy: 0.7575
+  [TELEMETRY]  85.00% | Targets:   704,198 | Acheron:   588,919 | States: 8,055 | NormEntropy: 0.7570
+  [TELEMETRY]  87.50% | Targets:   722,415 | Acheron:   604,235 | States: 8,119 | NormEntropy: 0.7566
+  [TELEMETRY]  90.00% | Targets:   740,834 | Acheron:   619,741 | States: 8,203 | NormEntropy: 0.7559
+  [TELEMETRY]  92.50% | Targets:   759,209 | Acheron:   635,167 | States: 8,264 | NormEntropy: 0.7554
+  [TELEMETRY]  95.00% | Targets:   777,392 | Acheron:   650,455 | States: 8,335 | NormEntropy: 0.7547
+  [TELEMETRY]  97.50% | Targets:   795,574 | Acheron:   665,809 | States: 8,395 | NormEntropy: 0.7542
+  [TELEMETRY] 100.00% | Targets:   813,715 | Acheron:   681,065 | States: 8,457 | NormEntropy: 0.7537
+| Cousin Centers             |      813,715 |       83.70% |       0.7537 |
+  [TELEMETRY]   2.50% | Targets:    64,481 | Acheron:    64,406 | States: 5,062 | NormEntropy: 0.8363
+  [TELEMETRY]   5.00% | Targets:   117,207 | Acheron:   117,111 | States: 6,669 | NormEntropy: 0.8170
+  [TELEMETRY]   7.50% | Targets:   166,304 | Acheron:   166,201 | States: 7,770 | NormEntropy: 0.8063
+  [TELEMETRY]  10.00% | Targets:   213,818 | Acheron:   213,703 | States: 8,660 | NormEntropy: 0.7985
+  [TELEMETRY]  12.50% | Targets:   259,830 | Acheron:   259,705 | States: 9,417 | NormEntropy: 0.7924
+  [TELEMETRY]  15.00% | Targets:   304,867 | Acheron:   304,734 | States: 10,019 | NormEntropy: 0.7878
+  [TELEMETRY]  17.50% | Targets:   348,781 | Acheron:   348,642 | States: 10,611 | NormEntropy: 0.7837
+  [TELEMETRY]  20.00% | Targets:   392,081 | Acheron:   391,934 | States: 11,097 | NormEntropy: 0.7807
+  [TELEMETRY]  22.50% | Targets:   434,671 | Acheron:   434,518 | States: 11,553 | NormEntropy: 0.7780
+  [TELEMETRY]  25.00% | Targets:   477,012 | Acheron:   476,858 | States: 11,994 | NormEntropy: 0.7755
+  [TELEMETRY]  27.50% | Targets:   518,650 | Acheron:   518,489 | States: 12,415 | NormEntropy: 0.7731
+  [TELEMETRY]  30.00% | Targets:   560,170 | Acheron:   560,006 | States: 12,790 | NormEntropy: 0.7711
+  [TELEMETRY]  32.50% | Targets:   601,104 | Acheron:   600,934 | States: 13,140 | NormEntropy: 0.7693
+  [TELEMETRY]  35.00% | Targets:   641,654 | Acheron:   641,480 | States: 13,495 | NormEntropy: 0.7675
+  [TELEMETRY]  37.50% | Targets:   682,242 | Acheron:   682,064 | States: 13,785 | NormEntropy: 0.7660
+  [TELEMETRY]  40.00% | Targets:   722,174 | Acheron:   721,990 | States: 14,081 | NormEntropy: 0.7646
+  [TELEMETRY]  42.50% | Targets:   761,975 | Acheron:   761,786 | States: 14,389 | NormEntropy: 0.7631
+  [TELEMETRY]  45.00% | Targets:   801,602 | Acheron:   801,411 | States: 14,637 | NormEntropy: 0.7620
+  [TELEMETRY]  47.50% | Targets:   841,152 | Acheron:   840,955 | States: 14,908 | NormEntropy: 0.7608
+  [TELEMETRY]  50.00% | Targets:   879,908 | Acheron:   879,709 | States: 15,164 | NormEntropy: 0.7596
+  [TELEMETRY]  52.50% | Targets:   918,888 | Acheron:   918,688 | States: 15,407 | NormEntropy: 0.7586
+  [TELEMETRY]  55.00% | Targets:   957,505 | Acheron:   957,303 | States: 15,657 | NormEntropy: 0.7575
+  [TELEMETRY]  57.50% | Targets:   995,883 | Acheron:   995,678 | States: 15,868 | NormEntropy: 0.7566
+  [TELEMETRY]  60.00% | Targets: 1,034,192 | Acheron: 1,033,984 | States: 16,087 | NormEntropy: 0.7556
+  [TELEMETRY]  62.50% | Targets: 1,072,233 | Acheron: 1,072,021 | States: 16,281 | NormEntropy: 0.7548
+  [TELEMETRY]  65.00% | Targets: 1,110,252 | Acheron: 1,110,034 | States: 16,487 | NormEntropy: 0.7540
+  [TELEMETRY]  67.50% | Targets: 1,147,884 | Acheron: 1,147,665 | States: 16,704 | NormEntropy: 0.7531
+  [TELEMETRY]  70.00% | Targets: 1,185,406 | Acheron: 1,185,183 | States: 16,886 | NormEntropy: 0.7524
+  [TELEMETRY]  72.50% | Targets: 1,222,913 | Acheron: 1,222,688 | States: 17,087 | NormEntropy: 0.7516
+  [TELEMETRY]  75.00% | Targets: 1,260,215 | Acheron: 1,259,988 | States: 17,250 | NormEntropy: 0.7510
+  [TELEMETRY]  77.50% | Targets: 1,297,225 | Acheron: 1,296,995 | States: 17,461 | NormEntropy: 0.7502
+  [TELEMETRY]  80.00% | Targets: 1,333,980 | Acheron: 1,333,746 | States: 17,622 | NormEntropy: 0.7496
+  [TELEMETRY]  82.50% | Targets: 1,370,856 | Acheron: 1,370,618 | States: 17,789 | NormEntropy: 0.7490
+  [TELEMETRY]  85.00% | Targets: 1,407,991 | Acheron: 1,407,749 | States: 17,965 | NormEntropy: 0.7483
+  [TELEMETRY]  87.50% | Targets: 1,444,712 | Acheron: 1,444,468 | States: 18,144 | NormEntropy: 0.7476
+  [TELEMETRY]  90.00% | Targets: 1,481,547 | Acheron: 1,481,303 | States: 18,315 | NormEntropy: 0.7470
+  [TELEMETRY]  92.50% | Targets: 1,517,832 | Acheron: 1,517,584 | States: 18,470 | NormEntropy: 0.7465
+  [TELEMETRY]  95.00% | Targets: 1,554,301 | Acheron: 1,554,051 | States: 18,598 | NormEntropy: 0.7460
+  [TELEMETRY]  97.50% | Targets: 1,590,284 | Acheron: 1,590,033 | States: 18,745 | NormEntropy: 0.7455
+  [TELEMETRY] 100.00% | Targets: 1,626,374 | Acheron: 1,626,119 | States: 18,899 | NormEntropy: 0.7449
+| Sexy Centers               |    1,626,374 |       99.98% |       0.7449 |
+  [TELEMETRY]   2.50% | Targets:    30,657 | Acheron:         0 | States:    18 | NormEntropy: 0.9372
+  [TELEMETRY]   5.00% | Targets:    56,032 | Acheron:         0 | States:    18 | NormEntropy: 0.9371
+  [TELEMETRY]   7.50% | Targets:    79,927 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  10.00% | Targets:   102,773 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  12.50% | Targets:   124,850 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  15.00% | Targets:   146,501 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  17.50% | Targets:   167,912 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  20.00% | Targets:   188,803 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  22.50% | Targets:   209,319 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  25.00% | Targets:   229,568 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  27.50% | Targets:   249,580 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  30.00% | Targets:   269,437 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  32.50% | Targets:   289,279 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  35.00% | Targets:   308,853 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  37.50% | Targets:   328,162 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  40.00% | Targets:   347,336 | Acheron:         0 | States:    18 | NormEntropy: 0.9370
+  [TELEMETRY]  42.50% | Targets:   366,687 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  45.00% | Targets:   385,535 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  47.50% | Targets:   404,284 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  50.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  52.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  55.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  57.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  60.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  62.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  65.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  67.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  70.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  72.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  75.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  77.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  80.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  82.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  85.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  87.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  90.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  92.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  95.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY]  97.50% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+  [TELEMETRY] 100.00% | Targets:   423,140 | Acheron:         0 | States:    18 | NormEntropy: 0.9369
+| Sophie Germain Primes      |      423,140 |        0.00% |       0.9369 |
+| Semiprimes [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+| Prime Powers [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+  [TELEMETRY]   2.50% | Targets:     2,236 | Acheron:       537 | States:   967 | NormEntropy: 0.9449
+  [TELEMETRY]   5.00% | Targets:     3,162 | Acheron:       779 | States: 1,167 | NormEntropy: 0.9347
+  [TELEMETRY]   7.50% | Targets:     3,872 | Acheron:       971 | States: 1,316 | NormEntropy: 0.9274
+  [TELEMETRY]  10.00% | Targets:     4,472 | Acheron:     1,128 | States: 1,416 | NormEntropy: 0.9225
+  [TELEMETRY]  12.50% | Targets:     4,999 | Acheron:     1,279 | States: 1,498 | NormEntropy: 0.9192
+  [TELEMETRY]  15.00% | Targets:     5,477 | Acheron:     1,414 | States: 1,582 | NormEntropy: 0.9154
+  [TELEMETRY]  17.50% | Targets:     5,916 | Acheron:     1,528 | States: 1,646 | NormEntropy: 0.9126
+  [TELEMETRY]  20.00% | Targets:     6,324 | Acheron:     1,638 | States: 1,705 | NormEntropy: 0.9105
+  [TELEMETRY]  22.50% | Targets:     6,708 | Acheron:     1,752 | States: 1,755 | NormEntropy: 0.9084
+  [TELEMETRY]  25.00% | Targets:     7,071 | Acheron:     1,850 | States: 1,810 | NormEntropy: 0.9067
+  [TELEMETRY]  27.50% | Targets:     7,416 | Acheron:     1,948 | States: 1,853 | NormEntropy: 0.9047
+  [TELEMETRY]  30.00% | Targets:     7,745 | Acheron:     2,037 | States: 1,894 | NormEntropy: 0.9031
+  [TELEMETRY]  32.50% | Targets:     8,062 | Acheron:     2,129 | States: 1,939 | NormEntropy: 0.9015
+  [TELEMETRY]  35.00% | Targets:     8,366 | Acheron:     2,211 | States: 1,978 | NormEntropy: 0.9000
+  [TELEMETRY]  37.50% | Targets:     8,660 | Acheron:     2,286 | States: 2,016 | NormEntropy: 0.8988
+  [TELEMETRY]  40.00% | Targets:     8,944 | Acheron:     2,364 | States: 2,051 | NormEntropy: 0.8974
+  [TELEMETRY]  42.50% | Targets:     9,219 | Acheron:     2,446 | States: 2,088 | NormEntropy: 0.8964
+  [TELEMETRY]  45.00% | Targets:     9,486 | Acheron:     2,522 | States: 2,114 | NormEntropy: 0.8955
+  [TELEMETRY]  47.50% | Targets:     9,746 | Acheron:     2,594 | States: 2,139 | NormEntropy: 0.8945
+  [TELEMETRY]  50.00% | Targets:     9,999 | Acheron:     2,674 | States: 2,169 | NormEntropy: 0.8937
+  [TELEMETRY]  52.50% | Targets:    10,246 | Acheron:     2,743 | States: 2,202 | NormEntropy: 0.8926
+  [TELEMETRY]  55.00% | Targets:    10,488 | Acheron:     2,815 | States: 2,230 | NormEntropy: 0.8919
+  [TELEMETRY]  57.50% | Targets:    10,723 | Acheron:     2,883 | States: 2,260 | NormEntropy: 0.8911
+  [TELEMETRY]  60.00% | Targets:    10,954 | Acheron:     2,949 | States: 2,283 | NormEntropy: 0.8902
+  [TELEMETRY]  62.50% | Targets:    11,180 | Acheron:     3,019 | States: 2,312 | NormEntropy: 0.8892
+  [TELEMETRY]  65.00% | Targets:    11,401 | Acheron:     3,085 | States: 2,336 | NormEntropy: 0.8884
+  [TELEMETRY]  67.50% | Targets:    11,618 | Acheron:     3,137 | States: 2,356 | NormEntropy: 0.8877
+  [TELEMETRY]  70.00% | Targets:    11,832 | Acheron:     3,198 | States: 2,378 | NormEntropy: 0.8872
+  [TELEMETRY]  72.50% | Targets:    12,041 | Acheron:     3,252 | States: 2,398 | NormEntropy: 0.8865
+  [TELEMETRY]  75.00% | Targets:    12,247 | Acheron:     3,312 | States: 2,422 | NormEntropy: 0.8857
+  [TELEMETRY]  77.50% | Targets:    12,449 | Acheron:     3,366 | States: 2,445 | NormEntropy: 0.8851
+  [TELEMETRY]  80.00% | Targets:    12,649 | Acheron:     3,423 | States: 2,469 | NormEntropy: 0.8845
+  [TELEMETRY]  82.50% | Targets:    12,845 | Acheron:     3,481 | States: 2,484 | NormEntropy: 0.8842
+  [TELEMETRY]  85.00% | Targets:    13,038 | Acheron:     3,538 | States: 2,502 | NormEntropy: 0.8836
+  [TELEMETRY]  87.50% | Targets:    13,228 | Acheron:     3,596 | States: 2,521 | NormEntropy: 0.8830
+  [TELEMETRY]  90.00% | Targets:    13,416 | Acheron:     3,649 | States: 2,537 | NormEntropy: 0.8825
+  [TELEMETRY]  92.50% | Targets:    13,601 | Acheron:     3,704 | States: 2,558 | NormEntropy: 0.8821
+  [TELEMETRY]  95.00% | Targets:    13,784 | Acheron:     3,762 | States: 2,578 | NormEntropy: 0.8816
+  [TELEMETRY]  97.50% | Targets:    13,964 | Acheron:     3,817 | States: 2,593 | NormEntropy: 0.8813
+  [TELEMETRY] 100.00% | Targets:    14,142 | Acheron:     3,865 | States: 2,610 | NormEntropy: 0.8809
+| Perfect Squares            |       14,142 |       27.33% |       0.8809 |
+  [TELEMETRY]   2.50% | Targets: 1,238,014 | Acheron: 1,237,121 | States: 39,732 | NormEntropy: 0.7964
+  [TELEMETRY]   5.00% | Targets: 2,476,736 | Acheron: 2,475,374 | States: 50,877 | NormEntropy: 0.7812
+  [TELEMETRY]   7.50% | Targets: 3,715,499 | Acheron: 3,713,781 | States: 58,258 | NormEntropy: 0.7731
+  [TELEMETRY]  10.00% | Targets: 4,953,983 | Acheron: 4,951,930 | States: 63,956 | NormEntropy: 0.7675
+  [TELEMETRY]  12.50% | Targets: 6,192,397 | Acheron: 6,190,032 | States: 68,624 | NormEntropy: 0.7632
+  [TELEMETRY]  15.00% | Targets: 7,430,806 | Acheron: 7,428,162 | States: 72,565 | NormEntropy: 0.7599
+  [TELEMETRY]  17.50% | Targets: 8,669,176 | Acheron: 8,666,245 | States: 75,960 | NormEntropy: 0.7572
+  [TELEMETRY]  20.00% | Targets: 9,907,168 | Acheron: 9,903,968 | States: 78,988 | NormEntropy: 0.7549
+  [TELEMETRY]  22.50% | Targets: 11,145,114 | Acheron: 11,141,662 | States: 81,651 | NormEntropy: 0.7530
+  [TELEMETRY]  25.00% | Targets: 12,382,840 | Acheron: 12,379,134 | States: 84,155 | NormEntropy: 0.7512
+  [TELEMETRY]  27.50% | Targets: 13,620,601 | Acheron: 13,616,652 | States: 86,425 | NormEntropy: 0.7496
+  [TELEMETRY]  30.00% | Targets: 14,858,307 | Acheron: 14,854,109 | States: 88,519 | NormEntropy: 0.7483
+  [TELEMETRY]  32.50% | Targets: 16,095,984 | Acheron: 16,091,549 | States: 90,505 | NormEntropy: 0.7470
+  [TELEMETRY]  35.00% | Targets: 17,333,710 | Acheron: 17,329,042 | States: 92,321 | NormEntropy: 0.7458
+  [TELEMETRY]  37.50% | Targets: 18,571,492 | Acheron: 18,566,594 | States: 94,072 | NormEntropy: 0.7447
+  [TELEMETRY]  40.00% | Targets: 19,809,249 | Acheron: 19,804,127 | States: 95,631 | NormEntropy: 0.7438
+  [TELEMETRY]  42.50% | Targets: 21,047,053 | Acheron: 21,041,717 | States: 97,162 | NormEntropy: 0.7429
+  [TELEMETRY]  45.00% | Targets: 22,284,920 | Acheron: 22,279,364 | States: 98,636 | NormEntropy: 0.7420
+  [TELEMETRY]  47.50% | Targets: 23,522,857 | Acheron: 23,517,092 | States: 100,031 | NormEntropy: 0.7412
+  [TELEMETRY]  50.00% | Targets: 24,760,667 | Acheron: 24,754,691 | States: 101,383 | NormEntropy: 0.7404
+  [TELEMETRY]  52.50% | Targets: 25,998,587 | Acheron: 25,992,404 | States: 102,643 | NormEntropy: 0.7397
+  [TELEMETRY]  55.00% | Targets: 27,236,423 | Acheron: 27,230,043 | States: 103,896 | NormEntropy: 0.7390
+  [TELEMETRY]  57.50% | Targets: 28,474,357 | Acheron: 28,467,772 | States: 105,018 | NormEntropy: 0.7384
+  [TELEMETRY]  60.00% | Targets: 29,712,326 | Acheron: 29,705,547 | States: 106,152 | NormEntropy: 0.7378
+  [TELEMETRY]  62.50% | Targets: 30,950,218 | Acheron: 30,943,241 | States: 107,208 | NormEntropy: 0.7372
+  [TELEMETRY]  65.00% | Targets: 32,188,184 | Acheron: 32,181,003 | States: 108,259 | NormEntropy: 0.7367
+  [TELEMETRY]  67.50% | Targets: 33,426,163 | Acheron: 33,418,782 | States: 109,260 | NormEntropy: 0.7361
+  [TELEMETRY]  70.00% | Targets: 34,664,057 | Acheron: 34,656,477 | States: 110,254 | NormEntropy: 0.7356
+  [TELEMETRY]  72.50% | Targets: 35,902,026 | Acheron: 35,894,261 | States: 111,192 | NormEntropy: 0.7352
+  [TELEMETRY]  75.00% | Targets: 37,139,945 | Acheron: 37,131,964 | States: 112,093 | NormEntropy: 0.7347
+  [TELEMETRY]  77.50% | Targets: 38,377,921 | Acheron: 38,369,738 | States: 112,970 | NormEntropy: 0.7343
+  [TELEMETRY]  80.00% | Targets: 39,615,843 | Acheron: 39,607,455 | States: 113,852 | NormEntropy: 0.7338
+  [TELEMETRY]  82.50% | Targets: 40,853,876 | Acheron: 40,845,302 | States: 114,670 | NormEntropy: 0.7334
+  [TELEMETRY]  85.00% | Targets: 42,091,917 | Acheron: 42,083,152 | States: 115,530 | NormEntropy: 0.7330
+  [TELEMETRY]  87.50% | Targets: 43,329,961 | Acheron: 43,321,012 | States: 116,363 | NormEntropy: 0.7326
+  [TELEMETRY]  90.00% | Targets: 44,567,974 | Acheron: 44,558,848 | States: 117,151 | NormEntropy: 0.7322
+  [TELEMETRY]  92.50% | Targets: 45,805,984 | Acheron: 45,796,677 | States: 117,927 | NormEntropy: 0.7318
+  [TELEMETRY]  95.00% | Targets: 47,044,052 | Acheron: 47,034,563 | States: 118,686 | NormEntropy: 0.7315
+  [TELEMETRY]  97.50% | Targets: 48,282,180 | Acheron: 48,272,499 | States: 119,401 | NormEntropy: 0.7311
+  [TELEMETRY] 100.00% | Targets: 49,520,311 | Acheron: 49,510,450 | States: 120,125 | NormEntropy: 0.7308
+| Abundant Numbers           |   49,520,311 |       99.98% |       0.7308 |
+  [TELEMETRY]   2.50% | Targets: 3,761,981 | Acheron: 2,148,074 | States: 46,168 | NormEntropy: 0.7859
+  [TELEMETRY]   5.00% | Targets: 7,523,259 | Acheron: 4,316,762 | States: 60,963 | NormEntropy: 0.7702
+  [TELEMETRY]   7.50% | Targets: 11,284,496 | Acheron: 6,492,100 | States: 71,322 | NormEntropy: 0.7615
+  [TELEMETRY]  10.00% | Targets: 15,046,012 | Acheron: 8,672,234 | States: 79,294 | NormEntropy: 0.7558
+  [TELEMETRY]  12.50% | Targets: 18,807,598 | Acheron: 10,855,356 | States: 85,875 | NormEntropy: 0.7515
+  [TELEMETRY]  15.00% | Targets: 22,569,189 | Acheron: 13,041,166 | States: 91,602 | NormEntropy: 0.7481
+  [TELEMETRY]  17.50% | Targets: 26,330,818 | Acheron: 15,228,673 | States: 96,504 | NormEntropy: 0.7453
+  [TELEMETRY]  20.00% | Targets: 30,092,826 | Acheron: 17,418,463 | States: 100,936 | NormEntropy: 0.7430
+  [TELEMETRY]  22.50% | Targets: 33,854,880 | Acheron: 19,609,858 | States: 104,963 | NormEntropy: 0.7410
+  [TELEMETRY]  25.00% | Targets: 37,617,154 | Acheron: 21,802,662 | States: 108,707 | NormEntropy: 0.7392
+  [TELEMETRY]  27.50% | Targets: 41,379,393 | Acheron: 23,996,521 | States: 111,990 | NormEntropy: 0.7377
+  [TELEMETRY]  30.00% | Targets: 45,141,687 | Acheron: 26,191,531 | States: 115,081 | NormEntropy: 0.7363
+  [TELEMETRY]  32.50% | Targets: 48,904,010 | Acheron: 28,387,303 | States: 117,897 | NormEntropy: 0.7351
+  [TELEMETRY]  35.00% | Targets: 52,666,284 | Acheron: 30,583,867 | States: 120,580 | NormEntropy: 0.7339
+  [TELEMETRY]  37.50% | Targets: 56,428,502 | Acheron: 32,781,459 | States: 123,122 | NormEntropy: 0.7329
+  [TELEMETRY]  40.00% | Targets: 60,190,745 | Acheron: 34,979,705 | States: 125,506 | NormEntropy: 0.7319
+  [TELEMETRY]  42.50% | Targets: 63,952,941 | Acheron: 37,178,588 | States: 127,772 | NormEntropy: 0.7310
+  [TELEMETRY]  45.00% | Targets: 67,715,074 | Acheron: 39,378,023 | States: 129,921 | NormEntropy: 0.7302
+  [TELEMETRY]  47.50% | Targets: 71,477,137 | Acheron: 41,578,055 | States: 131,971 | NormEntropy: 0.7294
+  [TELEMETRY]  50.00% | Targets: 75,239,327 | Acheron: 43,778,596 | States: 133,930 | NormEntropy: 0.7287
+  [TELEMETRY]  52.50% | Targets: 79,001,407 | Acheron: 45,979,745 | States: 135,853 | NormEntropy: 0.7280
+  [TELEMETRY]  55.00% | Targets: 82,763,571 | Acheron: 48,181,446 | States: 137,636 | NormEntropy: 0.7273
+  [TELEMETRY]  57.50% | Targets: 86,525,637 | Acheron: 50,383,373 | States: 139,345 | NormEntropy: 0.7267
+  [TELEMETRY]  60.00% | Targets: 90,287,668 | Acheron: 52,585,751 | States: 141,044 | NormEntropy: 0.7261
+  [TELEMETRY]  62.50% | Targets: 94,049,776 | Acheron: 54,788,979 | States: 142,642 | NormEntropy: 0.7256
+  [TELEMETRY]  65.00% | Targets: 97,811,810 | Acheron: 56,992,837 | States: 144,202 | NormEntropy: 0.7250
+  [TELEMETRY]  67.50% | Targets: 101,573,831 | Acheron: 59,196,722 | States: 145,719 | NormEntropy: 0.7245
+  [TELEMETRY]  70.00% | Targets: 105,335,937 | Acheron: 61,400,806 | States: 147,154 | NormEntropy: 0.7241
+  [TELEMETRY]  72.50% | Targets: 109,097,968 | Acheron: 63,605,327 | States: 148,533 | NormEntropy: 0.7236
+  [TELEMETRY]  75.00% | Targets: 112,860,049 | Acheron: 65,810,677 | States: 149,845 | NormEntropy: 0.7232
+  [TELEMETRY]  77.50% | Targets: 116,622,073 | Acheron: 68,015,801 | States: 151,219 | NormEntropy: 0.7227
+  [TELEMETRY]  80.00% | Targets: 120,384,151 | Acheron: 70,221,502 | States: 152,457 | NormEntropy: 0.7223
+  [TELEMETRY]  82.50% | Targets: 124,146,118 | Acheron: 72,427,453 | States: 153,664 | NormEntropy: 0.7220
+  [TELEMETRY]  85.00% | Targets: 127,908,077 | Acheron: 74,633,641 | States: 154,907 | NormEntropy: 0.7216
+  [TELEMETRY]  87.50% | Targets: 131,670,033 | Acheron: 76,840,138 | States: 156,081 | NormEntropy: 0.7212
+  [TELEMETRY]  90.00% | Targets: 135,432,020 | Acheron: 79,046,818 | States: 157,272 | NormEntropy: 0.7208
+  [TELEMETRY]  92.50% | Targets: 139,194,010 | Acheron: 81,253,923 | States: 158,357 | NormEntropy: 0.7205
+  [TELEMETRY]  95.00% | Targets: 142,955,942 | Acheron: 83,461,454 | States: 159,446 | NormEntropy: 0.7202
+  [TELEMETRY]  97.50% | Targets: 146,717,814 | Acheron: 85,668,989 | States: 160,504 | NormEntropy: 0.7199
+  [TELEMETRY] 100.00% | Targets: 150,479,683 | Acheron: 87,877,117 | States: 161,530 | NormEntropy: 0.7196
+| Deficient Numbers          |  150,479,683 |       58.40% |       0.7196 |
+--------------------------------------------------------------------------------------------
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 210]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 2
+
+Select Detroit Matrix Modulus Configuration (M):
+1) M = 30    (2 * 3 * 5)
+2) M = 210   (2 * 3 * 5 * 7) [Default]
+3) M = 2310  (2 * 3 * 5 * 7 * 11) [High-Resolution Torus]
+4) M = 30030 (2 * 3 * 5 * 7 * 11 * 13) [Ultra-Deep State Space]
+5) Custom Explicit Modulus Value
+Select choice (1-5): 1
+[+] Matrix Base Modulus updated to M = 30
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 30]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6): 5
+[-] Bypassing lookahead arrays. Hard-clamping matrix sieve to limit + 1 bounds...
+[-] Initializing Production Sieve up to 200,000,001...
+[+] Sieve complete in 44.78s.
+
+Executing Detroit Matrix Side-by-Side Generation...
+--------------------------------------------------------------------------------------------
+| Target System              | Total Count  | Acheron %    | Norm Entropy |
+--------------------------------------------------------------------------------------------
+  [TELEMETRY]   2.50% | Targets:    32,463 | Acheron:    32,462 | States:   230 | NormEntropy: 0.6886
+  [TELEMETRY]   5.00% | Targets:    58,980 | Acheron:    58,979 | States:   241 | NormEntropy: 0.6806
+  [TELEMETRY]   7.50% | Targets:    83,660 | Acheron:    83,659 | States:   248 | NormEntropy: 0.6754
+  [TELEMETRY]  10.00% | Targets:   107,407 | Acheron:   107,406 | States:   253 | NormEntropy: 0.6726
+  [TELEMETRY]  12.50% | Targets:   130,512 | Acheron:   130,511 | States:   260 | NormEntropy: 0.6690
+  [TELEMETRY]  15.00% | Targets:   152,891 | Acheron:   152,890 | States:   265 | NormEntropy: 0.6658
+  [TELEMETRY]  17.50% | Targets:   174,945 | Acheron:   174,944 | States:   268 | NormEntropy: 0.6642
+  [TELEMETRY]  20.00% | Targets:   196,753 | Acheron:   196,752 | States:   272 | NormEntropy: 0.6621
+  [TELEMETRY]  22.50% | Targets:   217,981 | Acheron:   217,980 | States:   275 | NormEntropy: 0.6604
+  [TELEMETRY]  25.00% | Targets:   239,101 | Acheron:   239,100 | States:   278 | NormEntropy: 0.6590
+  [TELEMETRY]  27.50% | Targets:   259,870 | Acheron:   259,869 | States:   283 | NormEntropy: 0.6566
+  [TELEMETRY]  30.00% | Targets:   280,558 | Acheron:   280,557 | States:   283 | NormEntropy: 0.6564
+  [TELEMETRY]  32.50% | Targets:   300,972 | Acheron:   300,971 | States:   284 | NormEntropy: 0.6558
+  [TELEMETRY]  35.00% | Targets:   321,466 | Acheron:   321,465 | States:   285 | NormEntropy: 0.6550
+  [TELEMETRY]  37.50% | Targets:   341,499 | Acheron:   341,498 | States:   290 | NormEntropy: 0.6528
+  [TELEMETRY]  40.00% | Targets:   361,450 | Acheron:   361,449 | States:   292 | NormEntropy: 0.6519
+  [TELEMETRY]  42.50% | Targets:   381,322 | Acheron:   381,321 | States:   294 | NormEntropy: 0.6511
+  [TELEMETRY]  45.00% | Targets:   401,090 | Acheron:   401,089 | States:   294 | NormEntropy: 0.6510
+  [TELEMETRY]  47.50% | Targets:   420,760 | Acheron:   420,759 | States:   297 | NormEntropy: 0.6496
+  [TELEMETRY]  50.00% | Targets:   440,312 | Acheron:   440,311 | States:   297 | NormEntropy: 0.6495
+  [TELEMETRY]  52.50% | Targets:   459,755 | Acheron:   459,754 | States:   297 | NormEntropy: 0.6494
+  [TELEMETRY]  55.00% | Targets:   479,129 | Acheron:   479,128 | States:   300 | NormEntropy: 0.6481
+  [TELEMETRY]  57.50% | Targets:   498,272 | Acheron:   498,271 | States:   302 | NormEntropy: 0.6471
+  [TELEMETRY]  60.00% | Targets:   517,360 | Acheron:   517,359 | States:   302 | NormEntropy: 0.6470
+  [TELEMETRY]  62.50% | Targets:   536,320 | Acheron:   536,319 | States:   302 | NormEntropy: 0.6470
+  [TELEMETRY]  65.00% | Targets:   555,376 | Acheron:   555,375 | States:   302 | NormEntropy: 0.6468
+  [TELEMETRY]  67.50% | Targets:   574,232 | Acheron:   574,231 | States:   303 | NormEntropy: 0.6464
+  [TELEMETRY]  70.00% | Targets:   593,174 | Acheron:   593,173 | States:   303 | NormEntropy: 0.6463
+  [TELEMETRY]  72.50% | Targets:   611,853 | Acheron:   611,852 | States:   304 | NormEntropy: 0.6458
+  [TELEMETRY]  75.00% | Targets:   630,392 | Acheron:   630,391 | States:   305 | NormEntropy: 0.6453
+  [TELEMETRY]  77.50% | Targets:   648,835 | Acheron:   648,834 | States:   307 | NormEntropy: 0.6445
+  [TELEMETRY]  80.00% | Targets:   667,529 | Acheron:   667,528 | States:   307 | NormEntropy: 0.6444
+  [TELEMETRY]  82.50% | Targets:   685,693 | Acheron:   685,692 | States:   307 | NormEntropy: 0.6444
+  [TELEMETRY]  85.00% | Targets:   704,104 | Acheron:   704,103 | States:   307 | NormEntropy: 0.6443
+  [TELEMETRY]  87.50% | Targets:   722,333 | Acheron:   722,332 | States:   308 | NormEntropy: 0.6439
+  [TELEMETRY]  90.00% | Targets:   740,685 | Acheron:   740,684 | States:   308 | NormEntropy: 0.6439
+  [TELEMETRY]  92.50% | Targets:   758,775 | Acheron:   758,774 | States:   308 | NormEntropy: 0.6439
+  [TELEMETRY]  95.00% | Targets:   777,052 | Acheron:   777,051 | States:   309 | NormEntropy: 0.6434
+  [TELEMETRY]  97.50% | Targets:   795,167 | Acheron:   795,166 | States:   310 | NormEntropy: 0.6430
+  [TELEMETRY] 100.00% | Targets:   813,371 | Acheron:   813,370 | States:   311 | NormEntropy: 0.6426
+| Twin Centers               |      813,371 |      100.00% |       0.6426 |
+  [TELEMETRY]   2.50% | Targets:    32,308 | Acheron:    26,334 | States:   160 | NormEntropy: 0.7112
+  [TELEMETRY]   5.00% | Targets:    58,622 | Acheron:    48,059 | States:   174 | NormEntropy: 0.6986
+  [TELEMETRY]   7.50% | Targets:    83,472 | Acheron:    68,689 | States:   185 | NormEntropy: 0.6905
+  [TELEMETRY]  10.00% | Targets:   107,082 | Acheron:    88,248 | States:   194 | NormEntropy: 0.6844
+  [TELEMETRY]  12.50% | Targets:   130,176 | Acheron:   107,411 | States:   202 | NormEntropy: 0.6792
+  [TELEMETRY]  15.00% | Targets:   152,577 | Acheron:   126,032 | States:   211 | NormEntropy: 0.6736
+  [TELEMETRY]  17.50% | Targets:   174,591 | Acheron:   144,376 | States:   215 | NormEntropy: 0.6709
+  [TELEMETRY]  20.00% | Targets:   196,234 | Acheron:   162,486 | States:   218 | NormEntropy: 0.6694
+  [TELEMETRY]  22.50% | Targets:   217,486 | Acheron:   180,205 | States:   220 | NormEntropy: 0.6683
+  [TELEMETRY]  25.00% | Targets:   238,611 | Acheron:   197,918 | States:   220 | NormEntropy: 0.6679
+  [TELEMETRY]  27.50% | Targets:   259,566 | Acheron:   215,448 | States:   221 | NormEntropy: 0.6671
+  [TELEMETRY]  30.00% | Targets:   280,206 | Acheron:   232,811 | States:   222 | NormEntropy: 0.6665
+  [TELEMETRY]  32.50% | Targets:   300,675 | Acheron:   249,974 | States:   224 | NormEntropy: 0.6653
+  [TELEMETRY]  35.00% | Targets:   321,200 | Acheron:   267,236 | States:   226 | NormEntropy: 0.6641
+  [TELEMETRY]  37.50% | Targets:   341,271 | Acheron:   283,983 | States:   226 | NormEntropy: 0.6640
+  [TELEMETRY]  40.00% | Targets:   361,347 | Acheron:   300,804 | States:   226 | NormEntropy: 0.6639
+  [TELEMETRY]  42.50% | Targets:   381,164 | Acheron:   317,439 | States:   228 | NormEntropy: 0.6627
+  [TELEMETRY]  45.00% | Targets:   401,025 | Acheron:   334,032 | States:   231 | NormEntropy: 0.6613
+  [TELEMETRY]  47.50% | Targets:   420,669 | Acheron:   350,480 | States:   232 | NormEntropy: 0.6608
+  [TELEMETRY]  50.00% | Targets:   440,258 | Acheron:   366,955 | States:   233 | NormEntropy: 0.6602
+  [TELEMETRY]  52.50% | Targets:   459,821 | Acheron:   383,331 | States:   235 | NormEntropy: 0.6591
+  [TELEMETRY]  55.00% | Targets:   479,235 | Acheron:   399,638 | States:   238 | NormEntropy: 0.6577
+  [TELEMETRY]  57.50% | Targets:   498,395 | Acheron:   415,751 | States:   240 | NormEntropy: 0.6566
+  [TELEMETRY]  60.00% | Targets:   517,474 | Acheron:   431,870 | States:   240 | NormEntropy: 0.6566
+  [TELEMETRY]  62.50% | Targets:   536,535 | Acheron:   447,892 | States:   244 | NormEntropy: 0.6547
+  [TELEMETRY]  65.00% | Targets:   555,610 | Acheron:   463,897 | States:   246 | NormEntropy: 0.6537
+  [TELEMETRY]  67.50% | Targets:   574,475 | Acheron:   479,749 | States:   247 | NormEntropy: 0.6532
+  [TELEMETRY]  70.00% | Targets:   593,198 | Acheron:   495,524 | States:   247 | NormEntropy: 0.6531
+  [TELEMETRY]  72.50% | Targets:   611,754 | Acheron:   511,092 | States:   249 | NormEntropy: 0.6521
+  [TELEMETRY]  75.00% | Targets:   630,331 | Acheron:   526,773 | States:   249 | NormEntropy: 0.6522
+  [TELEMETRY]  77.50% | Targets:   648,821 | Acheron:   542,324 | States:   250 | NormEntropy: 0.6516
+  [TELEMETRY]  80.00% | Targets:   667,182 | Acheron:   557,786 | States:   251 | NormEntropy: 0.6511
+  [TELEMETRY]  82.50% | Targets:   685,716 | Acheron:   573,324 | States:   252 | NormEntropy: 0.6506
+  [TELEMETRY]  85.00% | Targets:   704,198 | Acheron:   588,919 | States:   253 | NormEntropy: 0.6502
+  [TELEMETRY]  87.50% | Targets:   722,415 | Acheron:   604,235 | States:   253 | NormEntropy: 0.6501
+  [TELEMETRY]  90.00% | Targets:   740,834 | Acheron:   619,741 | States:   253 | NormEntropy: 0.6502
+  [TELEMETRY]  92.50% | Targets:   759,209 | Acheron:   635,167 | States:   254 | NormEntropy: 0.6497
+  [TELEMETRY]  95.00% | Targets:   777,392 | Acheron:   650,455 | States:   254 | NormEntropy: 0.6497
+  [TELEMETRY]  97.50% | Targets:   795,574 | Acheron:   665,809 | States:   254 | NormEntropy: 0.6497
+  [TELEMETRY] 100.00% | Targets:   813,715 | Acheron:   681,065 | States:   254 | NormEntropy: 0.6497
+| Cousin Centers             |      813,715 |       83.70% |       0.6497 |
+  [TELEMETRY]   2.50% | Targets:    64,481 | Acheron:    64,406 | States:   396 | NormEntropy: 0.7581
+  [TELEMETRY]   5.00% | Targets:   117,207 | Acheron:   117,111 | States:   422 | NormEntropy: 0.7508
+  [TELEMETRY]   7.50% | Targets:   166,304 | Acheron:   166,201 | States:   437 | NormEntropy: 0.7466
+  [TELEMETRY]  10.00% | Targets:   213,818 | Acheron:   213,703 | States:   441 | NormEntropy: 0.7456
+  [TELEMETRY]  12.50% | Targets:   259,830 | Acheron:   259,705 | States:   448 | NormEntropy: 0.7436
+  [TELEMETRY]  15.00% | Targets:   304,867 | Acheron:   304,734 | States:   452 | NormEntropy: 0.7424
+  [TELEMETRY]  17.50% | Targets:   348,781 | Acheron:   348,642 | States:   458 | NormEntropy: 0.7407
+  [TELEMETRY]  20.00% | Targets:   392,081 | Acheron:   391,934 | States:   462 | NormEntropy: 0.7398
+  [TELEMETRY]  22.50% | Targets:   434,671 | Acheron:   434,518 | States:   463 | NormEntropy: 0.7396
+  [TELEMETRY]  25.00% | Targets:   477,012 | Acheron:   476,858 | States:   464 | NormEntropy: 0.7395
+  [TELEMETRY]  27.50% | Targets:   518,650 | Acheron:   518,489 | States:   465 | NormEntropy: 0.7393
+  [TELEMETRY]  30.00% | Targets:   560,170 | Acheron:   560,006 | States:   469 | NormEntropy: 0.7383
+  [TELEMETRY]  32.50% | Targets:   601,104 | Acheron:   600,934 | States:   473 | NormEntropy: 0.7373
+  [TELEMETRY]  35.00% | Targets:   641,654 | Acheron:   641,480 | States:   474 | NormEntropy: 0.7371
+  [TELEMETRY]  37.50% | Targets:   682,242 | Acheron:   682,064 | States:   476 | NormEntropy: 0.7365
+  [TELEMETRY]  40.00% | Targets:   722,174 | Acheron:   721,990 | States:   478 | NormEntropy: 0.7361
+  [TELEMETRY]  42.50% | Targets:   761,975 | Acheron:   761,786 | States:   478 | NormEntropy: 0.7361
+  [TELEMETRY]  45.00% | Targets:   801,602 | Acheron:   801,411 | States:   478 | NormEntropy: 0.7361
+  [TELEMETRY]  47.50% | Targets:   841,152 | Acheron:   840,955 | States:   479 | NormEntropy: 0.7359
+  [TELEMETRY]  50.00% | Targets:   879,908 | Acheron:   879,709 | States:   480 | NormEntropy: 0.7357
+  [TELEMETRY]  52.50% | Targets:   918,888 | Acheron:   918,688 | States:   482 | NormEntropy: 0.7353
+  [TELEMETRY]  55.00% | Targets:   957,505 | Acheron:   957,303 | States:   484 | NormEntropy: 0.7348
+  [TELEMETRY]  57.50% | Targets:   995,883 | Acheron:   995,678 | States:   485 | NormEntropy: 0.7345
+  [TELEMETRY]  60.00% | Targets: 1,034,192 | Acheron: 1,033,984 | States:   486 | NormEntropy: 0.7343
+  [TELEMETRY]  62.50% | Targets: 1,072,233 | Acheron: 1,072,021 | States:   486 | NormEntropy: 0.7343
+  [TELEMETRY]  65.00% | Targets: 1,110,252 | Acheron: 1,110,034 | States:   487 | NormEntropy: 0.7341
+  [TELEMETRY]  67.50% | Targets: 1,147,884 | Acheron: 1,147,665 | States:   487 | NormEntropy: 0.7340
+  [TELEMETRY]  70.00% | Targets: 1,185,406 | Acheron: 1,185,183 | States:   487 | NormEntropy: 0.7340
+  [TELEMETRY]  72.50% | Targets: 1,222,913 | Acheron: 1,222,688 | States:   488 | NormEntropy: 0.7338
+  [TELEMETRY]  75.00% | Targets: 1,260,215 | Acheron: 1,259,988 | States:   489 | NormEntropy: 0.7336
+  [TELEMETRY]  77.50% | Targets: 1,297,225 | Acheron: 1,296,995 | States:   490 | NormEntropy: 0.7333
+  [TELEMETRY]  80.00% | Targets: 1,333,980 | Acheron: 1,333,746 | States:   490 | NormEntropy: 0.7333
+  [TELEMETRY]  82.50% | Targets: 1,370,856 | Acheron: 1,370,618 | States:   492 | NormEntropy: 0.7328
+  [TELEMETRY]  85.00% | Targets: 1,407,991 | Acheron: 1,407,749 | States:   493 | NormEntropy: 0.7325
+  [TELEMETRY]  87.50% | Targets: 1,444,712 | Acheron: 1,444,468 | States:   493 | NormEntropy: 0.7326
+  [TELEMETRY]  90.00% | Targets: 1,481,547 | Acheron: 1,481,303 | States:   495 | NormEntropy: 0.7321
+  [TELEMETRY]  92.50% | Targets: 1,517,832 | Acheron: 1,517,584 | States:   497 | NormEntropy: 0.7316
+  [TELEMETRY]  95.00% | Targets: 1,554,301 | Acheron: 1,554,051 | States:   497 | NormEntropy: 0.7316
+  [TELEMETRY]  97.50% | Targets: 1,590,284 | Acheron: 1,590,033 | States:   498 | NormEntropy: 0.7313
+  [TELEMETRY] 100.00% | Targets: 1,626,374 | Acheron: 1,626,119 | States:   498 | NormEntropy: 0.7314
+| Sexy Centers               |    1,626,374 |       99.98% |       0.7314 |
+  [TELEMETRY]   2.50% | Targets:    30,657 | Acheron:         0 | States:     6 | NormEntropy: 0.6137
+  [TELEMETRY]   5.00% | Targets:    56,032 | Acheron:         0 | States:     6 | NormEntropy: 0.6135
+  [TELEMETRY]   7.50% | Targets:    79,927 | Acheron:         0 | States:     6 | NormEntropy: 0.6134
+  [TELEMETRY]  10.00% | Targets:   102,773 | Acheron:         0 | States:     6 | NormEntropy: 0.6133
+  [TELEMETRY]  12.50% | Targets:   124,850 | Acheron:         0 | States:     6 | NormEntropy: 0.6133
+  [TELEMETRY]  15.00% | Targets:   146,501 | Acheron:         0 | States:     6 | NormEntropy: 0.6133
+  [TELEMETRY]  17.50% | Targets:   167,912 | Acheron:         0 | States:     6 | NormEntropy: 0.6133
+  [TELEMETRY]  20.00% | Targets:   188,803 | Acheron:         0 | States:     6 | NormEntropy: 0.6133
+  [TELEMETRY]  22.50% | Targets:   209,319 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  25.00% | Targets:   229,568 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  27.50% | Targets:   249,580 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  30.00% | Targets:   269,437 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  32.50% | Targets:   289,279 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  35.00% | Targets:   308,853 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  37.50% | Targets:   328,162 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  40.00% | Targets:   347,336 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  42.50% | Targets:   366,687 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  45.00% | Targets:   385,535 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  47.50% | Targets:   404,284 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  50.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  52.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  55.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  57.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  60.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  62.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  65.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  67.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  70.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  72.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  75.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  77.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  80.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  82.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  85.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  87.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  90.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  92.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  95.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY]  97.50% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+  [TELEMETRY] 100.00% | Targets:   423,140 | Acheron:         0 | States:     6 | NormEntropy: 0.6132
+| Sophie Germain Primes      |      423,140 |        0.00% |       0.6132 |
+| Semiprimes [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+| Prime Powers [HEAVY] (SKIPPED) |          N/A |          N/A | Navigating... |
+  [TELEMETRY]   2.50% | Targets:     2,236 | Acheron:       537 | States:   237 | NormEntropy: 0.8508
+  [TELEMETRY]   5.00% | Targets:     3,162 | Acheron:       779 | States:   264 | NormEntropy: 0.8406
+  [TELEMETRY]   7.50% | Targets:     3,872 | Acheron:       971 | States:   283 | NormEntropy: 0.8357
+  [TELEMETRY]  10.00% | Targets:     4,472 | Acheron:     1,128 | States:   296 | NormEntropy: 0.8305
+  [TELEMETRY]  12.50% | Targets:     4,999 | Acheron:     1,279 | States:   305 | NormEntropy: 0.8283
+  [TELEMETRY]  15.00% | Targets:     5,477 | Acheron:     1,414 | States:   316 | NormEntropy: 0.8240
+  [TELEMETRY]  17.50% | Targets:     5,916 | Acheron:     1,528 | States:   324 | NormEntropy: 0.8216
+  [TELEMETRY]  20.00% | Targets:     6,324 | Acheron:     1,638 | States:   329 | NormEntropy: 0.8198
+  [TELEMETRY]  22.50% | Targets:     6,708 | Acheron:     1,752 | States:   333 | NormEntropy: 0.8189
+  [TELEMETRY]  25.00% | Targets:     7,071 | Acheron:     1,850 | States:   337 | NormEntropy: 0.8183
+  [TELEMETRY]  27.50% | Targets:     7,416 | Acheron:     1,948 | States:   340 | NormEntropy: 0.8177
+  [TELEMETRY]  30.00% | Targets:     7,745 | Acheron:     2,037 | States:   344 | NormEntropy: 0.8164
+  [TELEMETRY]  32.50% | Targets:     8,062 | Acheron:     2,129 | States:   345 | NormEntropy: 0.8167
+  [TELEMETRY]  35.00% | Targets:     8,366 | Acheron:     2,211 | States:   349 | NormEntropy: 0.8152
+  [TELEMETRY]  37.50% | Targets:     8,660 | Acheron:     2,286 | States:   356 | NormEntropy: 0.8132
+  [TELEMETRY]  40.00% | Targets:     8,944 | Acheron:     2,364 | States:   357 | NormEntropy: 0.8127
+  [TELEMETRY]  42.50% | Targets:     9,219 | Acheron:     2,446 | States:   359 | NormEntropy: 0.8124
+  [TELEMETRY]  45.00% | Targets:     9,486 | Acheron:     2,522 | States:   362 | NormEntropy: 0.8115
+  [TELEMETRY]  47.50% | Targets:     9,746 | Acheron:     2,594 | States:   365 | NormEntropy: 0.8107
+  [TELEMETRY]  50.00% | Targets:     9,999 | Acheron:     2,674 | States:   367 | NormEntropy: 0.8101
+  [TELEMETRY]  52.50% | Targets:    10,246 | Acheron:     2,743 | States:   371 | NormEntropy: 0.8089
+  [TELEMETRY]  55.00% | Targets:    10,488 | Acheron:     2,815 | States:   374 | NormEntropy: 0.8082
+  [TELEMETRY]  57.50% | Targets:    10,723 | Acheron:     2,883 | States:   376 | NormEntropy: 0.8077
+  [TELEMETRY]  60.00% | Targets:    10,954 | Acheron:     2,949 | States:   377 | NormEntropy: 0.8075
+  [TELEMETRY]  62.50% | Targets:    11,180 | Acheron:     3,019 | States:   379 | NormEntropy: 0.8070
+  [TELEMETRY]  65.00% | Targets:    11,401 | Acheron:     3,085 | States:   380 | NormEntropy: 0.8066
+  [TELEMETRY]  67.50% | Targets:    11,618 | Acheron:     3,137 | States:   381 | NormEntropy: 0.8064
+  [TELEMETRY]  70.00% | Targets:    11,832 | Acheron:     3,198 | States:   384 | NormEntropy: 0.8055
+  [TELEMETRY]  72.50% | Targets:    12,041 | Acheron:     3,252 | States:   387 | NormEntropy: 0.8045
+  [TELEMETRY]  75.00% | Targets:    12,247 | Acheron:     3,312 | States:   389 | NormEntropy: 0.8039
+  [TELEMETRY]  77.50% | Targets:    12,449 | Acheron:     3,366 | States:   390 | NormEntropy: 0.8037
+  [TELEMETRY]  80.00% | Targets:    12,649 | Acheron:     3,423 | States:   391 | NormEntropy: 0.8036
+  [TELEMETRY]  82.50% | Targets:    12,845 | Acheron:     3,481 | States:   392 | NormEntropy: 0.8034
+  [TELEMETRY]  85.00% | Targets:    13,038 | Acheron:     3,538 | States:   393 | NormEntropy: 0.8032
+  [TELEMETRY]  87.50% | Targets:    13,228 | Acheron:     3,596 | States:   394 | NormEntropy: 0.8030
+  [TELEMETRY]  90.00% | Targets:    13,416 | Acheron:     3,649 | States:   394 | NormEntropy: 0.8031
+  [TELEMETRY]  92.50% | Targets:    13,601 | Acheron:     3,704 | States:   397 | NormEntropy: 0.8026
+  [TELEMETRY]  95.00% | Targets:    13,784 | Acheron:     3,762 | States:   397 | NormEntropy: 0.8029
+  [TELEMETRY]  97.50% | Targets:    13,964 | Acheron:     3,817 | States:   397 | NormEntropy: 0.8030
+  [TELEMETRY] 100.00% | Targets:    14,142 | Acheron:     3,865 | States:   399 | NormEntropy: 0.8024
+| Perfect Squares            |       14,142 |       27.33% |       0.8024 |
+  [TELEMETRY]   2.50% | Targets: 1,238,014 | Acheron: 1,237,121 | States: 1,475 | NormEntropy: 0.7070
+  [TELEMETRY]   5.00% | Targets: 2,476,736 | Acheron: 2,475,374 | States: 1,558 | NormEntropy: 0.7008
+  [TELEMETRY]   7.50% | Targets: 3,715,499 | Acheron: 3,713,781 | States: 1,602 | NormEntropy: 0.6977
+  [TELEMETRY]  10.00% | Targets: 4,953,983 | Acheron: 4,951,930 | States: 1,634 | NormEntropy: 0.6955
+  [TELEMETRY]  12.50% | Targets: 6,192,397 | Acheron: 6,190,032 | States: 1,654 | NormEntropy: 0.6940
+  [TELEMETRY]  15.00% | Targets: 7,430,806 | Acheron: 7,428,162 | States: 1,677 | NormEntropy: 0.6925
+  [TELEMETRY]  17.50% | Targets: 8,669,176 | Acheron: 8,666,245 | States: 1,690 | NormEntropy: 0.6916
+  [TELEMETRY]  20.00% | Targets: 9,907,168 | Acheron: 9,903,968 | States: 1,700 | NormEntropy: 0.6908
+  [TELEMETRY]  22.50% | Targets: 11,145,114 | Acheron: 11,141,662 | States: 1,709 | NormEntropy: 0.6902
+  [TELEMETRY]  25.00% | Targets: 12,382,840 | Acheron: 12,379,134 | States: 1,712 | NormEntropy: 0.6899
+  [TELEMETRY]  27.50% | Targets: 13,620,601 | Acheron: 13,616,652 | States: 1,720 | NormEntropy: 0.6893
+  [TELEMETRY]  30.00% | Targets: 14,858,307 | Acheron: 14,854,109 | States: 1,730 | NormEntropy: 0.6887
+  [TELEMETRY]  32.50% | Targets: 16,095,984 | Acheron: 16,091,549 | States: 1,733 | NormEntropy: 0.6884
+  [TELEMETRY]  35.00% | Targets: 17,333,710 | Acheron: 17,329,042 | States: 1,741 | NormEntropy: 0.6879
+  [TELEMETRY]  37.50% | Targets: 18,571,492 | Acheron: 18,566,594 | States: 1,744 | NormEntropy: 0.6876
+  [TELEMETRY]  40.00% | Targets: 19,809,249 | Acheron: 19,804,127 | States: 1,747 | NormEntropy: 0.6874
+  [TELEMETRY]  42.50% | Targets: 21,047,053 | Acheron: 21,041,717 | States: 1,754 | NormEntropy: 0.6869
+  [TELEMETRY]  45.00% | Targets: 22,284,920 | Acheron: 22,279,364 | States: 1,758 | NormEntropy: 0.6866
+  [TELEMETRY]  47.50% | Targets: 23,522,857 | Acheron: 23,517,092 | States: 1,766 | NormEntropy: 0.6861
+  [TELEMETRY]  50.00% | Targets: 24,760,667 | Acheron: 24,754,691 | States: 1,772 | NormEntropy: 0.6858
+  [TELEMETRY]  52.50% | Targets: 25,998,587 | Acheron: 25,992,404 | States: 1,776 | NormEntropy: 0.6855
+  [TELEMETRY]  55.00% | Targets: 27,236,423 | Acheron: 27,230,043 | States: 1,780 | NormEntropy: 0.6852
+  [TELEMETRY]  57.50% | Targets: 28,474,357 | Acheron: 28,467,772 | States: 1,784 | NormEntropy: 0.6850
+  [TELEMETRY]  60.00% | Targets: 29,712,326 | Acheron: 29,705,547 | States: 1,788 | NormEntropy: 0.6847
+  [TELEMETRY]  62.50% | Targets: 30,950,218 | Acheron: 30,943,241 | States: 1,791 | NormEntropy: 0.6845
+  [TELEMETRY]  65.00% | Targets: 32,188,184 | Acheron: 32,181,003 | States: 1,791 | NormEntropy: 0.6844
+  [TELEMETRY]  67.50% | Targets: 33,426,163 | Acheron: 33,418,782 | States: 1,794 | NormEntropy: 0.6842
+  [TELEMETRY]  70.00% | Targets: 34,664,057 | Acheron: 34,656,477 | States: 1,799 | NormEntropy: 0.6839
+  [TELEMETRY]  72.50% | Targets: 35,902,026 | Acheron: 35,894,261 | States: 1,800 | NormEntropy: 0.6839
+  [TELEMETRY]  75.00% | Targets: 37,139,945 | Acheron: 37,131,964 | States: 1,804 | NormEntropy: 0.6836
+  [TELEMETRY]  77.50% | Targets: 38,377,921 | Acheron: 38,369,738 | States: 1,804 | NormEntropy: 0.6836
+  [TELEMETRY]  80.00% | Targets: 39,615,843 | Acheron: 39,607,455 | States: 1,807 | NormEntropy: 0.6834
+  [TELEMETRY]  82.50% | Targets: 40,853,876 | Acheron: 40,845,302 | States: 1,808 | NormEntropy: 0.6833
+  [TELEMETRY]  85.00% | Targets: 42,091,917 | Acheron: 42,083,152 | States: 1,811 | NormEntropy: 0.6831
+  [TELEMETRY]  87.50% | Targets: 43,329,961 | Acheron: 43,321,012 | States: 1,814 | NormEntropy: 0.6829
+  [TELEMETRY]  90.00% | Targets: 44,567,974 | Acheron: 44,558,848 | States: 1,815 | NormEntropy: 0.6828
+  [TELEMETRY]  92.50% | Targets: 45,805,984 | Acheron: 45,796,677 | States: 1,817 | NormEntropy: 0.6827
+  [TELEMETRY]  95.00% | Targets: 47,044,052 | Acheron: 47,034,563 | States: 1,818 | NormEntropy: 0.6826
+  [TELEMETRY]  97.50% | Targets: 48,282,180 | Acheron: 48,272,499 | States: 1,819 | NormEntropy: 0.6825
+  [TELEMETRY] 100.00% | Targets: 49,520,311 | Acheron: 49,510,450 | States: 1,823 | NormEntropy: 0.6823
+| Abundant Numbers           |   49,520,311 |       99.98% |       0.6823 |
+  [TELEMETRY]   2.50% | Targets: 3,761,981 | Acheron: 2,148,074 | States: 1,674 | NormEntropy: 0.7301
+  [TELEMETRY]   5.00% | Targets: 7,523,259 | Acheron: 4,316,762 | States: 1,797 | NormEntropy: 0.7251
+  [TELEMETRY]   7.50% | Targets: 11,284,496 | Acheron: 6,492,100 | States: 1,839 | NormEntropy: 0.7238
+  [TELEMETRY]  10.00% | Targets: 15,046,012 | Acheron: 8,672,234 | States: 1,887 | NormEntropy: 0.7220
+  [TELEMETRY]  12.50% | Targets: 18,807,598 | Acheron: 10,855,356 | States: 1,921 | NormEntropy: 0.7207
+  [TELEMETRY]  15.00% | Targets: 22,569,189 | Acheron: 13,041,166 | States: 1,944 | NormEntropy: 0.7200
+  [TELEMETRY]  17.50% | Targets: 26,330,818 | Acheron: 15,228,673 | States: 1,957 | NormEntropy: 0.7196
+  [TELEMETRY]  20.00% | Targets: 30,092,826 | Acheron: 17,418,463 | States: 1,968 | NormEntropy: 0.7194
+  [TELEMETRY]  22.50% | Targets: 33,854,880 | Acheron: 19,609,858 | States: 1,985 | NormEntropy: 0.7188
+  [TELEMETRY]  25.00% | Targets: 37,617,154 | Acheron: 21,802,662 | States: 2,000 | NormEntropy: 0.7183
+  [TELEMETRY]  27.50% | Targets: 41,379,393 | Acheron: 23,996,521 | States: 2,009 | NormEntropy: 0.7180
+  [TELEMETRY]  30.00% | Targets: 45,141,687 | Acheron: 26,191,531 | States: 2,017 | NormEntropy: 0.7178
+  [TELEMETRY]  32.50% | Targets: 48,904,010 | Acheron: 28,387,303 | States: 2,024 | NormEntropy: 0.7176
+  [TELEMETRY]  35.00% | Targets: 52,666,284 | Acheron: 30,583,867 | States: 2,034 | NormEntropy: 0.7173
+  [TELEMETRY]  37.50% | Targets: 56,428,502 | Acheron: 32,781,459 | States: 2,044 | NormEntropy: 0.7170
+  [TELEMETRY]  40.00% | Targets: 60,190,745 | Acheron: 34,979,705 | States: 2,050 | NormEntropy: 0.7168
+  [TELEMETRY]  42.50% | Targets: 63,952,941 | Acheron: 37,178,588 | States: 2,059 | NormEntropy: 0.7165
+  [TELEMETRY]  45.00% | Targets: 67,715,074 | Acheron: 39,378,023 | States: 2,066 | NormEntropy: 0.7163
+  [TELEMETRY]  47.50% | Targets: 71,477,137 | Acheron: 41,578,055 | States: 2,070 | NormEntropy: 0.7162
+  [TELEMETRY]  50.00% | Targets: 75,239,327 | Acheron: 43,778,596 | States: 2,074 | NormEntropy: 0.7161
+  [TELEMETRY]  52.50% | Targets: 79,001,407 | Acheron: 45,979,745 | States: 2,080 | NormEntropy: 0.7159
+  [TELEMETRY]  55.00% | Targets: 82,763,571 | Acheron: 48,181,446 | States: 2,082 | NormEntropy: 0.7159
+  [TELEMETRY]  57.50% | Targets: 86,525,637 | Acheron: 50,383,373 | States: 2,086 | NormEntropy: 0.7158
+  [TELEMETRY]  60.00% | Targets: 90,287,668 | Acheron: 52,585,751 | States: 2,089 | NormEntropy: 0.7157
+  [TELEMETRY]  62.50% | Targets: 94,049,776 | Acheron: 54,788,979 | States: 2,093 | NormEntropy: 0.7156
+  [TELEMETRY]  65.00% | Targets: 97,811,810 | Acheron: 56,992,837 | States: 2,097 | NormEntropy: 0.7155
+  [TELEMETRY]  67.50% | Targets: 101,573,831 | Acheron: 59,196,722 | States: 2,099 | NormEntropy: 0.7154
+  [TELEMETRY]  70.00% | Targets: 105,335,937 | Acheron: 61,400,806 | States: 2,104 | NormEntropy: 0.7153
+  [TELEMETRY]  72.50% | Targets: 109,097,968 | Acheron: 63,605,327 | States: 2,107 | NormEntropy: 0.7152
+  [TELEMETRY]  75.00% | Targets: 112,860,049 | Acheron: 65,810,677 | States: 2,111 | NormEntropy: 0.7151
+  [TELEMETRY]  77.50% | Targets: 116,622,073 | Acheron: 68,015,801 | States: 2,117 | NormEntropy: 0.7149
+  [TELEMETRY]  80.00% | Targets: 120,384,151 | Acheron: 70,221,502 | States: 2,118 | NormEntropy: 0.7149
+  [TELEMETRY]  82.50% | Targets: 124,146,118 | Acheron: 72,427,453 | States: 2,121 | NormEntropy: 0.7148
+  [TELEMETRY]  85.00% | Targets: 127,908,077 | Acheron: 74,633,641 | States: 2,123 | NormEntropy: 0.7147
+  [TELEMETRY]  87.50% | Targets: 131,670,033 | Acheron: 76,840,138 | States: 2,124 | NormEntropy: 0.7147
+  [TELEMETRY]  90.00% | Targets: 135,432,020 | Acheron: 79,046,818 | States: 2,125 | NormEntropy: 0.7147
+  [TELEMETRY]  92.50% | Targets: 139,194,010 | Acheron: 81,253,923 | States: 2,127 | NormEntropy: 0.7147
+  [TELEMETRY]  95.00% | Targets: 142,955,942 | Acheron: 83,461,454 | States: 2,131 | NormEntropy: 0.7145
+  [TELEMETRY]  97.50% | Targets: 146,717,814 | Acheron: 85,668,989 | States: 2,132 | NormEntropy: 0.7145
+  [TELEMETRY] 100.00% | Targets: 150,479,683 | Acheron: 87,877,117 | States: 2,135 | NormEntropy: 0.7144
+| Deficient Numbers          |  150,479,683 |       58.40% |       0.7144 |
+--------------------------------------------------------------------------------------------
+
+Options Framework [Active Horizon: 200,000,000 | Sieve Limit: 200,000,001 | Matrix Modulus (M): 30]:
+1) Reconfigure Upper Target Scale Horizon Limit
+2) Adjust Matrix Base Modulus (M) & Residue Filters [NEW]
+3) Run Phase 1: Mode 3 Ground-Truth Validation Counts
+4) Run Phase 2: Single Target Spectrometry (With Dynamic Real-Time Telemetry)
+5) Run Phase 3: Detroit Matrix Mode Compare-All (Protects Cache/Memory)
+6) Terminate Suite
+Select Option (1-6):
 
 
 *******************************************************************************
-**********REVIEW LOGS*** TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py *** REVIEW LOGS*************
+**********REVIEW LOGS*** TG_DETROIT_MATRIX_CORE_EQUATION_SUITE.py (v1) *** REVIEW LOGS*************
 *******************************************************************************
 REVIEW APPENDIX DELTA — 100M DETROIT MATRIX FIELD SPECTROMETRY REPORT
 
