@@ -1,0 +1,1539 @@
+THE DECALOGUE EQUATION FRAMEWORK
+A DISSERTATION PLAN FOR THE TEN MATHEMATICAL COMMANDMENTS
+
+Working subtitle:
+An Axiomatic and Computational System for Auditing Mathematical Derivations
+
+Authors:
+Stacey Szmy, ChatGPT, Gemini AI, and AI analytic collaborators
+
+
+======================================================================
+ABSTRACT
+======================================================================
+
+The Decalogue Equation Framework is a proposed mathematical auditing system
+inspired by the structural form of the Ten Commandments. Its purpose is not
+to assign religious truth values to mathematics, but to use the metaphor of
+commandments, judgment, error, repair, and final verdict as a memorable formal
+language for evaluating mathematical derivations.
+
+The framework translates ten moral imperatives into ten mathematical audit
+principles governing foundations, symbol definition, completion criteria,
+derivational lineage, information preservation, domain compatibility,
+algebraic accounting, logical truth, variable binding, and lawful use of
+assumptions and bounds.
+
+A mathematical object is represented as
+
+    E = (D, Sigma, A, T, x_0),
+
+where:
+
+    D       is the domain,
+    Sigma   is the collection of symbols and operators,
+    A       is the declared assumption set,
+    T       is the ordered sequence of transformations,
+    x_0     is the initial expression or state.
+
+Each commandment produces an audit result:
+
+    C_i(E) in {PASS, FAIL, UNDETERMINED}.
+
+The framework then assigns a Grace Score and a final classification:
+
+    HEAVEN      all commandments pass;
+    PURGATORY   one or more repairable failures remain;
+    LIMBO       no failure is established, but information is insufficient;
+    HELL        an unresolved fatal contradiction or undefined operation exists.
+
+The central principle is:
+
+    Heaven is not convergence. Heaven is lawful derivation.
+    Hell is not infinity. Hell is unresolved contradiction.
+
+The dissertation will formalize the framework, distinguish logical validity
+from numerical behavior, establish the audit predicates, present worked
+examples, and define a Python implementation called the Decalogue Equation
+Auditor.
+
+
+======================================================================
+1. INTRODUCTION
+======================================================================
+
+1.1 Motivation
+
+Mathematical errors often arise not from difficult calculations but from
+violations of basic structural obligations:
+
+    - a domain is changed without notice;
+    - a symbol is used before definition;
+    - a branch of a solution is discarded;
+    - an implication is reversed;
+    - an assumption is quietly strengthened;
+    - an approximation is presented as equality;
+    - an operation is applied outside its lawful domain.
+
+These failures are often taught separately. The Decalogue Equation Framework
+collects them into a single memorable audit architecture.
+
+The project uses the Ten Commandments as a symbolic template for ten rules of
+mathematical conduct. The metaphor provides names and narrative structure,
+while the actual system remains secular, formal, and testable.
+
+1.2 Main research question
+
+Can a broad class of mathematical derivations be audited through a finite set
+of explicit structural rules that identify invalid steps, distinguish fatal
+errors from repairable omissions, and generate a transparent final verdict?
+
+1.3 Supporting questions
+
+    1. What mathematical obligations should correspond to each commandment?
+    2. Can the rules be represented as formal predicates?
+    3. Which rules can be checked automatically?
+    4. Which rules require human judgment or supplied theorem certificates?
+    5. How should uncertainty be represented?
+    6. How should repairable and fatal violations be distinguished?
+    7. Can a weighted score summarize an audit without replacing the detailed
+       logical report?
+    8. How should the framework handle divergent, chaotic, non-injective, or
+       approximate mathematics that is nevertheless valid?
+
+1.4 Central correction to the original concept
+
+Divergence, chaos, infinity, non-injectivity, and information loss are not
+automatically mathematical failures.
+
+For example:
+
+    f(n) = n^2
+
+diverges as n approaches infinity, but the expression is lawful.
+
+Likewise, a constant map may destroy distinctions between inputs while still
+being a valid function.
+
+Therefore:
+
+    HEAVEN must mean lawful derivation, not boundedness.
+    HELL must mean unresolved contradiction, undefinedness, or invalidity,
+    not merely divergence or complexity.
+
+
+======================================================================
+2. FOUNDATIONAL MODEL
+======================================================================
+
+2.1 Mathematical object
+
+Let a derivation object be
+
+    E = (D, Sigma, A, T, x_0, G),
+
+where:
+
+    D       is the declared domain;
+    Sigma   is the symbol and operator table;
+    A       is the set of assumptions;
+    T       is the sequence of transformations;
+    x_0     is the initial state;
+    G       is the stated goal or conclusion.
+
+A derivation may be written as
+
+    E_0 -> E_1 -> E_2 -> ... -> E_n,
+
+with a justification certificate J_k attached to every transition:
+
+    E_k --J_k--> E_(k+1).
+
+2.2 Audit states
+
+Each commandment returns one of three values:
+
+    PASS
+    FAIL
+    UNDETERMINED
+
+Numerically, these may be encoded as
+
+    PASS            = 1
+    UNDETERMINED    = 1/2
+    FAIL            = 0
+
+This three-state design prevents the auditor from confusing the absence of a
+detected error with proof of correctness.
+
+2.3 Violation vector
+
+Define
+
+    V(E) = (v_1, v_2, ..., v_10),
+
+where
+
+    v_i = 0          if commandment i passes,
+    v_i = 1/2        if commandment i is undetermined,
+    v_i = 1          if commandment i fails.
+
+A simpler binary violation count may also be used when all rules are decidable:
+
+    N_sin(E) = sum(v_i),
+
+with v_i in {0,1}.
+
+The term "sin" is metaphorical and comedic. Mathematically it is only a count
+of detected violations.
+
+2.4 Grace Score
+
+Assign weights w_i such that
+
+    w_i > 0
+    and
+    sum(w_i) = 1.
+
+Let s_i be the audit score for commandment i:
+
+    s_i = 1          for PASS,
+    s_i = 1/2        for UNDETERMINED,
+    s_i = 0          for FAIL.
+
+Then define
+
+    Grace(E) = sum(w_i * s_i).
+
+Thus,
+
+    0 <= Grace(E) <= 1.
+
+The score is diagnostic only. It must never override a fatal contradiction.
+
+
+======================================================================
+3. THE TEN MATHEMATICAL COMMANDMENTS
+======================================================================
+
+----------------------------------------------------------------------
+COMMANDMENT I
+THE COMMANDMENT OF FOUNDATION
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall have no strange gods before me.
+
+Mathematical principle:
+
+    A mathematical system must declare a coherent foundational structure.
+
+Audit requirement:
+
+    The domain, equality relation, constants, axioms, and governing operations
+    must be mutually compatible.
+
+Pass condition:
+
+    C_1(E) = PASS
+
+when all expressions and transformations remain within the declared or
+explicitly extended foundational setting.
+
+Typical violation:
+
+    x in R
+    followed by
+    x^2 = -1
+
+without extending the system from the real numbers R to the complex numbers C.
+
+Interpretation:
+
+The commandment does not forbid multiple mathematical structures. It forbids
+silent competition between incompatible structures. Multiple domains are lawful
+only when the maps between them are declared.
+
+Research task:
+
+Define a formal foundation-consistency checker based on domains, assumptions,
+and operator signatures.
+
+
+----------------------------------------------------------------------
+COMMANDMENT II
+THE COMMANDMENT OF MEANING
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not take the name of the Lord your God in vain.
+
+Mathematical principle:
+
+    Every symbol must be defined and used consistently.
+
+Formal condition:
+
+    FreeSymbols(E) is a subset of DefinedSymbols(E).
+
+Audit targets:
+
+    - undefined variables;
+    - symbols whose meaning changes mid-derivation;
+    - undefined functions;
+    - undefined operators;
+    - physical or mathematical terminology used without definition;
+    - expressions with no declared semantic role.
+
+Typical violations:
+
+    - using k without defining k;
+    - treating f first as a function and later as a scalar;
+    - invoking "entropy" without specifying which entropy;
+    - writing 0/0 as though it were a number.
+
+Interpretation:
+
+This is the semantic integrity commandment. It rejects empty symbolism and
+ambiguous notation.
+
+Research task:
+
+Construct a symbol table and semantic consistency protocol.
+
+
+----------------------------------------------------------------------
+COMMANDMENT III
+THE COMMANDMENT OF REST AND COMPLETION
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    Remember to keep holy the Lord's Day.
+
+Mathematical principle:
+
+    Every iterative, recursive, or procedural argument must declare how its
+    progress, completion, or limiting behavior is evaluated.
+
+For an iteration
+
+    x_(n+1) = T(x_n),
+
+at least one of the following should be supplied:
+
+    n = N
+    ||x_(n+1) - x_n|| < epsilon
+    x_n -> L
+    I(x_(n+1)) = I(x_n)
+    a cycle or recurrence condition
+    an externally declared stopping rule
+
+This commandment does not require all processes to converge or repeat.
+It requires the process to state what counts as completion, rest, checkpoint,
+or lawful continuation.
+
+Typical violation:
+
+An infinite iterative scheme is presented without a stopping condition,
+invariant, convergence claim, divergence claim, or interpretation.
+
+Research task:
+
+Develop a completion-schema library for finite, iterative, recursive, and
+asymptotic derivations.
+
+
+----------------------------------------------------------------------
+COMMANDMENT IV
+THE COMMANDMENT OF LINEAGE
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    Honor your father and your mother.
+
+Mathematical principle:
+
+    Every derived expression must descend from its parent expressions through
+    a valid and identifiable transformation.
+
+For
+
+    E_0 -> E_1 -> ... -> E_n,
+
+every step must have a certificate:
+
+    E_k --J_k--> E_(k+1).
+
+Possible certificates include:
+
+    - substitution;
+    - distributivity;
+    - factorization;
+    - theorem application;
+    - differentiation;
+    - integration;
+    - logical implication;
+    - modular reduction;
+    - approximation with stated error;
+    - numerical evaluation;
+    - change of variables.
+
+A conclusion with no derivational ancestry is called an orphan expression.
+
+Typical violation:
+
+A result appears after several lines with no operation explaining how it was
+obtained.
+
+Research task:
+
+Define a machine-readable proof-step format and justification ledger.
+
+
+----------------------------------------------------------------------
+COMMANDMENT V
+THE COMMANDMENT OF PRESERVATION
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not kill.
+
+Mathematical principle:
+
+    A transformation must not silently destroy mathematically relevant
+    information.
+
+If
+
+    T: D -> R
+
+is non-injective, the information loss must be acknowledged through fibers,
+equivalence classes, branches, kernels, discarded terms, or error bounds.
+
+For example:
+
+    x^2 = 4
+    therefore
+    x = 2
+
+is incomplete because x = -2 has been silently eliminated.
+
+The lawful conclusion is
+
+    x = +/-2.
+
+Information loss is permitted when declared. Examples include:
+
+    - rounding;
+    - projection;
+    - averaging;
+    - quotienting;
+    - lossy compression;
+    - truncation;
+    - branch selection under an assumption;
+    - ignoring higher-order terms with an error estimate.
+
+Typical violation:
+
+Cancellation, squaring, rooting, projection, or approximation removes possible
+solutions or distinctions without recording the loss.
+
+Research task:
+
+Classify information-losing operations and define preservation warnings.
+
+
+----------------------------------------------------------------------
+COMMANDMENT VI
+THE COMMANDMENT OF COMPATIBILITY
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not commit adultery.
+
+Mathematical principle:
+
+    Objects from different domains may interact only through a declared and
+    lawful bridge.
+
+If
+
+    x in D_1
+    and
+    y in D_2,
+
+then combining them requires a map such as
+
+    phi: D_1 -> D_2
+
+or an operation
+
+    B: D_1 x D_2 -> D_3.
+
+Typical violations:
+
+    - treating modular equality as ordinary equality;
+    - adding a vector to a probability distribution without definition;
+    - mixing units without dimensional conversion;
+    - applying a real logarithm to a negative number without extending to C;
+    - combining discrete and continuous models without an interface rule.
+
+Interpretation:
+
+The rule does not demand absolute separation. It demands lawful coupling.
+
+Research task:
+
+Create a domain-and-type compatibility checker with explicit coercion maps.
+
+
+----------------------------------------------------------------------
+COMMANDMENT VII
+THE COMMANDMENT OF ACCOUNTING
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not steal.
+
+Mathematical principle:
+
+    No quantity may enter or leave a derivation without being accounted for.
+
+For an equation
+
+    L_k = R_k,
+
+a transformation to
+
+    L_(k+1) = R_(k+1)
+
+must apply lawful operations consistently, subject to domain restrictions.
+
+Example of violation:
+
+    x + 3 = 7
+    therefore
+    x = 7.
+
+The 3 has been stolen from the derivation.
+
+Lawful transformation:
+
+    x + 3 - 3 = 7 - 3
+    therefore
+    x = 4.
+
+Applications include:
+
+    - algebraic balance;
+    - conservation of probability;
+    - conservation of mass, energy, charge, or momentum when assumed;
+    - coefficient accounting;
+    - term-by-term transformation;
+    - normalization.
+
+Research task:
+
+Design an equation-balance and conservation ledger.
+
+
+----------------------------------------------------------------------
+COMMANDMENT VIII
+THE COMMANDMENT OF TRUTH
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not bear false witness against your neighbor.
+
+Mathematical principle:
+
+    Every equality, approximation, implication, and equivalence symbol must
+    express the correct logical relationship.
+
+The framework distinguishes:
+
+    =
+    approximately equal
+    implies
+    is implied by
+    if and only if
+    proportional to
+    asymptotic to
+
+Example:
+
+    x^2 = 1 implies x = 1
+
+is false over R.
+
+However,
+
+    x = 1 implies x^2 = 1
+
+is true.
+
+This commandment detects:
+
+    - false equivalence;
+    - reversed implication;
+    - unsupported theorem claims;
+    - empirical evidence presented as proof;
+    - approximation presented as exact equality;
+    - local validity presented as global validity.
+
+Research task:
+
+Formalize a relation-type checker and symbolic equivalence tester.
+
+
+----------------------------------------------------------------------
+COMMANDMENT IX
+THE COMMANDMENT OF LEGITIMATE BINDING
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not covet your neighbor's wife.
+
+Mathematical principle:
+
+    Variables, indices, functions, parameters, and quantifiers must retain
+    their lawful identities and scopes.
+
+For example,
+
+    for every x in D, there exists y in D such that P(x,y)
+
+is not generally equivalent to
+
+    there exists y in D such that for every x in D, P(x,y).
+
+Quantifier order matters.
+
+Other violations include:
+
+    - reusing n as both a fixed constant and a running index;
+    - accidental variable capture inside a summation or integral;
+    - replacing one parameter with another because they have similar names;
+    - assuming independence because variables are visually distinct;
+    - binding a free variable without declaration.
+
+Research task:
+
+Implement variable-scope, index, and quantifier tracking.
+
+
+----------------------------------------------------------------------
+COMMANDMENT X
+THE COMMANDMENT OF OWNERSHIP AND BOUNDS
+----------------------------------------------------------------------
+
+Original inspiration:
+
+    You shall not covet your neighbor's goods.
+
+Mathematical principle:
+
+    A derivation may use only the assumptions, data, resources, domains, and
+    bounds legitimately available to it.
+
+If a theorem assumes
+
+    x in [0,1],
+
+the proof may not quietly use x > 1.
+
+If a statistical model is trained on sample S, it may not claim certainty over
+an unrelated population without a generalization argument.
+
+The rule also covers rearrangement of infinite series. A conditionally
+convergent series may not be rearranged as though absolute convergence had
+already been established.
+
+Typical violations:
+
+    - importing an unstated assumption;
+    - borrowing a theorem whose hypotheses are unmet;
+    - extending finite evidence to an infinite claim;
+    - using stronger bounds than those proved;
+    - claiming data not present in the sample.
+
+Research task:
+
+Build an assumption and bound provenance ledger.
+
+
+======================================================================
+4. VERDICT SYSTEM
+======================================================================
+
+4.1 Strict verdict
+
+Define the final verdict by
+
+    HEAVEN
+
+when every commandment passes.
+
+    PURGATORY
+
+when one or more failures exist but all are identified and repairable.
+
+    LIMBO
+
+when no fatal failure has been proved, but one or more commandments remain
+undetermined because the available information is insufficient.
+
+    HELL
+
+when an unresolved fatal contradiction, undefined operation, impossible domain
+claim, or knowingly invalid transformation remains in the derivation.
+
+4.2 Mortal violations
+
+Some failures should block a HEAVEN verdict regardless of the weighted score.
+
+Candidate mortal violations include:
+
+    - foundational contradiction;
+    - undefined central symbols or operations;
+    - false equality or false equivalence;
+    - division by zero;
+    - theorem use with violated hypotheses;
+    - contradiction between assumptions;
+    - invalid domain transition.
+
+Define a fatality indicator:
+
+    M(E) = 1
+
+when at least one unresolved mortal violation exists.
+
+Then
+
+    M(E) = 1
+    implies
+    Verdict(E) is not HEAVEN.
+
+4.3 Priority of logic over score
+
+A high Grace Score cannot rescue a fatal contradiction.
+
+For example, an equation may pass nine commandments and fail Truth through a
+false equality. The score may be 0.9, but the final verdict cannot be HEAVEN.
+
+The score summarizes quality. The verdict enforces validity.
+
+
+======================================================================
+5. WORKED EXAMPLE
+======================================================================
+
+Consider
+
+    (x^2 - 1)/(x - 1) = x + 1.
+
+Factorization gives
+
+    ((x - 1)(x + 1))/(x - 1) = x + 1.
+
+The cancellation is valid only when
+
+    x != 1.
+
+Therefore the correct statement is
+
+    (x^2 - 1)/(x - 1) = x + 1,
+    for x in R \ {1}.
+
+Without the restriction x != 1, the unrestricted equation falsely suggests
+that the left side is defined at x = 1.
+
+Possible initial audit:
+
+    I.   Foundation                    PASS
+    II.  Meaning                       PASS
+    III. Rest and Completion           PASS
+    IV.  Lineage                       PASS
+    V.   Preservation                  FAIL
+    VI.  Compatibility                 PASS
+    VII. Accounting                    PASS
+    VIII.Truth                         FAIL
+    IX.  Legitimate Binding            PASS
+    X.   Ownership and Bounds          FAIL
+
+Reason:
+
+    The excluded domain point x = 1 was erased, the equality was stated too
+    broadly, and the derivation used cancellation outside its lawful bound.
+
+After adding x != 1:
+
+    all commandments                   PASS
+    Grace Score                        1
+    Verdict                            HEAVEN
+
+
+======================================================================
+6. DISSERTATION CHAPTER PLAN
+======================================================================
+
+CHAPTER 1
+INTRODUCTION AND MOTIVATION
+
+    - historical role of axioms, proof rules, and mathematical rigor;
+    - motivation for a unified derivation-audit framework;
+    - explanation of the Decalogue metaphor;
+    - limits of the metaphor;
+    - research questions and thesis statement.
+
+CHAPTER 2
+LOGICAL AND MATHEMATICAL PRELIMINARIES
+
+    - domains and codomains;
+    - formal languages and symbol tables;
+    - assumptions and theorem hypotheses;
+    - implication versus equivalence;
+    - partial functions and undefined expressions;
+    - proof steps and certificates;
+    - decidability and undecidability;
+    - limitations of automated theorem checking.
+
+CHAPTER 3
+THE DECALOGUE EQUATION OBJECT
+
+    - formal definition of E;
+    - derivation graphs;
+    - transformation sequences;
+    - justification certificates;
+    - audit predicates;
+    - PASS, FAIL, and UNDETERMINED states;
+    - violation vectors and severity levels.
+
+CHAPTER 4
+COMMANDMENTS I TO V
+
+    - Foundation;
+    - Meaning;
+    - Rest and Completion;
+    - Lineage;
+    - Preservation;
+    - formal definitions;
+    - examples and counterexamples;
+    - automatic and human-audited components.
+
+CHAPTER 5
+COMMANDMENTS VI TO X
+
+    - Compatibility;
+    - Accounting;
+    - Truth;
+    - Legitimate Binding;
+    - Ownership and Bounds;
+    - formal definitions;
+    - examples and counterexamples;
+    - dependency relationships between commandments.
+
+CHAPTER 6
+THE GRACE SCORE AND VERDICT LOGIC
+
+    - weighted scoring;
+    - fatal overrides;
+    - Heaven, Purgatory, Limbo, and Hell;
+    - repair distance;
+    - confidence scores;
+    - why validity cannot be reduced to a single number.
+
+CHAPTER 7
+ERROR TAXONOMY
+
+    - undefined expressions;
+    - hidden assumptions;
+    - branch loss;
+    - false implication;
+    - domain mismatch;
+    - quantifier reversal;
+    - invalid cancellation;
+    - misuse of numerical evidence;
+    - unjustified extrapolation;
+    - conditionally valid transformations.
+
+CHAPTER 8
+WORKED MATHEMATICAL CASE STUDIES
+
+    - elementary algebra;
+    - polynomial equations;
+    - rational expressions;
+    - limits;
+    - infinite series;
+    - calculus;
+    - modular arithmetic;
+    - linear algebra;
+    - probability;
+    - numerical approximation;
+    - selected false proofs.
+
+CHAPTER 9
+COMPUTATIONAL IMPLEMENTATION
+
+    - design of DECALOGUE_EQUATION_AUDITOR.py;
+    - parser and symbolic expression model;
+    - SymPy integration;
+    - domain table;
+    - assumption ledger;
+    - transformation verification;
+    - audit report generation;
+    - severity and verdict engine;
+    - limitations of automation.
+
+CHAPTER 10
+VALIDATION AND TEST SUITE
+
+    - known-valid derivations;
+    - known-invalid derivations;
+    - ambiguous derivations;
+    - adversarial examples;
+    - false positive and false negative analysis;
+    - human versus machine audit comparison.
+
+CHAPTER 11
+PHILOSOPHICAL AND EDUCATIONAL INTERPRETATION
+
+    - mathematical validity versus mathematical behavior;
+    - rigor as lawful transformation;
+    - proof transparency;
+    - the pedagogical value of memorable metaphors;
+    - dangers of overextending moral language;
+    - use in teaching algebra and proof writing.
+
+CHAPTER 12
+CONCLUSION AND FUTURE WORK
+
+    - summary of the formal framework;
+    - evaluation of its usefulness;
+    - possible theorem-prover integration;
+    - formal proof assistant compatibility;
+    - natural-language mathematical auditing;
+    - expansion beyond ten rules;
+    - domain-specific commandment profiles.
+
+
+======================================================================
+7. SOFTWARE PLAN
+======================================================================
+
+Proposed filename:
+
+    DECALOGUE_EQUATION_AUDITOR.py
+
+Core modules:
+
+    1. Input Parser
+       Reads domains, symbols, assumptions, goals, expressions, and
+       justifications.
+
+    2. Symbol Registry
+       Tracks definitions, types, scopes, and semantic changes.
+
+    3. Domain Engine
+       Checks whether operations are valid over the declared domains.
+
+    4. Assumption Ledger
+       Records every assumption and tracks where it is used.
+
+    5. Transformation Auditor
+       Tests symbolic equivalence or implication between consecutive steps.
+
+    6. Information-Loss Detector
+       Warns about squaring, rooting, cancellation, projection, rounding, and
+       branch removal.
+
+    7. Binding Inspector
+       Tracks free variables, bound variables, indices, and quantifiers.
+
+    8. Completion Inspector
+       Checks for goals, stopping conditions, limits, or invariants.
+
+    9. Grace Score Engine
+       Computes weighted commandment scores.
+
+    10. Verdict Engine
+        Produces Heaven, Purgatory, Limbo, or Hell.
+
+    11. Report Generator
+        Produces a detailed commandment-by-commandment audit.
+
+Example input format:
+
+    DOMAIN: real
+    DEFINED: x
+    ASSUME: x != 1
+    GOAL: simplify expression
+
+    STEP 1: (x^2 - 1)/(x - 1)
+    STEP 2: ((x - 1)*(x + 1))/(x - 1)
+    JUSTIFICATION 1->2: difference of squares
+
+    STEP 3: x + 1
+    JUSTIFICATION 2->3: cancel x - 1
+
+Example output format:
+
+    I.   Foundation                    PASS
+    II.  Meaning                       PASS
+    III. Rest and Completion           PASS
+    IV.  Lineage                       PASS
+    V.   Preservation                  PASS
+    VI.  Compatibility                 PASS
+    VII. Accounting                    PASS
+    VIII.Truth                         PASS
+    IX.  Legitimate Binding            PASS
+    X.   Ownership and Bounds          PASS
+
+    Grace Score: 1.000
+    Mortal Violations: 0
+    Verdict: HEAVEN
+
+
+======================================================================
+8. RESEARCH LIMITATIONS
+======================================================================
+
+The framework must openly acknowledge the following limits:
+
+    1. No general computer program can automatically determine the truth of all
+       mathematical statements.
+
+    2. Some theorem applications require external proof libraries or human
+       verification.
+
+    3. Natural-language mathematics may be too ambiguous for exact parsing.
+
+    4. A symbolic equivalence test may fail even when two expressions are
+       mathematically equivalent.
+
+    5. Numerical agreement does not prove symbolic equivalence.
+
+    6. The Grace Score is not a proof.
+
+    7. The religious terminology is metaphorical and must not be presented as
+       theological judgment.
+
+    8. Different branches of mathematics may require specialized versions of
+       the commandments.
+
+These limitations are not weaknesses to hide. They define the lawful scope of
+the project under its own Tenth Commandment.
+
+
+======================================================================
+9. PROPOSED ORIGINAL CONTRIBUTIONS
+======================================================================
+
+The dissertation aims to contribute:
+
+    1. A unified ten-rule taxonomy of common derivational failures.
+
+    2. A formal mathematical object for commandment-based auditing.
+
+    3. A three-state audit logic using PASS, FAIL, and UNDETERMINED.
+
+    4. A four-part final verdict system:
+       Heaven, Purgatory, Limbo, and Hell.
+
+    5. A distinction between lawful divergence and invalid derivation.
+
+    6. A formal treatment of silent information loss as an auditable event.
+
+    7. A proof-lineage ledger based on justification certificates.
+
+    8. A computational architecture for symbolic derivation auditing.
+
+    9. An educational language for explaining mathematical rigor.
+
+    10. A reusable bridge between humorous metaphor and serious formal logic.
+
+
+======================================================================
+10. DEVELOPMENT ROADMAP
+======================================================================
+
+PHASE I
+Framework stabilization
+
+    - finalize the names of all ten mathematical commandments;
+    - finalize PASS, FAIL, and UNDETERMINED definitions;
+    - define mortal violations;
+    - define verdict precedence;
+    - create a standard notation table.
+
+PHASE II
+Formal specification
+
+    - define E precisely;
+    - define all ten predicates C_i;
+    - define the Grace Score;
+    - define repairability;
+    - define Limbo and Purgatory conditions.
+
+PHASE III
+Example library
+
+    - produce at least ten valid derivations;
+    - produce at least ten repairable derivations;
+    - produce at least ten fatal derivations;
+    - include examples from several mathematical fields.
+
+PHASE IV
+Prototype software
+
+    - build the parser;
+    - integrate SymPy;
+    - implement initial checks for Commandments I, II, IV, VI, VII, VIII, and X;
+    - represent III, V, and IX through partial automated checks and warnings.
+
+PHASE V
+Testing
+
+    - run the framework against textbook derivations;
+    - test classic false proofs;
+    - compare auditor verdicts with human review;
+    - document all false positives and false negatives.
+
+PHASE VI
+Dissertation manuscript
+
+    - write the formal chapters;
+    - add proofs, definitions, examples, and diagrams;
+    - include the software specification;
+    - report validation results;
+    - prepare a public release.
+
+PHASE VII
+Public project release
+
+    - publish the framework text;
+    - publish DECALOGUE_EQUATION_AUDITOR.py;
+    - publish example audit files;
+    - create a concise user manual;
+    - invite external mathematical review.
+
+
+======================================================================
+11. WORKING THESIS STATEMENT
+======================================================================
+
+A mathematical derivation can be usefully evaluated as a structured object
+subject to ten explicit obligations concerning foundation, meaning, completion,
+lineage, preservation, compatibility, accounting, truth, binding, and bounds.
+Although no finite audit system can decide all mathematics, a commandment-based
+framework can identify broad classes of invalid reasoning, distinguish
+repairable omissions from fatal contradictions, and improve the transparency
+of both human and machine-generated mathematical arguments.
+
+
+======================================================================
+12. CLOSING FORMULATION
+======================================================================
+
+The Decalogue Equation Framework does not ask whether an equation is simple,
+beautiful, finite, convergent, or predictable.
+
+It asks:
+
+    Was the domain declared?
+    Were the symbols defined?
+    Was the process completed or interpreted?
+    Did every result descend lawfully from its parents?
+    Was information silently destroyed?
+    Were incompatible objects mixed without a bridge?
+    Was every mathematical quantity accounted for?
+    Were the logical relations truthful?
+    Were variables and quantifiers bound lawfully?
+    Were assumptions, bounds, and resources used honestly?
+
+The final maxim of the framework is:
+
+    Heaven is not convergence.
+    Heaven is lawful derivation.
+
+    Hell is not infinity.
+    Hell is unresolved contradiction.
+
+
+*******************************************************************************
+**LOGS DECALOGUE_EQUATION_AUDITOR.py LOGS***
+*******************************************************************************
+
+
+
+  ╔════════════════════════════════════════════════════════════════════════════╗
+  ║                 THE DECALOGUE EQUATION FRAMEWORK AUDITOR                   ║
+  ║                   Symbolic Audit & Verification Engine                     ║
+  ╠════════════════════════════════════════════════════════════════════════════╣
+  ║  Base Framework Model:                                                     ║
+  ║      E = (D, Sigma, A, T, x_0)                                             ║
+  ║                                                                            ║
+  ║  Where:                                                                    ║
+  ║      D       = Declared Domain (e.g., R, C, Z, R \ {1})                   ║
+  ║      Sigma   = Collection of Symbols and Operators                         ║
+  ║      A       = Assumption Set                                              ║
+  ║      T       = Ordered Sequence of Transformations                         ║
+  ║      x_0     = Initial Expression or State                                 ║
+  ║                                                                            ║
+  ║  Audit Predicates & Evaluation:                                            ║
+  ║      C_i(E) in {PASS (1.0), UNDETERMINED (0.5), FAIL (0.0)}                ║
+  ║      Grace(E) = sum(w_i * s_i)  |  Fatal Violations = C1 or C2 or C8       ║
+  ║                                                                            ║
+  ║  Verdict Hierarchy:                                                        ║
+  ║      HEAVEN    : Grace == 1.0, Fatal Violations == 0                       ║
+  ║      PURGATORY : Grace >= 0.7, Repairable Omissions, Fatal Violations == 0 ║
+  ║      LIMBO     : Audit Undetermined (Insufficient Information)             ║
+  ║      HELL      : Unresolved Contradiction or Critical Failure              ║
+  ╚════════════════════════════════════════════════════════════════════════════╝
+  
+======================================================================
+                       MAIN SECTOR AUDIT MENU
+======================================================================
+  [ 1] Audit Sector  1 : Commandment I: Foundation
+  [ 2] Audit Sector  2 : Commandment II: Meaning
+  [ 3] Audit Sector  3 : Commandment III: Completion
+  [ 4] Audit Sector  4 : Commandment IV: Lineage
+  [ 5] Audit Sector  5 : Commandment V: Preservation
+  [ 6] Audit Sector  6 : Commandment VI: Compatibility
+  [ 7] Audit Sector  7 : Commandment VII: Accounting
+  [ 8] Audit Sector  8 : Commandment VIII: Truth
+  [ 9] Audit Sector  9 : Commandment IX: Binding
+  [10] Audit Sector 10 : Commandment X: Bounds
+  [11] Audit Sector 11 : Worked Case Study (Repaired HEAVEN Audit)
+  [12] Audit Sector 12 : AUDIT CUSTOM DERIVATION (Dynamic Symbolic Engine)
+  [ 0] Exit Auditor Suite
+======================================================================
+Select an option (0-12) > 1
+
+--- SECTOR 1: COMMANDMENT I — THE COMMANDMENT OF FOUNDATION ---
+Test Case A (FLAWED): x in Real numbers, followed by x^2 = -1 without complex extension.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    FAIL    ] -> C1 FAIL: Domain R violated by sqrt(-1) without extending to C
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Symbol x defined in Real field
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Static evaluation step
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Direct algebraic assertion
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: No information discarded
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Real operations evaluated
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Equal operation attempted
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Equation valid under formal setup
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Variable x cleanly bound
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Uses declared real setting
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : YES (FATAL)
+ FINAL VERDICT     : *** HELL ***
+
+ [AUDIT ERROR]: Derivation contains an unresolved contradiction, undefined state, or false witness.
+======================================================================
+
+
+Select an option (0-12) > 2
+
+--- SECTOR 2: COMMANDMENT II — THE COMMANDMENT OF MEANING ---
+Test Case (FLAWED): Using free variable 'k' mid-derivation without definition.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Coherent base field
+  2. Commandment II: Meaning          : [    FAIL    ] -> C2 FAIL: Free symbol 'k' introduced without definition in symbol table
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Finite transformation
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Preceding step identified
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: No loss of roots
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Compatible structures
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Balanced step
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Logical equivalence holds
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Indices handled
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Within bounds
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : YES (FATAL)
+ FINAL VERDICT     : *** HELL ***
+
+ [AUDIT ERROR]: Derivation contains an unresolved contradiction, undefined state, or false witness.
+======================================================================
+
+--- SECTOR 3: COMMANDMENT III — THE COMMANDMENT OF REST & COMPLETION ---
+Test Case (PURGATORY): Infinite iterative sequence x_{n+1} = T(x_n) lacking termination/limit check.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Standard metric space
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Sequence operator T defined
+  3. Commandment III: Completion      : [    FAIL    ] -> C3 FAIL: Iteration lacks declared convergence threshold, invariant, or N step bound
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Explicit recurrence formula
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Dynamic map preserved
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Discrete steps mapped
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Zero-sum state change
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Equation relation true
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Index n correctly bound
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Sequence bounded
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+
+--- SECTOR 4: COMMANDMENT IV — THE COMMANDMENT OF LINEAGE ---
+Test Case (FLAWED): Orphan expression appears in proof step without justification certificate.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Base foundation holds
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: All symbols declared
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Finite sequence step
+  4. Commandment IV: Lineage          : [    FAIL    ] -> C4 FAIL: Step E_k -> E_{k+1} lacks justification certificate J_k
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Information preserved
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Direct transformation
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Balanced algebraic change
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: True assertion
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Proper scoping
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Valid assumptions
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+
+--- SECTOR 5: COMMANDMENT V — THE COMMANDMENT OF PRESERVATION ---
+Test Case (PURGATORY/REPAIRED): Solving x^2 = 4 => x = 2 (Silently dropping x = -2).
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Real field R
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Variable x defined
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Finite equation
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Square root step applied
+  5. Commandment V: Preservation      : [    FAIL    ] -> C5 FAIL: Non-injective map x^2=4 discarded negative root branch x=-2
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Compatible operations
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Balanced step
+  8. Commandment VIII: Truth          : [    FAIL    ] -> C8 FAIL: Discarding root causes incomplete equivalence relation
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Single variable scope
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Valid domain assumptions
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.800 / 1.000
+ CRITICAL FAILURES : YES (FATAL)
+ FINAL VERDICT     : *** HELL ***
+
+ [AUDIT ERROR]: Derivation contains an unresolved contradiction, undefined state, or false witness.
+======================================================================
+
+--- SECTOR 6: COMMANDMENT VI — THE COMMANDMENT OF COMPATIBILITY ---
+Test Case (FLAWED): Adding a 3D vector directly to a scalar probability value without bridge map.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Vector space and probability spaces declared
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Symbols defined
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Static operation
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Step stated
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Vector components preserved
+  6. Commandment VI: Compatibility    : [    FAIL    ] -> C6 FAIL: Mixing vector V in R^3 with scalar p in [0,1] without explicit bridge function phi
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Term accounting intact
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Equivalence true where mapped
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Scope maintained
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Bounds specified
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+
+--- SECTOR 7: COMMANDMENT VII — THE COMMANDMENT OF ACCOUNTING ---
+Test Case (FLAWED): Unbalanced step x + 3 = 7 => x = 7 (Stealing the constant 3).
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Real algebraic field
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Variable x declared
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Evaluation complete
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Linear transformation attempt
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: No roots destroyed
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Real addition
+  7. Commandment VII: Accounting      : [    FAIL    ] -> C7 FAIL: Scalar value '3' deleted from LHS without subtracting from RHS
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Relation format correct
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Variable scope valid
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Domain bounds held
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+
+--- SECTOR 8: COMMANDMENT VIII — THE COMMANDMENT OF TRUTH ---
+Test Case (FATAL HELL): Asserting false logical implication x^2 = 1 => x = 1 over R.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Real domain
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Symbols properly typed
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Proof step complete
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Lineage tracked
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Both sides calculated
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Algebraic operations valid
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Balanced equations
+  8. Commandment VIII: Truth          : [    FAIL    ] -> C8 FAIL: False implication: x^2 = 1 does not imply x = 1 (x = -1 is valid counterexample)
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Variable binding holds
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Standard real bounds
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : YES (FATAL)
+ FINAL VERDICT     : *** HELL ***
+
+ [AUDIT ERROR]: Derivation contains an unresolved contradiction, undefined state, or false witness.
+======================================================================
+
+--- SECTOR 9: COMMANDMENT IX — THE COMMANDMENT OF LEGITIMATE BINDING ---
+Test Case (FLAWED): Reusing variable 'n' as both outer fixed limit and inner sum running index.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Sequence arithmetic
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Symbols declared
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Summation process defined
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Step lineage preserved
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: No values dropped
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Integer summation
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Conservation of terms
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Logical syntax correct
+  9. Commandment IX: Binding          : [    FAIL    ] -> C9 FAIL: Variable collision: index 'n' captures outer fixed variable 'n'
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Bounds stated
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+--- SECTOR 10: COMMANDMENT X — THE COMMANDMENT OF OWNERSHIP & BOUNDS ---
+Test Case (PURGATORY): Derivation assumes x in [0,1] but evaluates expression at x = 2.5.
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Closed real interval
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Function f(x) defined
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Finite calculation
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Derived correctly
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Full mapping preserved
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Real domain valid
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Terms accounted for
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Formula relation true
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Bound variable clean
+ 10. Commandment X: Bounds            : [    FAIL    ] -> C10 FAIL: Evaluation point x = 2.5 exceeds declared domain boundary x in [0, 1]
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.900 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** PURGATORY ***
+
+ [AUDIT HINT]: Derivation contains repairable omissions. Supply domain bounds or explicit branch certificates to reach HEAVEN.
+======================================================================
+
+--- SECTOR 11: FULL WORKED CASE STUDY (REPAIRED HEAVEN VERDICT) ---
+Equation: (x^2 - 1) / (x - 1) = x + 1, for x in Real \ {1}
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Foundation declared over R \ {1}
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: Variable x explicitly defined
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Algebraic simplification complete
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Step 1->2 justified by Difference of Squares
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: Singularity x = 1 explicitly excluded from domain
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Rational expression field compatible
+  7. Commandment VII: Accounting      : [    PASS    ] -> C7 PASS: Factor (x-1) cancelled lawfully under x != 1
+  8. Commandment VIII: Truth          : [    PASS    ] -> C8 PASS: Logical equivalence holds on restricted domain
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Variable x maintains uniform scope
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Execution within declared domain boundaries
+----------------------------------------------------------------------
+ GRACE SCORE       : 1.000 / 1.000
+ CRITICAL FAILURES : NONE
+ FINAL VERDICT     : *** HEAVEN ***
+
+ [AUDIT SUCCESS]: Derivation satisfies all structural obligations. Lawful proof confirmed.
+======================================================================
+
+--- SECTOR 12: AUDIT CUSTOM DERIVATION (DYNAMIC INTERACTIVE AUDITOR) ---
+Input your custom derivation step by step for dynamic symbolic evaluation.
+Enter Domain (e.g., Real, Complex) [Default: Real]: real
+Enter Defined Variables (comma-separated, e.g., x, y): x,y
+Enter Assumptions (e.g., x != 1): x != 1
+
+Enter Derivation Steps (Type 'DONE' when finished):
+  Step 1 Expression (e.g., (x**2 - 1)/(x - 1)): (x**2 - 1)/(x - 1)
+  Step 1 Justification Certificate (e.g., Factorization): Factorization
+  Step 2 Expression (e.g., (x**2 - 1)/(x - 1)): (x**2 - 1)/(x - 1)
+  Step 2 Justification Certificate (e.g., Factorization): Factorization
+  Step 3 Expression (e.g., (x**2 - 1)/(x - 1)): (x**2 - 1)/(x - 4)
+  Step 3 Justification Certificate (e.g., Factorization): done
+  Step 4 Expression (e.g., (x**2 - 1)/(x - 1)): done
+
+Auditing custom derivation...
+
+======================================================================
+                  DECALOGUE EQUATION AUDIT REPORT
+======================================================================
+  1. Commandment I: Foundation        : [    PASS    ] -> C1 PASS: Domain declared and consistent.
+  2. Commandment II: Meaning          : [    PASS    ] -> C2 PASS: All symbols explicitly defined.
+  3. Commandment III: Completion      : [    PASS    ] -> C3 PASS: Finite step sequence.
+  4. Commandment IV: Lineage          : [    PASS    ] -> C4 PASS: Step certificates supplied.
+  5. Commandment V: Preservation      : [    PASS    ] -> C5 PASS: No unhandled singularities or branch losses detected.
+  6. Commandment VI: Compatibility    : [    PASS    ] -> C6 PASS: Compatible operations.
+  7. Commandment VII: Accounting      : [    FAIL    ] -> C7 FAIL: Quantity imbalance between Step 2 and Step 3.
+  8. Commandment VIII: Truth          : [    FAIL    ] -> C8 FAIL: Step 2 and Step 3 are not algebraically equivalent!
+  9. Commandment IX: Binding          : [    PASS    ] -> C9 PASS: Variable scopes maintained.
+ 10. Commandment X: Bounds            : [    PASS    ] -> C10 PASS: Execution within declared bounds.
+----------------------------------------------------------------------
+ GRACE SCORE       : 0.800 / 1.000
+ CRITICAL FAILURES : YES (FATAL)
+ FINAL VERDICT     : *** HELL ***
+
+ [AUDIT ERROR]: Derivation contains an unresolved contradiction, undefined state, or false witness.
+======================================================================
+
+
+
+==========================================================================================
+Compliance Profile & Licensing:
+  - Framework: THE DECALOGUE EQUATION FRAMEWORK: A DISSERTATION PLAN FOR THE TEN MATHEMATICAL COMMANDMENTS
+  - Foundational Concept Integration: Zero-Ology IP Archive / Zer00logy IP Archive
+  - Primary Author of Foundational Concepts: Stacey Szmy
+  - AI Authors: ChatGPT, Gemini AI
+  - Reference: https://github.com/haha8888haha8888/Zero-ology
+  - Reference: https://github.com/haha8888haha8888/Zer00logy
+  - Reference: www.zero-ology.com
+
+  © Stacey8Szmy — Zer00logy IP Archive. All symbolic rights reserved.
+==========================================================================================
