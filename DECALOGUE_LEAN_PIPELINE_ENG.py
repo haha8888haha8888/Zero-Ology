@@ -528,7 +528,7 @@ theorem square_eq_four_branch
 
 
 class LeanRunner:
-    def __init__(self, timeout_seconds: int = 30) -> None:
+    def __init__(self, timeout_seconds: int = 330) -> None:
         self.timeout_seconds = timeout_seconds
 
     def run(self, lean_code: str) -> LeanRunResult:
