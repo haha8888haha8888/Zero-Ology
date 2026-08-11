@@ -1,3 +1,4 @@
+#TGdetroitMatrixDecalogueLean4.py
 # Note that the file path will have be adjusted for your own tests, this will be patched and updated laters
 # Re-using the exact pre-built project workspace with all Lean packages intact
 # self.project_dir = Path(r"C:\Users\stace\Downloads\decalogue_project")

@@ -1,0 +1,161 @@
+#ACHERON_STEP_DIGITAL_WEIGHTS_PIPELINE_LOGS_PASS.txt
+╔══════════════════════════════════════════════════════════════════════════════╗
+║     ACHERON STEP DIGITAL WEIGHTS & RESIDUE-RIGIDITY PIPELINE                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ Framework: Acheron Twin Prime Residue-Rigidity Framework                      ║
+║ Focus: Anchor Nodes, Wheel Geometry, Exceptional Boundary & Lean Synthesis    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+================================================================================
+      ACHERON FRAMEWORK — AUDIT REPORT
+================================================================================
+FORMAL STATUS : INCOMPLETE
+VERDICT       : LIMBO
+GRACE SCORE   : 0.950
+
+[COMMANDMENT AUDIT LEDGER]
+--------------------------------------------------------------------------------
+ 1. Commandment I: Foundation (Interior Anchor Domain n = p + 1) | Status: PASS         | Conf: 0.98
+ 2. Commandment II: Meaning (Active Primorial Wheel W2310 Set) | Status: PASS         | Conf: 0.95
+ 3. Commandment III: Completion (Admissibility Conditions) | Status: PASS         | Conf: 0.95
+ 4. Commandment IV: Lineage (Exceptional Core Boundaries |E| = 3) | Status: PASS         | Conf: 0.95
+ 5. Commandment V: Preservation (Step-Residue State Vector S_k) | Status: PASS         | Conf: 0.90
+ 6. Commandment VI: Compatibility (RN Modular Weight Gate Balance) | Status: PASS         | Conf: 0.90
+ 7. Commandment VII: Accounting (Acheron Residue-Rigidity Bounds) | Status: UNDETERMINED | Conf: 0.50
+ 8. Commandment VIII: Truth (Structural Partition Uniqueness) | Status: PASS         | Conf: 0.95
+ 9. Commandment IX: Binding (Exact Core Set Cardinality) | Status: PASS         | Conf: 0.90
+10. Commandment X: Bounds (Uniform Corridor Baseline Lock) | Status: PASS         | Conf: 0.90
+
+[GENERATED LEAN 4 PROOF CODE (GeneratedRNProof.lean)]
+--------------------------------------------------------------------------------
+-- GeneratedRNProof.lean
+-- Formalization of the Acheron Twin Prime Residue-Rigidity Framework
+-- Lean 4 Theorem Prover Verification Script
+
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.Nat.GCD.Basic
+import Mathlib.Data.Nat.ModEq
+import Mathlib.Algebra.Group.Basic
+import Mathlib.Data.Rat.Defs
+import Mathlib.Data.Rat.Init
+import Mathlib.Data.Rat.Floor
+import Mathlib.Algebra.Order.Floor.Defs
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.IntervalCases
+
+namespace AcheronFramework
+
+/-- Commandment 1: Foundational Domain Definition
+    Define the Interior Anchor Node n = p + 1 for Twin Prime Pairs (p, p + 2) --/
+abbrev IsInteriorAnchor (n : ℕ) : Prop :=
+  Nat.Prime (n - 1) ∧ Nat.Prime (n + 1)
+
+/-- Commandment 2: Primorial Wheel Modulus Definition (W2310 = 2 * 3 * 5 * 7 * 11) --/
+def W2310 : ℕ := 2310
+
+/-- Active Wheel Primes Set P = {2, 3, 5, 7, 11} --/
+def WheelPrimes : List ℕ := [2, 3, 5, 7, 11]
+
+/-- Commandment 3: Wheel Admissibility Condition
+    An anchor n is admissible if neither (n - 1) nor (n + 1) is divisible by any wheel prime q --/
+abbrev IsWheelAdmissible (n : ℕ) : Prop :=
+  ∀ q ∈ WheelPrimes, (n - 1) % q ≠ 0 ∧ (n + 1) % q ≠ 0
+
+/-- Commandment 4: Exceptional Core Twins Bounds
+    The three core exception twins (3,5), (5,7), (11,13) have interior anchors n ∈ {4, 6, 12} --/
+abbrev IsExceptionalAnchor (n : ℕ) : Prop :=
+  n = 4 ∨ n = 6 ∨ n = 12
+
+/-- Commandment 5: Step-Residue State Vector S_k(n) --/
+structure StepResidueVector (n : ℕ) where
+  r2  : ℕ := n % 2
+  r3  : ℕ := n % 3
+  r5  : ℕ := n % 5
+  r7  : ℕ := n % 7
+  r11 : ℕ := n % 11
+
+/-- Commandment 6: RN Digital Weight Gate Threshold Bounds
+    Evaluates digital weight equilibrium over M = 2310 --/
+def RN2310_Val (n : ℕ) : ℚ :=
+  Int.fract (((n % W2310 : ℕ) : ℚ) * 10 / 9)
+
+abbrev IsRNStable (n : ℕ) : Prop :=
+  (15 / 100 : ℚ) ≤ RN2310_Val n ∧ RN2310_Val n ≤ (85 / 100 : ℚ)
+
+/-- Commandment 7: Acheron Residue-Rigidity Theorem
+    For any twin prime anchor n > 12, n MUST be W2310 Wheel-Admissible --/
+theorem acheron_residue_rigidity (n : ℕ) (h_anchor : IsInteriorAnchor n) (h_gt : n > 12) :
+    IsWheelAdmissible n := by
+  intro q hq
+  have hp1 : Nat.Prime (n - 1) := h_anchor.1
+  have hp2 : Nat.Prime (n + 1) := h_anchor.2
+  have h_qprime : Nat.Prime q := by fin_cases hq <;> decide
+  have h_qle : q ≤ 11 := by fin_cases hq <;> decide
+  constructor
+  · intro h_div1
+    have h_dvd : q ∣ (n - 1) := Nat.dvd_of_mod_eq_zero h_div1
+    have h_or := Nat.Prime.eq_one_or_self_of_dvd hp1 q h_dvd
+    have h_qgt1 : q ≥ 2 := Nat.Prime.two_le h_qprime
+    have h_ne1 : q ≠ 1 := by omega
+    cases h_or with
+    | inl h1 => exact False.elim (h_ne1 h1)
+    | inr h2 =>
+      have h_eq : n - 1 = q := h2.symm
+      omega
+  · intro h_div2
+    have h_dvd : q ∣ (n + 1) := Nat.dvd_of_mod_eq_zero h_div2
+    have h_or := Nat.Prime.eq_one_or_self_of_dvd hp2 q h_dvd
+    have h_qgt1 : q ≥ 2 := Nat.Prime.two_le h_qprime
+    have h_ne1 : q ≠ 1 := by omega
+    cases h_or with
+    | inl h1 => exact False.elim (h_ne1 h1)
+    | inr h2 =>
+      have h_eq : n + 1 = q := h2.symm
+      omega
+
+/-- Commandment 8: Structural Partition Uniqueness Theorem
+    All interior anchors partition strictly into Exceptional Core Anchors or Admissible Corridor Anchors --/
+theorem acheron_structural_partition (n : ℕ) (h_anchor : IsInteriorAnchor n) :
+    IsExceptionalAnchor n ∨ IsWheelAdmissible n := by
+  by_cases h : n > 12
+  · right
+    exact acheron_residue_rigidity n h_anchor h
+  · left
+    have h_le : n ≤ 12 := by omega
+    interval_cases n <;> revert h_anchor <;> decide
+
+/-- Commandment 9: Exact Exceptional Count Invariant --/
+theorem exceptional_set_cardinality :
+    (((List.range 12).map (· + 1)).filter (fun n => decide (IsInteriorAnchor n))).length = 3 := by
+  decide
+
+/-- Commandment 10: Baseline Lock Guarantee (Zero Residual in W2310 Architecture) --/
+theorem baseline_lock_invariant (n : ℕ) (h_anchor : IsInteriorAnchor n) (h_non_exp : ¬IsExceptionalAnchor n) :
+    IsWheelAdmissible n := by
+  cases acheron_structural_partition n h_anchor with
+  | inl h_exp => contradiction
+  | inr h_adm => exact h_adm
+
+end AcheronFramework
+
+[LEAN KERNEL EXECUTION RESULT]
+--------------------------------------------------------------------------------
+Status    : LEAN_VERIFIED
+Exit code : 0
+Output    :
+✔ [883/890] Built Mathlib.Tactic.Field (12s)
+✔ [884/890] Built Mathlib.Algebra.Order.Floor.Semiring (15s)
+✔ [885/890] Built Mathlib.Tactic.Abel (17s)
+✔ [886/890] Built Mathlib.Algebra.Order.Floor.Ring (18s)
+✔ [887/890] Built Mathlib.Algebra.Order.Round (10s)
+✔ [888/890] Built Mathlib.Data.Rat.Floor (13s)
+✔ [889/890] Built GeneratedRNProof (8.5s)
+Build completed successfully (890 jobs).
+note: using toolchain 'leanprover/lean4:v4.33.0-rc2' from override set on '\\?\C:\Users\stace\Downloads\decalogue_project'
+note: to remove: elan override unset --path '\\?\C:\Users\stace\Downloads\decalogue_project' | to suppress: ELAN_NO_OVERRIDE_NOTICE=1
+================================================================================
+
+[+] Pipeline artifacts successfully exported to: C:\Users\stace\Downloads\tg_decalogue_output
+Pax Mathematica & Acheron Framework!
+PS C:\Users\stace\Downloads>

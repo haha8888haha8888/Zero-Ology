@@ -1,0 +1,66 @@
+#TGlean4Decalogue_log_PASS.txt
+╔══════════════════════════════════════════════════════════════════════════════╗
+║     TERNARIUM GEMINORUM FRAMEWORK — DECALOGUE LINTING & LEAN PIPELINE        ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ Framework: Ternarium Geminorum (TG) Base Model                               ║
+║ Focus: Audit Criterion E1 (Prime Divisor-Sum Identity: σ(p) = p + 1)        ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+================================================================================
+      TERNARIUM GEMINORUM — AUDIT CRITERION E1 REPORT
+================================================================================
+FORMAL STATUS : INCOMPLETE
+VERDICT       : LIMBO
+GRACE SCORE   : 0.800
+
+[COMMANDMENT AUDIT LEDGER]
+--------------------------------------------------------------------------------
+ 1. Commandment I: Foundation      | Status: PASS         | Conf: 0.95
+ 2. Commandment II: Meaning        | Status: PASS         | Conf: 0.95
+ 3. Commandment III: Completion    | Status: PASS         | Conf: 0.90
+ 4. Commandment IV: Lineage        | Status: PASS         | Conf: 0.85
+ 5. Commandment V: Preservation    | Status: UNDETERMINED | Conf: 0.40
+ 6. Commandment VI: Compatibility  | Status: UNDETERMINED | Conf: 0.35
+ 7. Commandment VII: Accounting    | Status: UNDETERMINED | Conf: 0.35
+ 8. Commandment VIII: Truth        | Status: UNDETERMINED | Conf: 0.30
+ 9. Commandment IX: Binding        | Status: PASS         | Conf: 0.90
+10. Commandment X: Bounds          | Status: PASS         | Conf: 0.85
+
+[GENERATED LEAN 4 PROOF CODE]
+--------------------------------------------------------------------------------
+import Mathlib.NumberTheory.Divisors
+import Mathlib.Data.Nat.Prime.Basic
+
+-- ============================================================================
+-- AUTO-GENERATED LEAN 4 PROOF SCRIPT FOR TERNARIUM GEMINORUM FRAMEWORK
+-- Audit Criterion E1: Prime Divisor-Sum Identity (sigma(p) = p + 1)
+-- ============================================================================
+
+def tg_sigma (n : ℕ) : ℕ :=
+  (Nat.divisors n).sum id
+
+theorem tg_e1_prime_sigma_identity
+    (p : ℕ)
+    (hp : p.Prime) :
+    tg_sigma p = p + 1 := by
+  dsimp [tg_sigma]
+  rw [Nat.Prime.divisors hp]
+  have h_ne : (1 : ℕ) ≠ p := hp.one_lt.ne'.symm
+  rw [Finset.sum_pair h_ne]
+  dsimp [id]
+  omega
+
+[LEAN KERNEL EXECUTION RESULT]
+--------------------------------------------------------------------------------
+Status    : LEAN_VERIFIED
+Exit code : 0
+Output    :
+âœ” [906/907] Built GeneratedTGxProof (25s)
+Build completed successfully (907 jobs).
+note: using toolchain 'leanprover/lean4:v4.33.0-rc2' from override set on '\\?\C:\Users\stace\Downloads\decalogue_project'
+note: to remove: elan override unset --path '\\?\C:\Users\stace\Downloads\decalogue_project' | to suppress: ELAN_NO_OVERRIDE_NOTICE=1
+================================================================================
+
+[+] Pipeline artifacts successfully exported to: C:\Users\stace\Downloads\tg_decalogue_output
+Pax Mathematica & Ternarium Geminorum!

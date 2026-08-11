@@ -1,0 +1,304 @@
+#DECALOGUE_LEAN_PIPELINE_ENG_LOG_PASS.txt
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              DECALOGUE-TO-LEAN PIPELINE ENGINE v2.2 FINAL BETA              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ The Decalogue Equation Framework is a derivation-auditing and               ║
+║ pre-formalization tool. It is not a general theorem prover.                  ║
+║                                                                              ║
+║ A HEAVEN verdict means the derivation passed the implemented Decalogue       ║
+║ checks. It does not by itself constitute a formal proof.                     ║
+║                                                                              ║
+║ Only a successful real Lean execution may be labeled LEAN_VERIFIED.          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Running demonstration:
+    Rough claim: x^2 = 4  =>  x = 2
+    Expected lint finding: missing branch x = -2
+
+
+================================================================================
+                  DECALOGUE-TO-LEAN PIPELINE REPORT
+================================================================================
+INITIAL FORMAL STATUS : INVALID
+INITIAL VERDICT       : HELL
+INITIAL GRACE SCORE   : 0.700
+FATAL VIOLATIONS      : 1
+
+[INITIAL DECALOGUE AUDIT]
+--------------------------------------------------------------------------------
+ 1. Commandment I: Foundation
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.85
+    Origin       : None
+    Critical     : YES
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C1 PASS: A supported domain was explicitly declared (Real).
+    Note         : Domain declaration verified; full operator typing is outside this beta.
+
+ 2. Commandment II: Meaning
+    Status       : PASS
+    Source       : SymPy symbolic engine
+    Confidence   : 0.95
+    Origin       : None
+    Critical     : YES
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C2 PASS: All parsed symbols are declared and consistently bound.
+    Note         : Controlled equality syntax parsed successfully.
+
+ 3. Commandment III: Completion
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.75
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C3 PASS: A finite derivation and explicit goal were supplied.
+    Note         : Finite demonstration fixture.
+
+ 4. Commandment IV: Lineage
+    Status       : PASS
+    Source       : Human/user certificate
+    Confidence   : 0.70
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C4 PASS: Every step has a declared certificate and transition; certificate correctness remains subject to symbolic or Lean verification.
+    Note         : Presence verified; semantic validity not assumed.
+
+ 5. Commandment V: Preservation
+    Status       : FAIL
+    Source       : Decalogue heuristic rule
+    Confidence   : 1.00
+    Origin       : Direct
+    Critical     : NO
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C5 FAIL: The transition x^2 = 4 => x = 2 silently discards the valid branch x = -2.
+    Note         : Demonstration-specific branch-loss rule.
+
+ 6. Commandment VI: Compatibility
+    Status       : UNDETERMINED
+    Source       : Not checked
+    Confidence   : 0.35
+    Origin       : None
+    Critical     : NO
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C6 UNDETERMINED: General type, coercion, and cross-domain checking is not implemented.
+    Note         : Lean will provide stronger type checking if executed.
+
+ 7. Commandment VII: Accounting
+    Status       : UNDETERMINED
+    Source       : Not checked
+    Confidence   : 0.35
+    Origin       : None
+    Critical     : NO
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C7 UNDETERMINED: General algebraic accounting is not implemented.
+    Note         : Reserved for a later symbolic ledger.
+
+ 8. Commandment VIII: Truth
+    Status       : FAIL
+    Source       : Decalogue heuristic rule
+    Confidence   : 1.00
+    Origin       : Propagated
+    Critical     : YES
+    Repairable   : YES
+    Dependencies : 5
+    Finding      : C8 FAIL: The claim x^2 = 4 => x = 2 is false over the reals because x = -2 is a counterexample.
+    Note         : Propagated from C5 Preservation.
+
+ 9. Commandment IX: Binding
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.65
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C9 PASS: No duplicate variable declarations occur in the demonstration context.
+    Note         : Full quantifier-scope analysis is not implemented.
+
+10. Commandment X: Bounds
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.70
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C10 PASS: The demonstration uses only the declared real domain and the supplied hypothesis x^2 = 4.
+    Note         : Narrow demonstration-scope provenance check.
+
+
+[TRANSPARENT REPAIR]
+--------------------------------------------------------------------------------
+Replaced the incomplete conclusion x = 2 with the complete real solution statement x = 2 or x = -2. The original false conclusion was removed rather than retained.
+Repaired goal: x = 2 or x = -2
+
+REPAIRED FORMAL STATUS : INCOMPLETE
+REPAIRED VERDICT       : LIMBO
+REPAIRED GRACE SCORE   : 0.850
+
+[REPAIRED DECALOGUE AUDIT]
+--------------------------------------------------------------------------------
+ 1. Commandment I: Foundation
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.85
+    Origin       : None
+    Critical     : YES
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C1 PASS: A supported domain was explicitly declared (Real).
+    Note         : Domain declaration verified; full operator typing is outside this beta.
+
+ 2. Commandment II: Meaning
+    Status       : UNDETERMINED
+    Source       : SymPy symbolic engine
+    Confidence   : 0.25
+    Origin       : None
+    Critical     : YES
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C2 UNDETERMINED: Step 2 uses syntax outside the equality parser: Expected exactly one '=' in 'x = 2 or x = -2'.
+    Note         : Unsupported syntax is not treated as false.
+
+ 3. Commandment III: Completion
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.75
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C3 PASS: A finite derivation and explicit goal were supplied.
+    Note         : Finite demonstration fixture.
+
+ 4. Commandment IV: Lineage
+    Status       : PASS
+    Source       : Human/user certificate
+    Confidence   : 0.70
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C4 PASS: Every step has a declared certificate and transition; certificate correctness remains subject to symbolic or Lean verification.
+    Note         : Presence verified; semantic validity not assumed.
+
+ 5. Commandment V: Preservation
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.98
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C5 PASS: Both real square-root branches x = 2 and x = -2 are preserved.
+    Note         : Demonstration-specific repaired-branch rule.
+
+ 6. Commandment VI: Compatibility
+    Status       : UNDETERMINED
+    Source       : Not checked
+    Confidence   : 0.35
+    Origin       : None
+    Critical     : NO
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C6 UNDETERMINED: General type, coercion, and cross-domain checking is not implemented.
+    Note         : Lean will provide stronger type checking if executed.
+
+ 7. Commandment VII: Accounting
+    Status       : UNDETERMINED
+    Source       : Not checked
+    Confidence   : 0.35
+    Origin       : None
+    Critical     : NO
+    Repairable   : YES
+    Dependencies : None
+    Finding      : C7 UNDETERMINED: General algebraic accounting is not implemented.
+    Note         : Reserved for a later symbolic ledger.
+
+ 8. Commandment VIII: Truth
+    Status       : PASS
+    Source       : SymPy symbolic engine
+    Confidence   : 0.98
+    Origin       : None
+    Critical     : YES
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C8 PASS: Solving x^2 = 4 over the reals yields exactly {-2, 2}, matching the repaired disjunctive conclusion.
+    Note         : Solution-set comparison verified by SymPy.
+
+ 9. Commandment IX: Binding
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.65
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C9 PASS: No duplicate variable declarations occur in the demonstration context.
+    Note         : Full quantifier-scope analysis is not implemented.
+
+10. Commandment X: Bounds
+    Status       : PASS
+    Source       : Decalogue heuristic rule
+    Confidence   : 0.70
+    Origin       : None
+    Critical     : NO
+    Repairable   : NO
+    Dependencies : None
+    Finding      : C10 PASS: The demonstration uses only the declared real domain and the supplied hypothesis x^2 = 4.
+    Note         : Narrow demonstration-scope provenance check.
+
+
+[GENERATED LEAN CANDIDATE]
+--------------------------------------------------------------------------------
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Linarith
+
+-- Auto-generated by the Decalogue-to-Lean Pipeline v2.2.
+-- This file is a Lean candidate until a real Lean process accepts it.
+
+theorem square_eq_four_branch
+    (x : ℝ)
+    (h : x ^ 2 = 4) :
+    x = 2 ∨ x = -2 := by
+  have hfactor : (x - 2) * (x + 2) = 0 := by
+    nlinarith [h]
+  rcases mul_eq_zero.mp hfactor with hleft | hright
+  · left
+    linarith
+  · right
+    linarith
+
+[LEAN EXECUTION]
+--------------------------------------------------------------------------------
+Status    : LEAN_VERIFIED
+Exit code : 0
+Output    :
+âœ” [846/847] Built GeneratedProof (8.0s)
+Build completed successfully (847 jobs).
+note: using toolchain 'leanprover/lean4:v4.33.0-rc2' from override set on '\\?\C:\Users\stace\Downloads\decalogue_project'
+note: to remove: elan override unset --path '\\?\C:\Users\stace\Downloads\decalogue_project' | to suppress: ELAN_NO_OVERRIDE_NOTICE=1
+
+[FINAL INTERPRETATION]
+--------------------------------------------------------------------------------
+The Decalogue identified and repaired the human-level branch-loss error. Lean formally verified the repaired theorem.
+================================================================================
+
+[EXPORTED FILES]
+  - C:\Users\stace\Downloads\decalogue_pipeline_output\generated_proof.lean
+  - C:\Users\stace\Downloads\decalogue_pipeline_output\repaired_derivation.txt
+  - C:\Users\stace\Downloads\decalogue_pipeline_output\lean_verification_log.txt
+  - C:\Users\stace\Downloads\decalogue_pipeline_output\pipeline_summary.json
+  - C:\Users\stace\Downloads\decalogue_pipeline_output\decalogue_audit_report.txt
+
+Pipeline complete. Pax Mathematica!

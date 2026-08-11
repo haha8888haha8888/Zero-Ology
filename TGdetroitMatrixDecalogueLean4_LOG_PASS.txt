@@ -1,0 +1,72 @@
+#TGdetroitMatrixDecalogueLean4_LOG_PASS.txt
+╔══════════════════════════════════════════════════════════════════════════════╗
+║        TG DETROIT MATRIX — DECALOGUE LINTING & LEAN PROOF PIPELINE           ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ Framework: Ternarium Geminorum (TG) Detroit Matrix & Decalogue Engine        ║
+║ Focus: Formalizing benchmark theorem (n > 3 => 1 < gcd(n, n*(n-1)))          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+================================================================================
+      TERNARIUM GEMINORUM — DETROIT MATRIX DECALOGUE REPORT
+================================================================================
+FORMAL STATUS : INCOMPLETE
+VERDICT       : LIMBO
+GRACE SCORE   : 0.800
+FATAL ERRORS  : 0
+
+[BRUTALLY HONEST COMMANDMENT AUDIT LEDGER]
+--------------------------------------------------------------------------------
+ 1. Commandment I: Foundation      | Status: PASS         | Conf: 0.90
+    Finding: C1 PASS — Domain explicitly declared (Natural).
+ 2. Commandment II: Meaning        | Status: PASS         | Conf: 0.95
+    Finding: C2 PASS — Variables ['n'] structurally declared.
+ 3. Commandment III: Completion    | Status: PASS         | Conf: 0.85
+    Finding: C3 PASS — Explicit derivation goal and target statement supplied.
+ 4. Commandment IV: Lineage        | Status: PASS         | Conf: 0.80
+    Finding: C4 PASS — Step sequence and justification certificates supplied.
+ 5. Commandment V: Preservation    | Status: UNDETERMINED | Conf: 0.40
+    Finding: C5 UNDETERMINED — General information-preservation rule not implemented outside base fixture.
+ 6. Commandment VI: Compatibility  | Status: UNDETERMINED | Conf: 0.35
+    Finding: C6 UNDETERMINED — Compatibility across domain bounds not formally checked by linter.
+ 7. Commandment VII: Accounting    | Status: UNDETERMINED | Conf: 0.35
+    Finding: C7 UNDETERMINED — Full algebraic accounting deferred to formal kernel.
+ 8. Commandment VIII: Truth        | Status: UNDETERMINED | Conf: 0.30
+    Finding: C8 UNDETERMINED — Conjectural TG Acheron overlap claim not established by linter alone; delegated to Lean.
+ 9. Commandment IX: Binding        | Status: PASS         | Conf: 0.90
+    Finding: C9 PASS — Variable bindings structurally valid with no duplication collision.
+10. Commandment X: Bounds          | Status: PASS         | Conf: 0.85
+    Finding: C10 PASS — Observation horizon bounds and hypothesis limits declared.
+
+[GENERATED LEAN 4 PROOF CODE]
+--------------------------------------------------------------------------------
+import Mathlib.Data.Nat.Basic
+import Mathlib.Data.Nat.GCD.Basic
+
+-- ============================================================================
+-- AUTO-GENERATED LEAN 4 PROOF SCRIPT FOR TERNARIUM GEMINORUM DETROIT MATRIX
+-- Benchmark Theorem: Given n > 3, prove 1 < gcd(n, n * (n - 1)).
+-- ============================================================================
+
+theorem tg_acheron_overlap_lower_bound
+    (n : ℕ)
+    (h_gt : n > 3) :
+    1 < Nat.gcd n (n * (n - 1)) := by
+  have h_dvd : n ∣ (n * (n - 1)) := dvd_mul_right n (n - 1)
+  have h_gcd : Nat.gcd n (n * (n - 1)) = n := Nat.gcd_eq_left h_dvd
+  rw [h_gcd]
+  omega
+
+[LEAN KERNEL EXECUTION RESULT]
+--------------------------------------------------------------------------------
+Status    : LEAN_VERIFIED
+Exit code : 0
+Output    :
+âœ” [522/523] Built GeneratedTGProof (19s)
+Build completed successfully (523 jobs).
+note: using toolchain 'leanprover/lean4:v4.33.0-rc2' from override set on '\\?\C:\Users\stace\Downloads\decalogue_project'
+note: to remove: elan override unset --path '\\?\C:\Users\stace\Downloads\decalogue_project' | to suppress: ELAN_NO_OVERRIDE_NOTICE=1
+================================================================================
+
+[+] Pipeline artifacts successfully exported to: C:\Users\stace\Downloads\tg_decalogue_output
+Pax Mathematica & Ternarium Geminorum!
