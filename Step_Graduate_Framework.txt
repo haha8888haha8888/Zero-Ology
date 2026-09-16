@@ -1,0 +1,225 @@
+Step_Graduate_Framework.txt
+
+The Step Graduate Framework
+Native Z6 Phase Coherence, Circulant Dynamics, and Modular Step Logic Ledgers
+Chapter 1: Scope, Lineage, and Evidence Status
+1.1 Lineage and Context
+The Step Graduate Framework extends three foundational architectures:
+ * Step Logic Offset Preservation: Retaining correction ledgers rather than collapsing values into unstructured approximations.
+ * The 6-Gem Phase Architecture: Utilizing discrete ternary cyclic phase states across structured tiers.
+ * The Gem-Prism Phase Embedding: Mapping state coordinates directly to complex roots of unity.
+1.2 Originality and Claims
+The circulant eigenvalue identity demonstrated herein is an application of standard finite-state Markov-chain and discrete Fourier analysis. The Step Graduate Framework organizes these methods alongside Gem-native phase terminology and an independent Step Logic reference ledger; this presentation does not establish novelty of the underlying eigenvalue identity itself.
+To ensure absolute clarity of scope, every claim within this framework is explicitly categorized:
+ * Definition: Axiomatic constructions (e.g., the Z6 carrier space, the coherence observable G).
+ * Theorem: Mathematically proven identities (e.g., the first-mode circulant eigenvalue law).
+ * Analytical Consequence: Direct deductions derived from definitions and theorems.
+ * Computational Verification: Numerical execution demonstrating agreement between direct matrix operations and analytical formulas.
+ * Interpretation: Operational definitions of macro-observables (e.g., circular concentration).
+ * Future Hypothesis: Theoretical extensions designated for subsequent development.
+Chapter 2: Native Z6 Phase Space
+2.1 The Discrete Carrier Space
+Rather than employing arbitrary continuous carriers, the framework anchors its geometry to the discrete sixth roots of unity:
+Z6 = {0, 1, 2, 3, 4, 5}
+zeta = e^(i * pi / 3)
+phi(j) = zeta^j
+2.2 The Probability Simplex and Coherence Observable
+Let the state distribution reside on the 5-simplex (an array of 6 non-negative probabilities that sum exactly to 1).
+We define the Gem Coherence Observable (G) as the first circular moment of the distribution:
+G(p) = sum(p_j * zeta^j) for j = 0 to 5
+From G, we extract two primary macro-observables:
+ * Coherence Magnitude (rho = |G|): Measures the normalized mean resultant length (phase concentration).
+ * Directional Phase Angle (theta = arg(G)): Measures net phase orientation. (Undefined when G = 0).
+Chapter 3: Exact Baseline Control
+3.1 The Symmetric Baseline Distribution
+We establish an exact control baseline by distributing probability mass symmetrically around carrier state chi_0 = 1:
+p_0 = (3/20, 3/5, 3/20, 1/20, 0, 1/20)
+3.2 Exact Closed-Form Reduction
+Evaluating the coherence observable for p_0 yields:
+G_0 = sum( (p_0)_j * zeta^j ) = (7/10) * zeta = 7/20 + i * (7 * sqrt(3) / 20)
+The resulting macro-observables are:
+ * Magnitude: rho_0 = 7/10 = 0.70
+ * Direction: theta_0 = pi / 3 = 60 degrees
+ * Circular Variance: V_circ = 1 - rho_0 = 0.30
+Because the distribution is reflection-symmetric around state 1, transverse phase components cancel pairwise, yielding pure magnitude attenuation without chiral drift.
+Chapter 4: Circulant Chirality-Viscosity Dynamics
+4.1 Transition Operator Definition
+System evolution over discrete time steps t is governed by a stochastic circulant transition matrix Q, parameterized by viscosity (v in [0, 1], representing state retention) and chirality (c in [-1, 1], representing directional bias):
+For any state j, transitioning to state k:
+Q(j, k) = v, if k = j
+Q(j, k) = (1 - v) * (1 + c) / 2, if k = (j + 1) mod 6
+Q(j, k) = (1 - v) * (1 - c) / 2, if k = (j - 1) mod 6
+Q(j, k) = 0, otherwise.
+This operator satisfies nonnegativity, row normalization, and total probability conservation.
+4.2 The First-Mode Eigenvalue Theorem & Proof
+The macroscopic coherence evolves under the row-vector convention according to the exact analytical eigenvalue lambda.
+Setting:
+a = (1 - v) * (1 + c) / 2
+b = (1 - v) * (1 - c) / 2
+Using the row-vector convention and cyclic indices, we evaluate G(p * Q):
+G(p * Q) = sum( p_j * (v * zeta^j + a * zeta^(j+1) + b * zeta^(j-1)) )
+= (v + a * zeta + b * zeta^-1) * G(p)
+= [ (1 + v) / 2 + i * (sqrt(3) / 2) * (1 - v) * c ] * G(p)
+Iteration proves the central theorem for the first Fourier mode:
+G(p * Q^t) = G(p) * lambda^t, for t >= 0
+4.3 Behavioral Qualifications
+The magnitude of the eigenvalue is bounded:
+|lambda|^2 = [ (1 + v)^2 + 3 * (1 - v)^2 * c^2 ] / 4 <= 1
+Equality occurs solely when v = 1 (no movement) or v = 0 and c = +/-1 (deterministic rotation). Elsewhere, |lambda| < 1.
+Therefore, strictly bounded geometric decay (rho_t = rho_0 * |lambda|^t) occurs when |lambda| < 1 and rho_0 > 0. The angle formula (theta_t = theta_0 + t * arg(lambda) mod 360) requires G_0 != 0; furthermore, with negative chirality, the angle decreases rather than advances positively when v < 1 (at v = 1, the system does not rotate regardless of chirality).
+Chapter 5: Step Logic Ledgers vs. Ensemble Probabilities
+5.1 Dual-Layer Architecture
+The Step Graduate Framework explicitly maintains two parallel layers:
+ * The Probabilistic Ensemble (p_t): Evolving under the Markov transition operator Q.
+ * The Deterministic Step Logic Ledger (L_t): Maintaining an explicit, unwrapped path record.
+5.2 Ledger Formalization
+The ledger does not represent every stochastic path contributing to the ensemble distribution; rather, it tracks an independent reference trajectory:
+ * Resolved modular state: chi_t = (chi_0 + k_t) mod 6
+ * Unwrapped cumulative offset: k_t = sum(delta_r) from r = 1 to t
+ * Complete path record: L_t = (chi_0; delta_1, ..., delta_t; k_t, chi_t)
+The stored sequence of cumulative offsets permits exact reconstruction of distinct increments at any time step through the relation:
+delta_t = k_t - k_(t-1)
+Chapter 6: Computational Verification
+The following verification baseline script implements dimensional and numerical safeguards. It demonstrates machine-precision agreement between direct matrix evolution and the analytical formula during the reported eight-step baseline run. (Note: This demonstrates empirical agreement for this specific baseline run, rather than establishing a guaranteed error bound for every parameter choice or infinite run lengths.)
+import numpy as np
+
+class GemPrismEngine:
+    def __init__(self, p_initial, v=0.8, c=0.0, tol=1e-12):
+        """
+        Initializes the Z6 Step Graduate Framework Engine with input validation.
+        """
+        if not np.isfinite(tol) or tol <= 0:
+            raise ValueError("tol must be finite and positive.")
+            
+        self.tol = tol
+        p_arr = np.array(p_initial, dtype=float)
+        
+        # Rigorous Probability and Parameter Safeguards
+        if p_arr.shape != (6,):
+            raise ValueError("Probability vector must have exactly 6 elements.")
+        if not np.all(np.isfinite(p_arr)):
+            raise ValueError("Probability entries must be finite.")
+        if np.any(p_arr < 0) or not np.isclose(np.sum(p_arr), 1.0, atol=self.tol, rtol=0.0):
+            raise ValueError("Probability vector must sum to 1.0 and contain non-negative values.")
+        if not (0.0 <= v <= 1.0):
+            raise ValueError("Viscosity v must be within [0.0, 1.0].")
+        if not (-1.0 <= c <= 1.0):
+            raise ValueError("Chirality c must be within [-1.0, 1.0].")
+
+        self.p = p_arr
+        self.v = v
+        self.c = c
+        
+        # Z6 phase roots: exp(i * pi * j / 3)
+        self.j_vals = np.arange(6)
+        self.zeta = np.exp(1j * np.pi * self.j_vals / 3.0)
+        
+        # Build transition matrix Q
+        self.Q = self._build_transition_matrix()
+        
+        # Step Logic History Ledger tracking (independent reference path)
+        self.base_state = 1
+        self.cumulative_offset = 0
+        self.history_ledger = [(self.base_state, self.cumulative_offset, self.base_state)]
+
+    def _build_transition_matrix(self):
+        Q = np.zeros((6, 6), dtype=float)
+        for j in range(6):
+            Q[j, j] = self.v
+            Q[j, (j + 1) % 6] = (1.0 - self.v) * (1.0 + self.c) / 2.0
+            Q[j, (j - 1) % 6] = (1.0 - self.v) * (1.0 - self.c) / 2.0
+        return Q
+
+    def compute_coherence(self):
+        """Calculates the Gem Coherence vector G = sum(p_j * zeta^j)."""
+        G = np.sum(self.p * self.zeta)
+        rho = np.abs(G)
+        
+        # Numerically unresolved phase safeguard
+        if rho < self.tol:
+            theta_deg = np.nan
+        else:
+            theta_rad = np.angle(G)
+            theta_deg = np.degrees(theta_rad) % 360
+            
+        return G, rho, theta_deg
+
+    def analytical_eigenvalue(self):
+        """Computes the exact analytical eigenvalue lambda."""
+        real_part = (1.0 + self.v) / 2.0
+        imag_part = (np.sqrt(3.0) / 2.0) * (1.0 - self.v) * self.c
+        return complex(real_part, imag_part)
+
+    def step(self, delta_k=1):
+        """Evolves the distribution and updates the reference ledger."""
+        if not isinstance(delta_k, int):
+            raise ValueError("delta_k must be an integer to retain discrete ledger boundaries.")
+            
+        self.p = self.p @ self.Q
+        self.cumulative_offset += delta_k
+        current_state = (self.base_state + self.cumulative_offset) % 6
+        self.history_ledger.append((self.base_state, self.cumulative_offset, current_state))
+        return current_state
+
+    def run_simulation(self, steps=8):
+        if not isinstance(steps, int) or steps < 0:
+            raise ValueError("Steps must be a non-negative integer.")
+            
+        print(f"--- Running Simulation (Viscosity v={self.v}, Chirality c={self.c}) ---")
+        G_0, rho_0, theta_0 = self.compute_coherence()
+        print(f"Step 0  |  |G| = {rho_0:.4f}  |  Arg(G) = {theta_0:6.2f} deg  |  G = {G_0}")
+        
+        lam = self.analytical_eigenvalue()
+        
+        for t in range(1, steps + 1):
+            self.step(delta_k=1)
+            G_t, rho_t, theta_t = self.compute_coherence()
+            G_predicted = G_0 * (lam ** t)
+            print(f"Step {t:2d} |  |G| = {rho_t:.4f}  |  Arg(G) = {theta_t:6.2f} deg  |  Matrix vs Analytic Diff: {abs(G_t - G_predicted):.2e}")
+
+if __name__ == "__main__":
+    baseline_p = [0.15, 0.60, 0.15, 0.05, 0.00, 0.05]
+    engine = GemPrismEngine(p_initial=baseline_p, v=0.85, c=0.40)
+    engine.run_simulation(steps=8)
+
+
+RuneTime Results:
+
+--- Running Simulation (Viscosity v=0.85, Chirality c=0.4) ---
+Step 0  |  |G| = 0.7000  |  Arg(G) =  60.00 deg  |  G = (0.35000000000000003+0.6062177826491071j)
+Step  1 |  |G| = 0.6485  |  Arg(G) =  63.22 deg  |  Matrix vs Analytic Diff: 1.11e-16
+Step  2 |  |G| = 0.6008  |  Arg(G) =  66.43 deg  |  Matrix vs Analytic Diff: 1.14e-16
+Step  3 |  |G| = 0.5566  |  Arg(G) =  69.65 deg  |  Matrix vs Analytic Diff: 1.11e-16
+Step  4 |  |G| = 0.5157  |  Arg(G) =  72.86 deg  |  Matrix vs Analytic Diff: 2.83e-16
+Step  5 |  |G| = 0.4778  |  Arg(G) =  76.08 deg  |  Matrix vs Analytic Diff: 3.40e-16
+Step  6 |  |G| = 0.4426  |  Arg(G) =  79.29 deg  |  Matrix vs Analytic Diff: 2.22e-16
+Step  7 |  |G| = 0.4101  |  Arg(G) =  82.51 deg  |  Matrix vs Analytic Diff: 1.72e-16
+Step  8 |  |G| = 0.3799  |  Arg(G) =  85.72 deg  |  Matrix vs Analytic Diff: 1.67e-16
+
+
+Chapter 7: Limits of the Foundation
+ * Homogeneity: Only time-independent, global parameters v and c are established.
+ * First-Mode Restriction: The scalar evolution law applies specifically to the first circular moment G.
+ * Decoupled Ledgers: The Step Logic reference path currently runs parallel to, rather than mathematically coupled with, the stochastic ensemble.
+ * Implementation Boundaries: Exact symbolic formulas and floating-point execution are distinct layers. The Z6 construction permits exact symbolic initialization, while floating-point roundoff (e.g., ~1e-16 residuals) enters strictly during numerical evaluation.
+ * No State Trapping: No trapping mechanics beyond uniform state retention (v) are currently modeled.
+ * Physical Application: No explicit claims of physical application are made at this foundational tier.
+Chapter 8: Future Works
+ * State-Dependent Topographies: Evolving v(chi) and c(chi) as functions of local Gem states to simulate phase traps.
+ * Echo / Shadow Feedback Coupling: Integrating the Step Logic offset ledger so cumulative displacement actively feeds back into the transition probability matrix.
+ * Multi-Tier Architecture Expansion: Bridging this Z6 engine upward into the multi-tiered 6-Gem Logic architecture.
+ * Path-Resolved Stochastic Ledgers: Constructing an augmented process over (chi, k) to mathematically bind probabilistic evolution and Step Logic history, thereby tracking full state-offset interdependency.
+
+#==========================================================================================
+#Compliance Profile & Licensing:
+#  - Framework: Step_Graduate_Framework.txt
+#  - Foundational Concept Integration: Zero-Ology IP Archive / Zer00logy IP Archive
+#  - Primary Author of Foundational Concepts: Stacey Szmy
+#  - AI Authors: ChatGPT, Gemini AI
+#  - AI Review Contribution: DeepSeek AI, Grok AI, Claude AI, MS Copilot AI
+#  - Reference: https://github.com/haha8888haha8888/Zero-ology
+#  - Reference: https://github.com/haha8888haha8888/Zer00logy
+#  - Reference: www.zero-ology.com
+#
+#  © Stacey8Szmy. Zer00logy/Zero-Ology IP Archive. All symbolic rights reserved.
+#==========================================================================================
