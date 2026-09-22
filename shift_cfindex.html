@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shift Arithmetic — Interactive Lesson</title>
+<style>
+:root{color-scheme:light;--paper:#f8f3e8;--ink:#202824;--muted:#57645d;--line:#dcd6c6;--green:#174f43;--gold:#f5d47b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.6 Georgia,"Times New Roman",serif}h1,h2,h3{line-height:1.15;letter-spacing:-.025em}h1{font-size:clamp(2.2rem,5vw,3.7rem);margin:.5em 0}h2{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 20px}p{margin:0 0 12px}a{color:var(--green)}button,input,select{font:inherit}button,select,input[type=number],input:not([type]){min-height:44px;border:1px solid #a8b4ab;border-radius:7px;padding:8px 12px;background:#fff;color:var(--ink)}button{cursor:pointer;font-family:ui-monospace,monospace;font-size:13px;font-weight:bold}button:hover{background:#e9f0e9}button:disabled{opacity:.5;cursor:default}input[type=number]{width:110px;max-width:100%}input[type=range]{width:100%;accent-color:var(--green);min-height:32px}label{display:block;font-weight:bold}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[role=button]:focus-visible{outline:3px solid #a34b14;outline-offset:3px}section{margin-bottom:54px;min-width:0}header{margin-bottom:48px}main{min-width:0;flex:1}.card{border:1px solid var(--line);background:#fffdf7;border-radius:14px;padding:24px}.mono,code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.badge{font:11px/1.6 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--green)}.text-xs,.text-sm{font-size:14px}.text-lg,.text-xl{font-size:19px}.text-2xl{font-size:24px}.opacity-60,.opacity-70,.opacity-80{color:var(--muted)}.flex{display:flex;flex-wrap:wrap;align-items:center}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-6{gap:24px}.grid{display:grid;gap:18px}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.mt-1{margin-top:4px}.mt-2{margin-top:8px}.mt-3{margin-top:12px}.mt-4{margin-top:18px}.mt-6{margin-top:26px}.mb-3{margin-bottom:12px}.ml-2{margin-left:8px}.p-2,.p-3{padding:12px}.border{border:1px solid var(--line)}.rounded{border-radius:8px}.bg-white{background:white}.bg-amber-50{background:#fff4d7}.bg-teal-50{background:#e8f4ee}.bg-stone-50{background:#f1f2eb}.hidden{display:none}.break-all,.break-words{overflow-wrap:anywhere}.w-full{width:100%}.block{display:block}.font-bold,.font-medium{font-weight:bold}.overflow-auto{overflow:auto;max-width:100%}.relative{position:relative}.justify-between{justify-content:space-between}.space-y-3>*+*{margin-top:12px}.space-y-2>*+*{margin-top:8px}body>div{max-width:1280px;margin:auto;padding:36px 24px;display:flex;gap:36px}nav{width:225px;flex-shrink:0;position:sticky;top:24px;align-self:flex-start}nav .card{padding:18px}nav .card+ .card{margin-top:16px}nav a{display:block;text-decoration:none;font:13px/1.5 ui-monospace,monospace;padding:6px 0}nav a:hover{text-decoration:underline}#blocks{align-items:flex-start;min-height:120px}#blocks>div:not(:only-child),.unit-block{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid #9c7124;background:var(--gold);border-radius:6px}svg{display:block;max-width:100%}#treeSvg{max-width:none}#trees .relative{max-height:520px;overflow:auto}#treeInfo{display:block;flex-basis:100%;overflow-wrap:anywhere}#snList>div{padding:12px;border:1px solid var(--line);border-radius:8px;overflow-wrap:anywhere;font-size:12px}#audit table{border-collapse:collapse;width:100%;font:12px/1.5 ui-monospace,monospace}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}thead{position:sticky;top:0;background:#e7ece5}td:last-child{min-width:220px;max-width:360px;overflow-wrap:anywhere}#audit .overflow-auto{max-height:460px}#audit input{max-width:180px}#code .card{padding:0;overflow:hidden}#code .card>div{padding:12px 18px;background:#e7ece5}pre{margin:0;padding:22px;background:#1c2823;color:#eef5ed;font-size:12px;line-height:1.65;overflow:auto;white-space:pre;tab-size:4}details{border:1px solid var(--line);border-radius:10px;background:#fffdf7;padding:16px 20px}summary{cursor:pointer;font-weight:bold}details p{margin-top:12px}#selfCheck{padding:10px 14px;border-left:4px solid var(--green);background:#e8f4ee;font:12px/1.6 ui-monospace,monospace}#treeExpression{overflow-wrap:anywhere;font-size:12px}#copyStatus{font:12px ui-monospace,monospace}.challenge{margin-top:20px;padding:16px;border:1px dashed #af8742;border-radius:8px}.chart-caption{font-size:13px;color:var(--muted)}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:10px;background:white;padding:10px;z-index:10}
+@media(min-width:760px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){body>div{display:block}nav{position:static;width:auto;margin-bottom:28px}nav>.card:nth-child(2){display:none}#toc{display:flex;flex-wrap:wrap;gap:6px 16px}nav .card{padding:14px 18px}}
+@media(max-width:600px){body{font-size:16px}body>div{padding:22px 14px}.card{padding:18px}.grid-cols-3{grid-template-columns:1fr}.grid-cols-2{grid-template-columns:1fr}#snList{grid-template-columns:repeat(2,minmax(0,1fr))}.flex{gap:8px}pre{font-size:11px}#nBound{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to lesson</a>
+<noscript><p>This lesson requires JavaScript for its calculators and data table.</p></noscript>
+<div class="max-w-7xl mx-auto px-6 py-8 lg:flex gap-8">
+<nav class="navigation">
+<div class="card p-4">
+<div class="badge text-amber-800 mb-3">First Edition • Revised</div>
+<div class="mono text-xs leading-5 text-stone-600">S. Szmy<br>Research record v1.1<br>22 Sept 2026<br>Verified L(1..100)<br>Max 11 at 94 only</div>
+<div class="mt-4 space-y-2 text-sm" id="toc"></div>
+</div>
+<div class="card p-4">
+<div class="mono text-xs font-medium">Guided Challenge</div>
+<div class="text-xs mt-2 leading-relaxed">Make 7 using only 1s and ⋆. Can you do it with four 1s? With five? Explain why this connects to S₄ gap and prime entrance.</div>
+</div>
+</nav>
+<main id="main">
+<header class="mb-12">
+<div class="badge text-amber-800">Shift Arithmetic and Construction Complexity — Interactive Lesson</div>
+<h1 class="text-[2.7rem] md:text-5xl leading-[0.95] mt-3 font-semibold">A teaching model for<br>a ⋆ b = a(b+1)</h1>
+<p class="mt-4 text-lg md:text-xl opacity-80 leading-relaxed">Starting amount <i>a</i> plus <i>b</i> additional groups of <i>a</i>. For nonnegative integer b literal repeated addition; real inputs extend formula algebraically. Custom operation, not ordinary multiplication.</p>
+<div class="mt-6 grid grid-cols-3 gap-3">
+<div class="card px-3 py-3"><div class="badge">Operation</div><div class="mono text-sm mt-1">a ⋆ b = a(b+1)</div><div class="text-[11px] mt-1 opacity-60">Algebra: real inputs. Trees: positive integers.</div></div>
+<div class="card px-3 py-3"><div class="badge">Companion</div><div class="mono text-sm mt-1">b⊕c = b+c+bc</div><div class="text-[11px] mt-1 opacity-60">Group on ℝ\{-1\}, identity 0. Log composition requires b,c&gt;−1</div></div>
+<div class="card px-3 py-3"><div class="badge">Leaves</div><div class="mono text-sm mt-1">L(1)=1, S₁={1}</div><div class="text-[11px] mt-1 opacity-60">Recurrence uses proper divisors 1≤d&lt;m only, no L(0). n leaves → [n, 2^{n-1}]</div></div>
+</div>
+<p id="selfCheck" role="status">Checking construction data…</p></header>
+
+<section id="calc" class="mb-14">
+<h2 class="text-3xl mb-3">1. Intuition — Live Blocks</h2>
+<div class="card p-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label class="mono text-xs">a — starting amount</label>
+<input id="aIn" aria-label="Starting amount a" type="range" min="0" max="20" step="0.5" value="5" class="w-full">
+<div class="mono text-xl" id="aOut">5</div>
+<label class="mono text-xs mt-4 block">b — extra groups (real)</label>
+<input id="bIn" aria-label="Extra groups b" type="range" min="-1" max="10" step="0.5" value="3" class="w-full">
+<div class="mono text-xl" id="bOut">3</div>
+<div class="mt-4 p-3 bg-amber-50 rounded mono text-sm">a⋆b = <span id="starRes" aria-live="polite">20</span><br><span id="starFormula" class="text-xs opacity-70"></span></div>
+<div class="mt-3 text-xs leading-relaxed">For integer b ≥ 0, each block represents one group of a. At b = −1 the output is zero, so the starting amount cannot be recovered. Domain note: inverse b = c/a−1 requires a≠0; a = c/(b+1) requires b≠-1.</div>
+</div>
+<div id="blocks" class="flex flex-wrap gap-2 content-start min-h-[120px] border border-dashed rounded p-3 bg-white"></div>
+</div>
+</div>
+</section>
+
+<section id="algebra" class="mb-14">
+<h2 class="text-3xl mb-3">2. Elementary Algebra — Complete Statements</h2>
+<div class="card p-5 mb-3 mono text-xs bg-stone-50">
+Domain for algebraic statements: real numbers unless stated otherwise. Construction model Sₙ, L(m): every leaf exactly 1, internal node ⋆, fully parenthesized binary trees, positive integer values, no shared subexpressions.
+</div>
+<div class="space-y-3" id="algebraCards"></div>
+</section>
+
+<section id="oplus" class="mb-14">
+<h2 class="text-3xl mb-3">3. Companion Law ⊕ — Reversible Changes</h2>
+<div class="card p-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<div class="mono text-sm">b⊕c = b+c+bc = (1+b)(1+c)−1</div>
+<div class="mono text-xs mt-2 bg-white border rounded p-2">Theorem: a⋆(b⊕c) = (a⋆b)⋆c = a(1+b)(1+c). Proof direct expansion.</div>
+<div class="mt-4">
+<div class="mono text-xs">Test composition</div>
+<div class="flex gap-2 mt-1">
+<input id="bO" aria-label="First relative change b" type="number" value="0.2" step="0.05" class="border rounded px-2 py-1 mono w-24">
+<input id="cO" aria-label="Second relative change c" type="number" value="0.3" step="0.05" class="border rounded px-2 py-1 mono w-24">
+<button id="oplusBtn" class="bg-[#134e4a] text-white mono text-xs px-3 py-1.5 rounded">compute</button>
+</div>
+<div id="oplusOut" aria-live="polite" class="mono text-sm mt-2"></div>
+<div id="invDemo" aria-live="polite" class="mono text-xs mt-2 bg-teal-50 p-2 rounded"></div>
+</div>
+</div>
+<div class="text-sm leading-relaxed">
+<p><b>Group structure:</b> ψ(b)=1+b, ψ(b⊕c)=ψ(b)ψ(c). Hence ⊕ on ℝ\{-1} is abelian group isomorphic to multiplication on ℝ\{0}. Identity 0, inverse of b is −b/(1+b) when b≠-1. At b=-1, no inverse — absorbing element (monoid).</p>
+<p class="mt-2"><b>Log:</b> Restricting to b>-1 gives positive scale factors; log(1+b) converts composition to addition: log(1+(b⊕c))=log(1+b)+log(1+c) for b,c>-1.</p>
+<p class="mt-2"><b>Practice:</b> 100 increased 20% then 30% → 156. Combined relative change 0.2⊕0.3=0.56. 25% increase undone by 20% decrease because 0.25⊕(-0.2)=0.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="trees" class="mb-14">
+<h2 class="text-3xl mb-3">4. Expression Trees and Sₙ</h2>
+<div class="card p-6">
+<p class="text-sm">S₁={1}, Sₙ = ⋃_{1≤k&lt;n} { x(y+1) : x∈S_k, y∈S_{n-k} }. No associativity assumed — recurrence enumerates all bracketings.</p>
+<div class="mt-4">
+<div class="mono text-xs font-medium">Interactive builder — click a yellow leaf to grow: replace 1 with (1⋆1)</div>
+<div class="flex gap-2 mt-2"><button id="resetTree" class="mono text-xs border px-3 py-1 rounded">reset</button><button id="undoTree" type="button">undo</button><button id="autoGrow" class="mono text-xs border px-3 py-1 rounded">auto grow left</button><span id="treeInfo" class="mono text-xs ml-2"></span></div>
+<div class="relative mt-3 border rounded bg-white overflow-auto">
+<svg id="treeSvg" width="800" height="300" class="min-w-full"></svg>
+</div>
+<p id="treeExpression" aria-live="polite"></p><div class="text-[11px] mt-2 opacity-60">Click or focus a yellow leaf and press Enter or Space to split it. Scroll to explore large trees. Limit: 64 leaves; values remain exact.</div>
+</div>
+<div class="mt-6">
+<div class="mono text-xs">First sets (verified)</div>
+<div id="snList" class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2 mono text-xs"></div>
+<div class="mt-3 text-sm">S₄ has 5 binary bracketings → 4 distinct values because two bracketings yield 6. Missing 7 is reachability gap, not paradox. Try to make 7 with four leaves, then five.</div>
+</div>
+</div>
+<details class="challenge"><summary>Challenge hint and solution for 7</summary><p>Four leaves produce only {4, 5, 6, 8}. With five, use 1 ⋆ ((1 ⋆ 1) ⋆ (1 ⋆ 1)) = 1 ⋆ 6 = 7. Since 7 is prime, its root must have left value 1 and right value 6.</p></details></section>
+
+<section id="bounds" class="mb-14">
+<h2 class="text-3xl mb-3">5. Bounds and Extremal Trees</h2>
+<div class="card p-6">
+<div class="flex items-center gap-3"><label class="mono text-xs">n leaves</label><input id="nBound" aria-label="Number of leaves" type="range" min="1" max="14" value="4" class="w-56"><span id="nBoundOut" class="mono text-sm">4</span></div>
+<div class="mono text-xs mt-3">For n-leaf trees: n ≤ value ≤ 2^{n-1}. For a root split k+ℓ=n, induction gives x(y+1) ≥ k(ℓ+1) ≥ n and x(y+1) ≤ 2^{k−1}(2^{ℓ−1}+1) ≤ 2^{n−1}. Right-grouped 1s attain n; left-grouped attain 2^{n-1}.</div>
+<svg id="boundSvg" width="100%" height="140" role="img" aria-label="Minimum and maximum value for the chosen number of leaves" class="mt-3 border rounded bg-white"></svg>
+</div>
+</section>
+
+<section id="prime" class="mb-14">
+<h2 class="text-3xl mb-3">6. Prime Entrance</h2>
+<div class="card p-6">
+<p class="text-sm"><b>Theorem (positive integer tree values):</b> If prime p = x(y+1) with x∈S_k, y∈S_{n-k}, positivity forces x=1 and y=p−1. Only single leaf evaluates to 1 by lower bound.</p>
+<div class="mt-3 flex items-center gap-2"><label class="mono text-xs">prime p ≤100</label><select id="primeSel" aria-label="Prime number" class="border rounded mono px-2 py-1 text-sm"></select><span id="primeInfo" aria-live="polite" class="mono text-xs ml-2"></span></div>
+<div class="mt-2 mono text-xs bg-amber-50 p-2 rounded">Consequence: L(p)=L(p−1)+1 for prime p. Attach left leaf 1 to optimal tree for p−1. Example: constructing 22 as 2⋆10 uses tree for 10, not 11. Hence L(23)=L(22)+1=8.</div>
+</div>
+</section>
+
+<section id="lm" class="mb-14">
+<h2 class="text-3xl mb-3">7. Minimum Construction L(m) — Complete Recurrence</h2>
+<div class="card p-6">
+<div class="mono text-sm leading-relaxed">
+L(m) = minimum unit leaves to build positive integer m.<br>
+Base: L(1)=1. Zero cannot be constructed from positive unit leaves.<br>
+For m≥2: L(m)= min_{1≤d&lt;m, d|m} L(d) + L(m/d −1). Here d ranges over proper positive divisors of m; both child values are smaller positive integers.
+</div>
+<div class="mt-4 flex gap-2 items-center">
+<input id="mIn" aria-label="Integer to construct" type="number" min="1" max="100" value="94" class="border mono w-24 px-2 py-1.5 rounded text-sm">
+<button id="mBtn" class="mono text-xs bg-amber-800 text-white px-4 py-2 rounded">explain optimal</button>
+<span id="mVal" aria-live="polite" class="mono text-xs"></span>
+</div>
+<div id="mOut" class="mt-3 mono text-xs leading-relaxed bg-white border rounded p-3"></div>
+<div class="mt-3 text-xs">Enter a whole number from 1 to 100. The expression uses the custom operation ⋆.</div>
+</div>
+</section>
+
+<section id="audit" class="mb-14">
+<h2 class="text-3xl mb-3">8. Computational Audit 1..100 — Verified Data</h2>
+<div class="card p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<input id="filterIn" aria-label="Filter integer values" placeholder="filter m e.g. 9" class="border mono text-xs px-2 py-1 rounded">
+<select id="sortSel" aria-label="Sort data table" class="border mono text-xs px-2 py-1 rounded"><option value="m">sort m ↑</option><option value="L">L ↓</option><option value="ratio">ratio L/log₂ ↓</option><option value="delta">Δ ↓</option></select>
+<span class="mono text-[10px] opacity-60 self-center">ratio undefined at m=1 (log₂1=0) — shown as —</span>
+</div>
+<div class="overflow-auto max-h-[460px] border rounded bg-white">
+<table class="w-full mono text-[11px]"><thead class="sticky top-0 bg-stone-100"><tr><th class="p-1.5 text-left">m</th><th class="p-1.5">L(m)</th><th class="p-1.5">L/log₂m</th><th class="p-1.5">Δ = L-1-⌈log₂m⌉</th><th class="p-1.5">best d→e</th><th class="p-1.5 text-left">optimal expr sketch</th></tr></thead><tbody id="auditBody"></tbody></table>
+</div>
+<svg id="scatter" width="100%" height="230" role="img" aria-label="Construction cost L(m) against integer m from 1 to 100" class="mt-4 border rounded bg-white"></svg>
+<div class="mt-3 mono text-[11px] leading-relaxed bg-amber-50 p-3 rounded">
+Verified max cost 11 attained only by 94 in 1..100. L(95)=10, L(47)=10, L(23)=8. These are exact values from divisor recurrence cross-checked with reachable-set enumeration S₁..S₁₁. Ranking favors small inputs; metric choice should be stated before interpretation. L(64)=7 ratio 1.166667.
+</div>
+</div>
+</section>
+
+<section id="open" class="mb-14">
+<h2 class="text-3xl mb-3">9. Open Questions</h2>
+<div class="card p-6 text-sm leading-relaxed space-y-2">
+<div>• Which integers attain rounded lower bound 1+⌈log₂m⌉?</div>
+<div>• How does excess Δ(m) grow? Not claimed from finite table.</div>
+<div>• How many distinct values in Sₙ, which gaps persist?</div>
+<div>• How many optimal trees per m?</div>
+<div class="mt-3 mono text-xs">Algebra can serve as teaching model for non-associativity, notation for relative changes, exact optimization puzzle. No computational advantage over established arithmetic demonstrated. Contribution is precisely scoped record of rule, consequences, reproducible observations.</div>
+</div>
+</section>
+
+<section id="code" class="mb-24">
+<h2 class="text-3xl mb-3">10. Reproducible Reference Implementation</h2>
+<div class="card p-0 overflow-hidden">
+<div class="flex justify-between items-center px-4 py-2 bg-stone-900 text-stone-300 mono text-xs"><span>Python 3 • standard library only • ⋆ denotes custom operation</span><button id="copyBtn" class="border border-stone-600 px-2 py-1 rounded text-[10px]">copy</button></div>
+<span id="copyStatus" role="status"></span><pre id="codeBlock" class="p-4 bg-stone-900 text-stone-100 mono text-[11px] overflow-auto whitespace-pre-wrap"></pre>
+</div>
+</section>
+<footer><p class="chart-caption">S. Szmy · Shift Arithmetic · Revised first edition. Developed through the supplied Szmy–Gemini–ChatGPT discussion. This lesson records proved elementary identities and reproducible finite data; it does not establish historical novelty.</p></footer></main>
+</div>
+<script>
+"use strict";
+const LIMIT=100, TREE_LIMIT=64;
+const L_TABLE={1:1}, SPLITS={};
+for(let m=2;m<=LIMIT;m++){
+ let cost=Infinity, split=null;
+ for(let d=1;d<m;d++) if(m%d===0){
+  const e=m/d-1, candidate=L_TABLE[d]+L_TABLE[e];
+  if(candidate<cost){cost=candidate;split={d,e,cost};}
+ }
+ L_TABLE[m]=cost; SPLITS[m]=split;
+}
+
+function divisorsList(currentM){
+  const res=[];
+  for(let d=1; d*d<=currentM; d++){ if(currentM%d===0){ res.push(d); if(d*d!==currentM) res.push(currentM/d); } }
+  return res.sort((a,b)=>a-b);
+}
+function bestSplit(currentM){return SPLITS[currentM] || null;}
+function exprFor(currentM, memo={}){
+  if(memo[currentM]) return memo[currentM];
+  if(currentM===1) return "1";
+  const bs=bestSplit(currentM);
+  if(!bs) return String(currentM);
+  memo[currentM]=`(${exprFor(bs.d,memo)} ⋆ ${exprFor(bs.e,memo)})`;
+  return memo[currentM];
+}
+["calc","algebra","oplus","trees","bounds","prime","lm","audit","open","code"].forEach(id=>{
+  const el=document.createElement("a"); el.href="#"+id; el.textContent=({calc:"1  Intuition",algebra:"2  Algebra",oplus:"3  Composition",trees:"4  Expression trees",bounds:"5  Bounds",prime:"6  Prime entrance",lm:"7  Minimum cost",audit:"8  Verified data",open:"9  Open questions",code:"10  Python reference"})[id]; el.className="block mono text-sm hover:text-amber-700 py-0.5"; document.getElementById("toc").appendChild(el);
+});
+// star
+const aIn=document.getElementById("aIn"), bIn=document.getElementById("bIn");
+function updateStar(){
+  let aVal=parseFloat(aIn.value), bVal=parseFloat(bIn.value);
+  if(isNaN(aVal)) aVal=0; if(isNaN(bVal)) bVal=0;
+  document.getElementById("aOut").textContent=aVal; document.getElementById("bOut").textContent=bVal;
+  const res=aVal*(bVal+1);
+  document.getElementById("starRes").textContent=res.toFixed(2);
+  document.getElementById("starFormula").textContent=`${aVal}×(${bVal}+1) = ${aVal} + ${bVal}·${aVal}`;
+  const blocks=document.getElementById("blocks"); blocks.innerHTML="";
+  if(Number.isInteger(bVal)&&bVal>=0&&bVal<=10){
+    for(let i=0;i<bVal+1;i++){
+      const div=document.createElement("div");
+      div.className="unit-block mono";
+      div.textContent=aVal; blocks.appendChild(div);
+    }
+  } else {
+    const msg=bVal===-1?"All starting amounts map to zero; a cannot be recovered.":"";
+    blocks.innerHTML=`<div class="mono text-xs opacity-70">${bVal+1} groups of ${aVal}. ${msg}</div>`;
+  }
+}
+aIn.addEventListener("input",updateStar); bIn.addEventListener("input",updateStar); updateStar();
+// algebra
+const algebraData=[
+["Right-distributivity over addition","(a+b)⋆c = a⋆c + b⋆c. In the other direction, a⋆(b+c) = a⋆b + a⋆c − a.","Expand (a+b)(c+1) = a(c+1)+b(c+1). Also a(b+c+1)=a(b+1)+a(c+1)−a."],
+["Commutativity condition","a⋆b = b⋆a exactly when a=b.","The difference is ab+a−(ba+b)=a−b, which is zero exactly when a=b."],
+["Associativity condition","(a⋆b)⋆c − a⋆(b⋆c) = ac.","Expand: a(b+1)(c+1) − a[b(c+1)+1] = (abc+ab+ac+a) − (abc+ab+a) = ac. Over the reals, equality holds exactly when ac=0."],
+["Identity and information loss","a⋆0=a; 0⋆b=0; a⋆(−1)=0. There is no left identity.","The first three statements follow by substitution. If e⋆a=a for all a, setting a=0 forces e=0; setting a=1 would then require 0=1. Thus no such e exists. Note: −1 is absorbing for ⊕; under ⋆ it is a right input that sends every starting amount to zero."],
+["Solving for either input","If c=a⋆b, then b=c/a−1 for a≠0, and a=c/(b+1) for b≠−1.","At a=0, the equation has every b as a solution if c=0, and none otherwise. At b=−1, it has every a as a solution if c=0, and none otherwise."]
+];
+for(const [title,statement,proof] of algebraData){
+ const d=document.createElement('details'), s=document.createElement('summary');s.textContent=title;
+ const p=document.createElement('p');p.textContent=statement;
+ const q=document.createElement('p');q.textContent='Proof. '+proof;
+ d.append(s,p,q);document.getElementById('algebraCards').append(d);
+}
+// oplus
+function formatNumber(x){return Number.isInteger(x)?String(x):Number(x.toPrecision(10)).toString();}
+function updateOplus(){
+ const bi=document.getElementById('bO'),ci=document.getElementById('cO');
+ const b=bi.valueAsNumber,c=ci.valueAsNumber,out=document.getElementById('oplusOut'),info=document.getElementById('invDemo');
+ if(!Number.isFinite(b)||!Number.isFinite(c)){out.textContent='Enter a finite number in both fields.';info.textContent='';return;}
+ const o=b+c+b*c;
+ if(!Number.isFinite(o)){out.textContent='Result exceeds the calculator’s numeric range.';info.textContent='Use smaller inputs.';return;}
+ out.textContent='b ⊕ c ≈ '+formatNumber(o);
+ const inverse=b===-1?'b = −1 has no inverse under ⊕.':'Inverse of b ≈ '+formatNumber(-b/(1+b))+'. The unrounded inverse composes with b to give zero.';
+ const group=(b===-1||c===-1)?' This composition uses the monoid including −1.':' Both inputs belong to the group excluding −1.';
+ const log=(b>-1&&c>-1)?' The real logarithm identity applies.':' The real logarithm identity requires both inputs greater than −1.';
+ info.textContent=inverse+group+log;
+}
+document.getElementById('oplusBtn').addEventListener('click',updateOplus);updateOplus();
+// tree - fixed and auto-expanding
+let nextId=1;
+let rootNode={type:'leaf', id:0};
+const treeHistory=[];
+function growLeaf(id){if(countLeaves(rootNode)>=TREE_LIMIT)return;treeHistory.push(rootNode);rootNode=replaceNode(rootNode,id);drawTree();}
+function evalNode(nodeObj){ if(nodeObj.type==='leaf') return 1n; return evalNode(nodeObj.left)*(evalNode(nodeObj.right)+1n); }
+function countLeaves(nodeObj){ if(nodeObj.type==='leaf') return 1; return countLeaves(nodeObj.left)+countLeaves(nodeObj.right); }
+function replaceNode(currentNode, targetId){
+  if(currentNode.type==='leaf'){
+    if(currentNode.id===targetId){
+      const leftLeafNode={type:'leaf', id:nextId++};
+      const rightLeafNode={type:'leaf', id:nextId++};
+      return {type:'node', id:targetId, left:leftLeafNode, right:rightLeafNode};
+    }
+    return currentNode;
+  } else {
+    return {type:'node', id:currentNode.id, left:replaceNode(currentNode.left,targetId), right:replaceNode(currentNode.right,targetId)};
+  }
+}
+let positions=new Map(); let posCounter=0;
+function layoutTree(nodeObj, depth){
+  if(nodeObj.type==='leaf'){ positions.set(nodeObj.id,{x:posCounter*70+30, y:depth*45+25}); posCounter++; }
+  else { layoutTree(nodeObj.left,depth+1); layoutTree(nodeObj.right,depth+1); const lx=findLeftmost(nodeObj.left), rx=findRightmost(nodeObj.right); positions.set(nodeObj.id,{x:(lx+rx)/2, y:depth*45+25}); }
+}
+function findLeftmost(nodeObj){ if(nodeObj.type==='leaf') return positions.get(nodeObj.id).x; return findLeftmost(nodeObj.left); }
+function findRightmost(nodeObj){ if(nodeObj.type==='leaf') return positions.get(nodeObj.id).x; return findRightmost(nodeObj.right); }
+function findAnyLeafId(nodeObj){ if(nodeObj.type==='leaf') return nodeObj.id; return findAnyLeafId(nodeObj.left); }
+function drawTree(){
+  const svg=document.getElementById("treeSvg");
+  const leaves=countLeaves(rootNode);
+  // compute actual max depth
+  function depthOf(n,d){ if(n.type==='leaf') return d; return Math.max(depthOf(n.left,d+1), depthOf(n.right,d+1)); }
+  const actualDepth=depthOf(rootNode,0);
+  const width=Math.max(800, leaves*70+60);
+  const height=Math.max(300, 70+actualDepth*45);
+  svg.setAttribute("width",width); svg.setAttribute("height",height);
+  svg.innerHTML=""; positions=new Map(); posCounter=0; layoutTree(rootNode,0);
+  function drawEdges(nodeObj){
+    if(nodeObj.type==='node'){
+      const p=positions.get(nodeObj.id);
+      const leftId=findAnyLeafId(nodeObj.left), rightId=findAnyLeafId(nodeObj.right);
+      const leftPos=positions.get(nodeObj.left.id)||positions.get(leftId);
+      const rightPos=positions.get(nodeObj.right.id)||positions.get(rightId);
+      [[p,leftPos],[p,rightPos]].forEach(pair=>{
+        const l=document.createElementNS("http://www.w3.org/2000/svg","line");
+        l.setAttribute("x1",pair[0].x); l.setAttribute("y1",pair[0].y+10); l.setAttribute("x2",pair[1].x); l.setAttribute("y2",pair[1].y-10); l.setAttribute("stroke","#c9b896");
+        svg.appendChild(l);
+      });
+      drawEdges(nodeObj.left); drawEdges(nodeObj.right);
+    }
+  }
+  drawEdges(rootNode);
+  function drawNodes(nodeObj){
+    const p=positions.get(nodeObj.id);
+    const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.setAttribute("transform",`translate(${p.x},${p.y})`);
+    if(nodeObj.type==='leaf'){
+      const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+      c.setAttribute("r","15"); c.setAttribute("fill","#fde68a"); c.setAttribute("stroke","#92400e"); c.style.cursor="pointer";
+      g.setAttribute('role','button');g.setAttribute('tabindex',leaves<TREE_LIMIT?'0':'-1');g.setAttribute('aria-label','Split unit leaf '+nodeObj.id);g.setAttribute('aria-disabled',String(leaves>=TREE_LIMIT));
+      g.addEventListener('click',()=>growLeaf(nodeObj.id));
+      g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();growLeaf(nodeObj.id);const first=svg.querySelector('[role="button"]');if(first)first.focus();}});
+      g.appendChild(c);
+      const t=document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("text-anchor","middle"); t.setAttribute("dy","4"); t.setAttribute("font-size","11"); t.textContent="1"; g.appendChild(t);
+    } else {
+      const r=document.createElementNS("http://www.w3.org/2000/svg","rect");
+      r.setAttribute("x","-14"); r.setAttribute("y","-11"); r.setAttribute("width","28"); r.setAttribute("height","22"); r.setAttribute("fill","#134e4a"); r.setAttribute("rx","6"); g.appendChild(r);
+      const t=document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("text-anchor","middle"); t.setAttribute("dy","4"); t.setAttribute("font-size","12"); t.setAttribute("fill","white"); t.textContent="⋆"; g.appendChild(t);
+    }
+    svg.appendChild(g);
+    if(nodeObj.type==='node'){drawNodes(nodeObj.left); drawNodes(nodeObj.right);}
+  }
+  drawNodes(rootNode);
+  const val=evalNode(rootNode);
+  document.getElementById("undoTree").disabled=treeHistory.length===0;
+  document.getElementById("autoGrow").disabled=leaves>=TREE_LIMIT;
+  function treeExpr(n){return n.type==='leaf'?'1':'('+treeExpr(n.left)+' ⋆ '+treeExpr(n.right)+')';}
+  document.getElementById("treeExpression").textContent=treeExpr(rootNode);
+  document.getElementById("treeInfo").textContent=`leaves=${leaves} value=${val} L(${val})=${L_TABLE[val]??"outside table 1–100"} ${L_TABLE[val]===leaves?"optimal":""}`;
+}
+document.getElementById("resetTree").addEventListener("click",()=>{nextId=1;treeHistory.length=0;rootNode={type:'leaf',id:0};drawTree();});
+document.getElementById("undoTree").addEventListener("click",()=>{if(treeHistory.length){rootNode=treeHistory.pop();drawTree();}});
+document.getElementById("autoGrow").addEventListener("click",()=>{
+  // grow leftmost leaf repeatedly to show left-grouped max
+  const leaves=[]; (function collect(n){ if(n.type==='leaf') leaves.push(n.id); else {collect(n.left); collect(n.right);} })(rootNode);
+  if(leaves.length>0){ growLeaf(leaves[0]); }
+});
+drawTree();
+function computeS(limitN){
+  const S={1:new Set([1])};
+  for(let currentN=2; currentN<=limitN; currentN++){
+    const set=new Set();
+    for(let k=1;k<currentN;k++){ for(const x of S[k]){ for(const y of S[currentN-k]){ set.add(x*(y+1)); } } }
+    S[currentN]=set;
+  }
+  return S;
+}
+const Sobj=computeS(6);
+const snList=document.getElementById("snList");
+for(let currentN=1; currentN<=6; currentN++){
+  const d=document.createElement("div"); d.className="border rounded p-3 bg-white";
+  d.innerHTML=`<div class="font-bold">S${currentN} = {${[...Sobj[currentN]].sort((a,b)=>a-b).join(", ")}} <span class="opacity-50">(${Sobj[currentN].size} distinct)</span></div>`;
+  snList.appendChild(d);
+}
+// bounds
+function svgEl(tag,attrs,text){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!==undefined)e.textContent=text;return e;}
+function drawBounds(){
+ const n=Number(document.getElementById('nBound').value);document.getElementById('nBoundOut').textContent=n;
+ const s=document.getElementById('boundSvg'),w=Math.max(240,s.clientWidth),maximum=2**(n-1);s.replaceChildren();s.setAttribute('viewBox',`0 0 ${w} 140`);
+ [[n,'Minimum = '+n,20,'#d5a138'],[maximum,'Maximum = '+maximum,85,'#174f43']].forEach(([v,label,y,color])=>{
+  s.append(svgEl('text',{x:14,y,'font-size':13,fill:'#202824'},label));s.append(svgEl('rect',{x:14,y:y+10,width:Math.max(1,(w-28)*v/maximum),height:18,fill:color,rx:3}));
+ });
+}
+document.getElementById('nBound').addEventListener('input',drawBounds);drawBounds();
+// prime
+const primeSel=document.getElementById("primeSel");
+[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97].forEach(p=>{const o=document.createElement("option"); o.value=p; o.textContent=p; primeSel.appendChild(o);});
+primeSel.value=23;
+function updatePrime(){
+  const p=parseInt(primeSel.value)||2;
+  const info=`L(${p})=${L_TABLE[p]} = L(${p-1})+1. Positive integer values only. Forced left child 1.`;
+  document.getElementById("primeInfo").textContent=info;
+}
+primeSel.addEventListener("change",updatePrime); updatePrime();
+// L explorer with validation
+function drawM(){
+  const currentM=document.getElementById("mIn").valueAsNumber;
+  if(!Number.isInteger(currentM)||currentM<1||currentM>LIMIT){document.getElementById('mOut').textContent='Enter a whole number from 1 to 100.';document.getElementById('mVal').textContent='';return;}
+  document.getElementById("mIn").value=currentM;
+  document.getElementById("mVal").textContent=`L(${currentM})=${L_TABLE[currentM]}`;
+  const best=bestSplit(currentM);
+  const out=document.getElementById("mOut");
+  if(!best){ out.innerHTML=`Base: L(1)=1. No proper divisor split needed.<br>Expr: ${exprFor(currentM)}`; return; }
+  out.innerHTML=`<div><b>Recurrence:</b> L(${currentM})= min_{1≤d<${currentM}, d|${currentM}} L(d)+L(${currentM}/d−1) = ${best.cost} via d=${best.d}, e=${best.e}</div><div class="mt-1"><b>Cost:</b> L(${best.d}) + L(${best.e}) = ${L_TABLE[best.d]} + ${L_TABLE[best.e]} = ${best.cost}</div><div class="mt-2 break-all"><b>Expr:</b> ${exprFor(currentM)}</div><div class="mt-2 opacity-70">Divisors: ${divisorsList(currentM).join(", ")} | Candidates: ${divisorsList(currentM).filter(d=>d<currentM).map(d=>{const e=currentM/d-1; return `d=${d},e=${e},cost=${(L_TABLE[d]??"?")}+${(L_TABLE[e]??"?")}=${(L_TABLE[d]??0)+(L_TABLE[e]??0)}`;}).join(" | ")}</div>`;
+}
+document.getElementById("mBtn").addEventListener("click",drawM);
+document.getElementById("mIn").addEventListener("change",drawM);
+drawM();
+// audit
+const auditBody=document.getElementById("auditBody");
+function renderAudit(sortKey="m", filter=""){
+  const rows=[];
+  for(let mVal=1;mVal<=100;mVal++){
+    if(filter && !String(mVal).includes(filter)) continue;
+    const Lval=L_TABLE[mVal];
+    let ratioStr, ratioNum;
+    if(mVal===1){ ratioStr="— (log₂1=0 undefined)"; ratioNum=-1; }
+    else { ratioNum=Lval/Math.log2(mVal); ratioStr=ratioNum.toFixed(6); }
+    const delta=mVal===1?0:(Lval-1-Math.ceil(Math.log2(mVal)));
+    rows.push({m:mVal,Lval,ratio:ratioNum,ratioStr,delta,best:bestSplit(mVal)});
+  }
+  rows.sort((a,b)=>{
+    if(sortKey==="L") return b.Lval-a.Lval;
+    if(sortKey==="ratio") return b.ratio-a.ratio;
+    if(sortKey==="delta") return b.delta-a.delta;
+    return a.m-b.m;
+  });
+  auditBody.innerHTML="";
+  rows.forEach(r=>{
+    const tr=document.createElement("tr"); tr.className=r.m===94?"bg-amber-100":"border-b hover:bg-stone-50";
+    tr.innerHTML=`<td class="p-1.5">${r.m}</td><td class="p-1.5 text-center font-medium">${r.Lval}</td><td class="p-1.5">${r.ratioStr}</td><td class="p-1.5">${r.delta}</td><td class="p-1.5">${r.best?`${r.best.d}→${r.best.e}`:"—"}</td><td class="p-1.5 max-w-[160px] truncate">${exprFor(r.m)}</td>`;
+    auditBody.appendChild(tr);
+  });
+  const svg=document.getElementById('scatter'),w=Math.max(260,svg.clientWidth),h=230,left=40,right=16,top=15,bottom=38;
+  svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  const x=m=>left+(m-1)/99*(w-left-right),y=v=>h-bottom-v/11*(h-bottom-top);
+  for(const v of [0,5,10,11]){svg.append(svgEl('line',{x1:left,y1:y(v),x2:w-right,y2:y(v),stroke:'#dcd6c6'}));svg.append(svgEl('text',{x:left-9,y:y(v)+4,'text-anchor':'end','font-size':11},v));}
+  for(const m of [1,25,50,75,100])svg.append(svgEl('text',{x:x(m),y:h-bottom+18,'text-anchor':'middle','font-size':11},m));
+  svg.append(svgEl('text',{x:left,y:12,'font-size':11},'L(m)'));svg.append(svgEl('text',{x:w/2,y:h-3,'font-size':11},'Integer m'));
+  for(const r of rows){const c=svgEl('circle',{cx:x(r.m),cy:y(r.Lval),r:r.m===94?5:3,fill:r.m===94?'#a35c17':'#174f43'});c.append(svgEl('title',{},`m=${r.m}; L(m)=${r.Lval}`));svg.append(c);}
+
+}
+document.getElementById("sortSel").addEventListener("change",e=>renderAudit(e.target.value,document.getElementById("filterIn").value));
+document.getElementById("filterIn").addEventListener("input",e=>renderAudit(document.getElementById("sortSel").value,e.target.value));
+renderAudit();
+// code
+const codeText=`import math
+
+def compute_L(limit=100):
+    L, expr = {1: 1}, {1: "1"}
+    # Complete recurrence: L(1)=1, proper divisors 1 ≤ d < m
+    # Zero not constructible from positive unit leaves — L(0) not needed
+    for m in range(2, limit+1):
+        # Every proper divisor gives 1 <= m//d - 1 < m
+        choices = (d for d in range(1, m) if m % d == 0)
+        d = min(choices, key=lambda d: L[d] + L[m // d - 1])
+        b = m // d - 1
+        L[m] = L[d] + L[b]
+        expr[m] = f"({expr[d]} ⋆ {expr[b]})"
+    return L, expr
+
+L, expr = compute_L()
+S = {1: {1}}
+for n in range(2, max(L.values()) + 1):
+    S[n] = {a * (b + 1) for k in range(1, n) for a in S[k] for b in S[n - k]}
+for m in L:
+    assert min(n for n in S if m in S[n]) == L[m]
+
+# Verified data: max cost 11 only at 94 in 1..100
+# L(23)=8, L(47)=10, L(95)=10
+# Domain: ⊕ group excludes -1; log composition requires b,c > -1
+# Ratio at m=1 undefined because log2(1)=0
+`;
+document.getElementById("codeBlock").textContent=codeText;
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+ const status=document.getElementById('copyStatus');
+ try{if(!navigator.clipboard)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(codeText);status.textContent='Copied Python code.';}
+ catch(error){const range=document.createRange();range.selectNodeContents(document.getElementById('codeBlock'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);status.textContent='Automatic copying is unavailable. Code selected: use your device’s Copy command.';}
+});
+function verifyData(){
+ const sets=computeS(11);
+ for(let m=1;m<=LIMIT;m++){
+  let first=0;for(let n=1;n<=11;n++)if(sets[n].has(m)){first=n;break;}
+  if(first!==L_TABLE[m])throw new Error('Cost mismatch at '+m);
+  function evaluate(v){if(v===1)return [1,1];const {d,e}=bestSplit(v);const [a,na]=evaluate(d),[b,nb]=evaluate(e);return [a*(b+1),na+nb];}
+  const [value,leaves]=evaluate(m);if(value!==m||leaves!==L_TABLE[m])throw new Error('Tree mismatch at '+m);
+ }
+ const peak=Math.max(...Object.values(L_TABLE));const winners=Object.keys(L_TABLE).filter(m=>L_TABLE[m]===peak);
+ if(peak!==11||winners.join(',')!=='94')throw new Error('Unexpected maximum');
+ return true;
+}
+try{verifyData();document.getElementById('selfCheck').textContent='Self-check passed: all 100 costs agree with reachable sets S₁–S₁₁; optimal expression values and leaf counts also match.';}
+catch(error){document.getElementById('selfCheck').textContent='Self-check failed: '+error.message;document.getElementById('selfCheck').style.borderColor='#b00020';console.error(error);}
+let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{drawBounds();renderAudit(document.getElementById('sortSel').value,document.getElementById('filterIn').value);},120);});
+</script>
+</body>
+</html>
